@@ -1,0 +1,67 @@
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\bin\Debug\ProyectoOdontologia2025.exe.config
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\bin\Debug\ProyectoOdontologia2025.exe
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\bin\Debug\ProyectoOdontologia2025.pdb
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.csproj.AssemblyReference.cache
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmMenu.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.Properties.Resources.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.csproj.GenerateResource.cache
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.csproj.CoreCompileInputs.cache
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.exe
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.pdb
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManSegu01.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConCmed02.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConPaci01.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManDoct03.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManEmpl04.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManPaci02.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManUsua05.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConCita05.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConCoti09.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConDiag03.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConDoct06.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConEmpl07.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConEval08.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConPago10.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConSegu04.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProCoti05.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProDiag02.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProEval04.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProReCi03.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProReCM01.resources
+C:\Users\prisc\source\repos\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProRePa06.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\bin\Debug\ProyectoOdontologia2025.exe.config
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\bin\Debug\ProyectoOdontologia2025.exe
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\bin\Debug\ProyectoOdontologia2025.pdb
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.csproj.AssemblyReference.cache
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.exe.config
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConCita05.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConCmed02.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConCoti09.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConDiag03.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConDoct06.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConEmpl07.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConEval08.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConPaci01.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConPago10.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmConSegu04.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManDoct03.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManEmpl04.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManPaci02.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManSegu01.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManUsua05.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmMenu.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProCoti05.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProDiag02.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProEval04.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProReCi03.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProReCM01.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProRePa06.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.Properties.Resources.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.csproj.GenerateResource.cache
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.csproj.CoreCompileInputs.cache
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.exe
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.pdb
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManCita06.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManProve07.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManTrata08.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManMate09.resources
