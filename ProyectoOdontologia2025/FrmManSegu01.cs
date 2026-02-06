@@ -20,7 +20,7 @@ namespace ProyectoOdontologia2025
 
         //defino variables globales 
         SqlCommand comando = new SqlCommand();
-        SqlConnection conexion = new SqlConnection("Data Source=MIAPC; initial catalog=Sistema_Odontologia; trusted_connection=yes");
+        SqlConnection conexion = new SqlConnection("Data Source=localhost; initial catalog=OdontologiaBD; trusted_connection=yes");
 
         public FrmManSegu01()
         {
