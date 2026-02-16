@@ -31,6 +31,8 @@
             this.gpbRegistro = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
+            this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
+            this.mtbCed = new System.Windows.Forms.MaskedTextBox();
             this.txtDoc = new System.Windows.Forms.TextBox();
             this.lblDoc = new System.Windows.Forms.Label();
             this.lblFech = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.lblnom = new System.Windows.Forms.Label();
             this.pnlDivision = new System.Windows.Forms.Panel();
             this.lblEnca = new System.Windows.Forms.Label();
-            this.mtbCed = new System.Windows.Forms.MaskedTextBox();
-            this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnRetornar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -67,9 +67,9 @@
             this.gpbRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gpbRegistro.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbRegistro.Location = new System.Drawing.Point(23, 364);
-            this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2);
             this.gpbRegistro.Name = "gpbRegistro";
-            this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2);
             this.gpbRegistro.Size = new System.Drawing.Size(689, 156);
             this.gpbRegistro.TabIndex = 30;
             this.gpbRegistro.TabStop = false;
@@ -79,7 +79,7 @@
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(151, 16);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
@@ -102,21 +102,38 @@
             this.gpbInfo.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbInfo.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.gpbInfo.Location = new System.Drawing.Point(23, 181);
-            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2);
             this.gpbInfo.Name = "gpbInfo";
-            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2);
             this.gpbInfo.Size = new System.Drawing.Size(501, 159);
             this.gpbInfo.TabIndex = 25;
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Text = "Información";
             this.gpbInfo.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // mtbFecha
+            // 
+            this.mtbFecha.Location = new System.Drawing.Point(330, 43);
+            this.mtbFecha.Mask = "00/00/0000";
+            this.mtbFecha.Name = "mtbFecha";
+            this.mtbFecha.Size = new System.Drawing.Size(107, 22);
+            this.mtbFecha.TabIndex = 14;
+            this.mtbFecha.ValidatingType = typeof(System.DateTime);
+            // 
+            // mtbCed
+            // 
+            this.mtbCed.Location = new System.Drawing.Point(122, 106);
+            this.mtbCed.Mask = "000-0000000-0";
+            this.mtbCed.Name = "mtbCed";
+            this.mtbCed.Size = new System.Drawing.Size(107, 22);
+            this.mtbCed.TabIndex = 13;
+            // 
             // txtDoc
             // 
             this.txtDoc.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDoc.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDoc.Location = new System.Drawing.Point(330, 86);
-            this.txtDoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtDoc.Name = "txtDoc";
             this.txtDoc.Size = new System.Drawing.Size(107, 23);
             this.txtDoc.TabIndex = 12;
@@ -150,7 +167,7 @@
             this.txtMotivo.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMotivo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtMotivo.Location = new System.Drawing.Point(122, 67);
-            this.txtMotivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMotivo.Margin = new System.Windows.Forms.Padding(2);
             this.txtMotivo.Name = "txtMotivo";
             this.txtMotivo.Size = new System.Drawing.Size(107, 23);
             this.txtMotivo.TabIndex = 7;
@@ -160,7 +177,7 @@
             this.txtCon.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCon.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCon.Location = new System.Drawing.Point(122, 25);
-            this.txtCon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCon.Margin = new System.Windows.Forms.Padding(2);
             this.txtCon.Name = "txtCon";
             this.txtCon.Size = new System.Drawing.Size(107, 23);
             this.txtCon.TabIndex = 6;
@@ -310,23 +327,6 @@
             this.lblEnca.TabIndex = 32;
             this.lblEnca.Text = "Registro de Consultas Médicas";
             // 
-            // mtbCed
-            // 
-            this.mtbCed.Location = new System.Drawing.Point(122, 106);
-            this.mtbCed.Mask = "000-0000000-0";
-            this.mtbCed.Name = "mtbCed";
-            this.mtbCed.Size = new System.Drawing.Size(107, 22);
-            this.mtbCed.TabIndex = 13;
-            // 
-            // mtbFecha
-            // 
-            this.mtbFecha.Location = new System.Drawing.Point(330, 43);
-            this.mtbFecha.Mask = "00/00/0000";
-            this.mtbFecha.Name = "mtbFecha";
-            this.mtbFecha.Size = new System.Drawing.Size(107, 22);
-            this.mtbFecha.TabIndex = 14;
-            this.mtbFecha.ValidatingType = typeof(System.DateTime);
-            // 
             // btnBorrar
             // 
             this.btnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -354,6 +354,7 @@
             this.btnRetornar.TabIndex = 24;
             this.btnRetornar.Text = "&Retornar";
             this.btnRetornar.UseVisualStyleBackColor = false;
+            this.btnRetornar.Click += new System.EventHandler(this.btnRetornar_Click);
             // 
             // btnGuardar
             // 
@@ -384,8 +385,9 @@
             this.Controls.Add(this.gpbFecha);
             this.Controls.Add(this.gpbTitulo);
             this.Controls.Add(this.gpbInfo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmProReCM01";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Procesos: Registro de Consultas Méd.";
             this.gpbRegistro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();

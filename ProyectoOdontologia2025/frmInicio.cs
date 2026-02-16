@@ -292,5 +292,10 @@ namespace ProyectoOdontologia2025
             childForm.BringToFront();
             childForm.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

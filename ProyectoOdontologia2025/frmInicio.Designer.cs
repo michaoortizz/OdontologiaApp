@@ -76,12 +76,15 @@
             this.btnUtiManUsu = new System.Windows.Forms.Button();
             this.btnUtiGGL = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.picBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelSideBar.SuspendLayout();
             this.panelSubMenuMante.SuspendLayout();
             this.panelSubMenuConsultas.SuspendLayout();
             this.panelSubMenuProcesos.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
             this.panelSubMenuUtilitarios.SuspendLayout();
+            this.panelChildForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideBar
@@ -833,11 +836,24 @@
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.AliceBlue;
+            this.panelChildForm.Controls.Add(this.picBoxLogo);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(250, 0);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(757, 601);
             this.panelChildForm.TabIndex = 1;
+            // 
+            // picBoxLogo
+            // 
+            this.picBoxLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.picBoxLogo.Image = global::ProyectoOdontologia2025.Properties.Resources.logo_diente;
+            this.picBoxLogo.Location = new System.Drawing.Point(273, 145);
+            this.picBoxLogo.Name = "picBoxLogo";
+            this.picBoxLogo.Size = new System.Drawing.Size(255, 275);
+            this.picBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picBoxLogo.TabIndex = 0;
+            this.picBoxLogo.TabStop = false;
+            this.picBoxLogo.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmInicio
             // 
@@ -857,6 +873,8 @@
             this.panelSubMenuProcesos.ResumeLayout(false);
             this.panelSubMenuReportes.ResumeLayout(false);
             this.panelSubMenuUtilitarios.ResumeLayout(false);
+            this.panelChildForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -911,5 +929,6 @@
         private System.Windows.Forms.Button btnUtiRes;
         private System.Windows.Forms.Button btnUtiBU;
         private System.Windows.Forms.Panel panelChildForm;
+        private System.Windows.Forms.PictureBox picBoxLogo;
     }
 }
