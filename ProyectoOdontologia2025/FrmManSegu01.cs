@@ -44,7 +44,7 @@ namespace ProyectoOdontologia2025
             {
                 conexion.Open(); //Abro la conexión
                 DataTable datos = new DataTable();
-                SqlDataAdapter Adaptador = new SqlDataAdapter("Select * from Seguros", conexion);
+                SqlDataAdapter Adaptador = new SqlDataAdapter("Select * from Seguro", conexion);
                 Adaptador.Fill(datos);
                 BindingSource fuenteDatos = new BindingSource();
                 fuenteDatos.DataSource = datos;
@@ -86,13 +86,13 @@ namespace ProyectoOdontologia2025
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 //Agrego registro nuevo
-                EscribirDatos("Insert into Seguros (Nombre, Telefono) Values ('" + txtNom.Text.Trim() + "' , '" + mtbTel.Text.Trim() + "')");
+                EscribirDatos("Insert into Seguro (Nombre, Telefono) Values ('" + txtNom.Text.Trim() + "' , '" + mtbTel.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 //Modificar un registro existente
-                EscribirDatos("Update Seguros Set Nombre = '" + txtNom.Text.Trim() + "', Telefono =  '" + mtbTel.Text.Trim() + "' where IdSeguro = '" + txtId.Text + "'");
+                EscribirDatos("Update Seguro Set Nombre = '" + txtNom.Text.Trim() + "', Telefono =  '" + mtbTel.Text.Trim() + "' where IdSeguro = '" + txtId.Text + "'");
                 MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
 
@@ -133,7 +133,7 @@ namespace ProyectoOdontologia2025
 
         private void btnborrar_Click_1(object sender, EventArgs e)
         {
-            EscribirDatos("Delete from Seguros where IdSeguro= '" + txtId.Text + "'");
+            EscribirDatos("Delete from Seguro where IdSeguro= '" + txtId.Text + "'");
             MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             LimpiarObjetos();
             RefrescarTabla();

@@ -65,3 +65,4 @@ C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologi
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManProve07.resources
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManTrata08.resources
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManMate09.resources
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.frmInicio.resources
