@@ -65,6 +65,7 @@ C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologi
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManProve07.resources
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManTrata08.resources
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManMate09.resources
+<<<<<<< HEAD
 C:\Users\prisc\source\repos\OdontologiaApp\ProyectoOdontologia2025\bin\Debug\ProyectoOdontologia2025.exe.config
 C:\Users\prisc\source\repos\OdontologiaApp\ProyectoOdontologia2025\bin\Debug\ProyectoOdontologia2025.exe
 C:\Users\prisc\source\repos\OdontologiaApp\ProyectoOdontologia2025\bin\Debug\ProyectoOdontologia2025.pdb
@@ -100,3 +101,7 @@ C:\Users\prisc\source\repos\OdontologiaApp\ProyectoOdontologia2025\obj\Debug\Pro
 C:\Users\prisc\source\repos\OdontologiaApp\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.csproj.CoreCompileInputs.cache
 C:\Users\prisc\source\repos\OdontologiaApp\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.exe
 C:\Users\prisc\source\repos\OdontologiaApp\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.pdb
+=======
+C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.frmInicio.resources
+>>>>>>> 54badc8788268fc40b59655d73e5b5b845a709fa
+C:\Users\prisc\source\repos\OdontologiaApp\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.frmInicio.resources

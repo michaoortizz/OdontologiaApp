@@ -217,5 +217,10 @@ namespace ProyectoOdontologia2025
             FrmManMate09 menu = new FrmManMate09();
             menu.Show();
         }
+
+        private void mantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
