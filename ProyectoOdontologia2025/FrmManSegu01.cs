@@ -44,7 +44,7 @@ namespace ProyectoOdontologia2025
             {
                 conexion.Open(); //Abro la conexión
                 DataTable datos = new DataTable();
-                SqlDataAdapter Adaptador = new SqlDataAdapter("Select * from Seguro", conexion);
+                SqlDataAdapter Adaptador = new SqlDataAdapter("Select * from Seguros", conexion);
                 Adaptador.Fill(datos);
                 BindingSource fuenteDatos = new BindingSource();
                 fuenteDatos.DataSource = datos;

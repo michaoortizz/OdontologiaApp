@@ -36,7 +36,7 @@ namespace ProyectoOdontologia2025
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
             //Invocar procedimiento para visualizar datos
-            RefrescarTabla("Select * from Consultas");
+            RefrescarTabla("Select * from Consultas_Medicas");
 
         }
 
