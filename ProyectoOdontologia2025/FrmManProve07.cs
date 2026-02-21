@@ -61,13 +61,37 @@ namespace ProyectoOdontologia2025
 
         private void EscribirDatos(string Parametro)
         {
-            //Permite ejectuar las instrucciones recibidas en Parametro en la base de datos
-            comando.CommandText = Parametro;
-            conexion.Open();
-            comando.Transaction = conexion.BeginTransaction();
-            comando.ExecuteNonQuery();
-            comando.Transaction.Commit();
-            conexion.Close();
+            try
+            {
+                comando.Connection = conexion;
+                comando.CommandText = Parametro;
+
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+
+                // ASIGNAMOS LA TRANSACCIÓN AL COMANDO
+                SqlTransaction transaccion = conexion.BeginTransaction();
+                comando.Transaction = transaccion; // <--- ESTO ES VITAL
+
+                comando.ExecuteNonQuery();
+
+                transaccion.Commit(); // Confirmamos
+            }
+            catch (Exception ex)
+            {
+                // Si hay error y existe una transacción, la revertimos
+                if (comando.Transaction != null)
+                {
+                    comando.Transaction.Rollback();
+                }
+                MessageBox.Show("Error al escribir datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
 
 
@@ -96,8 +120,8 @@ namespace ProyectoOdontologia2025
             //Paso los datos del datagridview a los textbox
             txtId.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
             txtNombre.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbTel.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtDirec.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtDirec.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            mtbTel.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
 
         }
 
@@ -106,13 +130,13 @@ namespace ProyectoOdontologia2025
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 //Agrego registro nuevo
-                EscribirDatos("Insert into Proveedores (Nombre, Telefono, Direccion) Values ('" + txtNombre.Text.Trim() + "' , '"  + mtbTel.Text.Trim() + "', '" + txtDirec.Text.Trim() + "')");
+                EscribirDatos("Insert into Proveedores (nom_prv, loc_prv, tel_prv) Values ('" + txtNombre.Text.Trim() + "' , '"  + txtDirec.Text.Trim() + "', '" + mtbTel.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 //Modificar un registro existente
-                EscribirDatos("Update Proveedores Set Nombre = '" + txtNombre.Text.Trim() + "', Telefono =  '" + mtbTel.Text.Trim() + "', Direccion = '" + txtDirec.Text.Trim() + "' where IdProveedor = '" + txtId.Text + "'");
+                EscribirDatos("Update Proveedores Set nom_prv = '" + txtNombre.Text.Trim() + "', loc_prv =  '" + txtDirec.Text.Trim() + "', tel_prv = '" + mtbTel.Text.Trim() + "' where IdProveedor = '" + txtId.Text + "'");
                 MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
 
@@ -122,7 +146,7 @@ namespace ProyectoOdontologia2025
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            EscribirDatos("Delete from Proveedores where IdProveedor= '" + txtId.Text + "'");
+            EscribirDatos("Delete from Proveedores where id_prv= '" + txtId.Text + "'");
             MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             LimpiarObjetos();
             RefrescarTabla();

@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;  //Para trabajar con SQL
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using System.Data.SqlClient;  //Para trabajar con SQL
-using System.Threading;
-using System.Globalization;
+using static ProyectoOdontologia2025.FrmManDoct03;
 
 namespace ProyectoOdontologia2025
 {
@@ -26,6 +26,12 @@ namespace ProyectoOdontologia2025
             InitializeComponent();
         }
 
+        public class Option
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
+
         private void FrmManUsua05_Load(object sender, EventArgs e)
         {
             //Para mostrar la fecha
@@ -33,6 +39,18 @@ namespace ProyectoOdontologia2025
 
             //Invocar procedimiento para visualizar datos
             RefrescarTabla();
+
+            List<Option> optionsList = new List<Option>
+            {
+                new Option { Id = 1, Name = "Administrador" },
+                new Option { Id = 2, Name = "Doctor" },
+                new Option { Id = 3, Name = "Secretario" }
+            };
+
+            cbRol.DataSource = optionsList;
+            cbRol.DisplayMember = "Name"; // Property to display in the control
+            cbRol.ValueMember = "Id";
+            cbRol.SelectedIndex = -1;
         }
 
         //Creo procedimiento para visualizar los datos en el data grid view
@@ -64,13 +82,37 @@ namespace ProyectoOdontologia2025
         }
         private void EscribirDatos(string Parametro)
         {
-            //Permite ejectuar las instrucciones recibidas en Parametro en la base de datos
-            comando.CommandText = Parametro;
-            conexion.Open();
-            comando.Transaction = conexion.BeginTransaction();
-            comando.ExecuteNonQuery();
-            comando.Transaction.Commit();
-            conexion.Close();
+            try
+            {
+                comando.Connection = conexion;
+                comando.CommandText = Parametro;
+
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+
+                // ASIGNAMOS LA TRANSACCIÓN AL COMANDO
+                SqlTransaction transaccion = conexion.BeginTransaction();
+                comando.Transaction = transaccion; // <--- ESTO ES VITAL
+
+                comando.ExecuteNonQuery();
+
+                transaccion.Commit(); // Confirmamos
+            }
+            catch (Exception ex)
+            {
+                // Si hay error y existe una transacción, la revertimos
+                if (comando.Transaction != null)
+                {
+                    comando.Transaction.Rollback();
+                }
+                MessageBox.Show("Error al escribir datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
 
 
@@ -96,7 +138,8 @@ namespace ProyectoOdontologia2025
             txtNombre.Clear();
             txtNomUsu.Clear();
             txtContra.Clear();
-            txtTipo.Clear();
+            txtEstado.Clear();
+            cbRol.SelectedIndex = -1; // Deselecciona cualquier opción seleccionada en el ComboBox
             txtNombre.Focus();
         }
 
@@ -107,7 +150,7 @@ namespace ProyectoOdontologia2025
             txtNombre.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
             txtNomUsu.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
             txtContra.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtTipo.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtEstado.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
@@ -115,13 +158,18 @@ namespace ProyectoOdontologia2025
             if (string.IsNullOrEmpty(txtUsu.Text))
             {
                 //Agrego registro nuevo
-                EscribirDatos("Insert into Usuarios (Nombre, NombreUsuario, Contrasena, TipoUsuario) Values ('" + txtNombre.Text.Trim() + "' , '" + txtNomUsu.Text.Trim() + "', '" + txtContra.Text.Trim() + "', '" + txtTipo.Text.Trim() + "')");
+                EscribirDatos("Insert into Usuarios (nom_usr, pas_usr, id_rol, atv_usr, nmb_usr) Values ('" + txtNombre.Text.Trim() + "' , '" + txtContra.Text.Trim() + "', '" + cbRol.SelectedValue + "', '" + txtEstado.Text.Trim() + "', '" + txtNomUsu.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
-                //Modificar un registro existente
-                EscribirDatos("Update Usuarios Set Nombre = '" + txtNombre.Text.Trim() + "', NombreUsuario = '" + txtNomUsu.Text.Trim() + "', Contraseña =  '" + txtContra.Text.Trim() + "', TipoUsuario = '" + txtTipo.Text.Trim() + "' where IdEmpleado = '" + txtUsu.Text + "'");
+                //Modificar un registro existente - Ahora con el mismo orden y nombres de columnas
+                EscribirDatos("Update Usuarios Set nom_usr = '" + txtNombre.Text.Trim() +
+                              "', pas_usr = '" + txtContra.Text.Trim() +
+                              "', id_rol = '" + cbRol.SelectedValue +
+                              "', atv_usr = '" + txtEstado.Text.Trim() +
+                              "', nmb_usr = '" + txtNomUsu.Text.Trim() +
+                              "' where id_usr = '" + txtUsu.Text + "'");
                 MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
 
@@ -131,7 +179,7 @@ namespace ProyectoOdontologia2025
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            EscribirDatos("Delete from Seguros where IdUsuario= '" + txtUsu.Text + "'");
+            EscribirDatos("Delete from Usuarios where id_usr= '" + txtUsu.Text + "'");
             MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             LimpiarObjetos();
             RefrescarTabla();
