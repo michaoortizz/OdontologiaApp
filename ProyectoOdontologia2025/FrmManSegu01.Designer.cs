@@ -36,7 +36,6 @@ namespace ProyectoOdontologia2025
             this.mtbTel = new System.Windows.Forms.MaskedTextBox();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnRetornar = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblTel = new System.Windows.Forms.Label();
@@ -67,7 +66,6 @@ namespace ProyectoOdontologia2025
             this.gpbInfo.Controls.Add(this.mtbTel);
             this.gpbInfo.Controls.Add(this.txtNom);
             this.gpbInfo.Controls.Add(this.btnBorrar);
-            this.gpbInfo.Controls.Add(this.btnRetornar);
             this.gpbInfo.Controls.Add(this.txtId);
             this.gpbInfo.Controls.Add(this.btnGuardar);
             this.gpbInfo.Controls.Add(this.lblTel);
@@ -104,8 +102,9 @@ namespace ProyectoOdontologia2025
             // btnBorrar
             // 
             this.btnBorrar.BackColor = System.Drawing.Color.Honeydew;
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.ForeColor = System.Drawing.Color.Indigo;
             this.btnBorrar.Location = new System.Drawing.Point(452, 58);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBorrar.Name = "btnBorrar";
@@ -114,19 +113,6 @@ namespace ProyectoOdontologia2025
             this.btnBorrar.Text = "&Borrar";
             this.btnBorrar.UseVisualStyleBackColor = false;
             this.btnBorrar.Click += new System.EventHandler(this.btnborrar_Click_1);
-            // 
-            // btnRetornar
-            // 
-            this.btnRetornar.BackColor = System.Drawing.Color.Honeydew;
-            this.btnRetornar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRetornar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRetornar.Location = new System.Drawing.Point(452, 98);
-            this.btnRetornar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRetornar.Name = "btnRetornar";
-            this.btnRetornar.Size = new System.Drawing.Size(146, 30);
-            this.btnRetornar.TabIndex = 20;
-            this.btnRetornar.Text = "&Retornar";
-            this.btnRetornar.UseVisualStyleBackColor = false;
             // 
             // txtId
             // 
@@ -141,8 +127,9 @@ namespace ProyectoOdontologia2025
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.Honeydew;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Indigo;
             this.btnGuardar.Location = new System.Drawing.Point(452, 19);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
@@ -187,7 +174,7 @@ namespace ProyectoOdontologia2025
             // 
             // pnlDivision
             // 
-            this.pnlDivision.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.pnlDivision.BackColor = System.Drawing.Color.MediumPurple;
             this.pnlDivision.Location = new System.Drawing.Point(-20, 154);
             this.pnlDivision.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDivision.Name = "pnlDivision";
@@ -197,12 +184,12 @@ namespace ProyectoOdontologia2025
             // dgvDatos
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(174, 15);
+            this.dgvDatos.Location = new System.Drawing.Point(11, 15);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(371, 129);
+            this.dgvDatos.Size = new System.Drawing.Size(665, 129);
             this.dgvDatos.TabIndex = 9;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvDatos.Click += new System.EventHandler(this.dgvre_Click);
@@ -228,7 +215,7 @@ namespace ProyectoOdontologia2025
             // 
             // gpbTitulo
             // 
-            this.gpbTitulo.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.gpbTitulo.BackColor = System.Drawing.Color.MediumPurple;
             this.gpbTitulo.Controls.Add(this.lblnom1);
             this.gpbTitulo.Controls.Add(this.lblnom);
             this.gpbTitulo.Location = new System.Drawing.Point(23, 12);
@@ -259,7 +246,7 @@ namespace ProyectoOdontologia2025
             // 
             // gpbFecha
             // 
-            this.gpbFecha.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.gpbFecha.BackColor = System.Drawing.Color.MediumPurple;
             this.gpbFecha.Controls.Add(this.lblhora2);
             this.gpbFecha.Controls.Add(this.lblfecha2);
             this.gpbFecha.Controls.Add(this.lblhora);
@@ -378,7 +365,6 @@ namespace ProyectoOdontologia2025
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.DataGridView dgvDatos;
-        private System.Windows.Forms.Button btnRetornar;
         private System.Windows.Forms.GroupBox gpbRegistro;
         private Button btnGuardar;
         private Timer fecha;

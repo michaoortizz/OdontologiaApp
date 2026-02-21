@@ -31,8 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
-            this.txtTipo = new System.Windows.Forms.TextBox();
-            this.lblTipo = new System.Windows.Forms.Label();
+            this.cbRol = new System.Windows.Forms.ComboBox();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.txtContra = new System.Windows.Forms.TextBox();
             this.lblContra = new System.Windows.Forms.Label();
             this.txtNomUsu = new System.Windows.Forms.TextBox();
@@ -53,9 +57,6 @@
             this.lblfecha = new System.Windows.Forms.Label();
             this.lblEnca = new System.Windows.Forms.Label();
             this.pnlDivision = new System.Windows.Forms.Panel();
-            this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnRetornar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gpbInfo.SuspendLayout();
             this.gpbRegistros.SuspendLayout();
@@ -66,22 +67,23 @@
             // dgvDatos
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(66, 22);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDatos.Location = new System.Drawing.Point(11, 22);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(571, 111);
+            this.dgvDatos.Size = new System.Drawing.Size(665, 111);
             this.dgvDatos.TabIndex = 28;
             this.dgvDatos.Click += new System.EventHandler(this.dgvusuarios_Click);
             // 
             // gpbInfo
             // 
+            this.gpbInfo.Controls.Add(this.cbRol);
+            this.gpbInfo.Controls.Add(this.lblRol);
             this.gpbInfo.Controls.Add(this.btnBorrar);
-            this.gpbInfo.Controls.Add(this.btnRetornar);
             this.gpbInfo.Controls.Add(this.btnGuardar);
-            this.gpbInfo.Controls.Add(this.txtTipo);
-            this.gpbInfo.Controls.Add(this.lblTipo);
+            this.gpbInfo.Controls.Add(this.txtEstado);
+            this.gpbInfo.Controls.Add(this.lblEstado);
             this.gpbInfo.Controls.Add(this.txtContra);
             this.gpbInfo.Controls.Add(this.lblContra);
             this.gpbInfo.Controls.Add(this.txtNomUsu);
@@ -92,39 +94,88 @@
             this.gpbInfo.Controls.Add(this.lblUsu);
             this.gpbInfo.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbInfo.Location = new System.Drawing.Point(23, 188);
-            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2);
             this.gpbInfo.Name = "gpbInfo";
-            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2);
             this.gpbInfo.Size = new System.Drawing.Size(689, 172);
             this.gpbInfo.TabIndex = 23;
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Text = "Información";
             // 
-            // txtTipo
+            // cbRol
             // 
-            this.txtTipo.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipo.Location = new System.Drawing.Point(380, 92);
-            this.txtTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(107, 23);
-            this.txtTipo.TabIndex = 12;
+            this.cbRol.FormattingEnabled = true;
+            this.cbRol.Location = new System.Drawing.Point(92, 135);
+            this.cbRol.Name = "cbRol";
+            this.cbRol.Size = new System.Drawing.Size(156, 24);
+            this.cbRol.TabIndex = 28;
             // 
-            // lblTipo
+            // lblRol
             // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(269, 96);
-            this.lblTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(103, 17);
-            this.lblTipo.TabIndex = 11;
-            this.lblTipo.Text = "Tipo de usuario:";
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.Location = new System.Drawing.Point(57, 138);
+            this.lblRol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(30, 17);
+            this.lblRol.TabIndex = 27;
+            this.lblRol.Text = "Rol:";
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.BackColor = System.Drawing.Color.Honeydew;
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.ForeColor = System.Drawing.Color.Indigo;
+            this.btnBorrar.Location = new System.Drawing.Point(530, 128);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(146, 29);
+            this.btnBorrar.TabIndex = 26;
+            this.btnBorrar.Text = "&Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.Honeydew;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Indigo;
+            this.btnGuardar.Location = new System.Drawing.Point(530, 89);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(146, 28);
+            this.btnGuardar.TabIndex = 25;
+            this.btnGuardar.Text = "&Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEstado.Location = new System.Drawing.Point(380, 80);
+            this.txtEstado.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(107, 23);
+            this.txtEstado.TabIndex = 12;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(302, 84);
+            this.lblEstado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(51, 17);
+            this.lblEstado.TabIndex = 11;
+            this.lblEstado.Text = "Estado:";
             // 
             // txtContra
             // 
             this.txtContra.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContra.Location = new System.Drawing.Point(380, 45);
-            this.txtContra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtContra.Location = new System.Drawing.Point(380, 29);
+            this.txtContra.Margin = new System.Windows.Forms.Padding(2);
             this.txtContra.Name = "txtContra";
             this.txtContra.Size = new System.Drawing.Size(107, 23);
             this.txtContra.TabIndex = 10;
@@ -133,7 +184,7 @@
             // 
             this.lblContra.AutoSize = true;
             this.lblContra.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContra.Location = new System.Drawing.Point(293, 49);
+            this.lblContra.Location = new System.Drawing.Point(293, 33);
             this.lblContra.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblContra.Name = "lblContra";
             this.lblContra.Size = new System.Drawing.Size(77, 17);
@@ -143,8 +194,8 @@
             // txtNomUsu
             // 
             this.txtNomUsu.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomUsu.Location = new System.Drawing.Point(141, 121);
-            this.txtNomUsu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNomUsu.Location = new System.Drawing.Point(380, 134);
+            this.txtNomUsu.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomUsu.Name = "txtNomUsu";
             this.txtNomUsu.Size = new System.Drawing.Size(107, 23);
             this.txtNomUsu.TabIndex = 8;
@@ -152,8 +203,8 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(141, 76);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Location = new System.Drawing.Point(141, 80);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(107, 23);
             this.txtNombre.TabIndex = 7;
@@ -163,7 +214,7 @@
             this.txtUsu.Enabled = false;
             this.txtUsu.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsu.Location = new System.Drawing.Point(141, 29);
-            this.txtUsu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsu.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsu.Name = "txtUsu";
             this.txtUsu.Size = new System.Drawing.Size(107, 23);
             this.txtUsu.TabIndex = 6;
@@ -172,7 +223,7 @@
             // 
             this.lblNomUsu.AutoSize = true;
             this.lblNomUsu.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomUsu.Location = new System.Drawing.Point(27, 125);
+            this.lblNomUsu.Location = new System.Drawing.Point(266, 138);
             this.lblNomUsu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNomUsu.Name = "lblNomUsu";
             this.lblNomUsu.Size = new System.Drawing.Size(107, 17);
@@ -183,7 +234,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(23, 80);
+            this.lblNombre.Location = new System.Drawing.Point(23, 84);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(112, 17);
@@ -206,9 +257,9 @@
             this.gpbRegistros.Controls.Add(this.dgvDatos);
             this.gpbRegistros.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbRegistros.Location = new System.Drawing.Point(23, 379);
-            this.gpbRegistros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbRegistros.Margin = new System.Windows.Forms.Padding(2);
             this.gpbRegistros.Name = "gpbRegistros";
-            this.gpbRegistros.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbRegistros.Padding = new System.Windows.Forms.Padding(2);
             this.gpbRegistros.Size = new System.Drawing.Size(689, 147);
             this.gpbRegistros.TabIndex = 34;
             this.gpbRegistros.TabStop = false;
@@ -222,7 +273,7 @@
             // 
             // gpbTitulo
             // 
-            this.gpbTitulo.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.gpbTitulo.BackColor = System.Drawing.Color.MediumPurple;
             this.gpbTitulo.Controls.Add(this.lblnom1);
             this.gpbTitulo.Controls.Add(this.lblnom);
             this.gpbTitulo.Location = new System.Drawing.Point(23, 12);
@@ -253,7 +304,7 @@
             // 
             // gpbFecha
             // 
-            this.gpbFecha.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.gpbFecha.BackColor = System.Drawing.Color.MediumPurple;
             this.gpbFecha.Controls.Add(this.lblhora2);
             this.gpbFecha.Controls.Add(this.lblfecha2);
             this.gpbFecha.Controls.Add(this.lblhora);
@@ -314,53 +365,12 @@
             // 
             // pnlDivision
             // 
-            this.pnlDivision.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.pnlDivision.BackColor = System.Drawing.Color.MediumPurple;
             this.pnlDivision.Location = new System.Drawing.Point(-14, 154);
             this.pnlDivision.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDivision.Name = "pnlDivision";
             this.pnlDivision.Size = new System.Drawing.Size(768, 13);
             this.pnlDivision.TabIndex = 38;
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.BackColor = System.Drawing.Color.Honeydew;
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBorrar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrar.Location = new System.Drawing.Point(507, 66);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(146, 29);
-            this.btnBorrar.TabIndex = 26;
-            this.btnBorrar.Text = "&Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = false;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
-            // 
-            // btnRetornar
-            // 
-            this.btnRetornar.BackColor = System.Drawing.Color.Honeydew;
-            this.btnRetornar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRetornar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRetornar.Location = new System.Drawing.Point(507, 106);
-            this.btnRetornar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRetornar.Name = "btnRetornar";
-            this.btnRetornar.Size = new System.Drawing.Size(146, 30);
-            this.btnRetornar.TabIndex = 24;
-            this.btnRetornar.Text = "&Retornar";
-            this.btnRetornar.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.Honeydew;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(507, 27);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(146, 28);
-            this.btnGuardar.TabIndex = 25;
-            this.btnGuardar.Text = "&Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
             // FrmManUsua05
             // 
@@ -374,7 +384,7 @@
             this.Controls.Add(this.gpbTitulo);
             this.Controls.Add(this.gpbRegistros);
             this.Controls.Add(this.gpbInfo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmManUsua05";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Mantenimiento de Usuarios";
@@ -404,8 +414,8 @@
         private System.Windows.Forms.Label lblNomUsu;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblUsu;
-        private System.Windows.Forms.TextBox txtTipo;
-        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.TextBox txtEstado;
+        private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.GroupBox gpbRegistros;
         private System.Windows.Forms.Timer Fecha;
         private System.Windows.Forms.GroupBox gpbTitulo;
@@ -419,7 +429,8 @@
         private System.Windows.Forms.Label lblEnca;
         private System.Windows.Forms.Panel pnlDivision;
         private System.Windows.Forms.Button btnBorrar;
-        private System.Windows.Forms.Button btnRetornar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.ComboBox cbRol;
+        private System.Windows.Forms.Label lblRol;
     }
 }

@@ -30,6 +30,13 @@ namespace ProyectoOdontologia2025
         {
 
         }
+
+        public class Option
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
+
         private void FrmManCita06_Load(object sender, EventArgs e)
         {
             //Para mostrar la fecha
@@ -38,6 +45,19 @@ namespace ProyectoOdontologia2025
 
             //Invocar procedimiento para visualizar datos
             RefrescarTabla();
+
+            List<Option> optionsList = new List<Option>
+            {
+                new Option { Id = 1, Name = "Confirmada" },
+                new Option { Id = 2, Name = "Finalizada" },
+                new Option { Id = 3, Name = "Pendiente" },
+                new Option { Id = 4, Name = "Cancelada" }
+            };
+
+            cbEstado.DisplayMember = "Name"; // Property to display in the control
+            cbEstado.DataSource = optionsList;
+            cbEstado.ValueMember = "Id";
+            cbEstado.SelectedIndex = -1;
         }
 
         private void RefrescarTabla()
@@ -68,13 +88,37 @@ namespace ProyectoOdontologia2025
 
         private void EscribirDatos(string Parametro)
         {
-            //Permite ejectuar las instrucciones recibidas en Parametro en la base de datos
-            comando.CommandText = Parametro;
-            conexion.Open();
-            comando.Transaction = conexion.BeginTransaction();
-            comando.ExecuteNonQuery();
-            comando.Transaction.Commit();
-            conexion.Close();
+            try
+            {
+                comando.Connection = conexion;
+                comando.CommandText = Parametro;
+
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+
+                // ASIGNAMOS LA TRANSACCIÓN AL COMANDO
+                SqlTransaction transaccion = conexion.BeginTransaction();
+                comando.Transaction = transaccion; // <--- ESTO ES VITAL
+
+                comando.ExecuteNonQuery();
+
+                transaccion.Commit(); // Confirmamos
+            }
+            catch (Exception ex)
+            {
+                // Si hay error y existe una transacción, la revertimos
+                if (comando.Transaction != null)
+                {
+                    comando.Transaction.Rollback();
+                }
+                MessageBox.Show("Error al escribir datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
 
         private void LimpiarObjetos()
@@ -84,7 +128,10 @@ namespace ProyectoOdontologia2025
             mtbFecha.Clear();
             mtbFecha.Clear();
             txtDoc.Clear();
-            txtEmp.Clear();
+            txtUser.Clear();
+            txtComentario.Clear();
+            txtMotivo.Clear();
+            cbEstado.SelectedIndex = -1;
         }
 
         private void FrmManCita06_Activated(object sender, EventArgs e)
@@ -99,11 +146,14 @@ namespace ProyectoOdontologia2025
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtCita.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCed.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbFecha.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtDoc.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtEmp.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtCita.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString(); 
+            mtbCed.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString(); 
+            txtDoc.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            cbEstado.SelectedValue = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value;
+            mtbFecha.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtMotivo.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtComentario.Text = dgvDatos[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtUser.Text = dgvDatos[7, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -111,14 +161,30 @@ namespace ProyectoOdontologia2025
 
             if (string.IsNullOrEmpty(txtCita.Text))
             {
-                //Agrego registro nuevo
-                EscribirDatos("Insert into Citas (Cedula, Fecha, IdDoctor, IdEmpleado) Values ('" + mtbCed.Text.Trim() + "' , '" + mtbFecha.Text.Trim() + "', '" + txtDoc.Text.Trim() + "', '" + txtEmp.Text.Trim() + "')");
+                // Agrego registro nuevo respetando el orden y nombres de la imagen 1
+                EscribirDatos("Insert into Citas (ced_pac, id_doc, id_eci, fec_cit, mtv_cit, cmt_cit, id_usr) Values ('"
+                    + mtbCed.Text.Trim() + "', '"
+                    + txtDoc.Text.Trim() + "', '"
+                    + cbEstado.SelectedValue + "', '" // Usando el ComboBox de la imagen
+                    + mtbFecha.Text.Trim() + "', '"
+                    + txtMotivo.Text.Trim() + "', '"
+                    + txtComentario.Text.Trim() + "', '"
+                    + txtUser.Text.Trim() + "')");
+
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
-                //Modificar un registro existente
-                EscribirDatos("Update Citas Set Cedula = '" + mtbCed.Text.Trim() + "', Fecha = '" + mtbFecha.Text.Trim() + "', IdDoctor =  '" + txtDoc.Text.Trim() + "', IdEmpleado = '" + txtEmp.Text.Trim() + "' where IdCita = '" + txtCita.Text + "'");
+                // Modificar registro existente con los mismos nombres de columna
+                EscribirDatos("Update Citas Set ced_pac = '" + mtbCed.Text.Trim() +
+                              "', id_doc = '" + txtDoc.Text.Trim() +
+                              "', id_eci = '" + cbEstado.SelectedValue +
+                              "', fec_cit = '" + mtbFecha.Text.Trim() +
+                              "', mtv_cit = '" + txtMotivo.Text.Trim() +
+                              "', cmt_cit = '" + txtComentario.Text.Trim() +
+                              "', id_usr = '" + txtUser.Text.Trim() +
+                              "' where id_cit = '" + txtCita.Text + "'");
+
                 MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
 
@@ -133,10 +199,50 @@ namespace ProyectoOdontologia2025
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            EscribirDatos("Delete from Citas where IdCita= '" + txtCita.Text + "'");
+            EscribirDatos("Delete from Citas where id_cit= '" + txtCita.Text + "'");
             MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             LimpiarObjetos();
             RefrescarTabla();
+        }
+
+        private void txtCita_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCita_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEstado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDoc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IdDoc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtbCed_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
     }

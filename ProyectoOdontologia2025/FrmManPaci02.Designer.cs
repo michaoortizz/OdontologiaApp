@@ -31,9 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
             this.mtbCed = new System.Windows.Forms.MaskedTextBox();
-            this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
             this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnRetornar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtSeguro = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -65,6 +63,9 @@
             this.lblhora = new System.Windows.Forms.Label();
             this.lblfecha = new System.Windows.Forms.Label();
             this.pnlDivision = new System.Windows.Forms.Panel();
+            this.lblGenero = new System.Windows.Forms.Label();
+            this.cbGenero = new System.Windows.Forms.ComboBox();
+            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.gpbInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpacientes)).BeginInit();
             this.gpbRegistro.SuspendLayout();
@@ -74,10 +75,11 @@
             // 
             // gpbInfo
             // 
+            this.gpbInfo.Controls.Add(this.dtpFechaNac);
+            this.gpbInfo.Controls.Add(this.cbGenero);
+            this.gpbInfo.Controls.Add(this.lblGenero);
             this.gpbInfo.Controls.Add(this.mtbCed);
-            this.gpbInfo.Controls.Add(this.mtbFecha);
             this.gpbInfo.Controls.Add(this.btnBorrar);
-            this.gpbInfo.Controls.Add(this.btnRetornar);
             this.gpbInfo.Controls.Add(this.btnGuardar);
             this.gpbInfo.Controls.Add(this.txtSeguro);
             this.gpbInfo.Controls.Add(this.label17);
@@ -115,23 +117,13 @@
             this.mtbCed.Size = new System.Drawing.Size(109, 21);
             this.mtbCed.TabIndex = 33;
             // 
-            // mtbFecha
-            // 
-            this.mtbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbFecha.Location = new System.Drawing.Point(142, 155);
-            this.mtbFecha.Mask = "00/00/0000";
-            this.mtbFecha.Name = "mtbFecha";
-            this.mtbFecha.Size = new System.Drawing.Size(109, 21);
-            this.mtbFecha.TabIndex = 32;
-            this.mtbFecha.ValidatingType = typeof(System.DateTime);
-            this.mtbFecha.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-            // 
             // btnBorrar
             // 
             this.btnBorrar.BackColor = System.Drawing.Color.Honeydew;
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrar.Location = new System.Drawing.Point(530, 107);
+            this.btnBorrar.ForeColor = System.Drawing.Color.Indigo;
+            this.btnBorrar.Location = new System.Drawing.Point(530, 197);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(146, 29);
@@ -140,25 +132,13 @@
             this.btnBorrar.UseVisualStyleBackColor = false;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click_1);
             // 
-            // btnRetornar
-            // 
-            this.btnRetornar.BackColor = System.Drawing.Color.Honeydew;
-            this.btnRetornar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRetornar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRetornar.Location = new System.Drawing.Point(530, 149);
-            this.btnRetornar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRetornar.Name = "btnRetornar";
-            this.btnRetornar.Size = new System.Drawing.Size(146, 30);
-            this.btnRetornar.TabIndex = 29;
-            this.btnRetornar.Text = "&Retornar";
-            this.btnRetornar.UseVisualStyleBackColor = false;
-            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.Honeydew;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(530, 65);
+            this.btnGuardar.ForeColor = System.Drawing.Color.Indigo;
+            this.btnGuardar.Location = new System.Drawing.Point(530, 155);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(146, 28);
@@ -170,7 +150,7 @@
             // txtSeguro
             // 
             this.txtSeguro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeguro.Location = new System.Drawing.Point(391, 173);
+            this.txtSeguro.Location = new System.Drawing.Point(398, 204);
             this.txtSeguro.Margin = new System.Windows.Forms.Padding(2);
             this.txtSeguro.Name = "txtSeguro";
             this.txtSeguro.Size = new System.Drawing.Size(107, 21);
@@ -180,7 +160,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(368, 68);
+            this.label17.Location = new System.Drawing.Point(375, 99);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(0, 13);
@@ -190,7 +170,7 @@
             // 
             this.lblSeguro.AutoSize = true;
             this.lblSeguro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeguro.Location = new System.Drawing.Point(305, 173);
+            this.lblSeguro.Location = new System.Drawing.Point(312, 204);
             this.lblSeguro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSeguro.Name = "lblSeguro";
             this.lblSeguro.Size = new System.Drawing.Size(63, 15);
@@ -201,7 +181,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(391, 131);
+            this.txtCorreo.Location = new System.Drawing.Point(398, 74);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(107, 21);
@@ -211,7 +191,7 @@
             // 
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(323, 131);
+            this.lblCorreo.Location = new System.Drawing.Point(330, 74);
             this.lblCorreo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(47, 15);
@@ -221,7 +201,7 @@
             // txtCondi
             // 
             this.txtCondi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCondi.Location = new System.Drawing.Point(391, 90);
+            this.txtCondi.Location = new System.Drawing.Point(398, 158);
             this.txtCondi.Margin = new System.Windows.Forms.Padding(2);
             this.txtCondi.Name = "txtCondi";
             this.txtCondi.Size = new System.Drawing.Size(107, 21);
@@ -231,7 +211,7 @@
             // 
             this.lblCondi.AutoSize = true;
             this.lblCondi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCondi.Location = new System.Drawing.Point(268, 94);
+            this.lblCondi.Location = new System.Drawing.Point(275, 162);
             this.lblCondi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCondi.Name = "lblCondi";
             this.lblCondi.Size = new System.Drawing.Size(100, 15);
@@ -241,18 +221,19 @@
             // mtbTel
             // 
             this.mtbTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbTel.Location = new System.Drawing.Point(391, 49);
+            this.mtbTel.Location = new System.Drawing.Point(398, 35);
             this.mtbTel.Margin = new System.Windows.Forms.Padding(2);
             this.mtbTel.Mask = "(999)000-0000";
             this.mtbTel.Name = "mtbTel";
             this.mtbTel.Size = new System.Drawing.Size(107, 21);
             this.mtbTel.TabIndex = 20;
+            this.mtbTel.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtbTel_MaskInputRejected);
             // 
             // lblTel
             // 
             this.lblTel.AutoSize = true;
             this.lblTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTel.Location = new System.Drawing.Point(310, 50);
+            this.lblTel.Location = new System.Drawing.Point(317, 36);
             this.lblTel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTel.Name = "lblTel";
             this.lblTel.Size = new System.Drawing.Size(58, 15);
@@ -263,17 +244,18 @@
             // txtTipo
             // 
             this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipo.Location = new System.Drawing.Point(142, 200);
+            this.txtTipo.Location = new System.Drawing.Point(398, 115);
             this.txtTipo.Margin = new System.Windows.Forms.Padding(2);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(107, 21);
             this.txtTipo.TabIndex = 12;
+            this.txtTipo.TextChanged += new System.EventHandler(this.txtTipo_TextChanged);
             // 
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(29, 204);
+            this.lblTipo.Location = new System.Drawing.Point(285, 119);
             this.lblTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(85, 15);
@@ -285,7 +267,7 @@
             // 
             this.lblFechaNac.AutoSize = true;
             this.lblFechaNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaNac.Location = new System.Drawing.Point(7, 157);
+            this.lblFechaNac.Location = new System.Drawing.Point(7, 203);
             this.lblFechaNac.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaNac.Name = "lblFechaNac";
             this.lblFechaNac.Size = new System.Drawing.Size(110, 15);
@@ -341,9 +323,10 @@
             this.lblCed.Location = new System.Drawing.Point(54, 35);
             this.lblCed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCed.Name = "lblCed";
-            this.lblCed.Size = new System.Drawing.Size(62, 15);
+            this.lblCed.Size = new System.Drawing.Size(49, 15);
             this.lblCed.TabIndex = 4;
-            this.lblCed.Text = "Id Cédula:";
+            this.lblCed.Text = "Cédula:";
+            this.lblCed.Click += new System.EventHandler(this.lblCed_Click);
             // 
             // dgvpacientes
             // 
@@ -389,7 +372,7 @@
             // 
             // gpbTitulo
             // 
-            this.gpbTitulo.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.gpbTitulo.BackColor = System.Drawing.Color.MediumPurple;
             this.gpbTitulo.Controls.Add(this.lblnom1);
             this.gpbTitulo.Controls.Add(this.lblnom);
             this.gpbTitulo.Location = new System.Drawing.Point(23, 12);
@@ -420,7 +403,7 @@
             // 
             // gpbFecha
             // 
-            this.gpbFecha.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.gpbFecha.BackColor = System.Drawing.Color.MediumPurple;
             this.gpbFecha.Controls.Add(this.lblhora2);
             this.gpbFecha.Controls.Add(this.lblfecha2);
             this.gpbFecha.Controls.Add(this.lblhora);
@@ -471,12 +454,41 @@
             // 
             // pnlDivision
             // 
-            this.pnlDivision.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.pnlDivision.BackColor = System.Drawing.Color.MediumPurple;
             this.pnlDivision.Location = new System.Drawing.Point(-8, 148);
             this.pnlDivision.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDivision.Name = "pnlDivision";
             this.pnlDivision.Size = new System.Drawing.Size(782, 13);
             this.pnlDivision.TabIndex = 34;
+            // 
+            // lblGenero
+            // 
+            this.lblGenero.AutoSize = true;
+            this.lblGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenero.Location = new System.Drawing.Point(63, 164);
+            this.lblGenero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGenero.Name = "lblGenero";
+            this.lblGenero.Size = new System.Drawing.Size(51, 15);
+            this.lblGenero.TabIndex = 34;
+            this.lblGenero.Text = "Genero:";
+            // 
+            // cbGenero
+            // 
+            this.cbGenero.FormattingEnabled = true;
+            this.cbGenero.Items.AddRange(new object[] {
+            "Femenino",
+            "Masculino"});
+            this.cbGenero.Location = new System.Drawing.Point(142, 160);
+            this.cbGenero.Name = "cbGenero";
+            this.cbGenero.Size = new System.Drawing.Size(121, 24);
+            this.cbGenero.TabIndex = 35;
+            // 
+            // dtpFechaNac
+            // 
+            this.dtpFechaNac.Location = new System.Drawing.Point(142, 203);
+            this.dtpFechaNac.Name = "dtpFechaNac";
+            this.dtpFechaNac.Size = new System.Drawing.Size(121, 22);
+            this.dtpFechaNac.TabIndex = 36;
             // 
             // FrmManPaci02
             // 
@@ -541,10 +553,11 @@
         private System.Windows.Forms.Label lblhora;
         private System.Windows.Forms.Label lblfecha;
         private System.Windows.Forms.Panel pnlDivision;
-        private System.Windows.Forms.MaskedTextBox mtbFecha;
         private System.Windows.Forms.Button btnBorrar;
-        private System.Windows.Forms.Button btnRetornar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.MaskedTextBox mtbCed;
+        private System.Windows.Forms.DateTimePicker dtpFechaNac;
+        private System.Windows.Forms.ComboBox cbGenero;
+        private System.Windows.Forms.Label lblGenero;
     }
 }
