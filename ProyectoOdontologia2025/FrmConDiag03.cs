@@ -31,7 +31,7 @@ namespace ProyectoOdontologia2025
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
             //Invocar procedimiento para visualizar datos
-            RefrescarTabla("Select * from Diagnostico");
+            RefrescarTabla("Select * from Diagnosticos");
         }
 
         //Creo procedimiento para visualizar los datos en el data grid view
@@ -79,27 +79,27 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Diagnostico Where IdDiagnostico like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbEv.Checked == true)
-            {
-                RefrescarTabla("Select * from Diagnostico Where IdEvaluacion like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbDoc.Checked == true)
-            {
-                RefrescarTabla("Select * from Diagnostico Where IdDoctor like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Diagnosticos Where id_dia like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCed.Checked == true)
             {
-                RefrescarTabla("Select * from Diagnostico Where IdCedula like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Diagnosticos Where ced_pac like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbDoc.Checked == true)
+            {
+                RefrescarTabla("Select * from Diagnosticos Where id_doc like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbFe.Checked == true)
+            {
+                RefrescarTabla("Select * from Diagnosticos Where fecha_dia like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbDesc.Checked == true)
             {
-                RefrescarTabla("Select * from Diagnostico Where DescripcionDiagnostico like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Diagnosticos Where descripcion like '%" + txtBusqueda.Text + "%'");
             }
         }
     }

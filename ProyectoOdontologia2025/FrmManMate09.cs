@@ -67,13 +67,37 @@ namespace ProyectoOdontologia2025
 
         private void EscribirDatos(string Parametro)
         {
-            //Permite ejectuar las instrucciones recibidas en Parametro en la base de datos
-            comando.CommandText = Parametro;
-            conexion.Open();
-            comando.Transaction = conexion.BeginTransaction();
-            comando.ExecuteNonQuery();
-            comando.Transaction.Commit();
-            conexion.Close();
+            try
+            {
+                comando.Connection = conexion;
+                comando.CommandText = Parametro;
+
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+
+                // ASIGNAMOS LA TRANSACCIÓN AL COMANDO
+                SqlTransaction transaccion = conexion.BeginTransaction();
+                comando.Transaction = transaccion; // <--- ESTO ES VITAL
+
+                comando.ExecuteNonQuery();
+
+                transaccion.Commit(); // Confirmamos
+            }
+            catch (Exception ex)
+            {
+                // Si hay error y existe una transacción, la revertimos
+                if (comando.Transaction != null)
+                {
+                    comando.Transaction.Rollback();
+                }
+                MessageBox.Show("Error al escribir datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
 
 
@@ -111,13 +135,19 @@ namespace ProyectoOdontologia2025
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 //Agrego registro nuevo
-                EscribirDatos("Insert into Materiales (Nombre, Cantidad, Costo, Tipo, IdProveedor) Values ('" + txtNombre.Text.Trim() + "' , '" + mtbCant.Text.Trim() + "', '" + mtbCosto.Text.Trim() + "', '" + txtTipo.Text.Trim() + "', '" + txtProve.Text.Trim() + "')");
+                EscribirDatos("Insert into Materiales (nom_mat, dsc_mat, cnt_mat, cst_mat, tip_mat, id_prv) Values ('" + txtNombre.Text.Trim() + "' , '" + txtDescripcion.Text.Trim() + "' , '" + mtbCant.Text.Trim() + "', '" + mtbCosto.Text.Trim() + "', '" + txtTipo.Text.Trim() + "', '" + txtProve.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 //Modificar un registro existente
-                EscribirDatos("Update Materiales Set Nombre = '" + txtNombre.Text.Trim() + "', Cantidad = '" + mtbCant.Text.Trim() + "', Costo =  '" + mtbCosto.Text.Trim() + "', Tipo = '" + txtTipo.Text.Trim() + "', IdProveedor = '" + txtProve.Text.Trim() + "' where IdMaterial = '" + txtId.Text + "'");
+                EscribirDatos("Update Materiales Set nom_mat = '" + txtNombre.Text.Trim() +
+                    "', dsc_mat = '" + txtDescripcion.Text.Trim() +
+                    "', cnt_mat = '" + mtbCant.Text.Trim() + 
+                    "', cst_mat =  '" + mtbCosto.Text.Trim() + 
+                    "', tip_mat = '" + txtTipo.Text.Trim() + 
+                    "', id_prv = '" + txtProve.Text.Trim() +
+                    "' where id_mat = '" + txtId.Text + "'");
                 MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
 
@@ -127,7 +157,7 @@ namespace ProyectoOdontologia2025
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            EscribirDatos("Delete from Materiales where IdMaterial= '" + txtId.Text + "'");
+            EscribirDatos("Delete from Materiales where id_mat = '" + txtId.Text + "'");
             MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             LimpiarObjetos();
             RefrescarTabla();

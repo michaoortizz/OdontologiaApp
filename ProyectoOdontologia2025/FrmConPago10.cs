@@ -83,37 +83,32 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Pagos Where IdPago like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbCot.Checked == true)
-            {
-                RefrescarTabla("Select * from Pagos Where IdCotizacion like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbFormaPago.Checked == true)
-            {
-                RefrescarTabla("Select * from Pagos Where FormaPago like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbFechaPag.Checked == true)
-            {
-                RefrescarTabla("Select * from Pagos Where Fecha like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbMonto.Checked == true)
-            {
-                RefrescarTabla("Select * from Pagos Where MontoPago like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbEmp.Checked == true)
-            {
-                RefrescarTabla("Select * from Pagos Where IdEmpleado like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pagos Where id_pag like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCed.Checked == true)
             {
-                RefrescarTabla("Select * from Pagos Where Cedula like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pagos Where ced_pac like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbCita.Checked == true)
+            {
+                RefrescarTabla("Select * from Pagos Where id_cit like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbMP.Checked == true)
+            {
+                RefrescarTabla("Select * from Pagos Where id_mpa like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbMon.Checked == true)
+            {
+                RefrescarTabla("Select * from Pagos Where mnt_pag like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbFechaPag.Checked == true)
+            {
+                RefrescarTabla("Select * from Pagos Where fec_pag like '%" + txtBusqueda.Text + "%'");
             }
         }
     }

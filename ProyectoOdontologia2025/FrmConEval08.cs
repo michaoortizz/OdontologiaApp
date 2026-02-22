@@ -81,37 +81,27 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where IdEvaluacion like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbDoc.Checked == true)
-            {
-                RefrescarTabla("Select * from Evaluaciones Where IdDoctor like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbFecha.Checked == true)
-            {
-                RefrescarTabla("Select * from Evaluaciones Where FechaEvaluacion like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Evaluaciones Where id_eval like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCed.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where Cedula like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Evaluaciones Where ced_pac like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbDesc.Checked == true)
+            if (rdbDoc.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where Descripcion like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Evaluaciones Where id_doc like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbCuad.Checked == true)
+            if (rdbFecha.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where Cuadrante like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Evaluaciones Where fecha_eval like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbObs.Checked == true)
+            if (rdbResu.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where Observacion like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Evaluaciones Where resultado like '%" + txtBusqueda.Text + "%'");
             }
         }
     }

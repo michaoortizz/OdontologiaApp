@@ -97,49 +97,69 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where Cedula like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where ced_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbNom.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where Nombre like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where nom_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbApellido.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where Apellido like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where apec_pac like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdGen.Checked == true)
+            {
+                RefrescarTabla("Select * from Pacientes Where gen_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbFecha.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where FechaNac like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where fec_nac_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbTipo.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where TipoPaciente like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where tip_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbTel.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where Telefono like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where tel_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCondicion.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where CondicionSalud like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where cnd_sal_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCorreo.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where Correo like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where eml_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbSeguro.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where IdSeguro like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where id_seg like '%" + txtBusqueda.Text + "%'");
             }
 
+        }
+
+        private void rdbSeguro_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        
         }
     }
 }

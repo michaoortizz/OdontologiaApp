@@ -36,7 +36,7 @@ namespace ProyectoOdontologia2025
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
             //Invocar procedimiento para visualizar datos
-            RefrescarTabla("Select * from Consultas");
+            RefrescarTabla("Select * from Consultas_Medicas");
 
         }
 
@@ -91,27 +91,32 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas Where IdConsulta like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbMotivo.Checked == true)
-            {
-                RefrescarTabla("Select * from Consultas Where Motivo like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Consultas_Medicas Where id_con like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCed.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas Where Cedula like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbFecha.Checked == true)
-            {
-                RefrescarTabla("Select * from Consultas Where Fecha like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Consultas_Medicas Where ced_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbDoc.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas Where IdDoctor like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Consultas_Medicas Where id_doc like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbFecha.Checked == true)
+            {
+                RefrescarTabla("Select * from Consultas_Medicas Where fec_con like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbMotivo.Checked == true)
+            {
+                RefrescarTabla("Select * from Consultas_Medicas Where motivo like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdObs.Checked == true)
+            {
+                RefrescarTabla("Select * from Consultas_Medicas Where observaciones like '%" + txtBusqueda.Text + "%'");
             }
         }
     }

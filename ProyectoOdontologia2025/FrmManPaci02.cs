@@ -90,13 +90,37 @@ namespace ProyectoOdontologia2025
         }
         private void EscribirDatos(string Parametro)
         {
-            //Permite ejectuar las instrucciones recibidas en Parametro en la base de datos
-            comando.CommandText = Parametro;
-            conexion.Open();
-            comando.Transaction = conexion.BeginTransaction();
-            comando.ExecuteNonQuery();
-            comando.Transaction.Commit();
-            conexion.Close();
+            try
+            {
+                comando.Connection = conexion;
+                comando.CommandText = Parametro;
+
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+
+                // ASIGNAMOS LA TRANSACCIÓN AL COMANDO
+                SqlTransaction transaccion = conexion.BeginTransaction();
+                comando.Transaction = transaccion; // <--- ESTO ES VITAL
+
+                comando.ExecuteNonQuery();
+
+                transaccion.Commit(); // Confirmamos
+            }
+            catch (Exception ex)
+            {
+                // Si hay error y existe una transacción, la revertimos
+                if (comando.Transaction != null)
+                {
+                    comando.Transaction.Rollback();
+                }
+                MessageBox.Show("Error al escribir datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
 
         private void LimpiarObjetos()
@@ -104,7 +128,7 @@ namespace ProyectoOdontologia2025
             mtbCed.Text = "";
             txtNombre.Clear();
             txtApellido.Clear();
-            mtbFecha.Clear();
+            dtpFechaNac.Value = DateTime.Now;
             txtTipo.Clear();
             mtbTel.Clear();
             txtCondi.Clear();
@@ -139,7 +163,8 @@ namespace ProyectoOdontologia2025
             mtbCed.Text = dgvpacientes[0, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
             txtNombre.Text = dgvpacientes[1, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
             txtApellido.Text = dgvpacientes[2, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
-            mtbFecha.Text = dgvpacientes[3, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
+            cbGenero.Text = dgvpacientes[3, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
+            dtpFechaNac.Value = Convert.ToDateTime(dgvpacientes[3, dgvpacientes.SelectedCells[0].RowIndex].Value);
             txtTipo.Text = dgvpacientes[4, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
             mtbTel.Text = dgvpacientes[5, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
             txtCondi.Text = dgvpacientes[6, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
@@ -157,7 +182,7 @@ namespace ProyectoOdontologia2025
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             conexion.Open();
-            SqlCommand cmd = new SqlCommand("SELECT 1 FROM Pacientes WHERE Cedula = '" + mtbCed.Text.Trim() + "'", conexion);
+            SqlCommand cmd = new SqlCommand("SELECT 1 FROM Pacientes WHERE ced_pac = '" + mtbCed.Text.Trim() + "'", conexion);
             SqlDataReader reader = cmd.ExecuteReader();
             bool existe = reader.Read();
             reader.Close();
@@ -165,15 +190,16 @@ namespace ProyectoOdontologia2025
 
             if (existe)
             {
-                EscribirDatos("UPDATE Pacientes SET Nombre = '" + txtNombre.Text.Trim() +
-                              "', Apellido = '" + txtApellido.Text.Trim() +
-                              "', FechaNac = '" + mtbFecha.Text.Trim() +
-                              "', TipoPaciente = '" + txtTipo.Text.Trim() +
-                              "', Telefono = '" + mtbTel.Text.Trim() +
-                              "', CondicionSalud = '" + txtCondi.Text.Trim() +
-                              "', Correo = '" + txtCorreo.Text.Trim() +
-                              "', IdSeguro = '" + txtSeguro.Text.Trim() +
-                              "' WHERE Cedula = '" + mtbCed.Text.Trim() + "'");
+                EscribirDatos("UPDATE Pacientes SET nom_pac = '" + txtNombre.Text.Trim() +
+                              "', ape_pac = '" + txtApellido.Text.Trim() +
+                              "', gen_pac = '" + cbGenero.Text.Trim() +
+                              "', fec_nac_pac = '" + dtpFechaNac.Value +
+                              "', tel_pac = '" + mtbTel.Text.Trim() +
+                              "', eml_pac = '" + txtCorreo.Text.Trim() +
+                              "', tip_pac = '" + txtTipo.Text.Trim() +
+                              "', cnd_sal_pac= '" + txtCondi.Text.Trim() +
+                              "', id_seg = '" + txtSeguro.Text.Trim() +
+                              "' WHERE ced_pac = '" + mtbCed.Text.Trim() + "'");
                 MessageBox.Show("Registro actualizado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -181,15 +207,16 @@ namespace ProyectoOdontologia2025
 
             }
             {
-                EscribirDatos("INSERT INTO Pacientes (Cedula, Nombre, Apellido, FechaNac, TipoPaciente, Telefono, CondicionSalud, Correo, IdSeguro) VALUES ('" +
+                EscribirDatos("INSERT INTO Pacientes (ced_pac, nom_pac, ape_pac, gen_pac, fec_nac_pac, tel_pac, eml_pac, tip_pac, cnd_sal_pac, id_seg) VALUES ('" +
                               mtbCed.Text.Trim() + "', '" +
                               txtNombre.Text.Trim() + "', '" +
                               txtApellido.Text.Trim() + "', '" +
-                              mtbFecha.Text.Trim() + "', '" +
-                              txtTipo.Text.Trim() + "', '" +
+                              cbGenero.Text.Trim() + "', '" +
+                              dtpFechaNac.Value + "', '" +
                               mtbTel.Text.Trim() + "', '" +
-                              txtCondi.Text.Trim() + "', '" +
                               txtCorreo.Text.Trim() + "', '" +
+                              txtTipo.Text.Trim() + "', '" +
+                              txtCondi.Text.Trim() + "', '" +
                               txtSeguro.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -201,10 +228,25 @@ namespace ProyectoOdontologia2025
 
         private void btnBorrar_Click_1(object sender, EventArgs e)
         {
-            EscribirDatos("Delete from Pacientes where Cedula = '" + mtbCed.Text + "'");
+            EscribirDatos("Delete from Pacientes where ced_pac = '" + mtbCed.Text + "'");
             MessageBox.Show("Se borró el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimpiarObjetos();
             RefrescarTabla();
+        }
+
+        private void lblCed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTipo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtbTel_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

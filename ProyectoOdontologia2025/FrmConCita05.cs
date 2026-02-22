@@ -79,27 +79,42 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked==true)
             {
-                RefrescarTabla("Select * from Citas Where IdCita like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Citas Where id_cit like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCed.Checked==true)
             {
-                RefrescarTabla("Select * from Citas Where Cedula like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbFecha.Checked==true)
-            {
-                RefrescarTabla("Select * from Citas Where Fecha like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Citas Where ced_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbDoc.Checked==true)
             {
-                RefrescarTabla("Select * from Citas Where IdDoctor like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Citas Where id_doc like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbEmp.Checked==true)
+            if (rdbIdEC.Checked==true)
             {
-                RefrescarTabla("Select * from Citas Where IdEmpleado like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Citas Where id_eci like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbMtv.Checked==true)
+            {
+                RefrescarTabla("Select * from Citas Where mtv_cita like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbFecha.Checked == true)
+            {
+                RefrescarTabla("Select * from Citas Where fec_cit like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbCom.Checked == true)
+            {
+                RefrescarTabla("Select * from Citas Where cmt_cit like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbIdU.Checked == true)
+            {
+                RefrescarTabla("Select * from Citas Where id_usr like '%" + txtBusqueda.Text + "%'");
             }
         }
 

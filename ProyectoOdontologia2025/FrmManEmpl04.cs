@@ -73,16 +73,40 @@ namespace ProyectoOdontologia2025
 
         private void EscribirDatos(string Parametro)
         {
-            //Permite ejectuar las instrucciones recibidas en Parametro en la base de datos
-            comando.CommandText = Parametro;
-            conexion.Open();
-            comando.Transaction = conexion.BeginTransaction();
-            comando.ExecuteNonQuery();
-            comando.Transaction.Commit();
-            conexion.Close();
+            try
+            {
+                comando.Connection = conexion;
+                comando.CommandText = Parametro;
+
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+
+                // ASIGNAMOS LA TRANSACCIÓN AL COMANDO
+                SqlTransaction transaccion = conexion.BeginTransaction();
+                comando.Transaction = transaccion; // <--- ESTO ES VITAL
+
+                comando.ExecuteNonQuery();
+
+                transaccion.Commit(); // Confirmamos
+            }
+            catch (Exception ex)
+            {
+                // Si hay error y existe una transacción, la revertimos
+                if (comando.Transaction != null)
+                {
+                    comando.Transaction.Rollback();
+                }
+                MessageBox.Show("Error al escribir datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
 
-        
+
         private void LimpiarObjetos()
         {
             txtId.Text = "";
@@ -128,13 +152,13 @@ namespace ProyectoOdontologia2025
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 //Agrego registro nuevo
-                EscribirDatos("Insert into Empleados (Nombre, Apellido, Direccion, Telefono, Cargo) Values ('" + txtNombre.Text.Trim() + "' , '" + txtApellido.Text.Trim() + "', '" + txtDirec.Text.Trim() + "', '" + mtbTel.Text.Trim() + "', '" + txtCargo.Text.Trim() + "')");
+                EscribirDatos("Insert into Empleados (nom_emp, ape_emp, dir_emp, tel_emp, crg_emp) Values ('" + txtNombre.Text.Trim() + "' , '" + txtApellido.Text.Trim() + "', '" + txtDirec.Text.Trim() + "', '" + mtbTel.Text.Trim() + "', '" + txtCargo.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 //Modificar un registro existente
-                EscribirDatos("Update Empleados Set Nombre = '" + txtNombre.Text.Trim() + "', Apellido = '" + txtApellido.Text.Trim() + "', Direccion =  '" + txtDirec.Text.Trim() + "', Telefono = '" + mtbTel.Text.Trim() + "', Cargo = '" + txtCargo.Text.Trim() + "' where IdEmpleado = '" + txtId.Text + "'");
+                EscribirDatos("Update Empleados Set nom_emp = '" + txtNombre.Text.Trim() + "', ape_emp = '" + txtApellido.Text.Trim() + "', dir_emp =  '" + txtDirec.Text.Trim() + "', tel_emp = '" + mtbTel.Text.Trim() + "', crg_emp = '" + txtCargo.Text.Trim() + "' where id_emp = '" + txtId.Text + "'");
                 MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
 
@@ -144,7 +168,7 @@ namespace ProyectoOdontologia2025
 
         private void btnBorrar_Click_1(object sender, EventArgs e)
         {
-            EscribirDatos("Delete from Empleados where IdEmpleado= '" + txtId.Text + "'");
+            EscribirDatos("Delete from Empleados where id_emp= '" + txtId.Text + "'");
             MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             LimpiarObjetos();
             RefrescarTabla();
