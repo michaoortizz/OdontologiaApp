@@ -84,32 +84,32 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Empleados Where IdEmpleado like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Empleados Where id_emp like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbNombre.Checked == true)
             {
-                RefrescarTabla("Select * from Empleados Where Nombre like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Empleados Where nom_emp like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbApellido.Checked == true)
             {
-                RefrescarTabla("Select * from Empleados Where Apellido like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Empleados Where ape_emp like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbDirec.Checked == true)
             {
-                RefrescarTabla("Select * from Empleados Where Direccion like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Empleados Where dir_emp like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbTel.Checked == true)
             {
-                RefrescarTabla("Select * from Empleados Where Telefono like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Empleados Where tel_emp like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCargo.Checked == true)
             {
-                RefrescarTabla("Select * from Empleados Where Cargo like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Empleados Where crg_emp like '%" + txtBusqueda.Text + "%'");
             }
         }
     }

@@ -110,48 +110,29 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Cotizaciones Where IdCotizacion like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbDiag.Checked == true)
-            {
-                RefrescarTabla("Select * from Cotizaciones Where IdDiagnostico like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Cotizaciones Where id_coti like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCedula.Checked == true)
             {
-                RefrescarTabla("Select * from Cotizaciones Where Cedula like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Cotizaciones Where ced_pac like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbFecha.Checked == true)
+            {
+                RefrescarTabla("Select * from Cotizaciones Where fecha_coti like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbMonto.Checked == true)
             {
-                RefrescarTabla("Select * from Cotizaciones Where Monto like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Cotizaciones Where monto like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbEmp.Checked == true)
+            if (rdbDet.Checked == true)
             {
-                RefrescarTabla("Select * from Cotizaciones Where IdEmpleado like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Cotizaciones Where detalle like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbDesc.Checked == true)
-            {
-                RefrescarTabla("Select * from Cotizaciones Where Descripcion like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbCant.Checked == true)
-            {
-                RefrescarTabla("Select * from Cotizaciones Where CantidadCuota like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbBalance.Checked == true)
-            {
-                RefrescarTabla("Select * from Cotizaciones Where Balance like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbEstado.Checked == true)
-            {
-                RefrescarTabla("Select * from Cotizaciones Where Estado like '%" + txtBusqueda.Text + "%'");
-            }
         }
     }
 }

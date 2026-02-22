@@ -84,17 +84,17 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Seguros Where IdSeguro like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Seguros Where id_seg like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbNombre.Checked == true)
             {
-                RefrescarTabla("Select * from Seguros Where Nombre like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Seguros Where nom_seg like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbTel.Checked == true)
             {
-                RefrescarTabla("Select * from Seguros Where Telefono like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Seguros Where tel_seg like '%" + txtBusqueda.Text + "%'");
             }
         }
     }

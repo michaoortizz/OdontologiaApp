@@ -98,22 +98,37 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Doctores Where IdDoctor like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Doctores Where id_doc like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbNombre.Checked == true)
             {
-                RefrescarTabla("Select * from Doctores Where Nombre like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Doctores Where nom_doc like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbApellido.Checked == true)
             {
-                RefrescarTabla("Select * from Doctores Where Apellido like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Doctores Where ape_doc like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbCedD.Checked == true)
+            {
+                RefrescarTabla("Select * from Doctores Where ced_doc like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbTel.Checked == true)
+            {
+                RefrescarTabla("Select * from Doctores Where tel_doc like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbCor.Checked == true)
+            {
+                RefrescarTabla("Select * from Doctores Where eml_doc like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbEspec.Checked == true)
             {
-                RefrescarTabla("Select * from Doctores Where Especialidad like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Doctores Where id_esp like '%" + txtBusqueda.Text + "%'");
             }
         }
     }
