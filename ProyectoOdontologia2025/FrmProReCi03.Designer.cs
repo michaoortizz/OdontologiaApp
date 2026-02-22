@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
             this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mtbCed = new System.Windows.Forms.MaskedTextBox();
             this.txtEmp = new System.Windows.Forms.TextBox();
             this.lblEmp = new System.Windows.Forms.Label();
             this.txtDoc = new System.Windows.Forms.TextBox();
@@ -54,6 +55,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.gpbRegistro = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.gpbInfo.SuspendLayout();
             this.gpbFecha.SuspendLayout();
             this.gpbTitulo.SuspendLayout();
@@ -64,7 +66,7 @@
             // gpbInfo
             // 
             this.gpbInfo.Controls.Add(this.mtbFecha);
-            this.gpbInfo.Controls.Add(this.maskedTextBox1);
+            this.gpbInfo.Controls.Add(this.mtbCed);
             this.gpbInfo.Controls.Add(this.txtEmp);
             this.gpbInfo.Controls.Add(this.lblEmp);
             this.gpbInfo.Controls.Add(this.txtDoc);
@@ -94,14 +96,14 @@
             this.mtbFecha.TabIndex = 13;
             this.mtbFecha.ValidatingType = typeof(System.DateTime);
             // 
-            // maskedTextBox1
+            // mtbCed
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(98, 75);
-            this.maskedTextBox1.Mask = "000-0000000-0";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(107, 21);
-            this.maskedTextBox1.TabIndex = 13;
+            this.mtbCed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtbCed.Location = new System.Drawing.Point(98, 75);
+            this.mtbCed.Mask = "000-0000000-0";
+            this.mtbCed.Name = "mtbCed";
+            this.mtbCed.Size = new System.Drawing.Size(107, 21);
+            this.mtbCed.TabIndex = 13;
             // 
             // txtEmp
             // 
@@ -369,6 +371,11 @@
             this.dgvDatos.Size = new System.Drawing.Size(468, 129);
             this.dgvDatos.TabIndex = 9;
             // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 50;
+            // 
             // FrmProReCi03
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,6 +394,8 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmProReCi03";
             this.Text = "Formulario de Procesos: Registro de Cita";
+            this.Activated += new System.EventHandler(this.FrmProReCi03_Activated);
+            this.Load += new System.EventHandler(this.FrmProReCi03_Load);
             this.gpbInfo.ResumeLayout(false);
             this.gpbInfo.PerformLayout();
             this.gpbFecha.ResumeLayout(false);
@@ -424,8 +433,9 @@
         private System.Windows.Forms.GroupBox gpbRegistro;
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.MaskedTextBox mtbFecha;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mtbCed;
         private System.Windows.Forms.TextBox txtEmp;
         private System.Windows.Forms.Label lblEmp;
+        private System.Windows.Forms.Timer timer;
     }
 }

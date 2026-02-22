@@ -389,6 +389,8 @@
             this.Name = "FrmProReCM01";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Procesos: Registro de Consultas Méd.";
+            this.Activated += new System.EventHandler(this.FrmProReCM01_Activated);
+            this.Load += new System.EventHandler(this.FrmProReCM01_Load);
             this.gpbRegistro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.gpbInfo.ResumeLayout(false);

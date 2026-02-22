@@ -49,7 +49,6 @@ C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologi
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManPaci02.resources
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManSegu01.resources
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmManUsua05.resources
-C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmMenu.resources
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProCoti05.resources
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProDiag02.resources
 C:\Users\michaleco chalequín\Desktop\ProyectoOdontologia2025\ProyectoOdontologia2025\obj\Debug\ProyectoOdontologia2025.FrmProEval04.resources

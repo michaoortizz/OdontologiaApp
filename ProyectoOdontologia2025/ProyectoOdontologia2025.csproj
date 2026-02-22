@@ -160,12 +160,6 @@
     <Compile Include="FrmManUsua05.Designer.cs">
       <DependentUpon>FrmManUsua05.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMenu.Designer.cs">
-      <DependentUpon>FrmMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmManSegu01.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,9 +293,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManUsua05.resx">
       <DependentUpon>FrmManUsua05.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenu.resx">
-      <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProCoti05.resx">
       <DependentUpon>FrmProCoti05.cs</DependentUpon>
