@@ -73,16 +73,7 @@ namespace ProyectoOdontologia2025
             comando.Transaction.Commit();
             conexion.Close();
         }
-        private void LimpiarObjetos()
-        {
-            txtId.Clear();
-            txtNombre.Clear();
-            mtbCant.Clear();
-            mtbCosto.Clear();
-            txtTipo.Clear();
-            txtProve.Clear();
-            txtNombre.Focus();
-        }
+       
 
 
 
