@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
+            this.mtbTel = new System.Windows.Forms.MaskedTextBox();
+            this.mtbCed = new System.Windows.Forms.MaskedTextBox();
             this.cbEspe = new System.Windows.Forms.ComboBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -58,8 +60,6 @@
             this.pnlDivision = new System.Windows.Forms.Panel();
             this.lblEnca = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.mtbCed = new System.Windows.Forms.MaskedTextBox();
-            this.mtbTel = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gpbInfo.SuspendLayout();
             this.gpbRegistros.SuspendLayout();
@@ -107,6 +107,24 @@
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Text = "Información";
             // 
+            // mtbTel
+            // 
+            this.mtbTel.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtbTel.Location = new System.Drawing.Point(346, 26);
+            this.mtbTel.Margin = new System.Windows.Forms.Padding(2);
+            this.mtbTel.Mask = "(999)000-0000";
+            this.mtbTel.Name = "mtbTel";
+            this.mtbTel.Size = new System.Drawing.Size(107, 23);
+            this.mtbTel.TabIndex = 35;
+            // 
+            // mtbCed
+            // 
+            this.mtbCed.Location = new System.Drawing.Point(125, 139);
+            this.mtbCed.Mask = "000-0000000-0";
+            this.mtbCed.Name = "mtbCed";
+            this.mtbCed.Size = new System.Drawing.Size(107, 22);
+            this.mtbCed.TabIndex = 34;
+            // 
             // cbEspe
             // 
             this.cbEspe.FormattingEnabled = true;
@@ -124,6 +142,7 @@
             this.cbEspe.Name = "cbEspe";
             this.cbEspe.Size = new System.Drawing.Size(107, 24);
             this.cbEspe.TabIndex = 33;
+            this.cbEspe.SelectedIndexChanged += new System.EventHandler(this.cbEspe_SelectedIndexChanged);
             // 
             // txtEmail
             // 
@@ -405,24 +424,6 @@
             this.btnSalir.Text = "&X";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // mtbCed
-            // 
-            this.mtbCed.Location = new System.Drawing.Point(125, 139);
-            this.mtbCed.Mask = "000-0000000-0";
-            this.mtbCed.Name = "mtbCed";
-            this.mtbCed.Size = new System.Drawing.Size(107, 22);
-            this.mtbCed.TabIndex = 34;
-            // 
-            // mtbTel
-            // 
-            this.mtbTel.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbTel.Location = new System.Drawing.Point(346, 26);
-            this.mtbTel.Margin = new System.Windows.Forms.Padding(2);
-            this.mtbTel.Mask = "(999)000-0000";
-            this.mtbTel.Name = "mtbTel";
-            this.mtbTel.Size = new System.Drawing.Size(107, 23);
-            this.mtbTel.TabIndex = 35;
             // 
             // FrmManDoct03
             // 

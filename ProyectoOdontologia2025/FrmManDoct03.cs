@@ -221,5 +221,10 @@ namespace ProyectoOdontologia2025
         {
             this.Close();
         }
+
+        private void cbEspe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
