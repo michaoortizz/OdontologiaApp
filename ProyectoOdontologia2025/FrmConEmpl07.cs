@@ -112,5 +112,10 @@ namespace ProyectoOdontologia2025
                 RefrescarTabla("Select * from Empleados Where crg_emp like '%" + txtBusqueda.Text + "%'");
             }
         }
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

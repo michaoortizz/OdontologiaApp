@@ -67,7 +67,6 @@
             this.btnManMate = new System.Windows.Forms.Button();
             this.btnManTrata = new System.Windows.Forms.Button();
             this.btnManProv = new System.Windows.Forms.Button();
-            this.btnManCita = new System.Windows.Forms.Button();
             this.btnManUsu = new System.Windows.Forms.Button();
             this.btnManEmp = new System.Windows.Forms.Button();
             this.btnManDoc = new System.Windows.Forms.Button();
@@ -78,12 +77,14 @@
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblClinic = new System.Windows.Forms.Label();
             this.panelSideBar.SuspendLayout();
             this.panelSubMenuUtilitarios.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
             this.panelSubMenuProcesos.SuspendLayout();
             this.panelSubMenuConsultas.SuspendLayout();
             this.panelSubMenuMante.SuspendLayout();
+            this.panelLogo.SuspendLayout();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -105,9 +106,8 @@
             this.panelSideBar.Controls.Add(this.panelLogo);
             this.panelSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideBar.Location = new System.Drawing.Point(0, 0);
-            this.panelSideBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSideBar.Name = "panelSideBar";
-            this.panelSideBar.Size = new System.Drawing.Size(333, 740);
+            this.panelSideBar.Size = new System.Drawing.Size(250, 601);
             this.panelSideBar.TabIndex = 0;
             // 
             // panelSubMenuUtilitarios
@@ -119,10 +119,9 @@
             this.panelSubMenuUtilitarios.Controls.Add(this.btnUtiRes);
             this.panelSubMenuUtilitarios.Controls.Add(this.btnUtiBU);
             this.panelSubMenuUtilitarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuUtilitarios.Location = new System.Drawing.Point(0, 1397);
-            this.panelSubMenuUtilitarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSubMenuUtilitarios.Location = new System.Drawing.Point(0, 1105);
             this.panelSubMenuUtilitarios.Name = "panelSubMenuUtilitarios";
-            this.panelSubMenuUtilitarios.Size = new System.Drawing.Size(312, 185);
+            this.panelSubMenuUtilitarios.Size = new System.Drawing.Size(233, 150);
             this.panelSubMenuUtilitarios.TabIndex = 10;
             // 
             // btnUtiGGL
@@ -131,11 +130,10 @@
             this.btnUtiGGL.FlatAppearance.BorderSize = 0;
             this.btnUtiGGL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUtiGGL.ForeColor = System.Drawing.Color.Indigo;
-            this.btnUtiGGL.Location = new System.Drawing.Point(0, 148);
-            this.btnUtiGGL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUtiGGL.Location = new System.Drawing.Point(0, 120);
             this.btnUtiGGL.Name = "btnUtiGGL";
-            this.btnUtiGGL.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnUtiGGL.Size = new System.Drawing.Size(312, 37);
+            this.btnUtiGGL.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnUtiGGL.Size = new System.Drawing.Size(233, 30);
             this.btnUtiGGL.TabIndex = 33;
             this.btnUtiGGL.Text = "Google";
             this.btnUtiGGL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,11 +145,10 @@
             this.btnUtiManUsu.FlatAppearance.BorderSize = 0;
             this.btnUtiManUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUtiManUsu.ForeColor = System.Drawing.Color.Indigo;
-            this.btnUtiManUsu.Location = new System.Drawing.Point(0, 111);
-            this.btnUtiManUsu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUtiManUsu.Location = new System.Drawing.Point(0, 90);
             this.btnUtiManUsu.Name = "btnUtiManUsu";
-            this.btnUtiManUsu.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnUtiManUsu.Size = new System.Drawing.Size(312, 37);
+            this.btnUtiManUsu.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnUtiManUsu.Size = new System.Drawing.Size(233, 30);
             this.btnUtiManUsu.TabIndex = 32;
             this.btnUtiManUsu.Text = "Manual de Usuario";
             this.btnUtiManUsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -163,11 +160,10 @@
             this.btnUtiCalc.FlatAppearance.BorderSize = 0;
             this.btnUtiCalc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUtiCalc.ForeColor = System.Drawing.Color.Indigo;
-            this.btnUtiCalc.Location = new System.Drawing.Point(0, 74);
-            this.btnUtiCalc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUtiCalc.Location = new System.Drawing.Point(0, 60);
             this.btnUtiCalc.Name = "btnUtiCalc";
-            this.btnUtiCalc.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnUtiCalc.Size = new System.Drawing.Size(312, 37);
+            this.btnUtiCalc.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnUtiCalc.Size = new System.Drawing.Size(233, 30);
             this.btnUtiCalc.TabIndex = 31;
             this.btnUtiCalc.Text = "Calculadora";
             this.btnUtiCalc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -179,11 +175,10 @@
             this.btnUtiRes.FlatAppearance.BorderSize = 0;
             this.btnUtiRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUtiRes.ForeColor = System.Drawing.Color.Indigo;
-            this.btnUtiRes.Location = new System.Drawing.Point(0, 37);
-            this.btnUtiRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUtiRes.Location = new System.Drawing.Point(0, 30);
             this.btnUtiRes.Name = "btnUtiRes";
-            this.btnUtiRes.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnUtiRes.Size = new System.Drawing.Size(312, 37);
+            this.btnUtiRes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnUtiRes.Size = new System.Drawing.Size(233, 30);
             this.btnUtiRes.TabIndex = 30;
             this.btnUtiRes.Text = "Restore";
             this.btnUtiRes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -196,10 +191,9 @@
             this.btnUtiBU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUtiBU.ForeColor = System.Drawing.Color.Indigo;
             this.btnUtiBU.Location = new System.Drawing.Point(0, 0);
-            this.btnUtiBU.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUtiBU.Name = "btnUtiBU";
-            this.btnUtiBU.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnUtiBU.Size = new System.Drawing.Size(312, 37);
+            this.btnUtiBU.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnUtiBU.Size = new System.Drawing.Size(233, 30);
             this.btnUtiBU.TabIndex = 29;
             this.btnUtiBU.Text = "Backup";
             this.btnUtiBU.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,11 +205,10 @@
             this.btnUti.FlatAppearance.BorderSize = 0;
             this.btnUti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUti.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnUti.Location = new System.Drawing.Point(0, 1354);
-            this.btnUti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUti.Location = new System.Drawing.Point(0, 1070);
             this.btnUti.Name = "btnUti";
-            this.btnUti.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnUti.Size = new System.Drawing.Size(312, 43);
+            this.btnUti.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnUti.Size = new System.Drawing.Size(233, 35);
             this.btnUti.TabIndex = 9;
             this.btnUti.Text = "Utilitarios";
             this.btnUti.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -231,10 +224,9 @@
             this.panelSubMenuReportes.Controls.Add(this.btnRepDiag);
             this.panelSubMenuReportes.Controls.Add(this.btnRepPac);
             this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 1169);
-            this.panelSubMenuReportes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 920);
             this.panelSubMenuReportes.Name = "panelSubMenuReportes";
-            this.panelSubMenuReportes.Size = new System.Drawing.Size(312, 185);
+            this.panelSubMenuReportes.Size = new System.Drawing.Size(233, 150);
             this.panelSubMenuReportes.TabIndex = 8;
             // 
             // btnRepPagos
@@ -243,11 +235,10 @@
             this.btnRepPagos.FlatAppearance.BorderSize = 0;
             this.btnRepPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRepPagos.ForeColor = System.Drawing.Color.Indigo;
-            this.btnRepPagos.Location = new System.Drawing.Point(0, 148);
-            this.btnRepPagos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRepPagos.Location = new System.Drawing.Point(0, 120);
             this.btnRepPagos.Name = "btnRepPagos";
-            this.btnRepPagos.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnRepPagos.Size = new System.Drawing.Size(312, 37);
+            this.btnRepPagos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnRepPagos.Size = new System.Drawing.Size(233, 30);
             this.btnRepPagos.TabIndex = 28;
             this.btnRepPagos.Text = "Pagos";
             this.btnRepPagos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -260,11 +251,10 @@
             this.btnRepCoti.FlatAppearance.BorderSize = 0;
             this.btnRepCoti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRepCoti.ForeColor = System.Drawing.Color.Indigo;
-            this.btnRepCoti.Location = new System.Drawing.Point(0, 111);
-            this.btnRepCoti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRepCoti.Location = new System.Drawing.Point(0, 90);
             this.btnRepCoti.Name = "btnRepCoti";
-            this.btnRepCoti.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnRepCoti.Size = new System.Drawing.Size(312, 37);
+            this.btnRepCoti.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnRepCoti.Size = new System.Drawing.Size(233, 30);
             this.btnRepCoti.TabIndex = 27;
             this.btnRepCoti.Text = "Cotizaciones";
             this.btnRepCoti.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -277,11 +267,10 @@
             this.btnRepCitas.FlatAppearance.BorderSize = 0;
             this.btnRepCitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRepCitas.ForeColor = System.Drawing.Color.Indigo;
-            this.btnRepCitas.Location = new System.Drawing.Point(0, 74);
-            this.btnRepCitas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRepCitas.Location = new System.Drawing.Point(0, 60);
             this.btnRepCitas.Name = "btnRepCitas";
-            this.btnRepCitas.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnRepCitas.Size = new System.Drawing.Size(312, 37);
+            this.btnRepCitas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnRepCitas.Size = new System.Drawing.Size(233, 30);
             this.btnRepCitas.TabIndex = 26;
             this.btnRepCitas.Text = "Citas";
             this.btnRepCitas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -294,11 +283,10 @@
             this.btnRepDiag.FlatAppearance.BorderSize = 0;
             this.btnRepDiag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRepDiag.ForeColor = System.Drawing.Color.Indigo;
-            this.btnRepDiag.Location = new System.Drawing.Point(0, 37);
-            this.btnRepDiag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRepDiag.Location = new System.Drawing.Point(0, 30);
             this.btnRepDiag.Name = "btnRepDiag";
-            this.btnRepDiag.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnRepDiag.Size = new System.Drawing.Size(312, 37);
+            this.btnRepDiag.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnRepDiag.Size = new System.Drawing.Size(233, 30);
             this.btnRepDiag.TabIndex = 25;
             this.btnRepDiag.Text = "Diagnósticos";
             this.btnRepDiag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -312,10 +300,9 @@
             this.btnRepPac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRepPac.ForeColor = System.Drawing.Color.Indigo;
             this.btnRepPac.Location = new System.Drawing.Point(0, 0);
-            this.btnRepPac.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRepPac.Name = "btnRepPac";
-            this.btnRepPac.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnRepPac.Size = new System.Drawing.Size(312, 37);
+            this.btnRepPac.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnRepPac.Size = new System.Drawing.Size(233, 30);
             this.btnRepPac.TabIndex = 24;
             this.btnRepPac.Text = "Pacientes";
             this.btnRepPac.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -328,11 +315,10 @@
             this.btnReportes.FlatAppearance.BorderSize = 0;
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnReportes.Location = new System.Drawing.Point(0, 1126);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReportes.Location = new System.Drawing.Point(0, 885);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(312, 43);
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(233, 35);
             this.btnReportes.TabIndex = 7;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -349,10 +335,9 @@
             this.panelSubMenuProcesos.Controls.Add(this.btnProDiag);
             this.panelSubMenuProcesos.Controls.Add(this.btnProRegCMed);
             this.panelSubMenuProcesos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuProcesos.Location = new System.Drawing.Point(0, 904);
-            this.panelSubMenuProcesos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSubMenuProcesos.Location = new System.Drawing.Point(0, 705);
             this.panelSubMenuProcesos.Name = "panelSubMenuProcesos";
-            this.panelSubMenuProcesos.Size = new System.Drawing.Size(312, 222);
+            this.panelSubMenuProcesos.Size = new System.Drawing.Size(233, 180);
             this.panelSubMenuProcesos.TabIndex = 6;
             // 
             // btnProRegPago
@@ -361,11 +346,10 @@
             this.btnProRegPago.FlatAppearance.BorderSize = 0;
             this.btnProRegPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProRegPago.ForeColor = System.Drawing.Color.Indigo;
-            this.btnProRegPago.Location = new System.Drawing.Point(0, 185);
-            this.btnProRegPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProRegPago.Location = new System.Drawing.Point(0, 150);
             this.btnProRegPago.Name = "btnProRegPago";
-            this.btnProRegPago.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnProRegPago.Size = new System.Drawing.Size(312, 37);
+            this.btnProRegPago.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnProRegPago.Size = new System.Drawing.Size(233, 30);
             this.btnProRegPago.TabIndex = 23;
             this.btnProRegPago.Text = "Registro de Pagos";
             this.btnProRegPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -378,11 +362,10 @@
             this.btnProCoti.FlatAppearance.BorderSize = 0;
             this.btnProCoti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProCoti.ForeColor = System.Drawing.Color.Indigo;
-            this.btnProCoti.Location = new System.Drawing.Point(0, 148);
-            this.btnProCoti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProCoti.Location = new System.Drawing.Point(0, 120);
             this.btnProCoti.Name = "btnProCoti";
-            this.btnProCoti.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnProCoti.Size = new System.Drawing.Size(312, 37);
+            this.btnProCoti.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnProCoti.Size = new System.Drawing.Size(233, 30);
             this.btnProCoti.TabIndex = 22;
             this.btnProCoti.Text = "Cotizaciones";
             this.btnProCoti.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -395,11 +378,10 @@
             this.btnProEva.FlatAppearance.BorderSize = 0;
             this.btnProEva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProEva.ForeColor = System.Drawing.Color.Indigo;
-            this.btnProEva.Location = new System.Drawing.Point(0, 111);
-            this.btnProEva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProEva.Location = new System.Drawing.Point(0, 90);
             this.btnProEva.Name = "btnProEva";
-            this.btnProEva.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnProEva.Size = new System.Drawing.Size(312, 37);
+            this.btnProEva.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnProEva.Size = new System.Drawing.Size(233, 30);
             this.btnProEva.TabIndex = 21;
             this.btnProEva.Text = "Evaluaciones";
             this.btnProEva.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -412,11 +394,10 @@
             this.btnProRegCitas.FlatAppearance.BorderSize = 0;
             this.btnProRegCitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProRegCitas.ForeColor = System.Drawing.Color.Indigo;
-            this.btnProRegCitas.Location = new System.Drawing.Point(0, 74);
-            this.btnProRegCitas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProRegCitas.Location = new System.Drawing.Point(0, 60);
             this.btnProRegCitas.Name = "btnProRegCitas";
-            this.btnProRegCitas.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnProRegCitas.Size = new System.Drawing.Size(312, 37);
+            this.btnProRegCitas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnProRegCitas.Size = new System.Drawing.Size(233, 30);
             this.btnProRegCitas.TabIndex = 20;
             this.btnProRegCitas.Text = "Registro de Citas";
             this.btnProRegCitas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -429,11 +410,10 @@
             this.btnProDiag.FlatAppearance.BorderSize = 0;
             this.btnProDiag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProDiag.ForeColor = System.Drawing.Color.Indigo;
-            this.btnProDiag.Location = new System.Drawing.Point(0, 37);
-            this.btnProDiag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProDiag.Location = new System.Drawing.Point(0, 30);
             this.btnProDiag.Name = "btnProDiag";
-            this.btnProDiag.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnProDiag.Size = new System.Drawing.Size(312, 37);
+            this.btnProDiag.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnProDiag.Size = new System.Drawing.Size(233, 30);
             this.btnProDiag.TabIndex = 19;
             this.btnProDiag.Text = "Diagnóstico";
             this.btnProDiag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -447,10 +427,9 @@
             this.btnProRegCMed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProRegCMed.ForeColor = System.Drawing.Color.Indigo;
             this.btnProRegCMed.Location = new System.Drawing.Point(0, 0);
-            this.btnProRegCMed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProRegCMed.Name = "btnProRegCMed";
-            this.btnProRegCMed.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnProRegCMed.Size = new System.Drawing.Size(312, 37);
+            this.btnProRegCMed.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnProRegCMed.Size = new System.Drawing.Size(233, 30);
             this.btnProRegCMed.TabIndex = 18;
             this.btnProRegCMed.Text = "Registro de Consultas Médicas";
             this.btnProRegCMed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -463,11 +442,10 @@
             this.btnProcesos.FlatAppearance.BorderSize = 0;
             this.btnProcesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcesos.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnProcesos.Location = new System.Drawing.Point(0, 861);
-            this.btnProcesos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProcesos.Location = new System.Drawing.Point(0, 670);
             this.btnProcesos.Name = "btnProcesos";
-            this.btnProcesos.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnProcesos.Size = new System.Drawing.Size(312, 43);
+            this.btnProcesos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnProcesos.Size = new System.Drawing.Size(233, 35);
             this.btnProcesos.TabIndex = 5;
             this.btnProcesos.Text = "Procesos";
             this.btnProcesos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -488,10 +466,9 @@
             this.panelSubMenuConsultas.Controls.Add(this.btnConCMed);
             this.panelSubMenuConsultas.Controls.Add(this.btnConPac);
             this.panelSubMenuConsultas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuConsultas.Location = new System.Drawing.Point(0, 492);
-            this.panelSubMenuConsultas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSubMenuConsultas.Location = new System.Drawing.Point(0, 370);
             this.panelSubMenuConsultas.Name = "panelSubMenuConsultas";
-            this.panelSubMenuConsultas.Size = new System.Drawing.Size(312, 369);
+            this.panelSubMenuConsultas.Size = new System.Drawing.Size(233, 300);
             this.panelSubMenuConsultas.TabIndex = 4;
             // 
             // btnConPagos
@@ -500,11 +477,10 @@
             this.btnConPagos.FlatAppearance.BorderSize = 0;
             this.btnConPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConPagos.ForeColor = System.Drawing.Color.Indigo;
-            this.btnConPagos.Location = new System.Drawing.Point(0, 333);
-            this.btnConPagos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConPagos.Location = new System.Drawing.Point(0, 270);
             this.btnConPagos.Name = "btnConPagos";
-            this.btnConPagos.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConPagos.Size = new System.Drawing.Size(312, 37);
+            this.btnConPagos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConPagos.Size = new System.Drawing.Size(233, 30);
             this.btnConPagos.TabIndex = 18;
             this.btnConPagos.Text = "Pagos";
             this.btnConPagos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -517,11 +493,10 @@
             this.btnConCoti.FlatAppearance.BorderSize = 0;
             this.btnConCoti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConCoti.ForeColor = System.Drawing.Color.Indigo;
-            this.btnConCoti.Location = new System.Drawing.Point(0, 296);
-            this.btnConCoti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConCoti.Location = new System.Drawing.Point(0, 240);
             this.btnConCoti.Name = "btnConCoti";
-            this.btnConCoti.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConCoti.Size = new System.Drawing.Size(312, 37);
+            this.btnConCoti.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConCoti.Size = new System.Drawing.Size(233, 30);
             this.btnConCoti.TabIndex = 17;
             this.btnConCoti.Text = "Cotizaciones";
             this.btnConCoti.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -534,11 +509,10 @@
             this.btnConEva.FlatAppearance.BorderSize = 0;
             this.btnConEva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConEva.ForeColor = System.Drawing.Color.Indigo;
-            this.btnConEva.Location = new System.Drawing.Point(0, 259);
-            this.btnConEva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConEva.Location = new System.Drawing.Point(0, 210);
             this.btnConEva.Name = "btnConEva";
-            this.btnConEva.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConEva.Size = new System.Drawing.Size(312, 37);
+            this.btnConEva.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConEva.Size = new System.Drawing.Size(233, 30);
             this.btnConEva.TabIndex = 16;
             this.btnConEva.Text = "Evaluaciones";
             this.btnConEva.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -551,11 +525,10 @@
             this.btnConEmp.FlatAppearance.BorderSize = 0;
             this.btnConEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConEmp.ForeColor = System.Drawing.Color.Indigo;
-            this.btnConEmp.Location = new System.Drawing.Point(0, 222);
-            this.btnConEmp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConEmp.Location = new System.Drawing.Point(0, 180);
             this.btnConEmp.Name = "btnConEmp";
-            this.btnConEmp.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConEmp.Size = new System.Drawing.Size(312, 37);
+            this.btnConEmp.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConEmp.Size = new System.Drawing.Size(233, 30);
             this.btnConEmp.TabIndex = 15;
             this.btnConEmp.Text = "Empleados";
             this.btnConEmp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -568,11 +541,10 @@
             this.btnConDoc.FlatAppearance.BorderSize = 0;
             this.btnConDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConDoc.ForeColor = System.Drawing.Color.Indigo;
-            this.btnConDoc.Location = new System.Drawing.Point(0, 185);
-            this.btnConDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConDoc.Location = new System.Drawing.Point(0, 150);
             this.btnConDoc.Name = "btnConDoc";
-            this.btnConDoc.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConDoc.Size = new System.Drawing.Size(312, 37);
+            this.btnConDoc.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConDoc.Size = new System.Drawing.Size(233, 30);
             this.btnConDoc.TabIndex = 14;
             this.btnConDoc.Text = "Doctores";
             this.btnConDoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -587,11 +559,10 @@
             this.btnConCitas.FlatAppearance.BorderSize = 0;
             this.btnConCitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConCitas.ForeColor = System.Drawing.Color.Indigo;
-            this.btnConCitas.Location = new System.Drawing.Point(0, 148);
-            this.btnConCitas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConCitas.Location = new System.Drawing.Point(0, 120);
             this.btnConCitas.Name = "btnConCitas";
-            this.btnConCitas.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConCitas.Size = new System.Drawing.Size(312, 37);
+            this.btnConCitas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConCitas.Size = new System.Drawing.Size(233, 30);
             this.btnConCitas.TabIndex = 13;
             this.btnConCitas.Text = "Citas";
             this.btnConCitas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -604,11 +575,10 @@
             this.btnConSegu.FlatAppearance.BorderSize = 0;
             this.btnConSegu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConSegu.ForeColor = System.Drawing.Color.Indigo;
-            this.btnConSegu.Location = new System.Drawing.Point(0, 111);
-            this.btnConSegu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConSegu.Location = new System.Drawing.Point(0, 90);
             this.btnConSegu.Name = "btnConSegu";
-            this.btnConSegu.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConSegu.Size = new System.Drawing.Size(312, 37);
+            this.btnConSegu.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConSegu.Size = new System.Drawing.Size(233, 30);
             this.btnConSegu.TabIndex = 12;
             this.btnConSegu.Text = "Seguros";
             this.btnConSegu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -621,11 +591,10 @@
             this.btnConDiag.FlatAppearance.BorderSize = 0;
             this.btnConDiag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConDiag.ForeColor = System.Drawing.Color.Indigo;
-            this.btnConDiag.Location = new System.Drawing.Point(0, 74);
-            this.btnConDiag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConDiag.Location = new System.Drawing.Point(0, 60);
             this.btnConDiag.Name = "btnConDiag";
-            this.btnConDiag.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConDiag.Size = new System.Drawing.Size(312, 37);
+            this.btnConDiag.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConDiag.Size = new System.Drawing.Size(233, 30);
             this.btnConDiag.TabIndex = 11;
             this.btnConDiag.Text = "Diagnósticos";
             this.btnConDiag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -638,11 +607,10 @@
             this.btnConCMed.FlatAppearance.BorderSize = 0;
             this.btnConCMed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConCMed.ForeColor = System.Drawing.Color.Indigo;
-            this.btnConCMed.Location = new System.Drawing.Point(0, 37);
-            this.btnConCMed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConCMed.Location = new System.Drawing.Point(0, 30);
             this.btnConCMed.Name = "btnConCMed";
-            this.btnConCMed.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConCMed.Size = new System.Drawing.Size(312, 37);
+            this.btnConCMed.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConCMed.Size = new System.Drawing.Size(233, 30);
             this.btnConCMed.TabIndex = 10;
             this.btnConCMed.Text = "Consultas Médicas";
             this.btnConCMed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -656,10 +624,9 @@
             this.btnConPac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConPac.ForeColor = System.Drawing.Color.Indigo;
             this.btnConPac.Location = new System.Drawing.Point(0, 0);
-            this.btnConPac.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConPac.Name = "btnConPac";
-            this.btnConPac.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConPac.Size = new System.Drawing.Size(312, 37);
+            this.btnConPac.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConPac.Size = new System.Drawing.Size(233, 30);
             this.btnConPac.TabIndex = 9;
             this.btnConPac.Text = "Pacientes";
             this.btnConPac.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -672,11 +639,10 @@
             this.btnCon.FlatAppearance.BorderSize = 0;
             this.btnCon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCon.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCon.Location = new System.Drawing.Point(0, 449);
-            this.btnCon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCon.Location = new System.Drawing.Point(0, 335);
             this.btnCon.Name = "btnCon";
-            this.btnCon.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnCon.Size = new System.Drawing.Size(312, 43);
+            this.btnCon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCon.Size = new System.Drawing.Size(233, 35);
             this.btnCon.TabIndex = 3;
             this.btnCon.Text = "Consultas";
             this.btnCon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -689,17 +655,15 @@
             this.panelSubMenuMante.Controls.Add(this.btnManMate);
             this.panelSubMenuMante.Controls.Add(this.btnManTrata);
             this.panelSubMenuMante.Controls.Add(this.btnManProv);
-            this.panelSubMenuMante.Controls.Add(this.btnManCita);
             this.panelSubMenuMante.Controls.Add(this.btnManUsu);
             this.panelSubMenuMante.Controls.Add(this.btnManEmp);
             this.panelSubMenuMante.Controls.Add(this.btnManDoc);
             this.panelSubMenuMante.Controls.Add(this.btnManPan);
             this.panelSubMenuMante.Controls.Add(this.btnManSeg);
             this.panelSubMenuMante.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuMante.Location = new System.Drawing.Point(0, 117);
-            this.panelSubMenuMante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSubMenuMante.Location = new System.Drawing.Point(0, 95);
             this.panelSubMenuMante.Name = "panelSubMenuMante";
-            this.panelSubMenuMante.Size = new System.Drawing.Size(312, 332);
+            this.panelSubMenuMante.Size = new System.Drawing.Size(233, 240);
             this.panelSubMenuMante.TabIndex = 2;
             // 
             // btnManMate
@@ -708,11 +672,10 @@
             this.btnManMate.FlatAppearance.BorderSize = 0;
             this.btnManMate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManMate.ForeColor = System.Drawing.Color.Indigo;
-            this.btnManMate.Location = new System.Drawing.Point(0, 296);
-            this.btnManMate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManMate.Location = new System.Drawing.Point(0, 210);
             this.btnManMate.Name = "btnManMate";
-            this.btnManMate.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnManMate.Size = new System.Drawing.Size(312, 37);
+            this.btnManMate.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnManMate.Size = new System.Drawing.Size(233, 30);
             this.btnManMate.TabIndex = 8;
             this.btnManMate.Text = "Materiales";
             this.btnManMate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -725,11 +688,10 @@
             this.btnManTrata.FlatAppearance.BorderSize = 0;
             this.btnManTrata.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManTrata.ForeColor = System.Drawing.Color.Indigo;
-            this.btnManTrata.Location = new System.Drawing.Point(0, 259);
-            this.btnManTrata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManTrata.Location = new System.Drawing.Point(0, 180);
             this.btnManTrata.Name = "btnManTrata";
-            this.btnManTrata.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnManTrata.Size = new System.Drawing.Size(312, 37);
+            this.btnManTrata.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnManTrata.Size = new System.Drawing.Size(233, 30);
             this.btnManTrata.TabIndex = 7;
             this.btnManTrata.Text = "Tratamientos";
             this.btnManTrata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -742,33 +704,15 @@
             this.btnManProv.FlatAppearance.BorderSize = 0;
             this.btnManProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManProv.ForeColor = System.Drawing.Color.Indigo;
-            this.btnManProv.Location = new System.Drawing.Point(0, 222);
-            this.btnManProv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManProv.Location = new System.Drawing.Point(0, 150);
             this.btnManProv.Name = "btnManProv";
-            this.btnManProv.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnManProv.Size = new System.Drawing.Size(312, 37);
+            this.btnManProv.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnManProv.Size = new System.Drawing.Size(233, 30);
             this.btnManProv.TabIndex = 6;
             this.btnManProv.Text = "Proveedores";
             this.btnManProv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManProv.UseVisualStyleBackColor = true;
             this.btnManProv.Click += new System.EventHandler(this.btnManProv_Click);
-            // 
-            // btnManCita
-            // 
-            this.btnManCita.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnManCita.FlatAppearance.BorderSize = 0;
-            this.btnManCita.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManCita.ForeColor = System.Drawing.Color.Indigo;
-            this.btnManCita.Location = new System.Drawing.Point(0, 185);
-            this.btnManCita.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnManCita.Name = "btnManCita";
-            this.btnManCita.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnManCita.Size = new System.Drawing.Size(312, 37);
-            this.btnManCita.TabIndex = 5;
-            this.btnManCita.Text = "Citas";
-            this.btnManCita.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManCita.UseVisualStyleBackColor = true;
-            this.btnManCita.Click += new System.EventHandler(this.btnManCita_Click);
             // 
             // btnManUsu
             // 
@@ -776,11 +720,10 @@
             this.btnManUsu.FlatAppearance.BorderSize = 0;
             this.btnManUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManUsu.ForeColor = System.Drawing.Color.Indigo;
-            this.btnManUsu.Location = new System.Drawing.Point(0, 148);
-            this.btnManUsu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManUsu.Location = new System.Drawing.Point(0, 120);
             this.btnManUsu.Name = "btnManUsu";
-            this.btnManUsu.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnManUsu.Size = new System.Drawing.Size(312, 37);
+            this.btnManUsu.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnManUsu.Size = new System.Drawing.Size(233, 30);
             this.btnManUsu.TabIndex = 4;
             this.btnManUsu.Text = "Usuarios";
             this.btnManUsu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -793,11 +736,10 @@
             this.btnManEmp.FlatAppearance.BorderSize = 0;
             this.btnManEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManEmp.ForeColor = System.Drawing.Color.Indigo;
-            this.btnManEmp.Location = new System.Drawing.Point(0, 111);
-            this.btnManEmp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManEmp.Location = new System.Drawing.Point(0, 90);
             this.btnManEmp.Name = "btnManEmp";
-            this.btnManEmp.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnManEmp.Size = new System.Drawing.Size(312, 37);
+            this.btnManEmp.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnManEmp.Size = new System.Drawing.Size(233, 30);
             this.btnManEmp.TabIndex = 3;
             this.btnManEmp.Text = "Empleados";
             this.btnManEmp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -810,11 +752,10 @@
             this.btnManDoc.FlatAppearance.BorderSize = 0;
             this.btnManDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManDoc.ForeColor = System.Drawing.Color.Indigo;
-            this.btnManDoc.Location = new System.Drawing.Point(0, 74);
-            this.btnManDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManDoc.Location = new System.Drawing.Point(0, 60);
             this.btnManDoc.Name = "btnManDoc";
-            this.btnManDoc.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnManDoc.Size = new System.Drawing.Size(312, 37);
+            this.btnManDoc.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnManDoc.Size = new System.Drawing.Size(233, 30);
             this.btnManDoc.TabIndex = 2;
             this.btnManDoc.Text = "Doctores";
             this.btnManDoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -827,11 +768,10 @@
             this.btnManPan.FlatAppearance.BorderSize = 0;
             this.btnManPan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManPan.ForeColor = System.Drawing.Color.Indigo;
-            this.btnManPan.Location = new System.Drawing.Point(0, 37);
-            this.btnManPan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManPan.Location = new System.Drawing.Point(0, 30);
             this.btnManPan.Name = "btnManPan";
-            this.btnManPan.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnManPan.Size = new System.Drawing.Size(312, 37);
+            this.btnManPan.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnManPan.Size = new System.Drawing.Size(233, 30);
             this.btnManPan.TabIndex = 1;
             this.btnManPan.Text = "Pacientes";
             this.btnManPan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -845,10 +785,9 @@
             this.btnManSeg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManSeg.ForeColor = System.Drawing.Color.Indigo;
             this.btnManSeg.Location = new System.Drawing.Point(0, 0);
-            this.btnManSeg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnManSeg.Name = "btnManSeg";
-            this.btnManSeg.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnManSeg.Size = new System.Drawing.Size(312, 37);
+            this.btnManSeg.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnManSeg.Size = new System.Drawing.Size(233, 30);
             this.btnManSeg.TabIndex = 0;
             this.btnManSeg.Text = "Seguros";
             this.btnManSeg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -861,11 +800,10 @@
             this.btnMan.FlatAppearance.BorderSize = 0;
             this.btnMan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMan.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnMan.Location = new System.Drawing.Point(0, 74);
-            this.btnMan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMan.Location = new System.Drawing.Point(0, 60);
             this.btnMan.Name = "btnMan";
-            this.btnMan.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnMan.Size = new System.Drawing.Size(312, 43);
+            this.btnMan.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMan.Size = new System.Drawing.Size(233, 35);
             this.btnMan.TabIndex = 1;
             this.btnMan.Text = "Mantenimientos";
             this.btnMan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -874,11 +812,11 @@
             // 
             // panelLogo
             // 
+            this.panelLogo.Controls.Add(this.lblClinic);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(312, 74);
+            this.panelLogo.Size = new System.Drawing.Size(233, 60);
             this.panelLogo.TabIndex = 0;
             // 
             // panelChildForm
@@ -886,20 +824,18 @@
             this.panelChildForm.BackColor = System.Drawing.Color.AliceBlue;
             this.panelChildForm.Controls.Add(this.picBoxLogo);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(333, 0);
-            this.panelChildForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelChildForm.Location = new System.Drawing.Point(250, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1010, 740);
+            this.panelChildForm.Size = new System.Drawing.Size(757, 601);
             this.panelChildForm.TabIndex = 1;
             // 
             // picBoxLogo
             // 
             this.picBoxLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picBoxLogo.Image = global::ProyectoOdontologia2025.Properties.Resources.logo_diente;
-            this.picBoxLogo.Location = new System.Drawing.Point(353, 178);
-            this.picBoxLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picBoxLogo.Location = new System.Drawing.Point(264, 145);
             this.picBoxLogo.Name = "picBoxLogo";
-            this.picBoxLogo.Size = new System.Drawing.Size(340, 338);
+            this.picBoxLogo.Size = new System.Drawing.Size(255, 275);
             this.picBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxLogo.TabIndex = 0;
             this.picBoxLogo.TabStop = false;
@@ -916,15 +852,25 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Dr. Cepin Dental Clinic";
             // 
+            // lblClinic
+            // 
+            this.lblClinic.AutoSize = true;
+            this.lblClinic.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClinic.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblClinic.Location = new System.Drawing.Point(12, 26);
+            this.lblClinic.Name = "lblClinic";
+            this.lblClinic.Size = new System.Drawing.Size(164, 19);
+            this.lblClinic.TabIndex = 0;
+            this.lblClinic.Text = "Dr. Cepin Dental Clinic";
+            // 
             // frmInicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(1343, 740);
+            this.ClientSize = new System.Drawing.Size(1007, 601);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideBar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú de Inicio";
@@ -935,6 +881,8 @@
             this.panelSubMenuProcesos.ResumeLayout(false);
             this.panelSubMenuConsultas.ResumeLayout(false);
             this.panelSubMenuMante.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            this.panelLogo.PerformLayout();
             this.panelChildForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
             this.ResumeLayout(false);
@@ -951,7 +899,6 @@
         private System.Windows.Forms.Button btnManMate;
         private System.Windows.Forms.Button btnManTrata;
         private System.Windows.Forms.Button btnManProv;
-        private System.Windows.Forms.Button btnManCita;
         private System.Windows.Forms.Button btnManUsu;
         private System.Windows.Forms.Button btnManEmp;
         private System.Windows.Forms.Button btnManDoc;
@@ -993,5 +940,6 @@
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.PictureBox picBoxLogo;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblClinic;
     }
 }

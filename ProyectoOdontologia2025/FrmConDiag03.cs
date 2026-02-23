@@ -102,5 +102,10 @@ namespace ProyectoOdontologia2025
                 RefrescarTabla("Select * from Diagnosticos Where descripcion like '%" + txtBusqueda.Text + "%'");
             }
         }
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

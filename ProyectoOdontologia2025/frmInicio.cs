@@ -133,8 +133,7 @@ namespace ProyectoOdontologia2025
 
         private void btnManCita_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmManCita06());
-            hideSubMenu();
+           
         }
 
         private void btnManProv_Click(object sender, EventArgs e)

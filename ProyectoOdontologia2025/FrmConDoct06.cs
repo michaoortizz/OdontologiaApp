@@ -131,5 +131,10 @@ namespace ProyectoOdontologia2025
                 RefrescarTabla("Select * from Doctores Where id_esp like '%" + txtBusqueda.Text + "%'");
             }
         }
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

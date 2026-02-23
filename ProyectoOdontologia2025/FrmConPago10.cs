@@ -111,5 +111,10 @@ namespace ProyectoOdontologia2025
                 RefrescarTabla("Select * from Pagos Where fec_pag like '%" + txtBusqueda.Text + "%'");
             }
         }
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

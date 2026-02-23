@@ -104,5 +104,10 @@ namespace ProyectoOdontologia2025
                 RefrescarTabla("Select * from Evaluaciones Where resultado like '%" + txtBusqueda.Text + "%'");
             }
         }
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

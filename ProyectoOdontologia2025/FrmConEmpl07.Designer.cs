@@ -114,6 +114,7 @@
             this.btnRtn.TabIndex = 31;
             this.btnRtn.Text = "Retornar";
             this.btnRtn.UseVisualStyleBackColor = false;
+            this.btnRtn.Click += new System.EventHandler(this.btnRtn_Click);
             // 
             // txtBusqueda
             // 

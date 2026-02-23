@@ -119,5 +119,12 @@ namespace ProyectoOdontologia2025
                 RefrescarTabla("Select * from Consultas_Medicas Where observaciones like '%" + txtBusqueda.Text + "%'");
             }
         }
+
+        
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -122,5 +122,11 @@ namespace ProyectoOdontologia2025
         {
 
         }
+
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

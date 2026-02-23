@@ -154,7 +154,7 @@ namespace ProyectoOdontologia2025
 
         private void btnRtn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)

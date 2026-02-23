@@ -97,5 +97,10 @@ namespace ProyectoOdontologia2025
                 RefrescarTabla("Select * from Seguros Where tel_seg like '%" + txtBusqueda.Text + "%'");
             }
         }
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

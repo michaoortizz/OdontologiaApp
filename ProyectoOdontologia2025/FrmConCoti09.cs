@@ -134,5 +134,15 @@ namespace ProyectoOdontologia2025
             }
 
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
