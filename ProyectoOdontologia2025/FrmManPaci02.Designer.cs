@@ -45,15 +45,13 @@
             this.lblCondi = new System.Windows.Forms.Label();
             this.mtbTel = new System.Windows.Forms.MaskedTextBox();
             this.lblTel = new System.Windows.Forms.Label();
-            this.txtTipo = new System.Windows.Forms.TextBox();
-            this.lblTipo = new System.Windows.Forms.Label();
             this.lblFechaNac = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCed = new System.Windows.Forms.Label();
-            this.dgvpacientes = new System.Windows.Forms.DataGridView();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbRegistro = new System.Windows.Forms.GroupBox();
             this.Fecha = new System.Windows.Forms.Timer(this.components);
             this.lblEnca = new System.Windows.Forms.Label();
@@ -68,7 +66,7 @@
             this.pnlDivision = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.gpbInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvpacientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gpbRegistro.SuspendLayout();
             this.gpbTitulo.SuspendLayout();
             this.gpbFecha.SuspendLayout();
@@ -91,8 +89,6 @@
             this.gpbInfo.Controls.Add(this.lblCondi);
             this.gpbInfo.Controls.Add(this.mtbTel);
             this.gpbInfo.Controls.Add(this.lblTel);
-            this.gpbInfo.Controls.Add(this.txtTipo);
-            this.gpbInfo.Controls.Add(this.lblTipo);
             this.gpbInfo.Controls.Add(this.lblFechaNac);
             this.gpbInfo.Controls.Add(this.txtApellido);
             this.gpbInfo.Controls.Add(this.txtNombre);
@@ -271,28 +267,6 @@
             this.lblTel.Text = "Teléfono:";
             this.lblTel.Click += new System.EventHandler(this.label13_Click);
             // 
-            // txtTipo
-            // 
-            this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipo.Location = new System.Drawing.Point(398, 115);
-            this.txtTipo.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(107, 21);
-            this.txtTipo.TabIndex = 12;
-            this.txtTipo.TextChanged += new System.EventHandler(this.txtTipo_TextChanged);
-            // 
-            // lblTipo
-            // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(285, 119);
-            this.lblTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(85, 15);
-            this.lblTipo.TabIndex = 11;
-            this.lblTipo.Text = "Tipo Paciente:";
-            this.lblTipo.Click += new System.EventHandler(this.label12_Click);
-            // 
             // lblFechaNac
             // 
             this.lblFechaNac.AutoSize = true;
@@ -358,22 +332,22 @@
             this.lblCed.Text = "Cédula:";
             this.lblCed.Click += new System.EventHandler(this.lblCed_Click);
             // 
-            // dgvpacientes
+            // dgvDatos
             // 
-            this.dgvpacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvpacientes.Location = new System.Drawing.Point(9, 19);
-            this.dgvpacientes.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvpacientes.Name = "dgvpacientes";
-            this.dgvpacientes.RowHeadersWidth = 51;
-            this.dgvpacientes.RowTemplate.Height = 24;
-            this.dgvpacientes.Size = new System.Drawing.Size(671, 140);
-            this.dgvpacientes.TabIndex = 24;
-            this.dgvpacientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dgvpacientes.Click += new System.EventHandler(this.dgvpacientes_Click);
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.Location = new System.Drawing.Point(9, 19);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.RowHeadersWidth = 51;
+            this.dgvDatos.RowTemplate.Height = 24;
+            this.dgvDatos.Size = new System.Drawing.Size(671, 140);
+            this.dgvDatos.TabIndex = 24;
+            this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvDatos.Click += new System.EventHandler(this.dgvpacientes_Click);
             // 
             // gpbRegistro
             // 
-            this.gpbRegistro.Controls.Add(this.dgvpacientes);
+            this.gpbRegistro.Controls.Add(this.dgvDatos);
             this.gpbRegistro.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbRegistro.Location = new System.Drawing.Point(23, 431);
             this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2);
@@ -527,7 +501,7 @@
             this.Load += new System.EventHandler(this.FrmManPaci02_Load);
             this.gpbInfo.ResumeLayout(false);
             this.gpbInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvpacientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.gpbRegistro.ResumeLayout(false);
             this.gpbTitulo.ResumeLayout(false);
             this.gpbTitulo.PerformLayout();
@@ -546,8 +520,6 @@
         private System.Windows.Forms.Label lblCed;
         private System.Windows.Forms.Label lblFechaNac;
         private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.TextBox txtTipo;
-        private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.Label lblTel;
         private System.Windows.Forms.TextBox txtCondi;
         private System.Windows.Forms.Label lblCondi;
@@ -557,7 +529,7 @@
         private System.Windows.Forms.Label lblSeguro;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label lblCorreo;
-        private System.Windows.Forms.DataGridView dgvpacientes;
+        private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.GroupBox gpbRegistro;
         private System.Windows.Forms.Timer Fecha;
         private System.Windows.Forms.Label lblEnca;
