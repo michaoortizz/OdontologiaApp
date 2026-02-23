@@ -36,7 +36,7 @@ namespace ProyectoOdontologia2025
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
             //Invocar procedimiento para visualizar datos
-            RefrescarTabla("Select * from Consultas_Medicas");
+            RefrescarTabla("Select * from Tratamientos");
 
         }
 
@@ -91,33 +91,64 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas_Medicas Where id_con like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where id_tra like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCed.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas_Medicas Where ced_pac like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where ced_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbDoc.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas_Medicas Where id_doc like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where id_doc like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbFecha.Checked == true)
+            if (rdbIdTT.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas_Medicas Where fec_con like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where id_ttr like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbMotivo.Checked == true)
+            if (rdbSer.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas_Medicas Where motivo like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where id_srv like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rbdObs.Checked == true)
+            if (rbdDescT.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas_Medicas Where observaciones like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where dsc_tra like '%" + txtBusqueda.Text + "%'");
             }
+
+            if (rbdCosto.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where cst_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdFechaI.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where fec_ini_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdFechaF.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where fec_fin_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdNom.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where nom_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdDura.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where dur_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdIdC.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where id_cit like '%" + txtBusqueda.Text + "%'");
+            }
+
         }
 
         

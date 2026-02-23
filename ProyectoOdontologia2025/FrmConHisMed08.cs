@@ -33,7 +33,7 @@ namespace ProyectoOdontologia2025
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
             //Invocar procedimiento para visualizar datos
-            RefrescarTabla("Select * from Evaluaciones");
+            RefrescarTabla("Select * from Historial_Clinico");
         }
 
         //Creo procedimiento para visualizar los datos en el data grid view
@@ -81,33 +81,48 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where id_eval like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Historial_Clinico Where id_hcl like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCed.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where ced_pac like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Historial_Clinico Where ced_pac like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbDoc.Checked == true)
+            if (rdbDiag.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where id_doc like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Historial_Clinico Where dig_hcl like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbFecha.Checked == true)
+            if (rdbTra.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where fecha_eval like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Historial_Clinico Where trt_prev_hcl like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbResu.Checked == true)
+            if (rdbAle.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where resultado like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Historial_Clinico Where alg_hcl like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbMed.Checked == true)
+            {
+                RefrescarTabla("Select * from Historial_Clinico Where mds_hcl like '%" + txtBusqueda.Text + "%'");
             }
         }
 
         private void btnRtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lblEnca_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbDoc_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
