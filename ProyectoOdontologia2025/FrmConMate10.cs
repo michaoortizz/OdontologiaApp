@@ -14,13 +14,13 @@ using System.Globalization;
 
 namespace ProyectoOdontologia2025
 {
-    public partial class FrmConPago10 : Form
+    public partial class FrmConMate10 : Form
     {
         //defino variables globales 
         SqlCommand comando = new SqlCommand();
         SqlConnection conexion = new SqlConnection("Data Source=localhost; initial catalog=OdontologiaBD; trusted_connection=yes");
 
-        public FrmConPago10()
+        public FrmConMate10()
         {
             InitializeComponent();
         }

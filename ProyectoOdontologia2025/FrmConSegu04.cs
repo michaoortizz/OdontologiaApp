@@ -102,5 +102,10 @@ namespace ProyectoOdontologia2025
         {
             this.Close();
         }
+
+        private void lblEnca_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -52,7 +52,6 @@
             this.btnProRegCMed = new System.Windows.Forms.Button();
             this.btnProcesos = new System.Windows.Forms.Button();
             this.panelSubMenuConsultas = new System.Windows.Forms.Panel();
-            this.btnConPagos = new System.Windows.Forms.Button();
             this.btnConCoti = new System.Windows.Forms.Button();
             this.btnConEva = new System.Windows.Forms.Button();
             this.btnConEmp = new System.Windows.Forms.Button();
@@ -74,10 +73,11 @@
             this.btnManSeg = new System.Windows.Forms.Button();
             this.btnMan = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.lblClinic = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblClinic = new System.Windows.Forms.Label();
+            this.btnConMate = new System.Windows.Forms.Button();
             this.panelSideBar.SuspendLayout();
             this.panelSubMenuUtilitarios.SuspendLayout();
             this.panelSubMenuReportes.SuspendLayout();
@@ -455,7 +455,7 @@
             // panelSubMenuConsultas
             // 
             this.panelSubMenuConsultas.BackColor = System.Drawing.Color.MediumPurple;
-            this.panelSubMenuConsultas.Controls.Add(this.btnConPagos);
+            this.panelSubMenuConsultas.Controls.Add(this.btnConMate);
             this.panelSubMenuConsultas.Controls.Add(this.btnConCoti);
             this.panelSubMenuConsultas.Controls.Add(this.btnConEva);
             this.panelSubMenuConsultas.Controls.Add(this.btnConEmp);
@@ -470,22 +470,6 @@
             this.panelSubMenuConsultas.Name = "panelSubMenuConsultas";
             this.panelSubMenuConsultas.Size = new System.Drawing.Size(233, 300);
             this.panelSubMenuConsultas.TabIndex = 4;
-            // 
-            // btnConPagos
-            // 
-            this.btnConPagos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConPagos.FlatAppearance.BorderSize = 0;
-            this.btnConPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConPagos.ForeColor = System.Drawing.Color.Indigo;
-            this.btnConPagos.Location = new System.Drawing.Point(0, 270);
-            this.btnConPagos.Name = "btnConPagos";
-            this.btnConPagos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnConPagos.Size = new System.Drawing.Size(233, 30);
-            this.btnConPagos.TabIndex = 18;
-            this.btnConPagos.Text = "Pagos";
-            this.btnConPagos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConPagos.UseVisualStyleBackColor = true;
-            this.btnConPagos.Click += new System.EventHandler(this.btnConPagos_Click);
             // 
             // btnConCoti
             // 
@@ -514,7 +498,7 @@
             this.btnConEva.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnConEva.Size = new System.Drawing.Size(233, 30);
             this.btnConEva.TabIndex = 16;
-            this.btnConEva.Text = "Evaluaciones";
+            this.btnConEva.Text = "Historial Medico";
             this.btnConEva.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConEva.UseVisualStyleBackColor = true;
             this.btnConEva.Click += new System.EventHandler(this.btnConEva_Click);
@@ -612,7 +596,7 @@
             this.btnConCMed.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnConCMed.Size = new System.Drawing.Size(233, 30);
             this.btnConCMed.TabIndex = 10;
-            this.btnConCMed.Text = "Consultas Médicas";
+            this.btnConCMed.Text = "Tratamientos";
             this.btnConCMed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConCMed.UseVisualStyleBackColor = true;
             this.btnConCMed.Click += new System.EventHandler(this.btnConCMed_Click);
@@ -819,6 +803,17 @@
             this.panelLogo.Size = new System.Drawing.Size(233, 60);
             this.panelLogo.TabIndex = 0;
             // 
+            // lblClinic
+            // 
+            this.lblClinic.AutoSize = true;
+            this.lblClinic.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClinic.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblClinic.Location = new System.Drawing.Point(12, 26);
+            this.lblClinic.Name = "lblClinic";
+            this.lblClinic.Size = new System.Drawing.Size(164, 19);
+            this.lblClinic.TabIndex = 0;
+            this.lblClinic.Text = "Dr. Cepin Dental Clinic";
+            // 
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.AliceBlue;
@@ -852,16 +847,21 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Dr. Cepin Dental Clinic";
             // 
-            // lblClinic
+            // btnConMate
             // 
-            this.lblClinic.AutoSize = true;
-            this.lblClinic.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClinic.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblClinic.Location = new System.Drawing.Point(12, 26);
-            this.lblClinic.Name = "lblClinic";
-            this.lblClinic.Size = new System.Drawing.Size(164, 19);
-            this.lblClinic.TabIndex = 0;
-            this.lblClinic.Text = "Dr. Cepin Dental Clinic";
+            this.btnConMate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConMate.FlatAppearance.BorderSize = 0;
+            this.btnConMate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConMate.ForeColor = System.Drawing.Color.Indigo;
+            this.btnConMate.Location = new System.Drawing.Point(0, 270);
+            this.btnConMate.Name = "btnConMate";
+            this.btnConMate.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConMate.Size = new System.Drawing.Size(233, 30);
+            this.btnConMate.TabIndex = 18;
+            this.btnConMate.Text = "Materiales";
+            this.btnConMate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConMate.UseVisualStyleBackColor = true;
+            this.btnConMate.Click += new System.EventHandler(this.btnConMate_Click);
             // 
             // frmInicio
             // 
@@ -906,7 +906,6 @@
         private System.Windows.Forms.Panel panelSubMenuConsultas;
         private System.Windows.Forms.Button btnCon;
         private System.Windows.Forms.Button btnProcesos;
-        private System.Windows.Forms.Button btnConPagos;
         private System.Windows.Forms.Button btnConCoti;
         private System.Windows.Forms.Button btnConEva;
         private System.Windows.Forms.Button btnConEmp;
@@ -941,5 +940,6 @@
         private System.Windows.Forms.PictureBox picBoxLogo;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblClinic;
+        private System.Windows.Forms.Button btnConMate;
     }
 }

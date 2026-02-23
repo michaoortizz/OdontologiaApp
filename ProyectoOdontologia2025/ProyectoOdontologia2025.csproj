@@ -52,11 +52,11 @@
     <Compile Include="FrmConCita05.Designer.cs">
       <DependentUpon>FrmConCita05.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConCmed02.cs">
+    <Compile Include="FrmConTrata02.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConCmed02.Designer.cs">
-      <DependentUpon>FrmConCmed02.cs</DependentUpon>
+    <Compile Include="FrmConTrata02.Designer.cs">
+      <DependentUpon>FrmConTrata02.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmConCoti09.cs">
       <SubType>Form</SubType>
@@ -82,11 +82,11 @@
     <Compile Include="FrmConEmpl07.Designer.cs">
       <DependentUpon>FrmConEmpl07.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConEval08.cs">
+    <Compile Include="FrmConHisMed08.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConEval08.Designer.cs">
-      <DependentUpon>FrmConEval08.cs</DependentUpon>
+    <Compile Include="FrmConHisMed08.Designer.cs">
+      <DependentUpon>FrmConHisMed08.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmConPaci01.cs">
       <SubType>Form</SubType>
@@ -94,11 +94,11 @@
     <Compile Include="FrmConPaci01.Designer.cs">
       <DependentUpon>FrmConPaci01.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConPago10.cs">
+    <Compile Include="FrmConMate10.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConPago10.Designer.cs">
-      <DependentUpon>FrmConPago10.cs</DependentUpon>
+    <Compile Include="FrmConMate10.Designer.cs">
+      <DependentUpon>FrmConMate10.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmConSegu04.cs">
       <SubType>Form</SubType>
@@ -237,8 +237,8 @@
     <EmbeddedResource Include="FrmConCita05.resx">
       <DependentUpon>FrmConCita05.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConCmed02.resx">
-      <DependentUpon>FrmConCmed02.cs</DependentUpon>
+    <EmbeddedResource Include="FrmConTrata02.resx">
+      <DependentUpon>FrmConTrata02.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConCoti09.resx">
       <DependentUpon>FrmConCoti09.cs</DependentUpon>
@@ -252,14 +252,14 @@
     <EmbeddedResource Include="FrmConEmpl07.resx">
       <DependentUpon>FrmConEmpl07.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConEval08.resx">
-      <DependentUpon>FrmConEval08.cs</DependentUpon>
+    <EmbeddedResource Include="FrmConHisMed08.resx">
+      <DependentUpon>FrmConHisMed08.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConPaci01.resx">
       <DependentUpon>FrmConPaci01.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConPago10.resx">
-      <DependentUpon>FrmConPago10.cs</DependentUpon>
+    <EmbeddedResource Include="FrmConMate10.resx">
+      <DependentUpon>FrmConMate10.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConSegu04.resx">
       <DependentUpon>FrmConSegu04.cs</DependentUpon>

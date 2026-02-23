@@ -238,9 +238,10 @@
             this.lblEnca.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnca.Location = new System.Drawing.Point(243, 109);
             this.lblEnca.Name = "lblEnca";
-            this.lblEnca.Size = new System.Drawing.Size(239, 28);
+            this.lblEnca.Size = new System.Drawing.Size(229, 28);
             this.lblEnca.TabIndex = 30;
-            this.lblEnca.Text = "Consultas de Seguros";
+            this.lblEnca.Text = "Consultas de Seguro";
+            this.lblEnca.Click += new System.EventHandler(this.lblEnca_Click);
             // 
             // gpbResultado
             // 

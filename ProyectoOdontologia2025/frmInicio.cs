@@ -156,7 +156,7 @@ namespace ProyectoOdontologia2025
 
         private void btnConCMed_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmConCmed02());
+            openChildForm(new FrmConTrata02());
             hideSubMenu();
         }
 
@@ -192,19 +192,13 @@ namespace ProyectoOdontologia2025
 
         private void btnConEva_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmConEval08());
+            openChildForm(new FrmConHisMed08());
             hideSubMenu();
         }
 
         private void btnConCoti_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmConCoti09());
-            hideSubMenu();
-        }
-
-        private void btnConPagos_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FrmConPago10());
             hideSubMenu();
         }
 
@@ -295,6 +289,12 @@ namespace ProyectoOdontologia2025
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnConMate_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmConMate10());
+            hideSubMenu();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ProyectoOdontologia2025
 {
-    partial class FrmConCmed02
+    partial class FrmConTrata02
     {
         /// <summary>
         /// Required designer variable.
@@ -321,13 +321,14 @@
             // 
             this.lblEnca.AutoSize = true;
             this.lblEnca.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnca.Location = new System.Drawing.Point(195, 106);
+            this.lblEnca.Location = new System.Drawing.Point(222, 104);
             this.lblEnca.Name = "lblEnca";
-            this.lblEnca.Size = new System.Drawing.Size(339, 28);
+            this.lblEnca.Size = new System.Drawing.Size(284, 28);
             this.lblEnca.TabIndex = 30;
-            this.lblEnca.Text = "Consulta de Consultas Médicas";
+            this.lblEnca.Text = "Consulta de Tratamientos";
+            this.lblEnca.Click += new System.EventHandler(this.lblEnca_Click);
             // 
-            // FrmConCmed02
+            // FrmConTrata02
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -340,7 +341,7 @@
             this.Controls.Add(this.gpbFecha);
             this.Controls.Add(this.gpbTitulo);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FrmConCmed02";
+            this.Name = "FrmConTrata02";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Consultas Médicas";
             this.Activated += new System.EventHandler(this.FrmConCmed02_Activated);
