@@ -28,7 +28,7 @@ namespace ProyectoOdontologia2025
         private void FrmConPago10_Load(object sender, EventArgs e)
         {
             //Invocar procedimiento para visualizar datos
-            RefrescarTabla("Select * from Pagos");
+            RefrescarTabla("Select * from Materiales");
 
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
@@ -83,32 +83,37 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Pagos Where id_pag like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where id_mat like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbCed.Checked == true)
+            if (rdbNom.Checked == true)
             {
-                RefrescarTabla("Select * from Pagos Where ced_pac like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where nom_mat like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbCita.Checked == true)
+            if (rdbDesc.Checked == true)
             {
-                RefrescarTabla("Select * from Pagos Where id_cit like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where dsc_mat like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbMP.Checked == true)
+            if (rdbCont.Checked == true)
             {
-                RefrescarTabla("Select * from Pagos Where id_mpa like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where cnt_mat like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbMon.Checked == true)
+            if (rdbCos.Checked == true)
             {
-                RefrescarTabla("Select * from Pagos Where mnt_pag like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where cst_mat like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbFechaPag.Checked == true)
+            if (rdbTipo.Checked == true)
             {
-                RefrescarTabla("Select * from Pagos Where fec_pag like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where tip_mat like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbPro.Checked == true)
+            {
+                RefrescarTabla("Select * from Materiales Where id_prv like '%" + txtBusqueda.Text + "%'");
             }
         }
 
