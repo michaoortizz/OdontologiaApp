@@ -64,7 +64,7 @@ namespace ProyectoOdontologia2025
         //Creo procedimiento para visualizar los datos en el data grid view
         private void RefrescarTabla()
         {
-            dgvpacientes.DataSource = null;
+            dgvDatos.DataSource = null;
             try
             {
                 conexion.Open(); //Abro la conexión
@@ -73,7 +73,7 @@ namespace ProyectoOdontologia2025
                 Adaptador.Fill(datos);
                 BindingSource fuenteDatos = new BindingSource();
                 fuenteDatos.DataSource = datos;
-                dgvpacientes.DataSource = fuenteDatos;
+                dgvDatos.DataSource = fuenteDatos;
 
             }
             catch (Exception Error)
@@ -129,7 +129,6 @@ namespace ProyectoOdontologia2025
             txtNombre.Clear();
             txtApellido.Clear();
             dtpFechaNac.Value = DateTime.Now;
-            txtTipo.Clear();
             mtbTel.Clear();
             txtCondi.Clear();
             txtCorreo.Clear();
@@ -141,6 +140,15 @@ namespace ProyectoOdontologia2025
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            mtbCed.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtNombre.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtApellido.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            cbGenero.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            dtpFechaNac.Value = Convert.ToDateTime(dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value);
+            mtbTel.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtCondi.Text = dgvDatos[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtCorreo.Text = dgvDatos[7, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtSeguro.Text = dgvDatos[8, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
 
         }
 
@@ -160,18 +168,7 @@ namespace ProyectoOdontologia2025
 
         private void dgvpacientes_Click(object sender, EventArgs e)
         {
-            mtbCed.Text = dgvpacientes[0, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
-            txtNombre.Text = dgvpacientes[1, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
-            txtApellido.Text = dgvpacientes[2, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
-            cbGenero.Text = dgvpacientes[3, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
-            dtpFechaNac.Value = Convert.ToDateTime(dgvpacientes[3, dgvpacientes.SelectedCells[0].RowIndex].Value);
-            txtTipo.Text = dgvpacientes[4, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
-            mtbTel.Text = dgvpacientes[5, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
-            txtCondi.Text = dgvpacientes[6, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
-            txtCorreo.Text = dgvpacientes[7, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
-            txtSeguro.Text = dgvpacientes[8, dgvpacientes.SelectedCells[0].RowIndex].Value.ToString();
-
-
+          
         }
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -196,7 +193,6 @@ namespace ProyectoOdontologia2025
                               "', fec_nac_pac = '" + dtpFechaNac.Value +
                               "', tel_pac = '" + mtbTel.Text.Trim() +
                               "', eml_pac = '" + txtCorreo.Text.Trim() +
-                              "', tip_pac = '" + txtTipo.Text.Trim() +
                               "', cnd_sal_pac= '" + txtCondi.Text.Trim() +
                               "', id_seg = '" + txtSeguro.Text.Trim() +
                               "' WHERE ced_pac = '" + mtbCed.Text.Trim() + "'");
@@ -215,7 +211,6 @@ namespace ProyectoOdontologia2025
                               dtpFechaNac.Value + "', '" +
                               mtbTel.Text.Trim() + "', '" +
                               txtCorreo.Text.Trim() + "', '" +
-                              txtTipo.Text.Trim() + "', '" +
                               txtCondi.Text.Trim() + "', '" +
                               txtSeguro.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
