@@ -52,8 +52,8 @@ namespace ProyectoOdontologia2025
             {
                 new Option { Id = 1, Name = "Confirmada" },
                 new Option { Id = 2, Name = "Finalizada" },
-                new Option { Id = 3, Name = "Pendiente" },
-                new Option { Id = 4, Name = "Cancelada" }
+                new Option { Id = 1002, Name = "Pendiente" },
+                new Option { Id = 1003, Name = "Cancelada" }
             };
 
             cbEstado.DataSource = optionsList;
@@ -79,7 +79,7 @@ namespace ProyectoOdontologia2025
                 Adaptador.Fill(datos);
                 BindingSource fuenteDatos = new BindingSource();
                 fuenteDatos.DataSource = datos;
-                dgvDatos.DataSource = fuenteDatos;
+                dgvCitas.DataSource = fuenteDatos;
 
             }
             catch (Exception Error)
@@ -147,15 +147,15 @@ namespace ProyectoOdontologia2025
         private void dgvCitas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //Paso los datos del datagridview a los textbox
-            txtCita.Text = dgvCitas[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCed.Text = dgvCitas[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtDoc.Text = dgvCitas[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            cbEstado.SelectedValue = dgvCitas[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbFecha.Text = dgvCitas[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbHora.Text = dgvCitas[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtMotivo.Text = dgvCitas[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtCmt.Text = dgvCitas[7, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtUsu.Text = dgvCitas[8, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtCita.Text = dgvCitas[0, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
+            mtbCed.Text = dgvCitas[1, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
+            txtDoc.Text = dgvCitas[2, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
+            cbEstado.SelectedValue = dgvCitas[3, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
+            mtbFecha.Text = dgvCitas[4, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
+            mtbHora.Text = dgvCitas[5, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
+            txtMotivo.Text = dgvCitas[6, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
+            txtCmt.Text = dgvCitas[7, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
+            txtUsu.Text = dgvCitas[8, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
 
         }
 
@@ -170,11 +170,11 @@ namespace ProyectoOdontologia2025
             else
             {
                 //Modificar un registro existente
-                EscribirDatos("Update Consultas_Medicas Set ced_pac = '" + mtbCed.Text.Trim() +
+                EscribirDatos("Update Citas Set ced_pac = '" + mtbCed.Text.Trim() +
                     "', id_doc = '" + txtDoc.Text.Trim() +
                     "', id_eci = '" + cbEstado.SelectedValue +
                     "', fecha_cit = '" + mtbFecha.Text.Trim() +
-                    "', hora_cit =  '" + txtMotivo.Text.Trim() +
+                    "', hora_cit =  '" + mtbHora.Text.Trim() +
                     "', mtv_cit = '" + txtMotivo.Text.Trim() +
                     "', cmt_cit =  '" + txtCmt.Text.Trim() +
                     "', id_usr = '" + txtUsu.Text.Trim() +
@@ -184,6 +184,24 @@ namespace ProyectoOdontologia2025
 
             RefrescarTabla(); //Invoco función
             LimpiarObjetos();
+        }
+
+        private void btnRet_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnLim_Click(object sender, EventArgs e)
+        {
+            LimpiarObjetos();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            EscribirDatos("Delete from Citas where id_cit= '" + txtCita.Text + "'");
+            MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            LimpiarObjetos();
+            RefrescarTabla();
         }
     }
 }

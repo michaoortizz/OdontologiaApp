@@ -204,7 +204,7 @@ namespace ProyectoOdontologia2025
 
         private void btnBorrar_Click_1(object sender, EventArgs e)
         {
-            EscribirDatos("Delete from Doctores where IdDoctor= '" + txtId.Text + "'");
+            EscribirDatos("Delete from Doctores where id_doc= '" + txtId.Text + "'");
             MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             LimpiarObjetos();
             RefrescarTabla();
@@ -225,6 +225,11 @@ namespace ProyectoOdontologia2025
         private void cbEspe_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLim_Click(object sender, EventArgs e)
+        {
+            LimpiarObjetos();
         }
     }
 }

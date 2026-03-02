@@ -60,6 +60,7 @@
             this.pnlDivision = new System.Windows.Forms.Panel();
             this.lblEnca = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnLim = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gpbInfo.SuspendLayout();
             this.gpbRegistros.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             // gpbInfo
             // 
+            this.gpbInfo.Controls.Add(this.btnLim);
             this.gpbInfo.Controls.Add(this.mtbTel);
             this.gpbInfo.Controls.Add(this.mtbCed);
             this.gpbInfo.Controls.Add(this.cbEspe);
@@ -425,6 +427,21 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnLim
+            // 
+            this.btnLim.BackColor = System.Drawing.Color.Honeydew;
+            this.btnLim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLim.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLim.ForeColor = System.Drawing.Color.Indigo;
+            this.btnLim.Location = new System.Drawing.Point(530, 32);
+            this.btnLim.Name = "btnLim";
+            this.btnLim.Size = new System.Drawing.Size(146, 27);
+            this.btnLim.TabIndex = 36;
+            this.btnLim.Text = "&Limpiar";
+            this.btnLim.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnLim.UseVisualStyleBackColor = false;
+            this.btnLim.Click += new System.EventHandler(this.btnLim_Click);
+            // 
             // FrmManDoct03
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,5 +507,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.MaskedTextBox mtbCed;
         private System.Windows.Forms.MaskedTextBox mtbTel;
+        private System.Windows.Forms.Button btnLim;
     }
 }
