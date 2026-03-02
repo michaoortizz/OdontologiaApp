@@ -107,6 +107,11 @@ namespace ProyectoOdontologia2025
                 RefrescarTabla("Select * from Citas Where fec_cit like '%" + txtBusqueda.Text + "%'");
             }
 
+            if (rdbHora.Checked == true)
+            {
+                RefrescarTabla("Select * from Citas Where hora_cit like '%" + txtBusqueda.Text + "%'");
+            }
+
             if (rdbCom.Checked == true)
             {
                 RefrescarTabla("Select * from Citas Where cmt_cit like '%" + txtBusqueda.Text + "%'");
