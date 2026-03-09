@@ -19,7 +19,7 @@ namespace ProyectoOdontologia2025
     {
         //defino variables globales 
         SqlCommand comando = new SqlCommand();
-        SqlConnection conexion = new SqlConnection("Data Source=localhost; initial catalog=OdontologiaBD; trusted_connection=yes");
+        SqlConnection conexion = new SqlConnection("Data Source=132.145.163.113,1433;Initial Catalog=OdontologiaBD;User ID=sa;Password=Admin123@Strong");
 
         public FrmManPaci02()
         {
