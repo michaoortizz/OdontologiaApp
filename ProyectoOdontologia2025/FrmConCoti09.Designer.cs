@@ -32,17 +32,13 @@
             this.gpbResultado = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbCriterio = new System.Windows.Forms.GroupBox();
+            this.rdbDet = new System.Windows.Forms.RadioButton();
             this.btnRtn = new System.Windows.Forms.Button();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
-            this.rdbEstado = new System.Windows.Forms.RadioButton();
-            this.rdbBalance = new System.Windows.Forms.RadioButton();
-            this.rdbCant = new System.Windows.Forms.RadioButton();
-            this.rdbDesc = new System.Windows.Forms.RadioButton();
-            this.rdbEmp = new System.Windows.Forms.RadioButton();
+            this.rdbFecha = new System.Windows.Forms.RadioButton();
             this.rdbMonto = new System.Windows.Forms.RadioButton();
             this.rdbCedula = new System.Windows.Forms.RadioButton();
-            this.rdbDiag = new System.Windows.Forms.RadioButton();
             this.rdbId = new System.Windows.Forms.RadioButton();
             this.Fecha = new System.Windows.Forms.Timer(this.components);
             this.lblEnca = new System.Windows.Forms.Label();
@@ -65,7 +61,7 @@
             // 
             this.gpbResultado.Controls.Add(this.dgvDatos);
             this.gpbResultado.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbResultado.Location = new System.Drawing.Point(23, 344);
+            this.gpbResultado.Location = new System.Drawing.Point(23, 318);
             this.gpbResultado.Margin = new System.Windows.Forms.Padding(2);
             this.gpbResultado.Name = "gpbResultado";
             this.gpbResultado.Padding = new System.Windows.Forms.Padding(2);
@@ -88,44 +84,54 @@
             // gpbCriterio
             // 
             this.gpbCriterio.BackColor = System.Drawing.Color.Lavender;
+            this.gpbCriterio.Controls.Add(this.rdbDet);
             this.gpbCriterio.Controls.Add(this.btnRtn);
             this.gpbCriterio.Controls.Add(this.txtBusqueda);
             this.gpbCriterio.Controls.Add(this.lblBusqueda);
-            this.gpbCriterio.Controls.Add(this.rdbEstado);
-            this.gpbCriterio.Controls.Add(this.rdbBalance);
-            this.gpbCriterio.Controls.Add(this.rdbCant);
-            this.gpbCriterio.Controls.Add(this.rdbDesc);
-            this.gpbCriterio.Controls.Add(this.rdbEmp);
+            this.gpbCriterio.Controls.Add(this.rdbFecha);
             this.gpbCriterio.Controls.Add(this.rdbMonto);
             this.gpbCriterio.Controls.Add(this.rdbCedula);
-            this.gpbCriterio.Controls.Add(this.rdbDiag);
             this.gpbCriterio.Controls.Add(this.rdbId);
             this.gpbCriterio.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbCriterio.Location = new System.Drawing.Point(23, 166);
             this.gpbCriterio.Margin = new System.Windows.Forms.Padding(2);
             this.gpbCriterio.Name = "gpbCriterio";
             this.gpbCriterio.Padding = new System.Windows.Forms.Padding(2);
-            this.gpbCriterio.Size = new System.Drawing.Size(689, 152);
+            this.gpbCriterio.Size = new System.Drawing.Size(689, 128);
             this.gpbCriterio.TabIndex = 35;
             this.gpbCriterio.TabStop = false;
             this.gpbCriterio.Text = "Criterios de busqueda";
             this.gpbCriterio.Enter += new System.EventHandler(this.gpbCriterio_Enter);
             // 
+            // rdbDet
+            // 
+            this.rdbDet.AutoSize = true;
+            this.rdbDet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbDet.Location = new System.Drawing.Point(550, 34);
+            this.rdbDet.Margin = new System.Windows.Forms.Padding(2);
+            this.rdbDet.Name = "rdbDet";
+            this.rdbDet.Size = new System.Drawing.Size(64, 19);
+            this.rdbDet.TabIndex = 41;
+            this.rdbDet.TabStop = true;
+            this.rdbDet.Text = "Detalle";
+            this.rdbDet.UseVisualStyleBackColor = true;
+            // 
             // btnRtn
             // 
             this.btnRtn.BackColor = System.Drawing.Color.AliceBlue;
             this.btnRtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRtn.Location = new System.Drawing.Point(496, 102);
+            this.btnRtn.Location = new System.Drawing.Point(500, 78);
             this.btnRtn.Name = "btnRtn";
             this.btnRtn.Size = new System.Drawing.Size(156, 35);
             this.btnRtn.TabIndex = 40;
             this.btnRtn.Text = "Retornar";
             this.btnRtn.UseVisualStyleBackColor = false;
+            this.btnRtn.Click += new System.EventHandler(this.btnRtn_Click);
             // 
             // txtBusqueda
             // 
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.Location = new System.Drawing.Point(256, 113);
+            this.txtBusqueda.Location = new System.Drawing.Point(236, 84);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(148, 22);
             this.txtBusqueda.TabIndex = 16;
@@ -135,85 +141,31 @@
             // 
             this.lblBusqueda.AutoSize = true;
             this.lblBusqueda.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusqueda.Location = new System.Drawing.Point(20, 113);
+            this.lblBusqueda.Location = new System.Drawing.Point(21, 84);
             this.lblBusqueda.Name = "lblBusqueda";
             this.lblBusqueda.Size = new System.Drawing.Size(196, 19);
             this.lblBusqueda.TabIndex = 15;
             this.lblBusqueda.Text = "Digite criterio de búsqueda:";
             // 
-            // rdbEstado
+            // rdbFecha
             // 
-            this.rdbEstado.AutoSize = true;
-            this.rdbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbEstado.Location = new System.Drawing.Point(488, 66);
-            this.rdbEstado.Margin = new System.Windows.Forms.Padding(2);
-            this.rdbEstado.Name = "rdbEstado";
-            this.rdbEstado.Size = new System.Drawing.Size(63, 19);
-            this.rdbEstado.TabIndex = 14;
-            this.rdbEstado.TabStop = true;
-            this.rdbEstado.Text = "Estado";
-            this.rdbEstado.UseVisualStyleBackColor = true;
-            this.rdbEstado.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged);
-            // 
-            // rdbBalance
-            // 
-            this.rdbBalance.AutoSize = true;
-            this.rdbBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbBalance.Location = new System.Drawing.Point(375, 66);
-            this.rdbBalance.Margin = new System.Windows.Forms.Padding(2);
-            this.rdbBalance.Name = "rdbBalance";
-            this.rdbBalance.Size = new System.Drawing.Size(70, 19);
-            this.rdbBalance.TabIndex = 13;
-            this.rdbBalance.TabStop = true;
-            this.rdbBalance.Text = "Balance";
-            this.rdbBalance.UseVisualStyleBackColor = true;
-            // 
-            // rdbCant
-            // 
-            this.rdbCant.AutoSize = true;
-            this.rdbCant.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbCant.Location = new System.Drawing.Point(218, 66);
-            this.rdbCant.Margin = new System.Windows.Forms.Padding(2);
-            this.rdbCant.Name = "rdbCant";
-            this.rdbCant.Size = new System.Drawing.Size(115, 19);
-            this.rdbCant.TabIndex = 12;
-            this.rdbCant.TabStop = true;
-            this.rdbCant.Text = "Cantidad Cuotas";
-            this.rdbCant.UseVisualStyleBackColor = true;
-            // 
-            // rdbDesc
-            // 
-            this.rdbDesc.AutoSize = true;
-            this.rdbDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbDesc.Location = new System.Drawing.Point(87, 66);
-            this.rdbDesc.Margin = new System.Windows.Forms.Padding(2);
-            this.rdbDesc.Name = "rdbDesc";
-            this.rdbDesc.Size = new System.Drawing.Size(90, 19);
-            this.rdbDesc.TabIndex = 11;
-            this.rdbDesc.TabStop = true;
-            this.rdbDesc.Text = "Descripción";
-            this.rdbDesc.UseVisualStyleBackColor = true;
-            this.rdbDesc.CheckedChanged += new System.EventHandler(this.rdbdesc_CheckedChanged);
-            // 
-            // rdbEmp
-            // 
-            this.rdbEmp.AutoSize = true;
-            this.rdbEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbEmp.Location = new System.Drawing.Point(496, 34);
-            this.rdbEmp.Margin = new System.Windows.Forms.Padding(2);
-            this.rdbEmp.Name = "rdbEmp";
-            this.rdbEmp.Size = new System.Drawing.Size(95, 19);
-            this.rdbEmp.TabIndex = 4;
-            this.rdbEmp.TabStop = true;
-            this.rdbEmp.Text = "Id Empleado";
-            this.rdbEmp.UseVisualStyleBackColor = true;
-            this.rdbEmp.CheckedChanged += new System.EventHandler(this.rdbemp_CheckedChanged);
+            this.rdbFecha.AutoSize = true;
+            this.rdbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFecha.Location = new System.Drawing.Point(298, 34);
+            this.rdbFecha.Margin = new System.Windows.Forms.Padding(2);
+            this.rdbFecha.Name = "rdbFecha";
+            this.rdbFecha.Size = new System.Drawing.Size(118, 19);
+            this.rdbFecha.TabIndex = 4;
+            this.rdbFecha.TabStop = true;
+            this.rdbFecha.Text = "Fecha Realizada";
+            this.rdbFecha.UseVisualStyleBackColor = true;
+            this.rdbFecha.CheckedChanged += new System.EventHandler(this.rdbemp_CheckedChanged);
             // 
             // rdbMonto
             // 
             this.rdbMonto.AutoSize = true;
             this.rdbMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbMonto.Location = new System.Drawing.Point(408, 34);
+            this.rdbMonto.Location = new System.Drawing.Point(452, 34);
             this.rdbMonto.Margin = new System.Windows.Forms.Padding(2);
             this.rdbMonto.Name = "rdbMonto";
             this.rdbMonto.Size = new System.Drawing.Size(60, 19);
@@ -227,7 +179,7 @@
             // 
             this.rdbCedula.AutoSize = true;
             this.rdbCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbCedula.Location = new System.Drawing.Point(294, 34);
+            this.rdbCedula.Location = new System.Drawing.Point(182, 34);
             this.rdbCedula.Margin = new System.Windows.Forms.Padding(2);
             this.rdbCedula.Name = "rdbCedula";
             this.rdbCedula.Size = new System.Drawing.Size(77, 19);
@@ -236,24 +188,11 @@
             this.rdbCedula.Text = "Id Cédula";
             this.rdbCedula.UseVisualStyleBackColor = true;
             // 
-            // rdbDiag
-            // 
-            this.rdbDiag.AutoSize = true;
-            this.rdbDiag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbDiag.Location = new System.Drawing.Point(172, 34);
-            this.rdbDiag.Margin = new System.Windows.Forms.Padding(2);
-            this.rdbDiag.Name = "rdbDiag";
-            this.rdbDiag.Size = new System.Drawing.Size(103, 19);
-            this.rdbDiag.TabIndex = 1;
-            this.rdbDiag.TabStop = true;
-            this.rdbDiag.Text = "Id Diagnóstico";
-            this.rdbDiag.UseVisualStyleBackColor = true;
-            // 
             // rdbId
             // 
             this.rdbId.AutoSize = true;
             this.rdbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbId.Location = new System.Drawing.Point(32, 34);
+            this.rdbId.Location = new System.Drawing.Point(56, 34);
             this.rdbId.Margin = new System.Windows.Forms.Padding(2);
             this.rdbId.Name = "rdbId";
             this.rdbId.Size = new System.Drawing.Size(95, 19);
@@ -394,15 +333,10 @@
 
         private System.Windows.Forms.GroupBox gpbResultado;
         private System.Windows.Forms.GroupBox gpbCriterio;
-        private System.Windows.Forms.RadioButton rdbDesc;
-        private System.Windows.Forms.RadioButton rdbEmp;
+        private System.Windows.Forms.RadioButton rdbFecha;
         private System.Windows.Forms.RadioButton rdbMonto;
         private System.Windows.Forms.RadioButton rdbCedula;
-        private System.Windows.Forms.RadioButton rdbDiag;
         private System.Windows.Forms.RadioButton rdbId;
-        private System.Windows.Forms.RadioButton rdbEstado;
-        private System.Windows.Forms.RadioButton rdbBalance;
-        private System.Windows.Forms.RadioButton rdbCant;
         private System.Windows.Forms.Timer Fecha;
         private System.Windows.Forms.Label lblEnca;
         private System.Windows.Forms.GroupBox gpbFecha;
@@ -417,5 +351,6 @@
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Label lblBusqueda;
         private System.Windows.Forms.Button btnRtn;
+        private System.Windows.Forms.RadioButton rdbDet;
     }
 }

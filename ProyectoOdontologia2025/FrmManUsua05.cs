@@ -184,5 +184,10 @@ namespace ProyectoOdontologia2025
             LimpiarObjetos();
             RefrescarTabla();
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

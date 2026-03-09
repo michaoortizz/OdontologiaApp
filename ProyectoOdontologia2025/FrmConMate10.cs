@@ -14,26 +14,24 @@ using System.Globalization;
 
 namespace ProyectoOdontologia2025
 {
-
-    public partial class FrmConEval08 : Form
+    public partial class FrmConMate10 : Form
     {
-
         //defino variables globales 
         SqlCommand comando = new SqlCommand();
         SqlConnection conexion = new SqlConnection("Data Source=132.145.163.113,1433;Initial Catalog=OdontologiaBD;User ID=sa;Password=Admin123@Strong");
 
-        public FrmConEval08()
+        public FrmConMate10()
         {
             InitializeComponent();
         }
 
-        private void FrmConEval08_Load(object sender, EventArgs e)
+        private void FrmConPago10_Load(object sender, EventArgs e)
         {
+            //Invocar procedimiento para visualizar datos
+            RefrescarTabla("Select * from Materiales");
+
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
-
-            //Invocar procedimiento para visualizar datos
-            RefrescarTabla("Select * from Evaluaciones");
         }
 
         //Creo procedimiento para visualizar los datos en el data grid view
@@ -65,7 +63,7 @@ namespace ProyectoOdontologia2025
 
         }
 
-        private void FrmConEval08_Activated(object sender, EventArgs e)
+        private void FrmConPago10_Activated(object sender, EventArgs e)
         {
             comando.Connection = conexion;
         }
@@ -76,43 +74,52 @@ namespace ProyectoOdontologia2025
             lblhora2.Text = DateTime.Now.ToLongTimeString();
         }
 
+        private void rdbformap_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void txtBusqueda_TextChanged_1(object sender, EventArgs e)
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where IdEvaluacion like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where id_mat like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbDoc.Checked == true)
+            if (rdbNom.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where IdDoctor like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbFecha.Checked == true)
-            {
-                RefrescarTabla("Select * from Evaluaciones Where FechaEvaluacion like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbCed.Checked == true)
-            {
-                RefrescarTabla("Select * from Evaluaciones Where Cedula like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where nom_mat like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbDesc.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where Descripcion like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where dsc_mat like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbCuad.Checked == true)
+            if (rdbCont.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where Cuadrante like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where cnt_mat like '%" + txtBusqueda.Text + "%'");
             }
 
-            if (rdbObs.Checked == true)
+            if (rdbCos.Checked == true)
             {
-                RefrescarTabla("Select * from Evaluaciones Where Observacion like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Materiales Where cst_mat like '%" + txtBusqueda.Text + "%'");
             }
+
+            if (rdbTipo.Checked == true)
+            {
+                RefrescarTabla("Select * from Materiales Where tip_mat like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbPro.Checked == true)
+            {
+                RefrescarTabla("Select * from Materiales Where id_prv like '%" + txtBusqueda.Text + "%'");
+            }
+        }
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

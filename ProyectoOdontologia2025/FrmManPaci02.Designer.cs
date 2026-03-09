@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
+            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
+            this.cbGenero = new System.Windows.Forms.ComboBox();
+            this.lblGenero = new System.Windows.Forms.Label();
             this.mtbCed = new System.Windows.Forms.MaskedTextBox();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -42,15 +45,13 @@
             this.lblCondi = new System.Windows.Forms.Label();
             this.mtbTel = new System.Windows.Forms.MaskedTextBox();
             this.lblTel = new System.Windows.Forms.Label();
-            this.txtTipo = new System.Windows.Forms.TextBox();
-            this.lblTipo = new System.Windows.Forms.Label();
             this.lblFechaNac = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCed = new System.Windows.Forms.Label();
-            this.dgvpacientes = new System.Windows.Forms.DataGridView();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbRegistro = new System.Windows.Forms.GroupBox();
             this.Fecha = new System.Windows.Forms.Timer(this.components);
             this.lblEnca = new System.Windows.Forms.Label();
@@ -63,11 +64,10 @@
             this.lblhora = new System.Windows.Forms.Label();
             this.lblfecha = new System.Windows.Forms.Label();
             this.pnlDivision = new System.Windows.Forms.Panel();
-            this.lblGenero = new System.Windows.Forms.Label();
-            this.cbGenero = new System.Windows.Forms.ComboBox();
-            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnLim = new System.Windows.Forms.Button();
             this.gpbInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvpacientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gpbRegistro.SuspendLayout();
             this.gpbTitulo.SuspendLayout();
             this.gpbFecha.SuspendLayout();
@@ -75,6 +75,7 @@
             // 
             // gpbInfo
             // 
+            this.gpbInfo.Controls.Add(this.btnLim);
             this.gpbInfo.Controls.Add(this.dtpFechaNac);
             this.gpbInfo.Controls.Add(this.cbGenero);
             this.gpbInfo.Controls.Add(this.lblGenero);
@@ -90,8 +91,6 @@
             this.gpbInfo.Controls.Add(this.lblCondi);
             this.gpbInfo.Controls.Add(this.mtbTel);
             this.gpbInfo.Controls.Add(this.lblTel);
-            this.gpbInfo.Controls.Add(this.txtTipo);
-            this.gpbInfo.Controls.Add(this.lblTipo);
             this.gpbInfo.Controls.Add(this.lblFechaNac);
             this.gpbInfo.Controls.Add(this.txtApellido);
             this.gpbInfo.Controls.Add(this.txtNombre);
@@ -108,10 +107,39 @@
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Text = "Información";
             // 
+            // dtpFechaNac
+            // 
+            this.dtpFechaNac.Location = new System.Drawing.Point(398, 31);
+            this.dtpFechaNac.Name = "dtpFechaNac";
+            this.dtpFechaNac.Size = new System.Drawing.Size(107, 22);
+            this.dtpFechaNac.TabIndex = 36;
+            // 
+            // cbGenero
+            // 
+            this.cbGenero.FormattingEnabled = true;
+            this.cbGenero.Items.AddRange(new object[] {
+            "Femenino",
+            "Masculino"});
+            this.cbGenero.Location = new System.Drawing.Point(115, 160);
+            this.cbGenero.Name = "cbGenero";
+            this.cbGenero.Size = new System.Drawing.Size(109, 24);
+            this.cbGenero.TabIndex = 35;
+            // 
+            // lblGenero
+            // 
+            this.lblGenero.AutoSize = true;
+            this.lblGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenero.Location = new System.Drawing.Point(36, 164);
+            this.lblGenero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGenero.Name = "lblGenero";
+            this.lblGenero.Size = new System.Drawing.Size(51, 15);
+            this.lblGenero.TabIndex = 34;
+            this.lblGenero.Text = "Genero:";
+            // 
             // mtbCed
             // 
             this.mtbCed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbCed.Location = new System.Drawing.Point(142, 31);
+            this.mtbCed.Location = new System.Drawing.Point(115, 31);
             this.mtbCed.Mask = "000-0000000-0";
             this.mtbCed.Name = "mtbCed";
             this.mtbCed.Size = new System.Drawing.Size(109, 21);
@@ -123,7 +151,7 @@
             this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrar.ForeColor = System.Drawing.Color.Indigo;
-            this.btnBorrar.Location = new System.Drawing.Point(530, 197);
+            this.btnBorrar.Location = new System.Drawing.Point(530, 138);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(146, 29);
@@ -138,7 +166,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Indigo;
-            this.btnGuardar.Location = new System.Drawing.Point(530, 155);
+            this.btnGuardar.Location = new System.Drawing.Point(530, 96);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(146, 28);
@@ -181,7 +209,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(398, 74);
+            this.txtCorreo.Location = new System.Drawing.Point(398, 113);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(107, 21);
@@ -191,7 +219,7 @@
             // 
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(330, 74);
+            this.lblCorreo.Location = new System.Drawing.Point(330, 113);
             this.lblCorreo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(47, 15);
@@ -221,7 +249,7 @@
             // mtbTel
             // 
             this.mtbTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbTel.Location = new System.Drawing.Point(398, 35);
+            this.mtbTel.Location = new System.Drawing.Point(398, 72);
             this.mtbTel.Margin = new System.Windows.Forms.Padding(2);
             this.mtbTel.Mask = "(999)000-0000";
             this.mtbTel.Name = "mtbTel";
@@ -233,7 +261,7 @@
             // 
             this.lblTel.AutoSize = true;
             this.lblTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTel.Location = new System.Drawing.Point(317, 36);
+            this.lblTel.Location = new System.Drawing.Point(317, 75);
             this.lblTel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTel.Name = "lblTel";
             this.lblTel.Size = new System.Drawing.Size(58, 15);
@@ -241,33 +269,11 @@
             this.lblTel.Text = "Teléfono:";
             this.lblTel.Click += new System.EventHandler(this.label13_Click);
             // 
-            // txtTipo
-            // 
-            this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipo.Location = new System.Drawing.Point(398, 115);
-            this.txtTipo.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(107, 21);
-            this.txtTipo.TabIndex = 12;
-            this.txtTipo.TextChanged += new System.EventHandler(this.txtTipo_TextChanged);
-            // 
-            // lblTipo
-            // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(285, 119);
-            this.lblTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(85, 15);
-            this.lblTipo.TabIndex = 11;
-            this.lblTipo.Text = "Tipo Paciente:";
-            this.lblTipo.Click += new System.EventHandler(this.label12_Click);
-            // 
             // lblFechaNac
             // 
             this.lblFechaNac.AutoSize = true;
             this.lblFechaNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaNac.Location = new System.Drawing.Point(7, 203);
+            this.lblFechaNac.Location = new System.Drawing.Point(275, 31);
             this.lblFechaNac.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaNac.Name = "lblFechaNac";
             this.lblFechaNac.Size = new System.Drawing.Size(110, 15);
@@ -278,7 +284,7 @@
             // txtApellido
             // 
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(142, 113);
+            this.txtApellido.Location = new System.Drawing.Point(115, 113);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(109, 21);
@@ -287,7 +293,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(142, 72);
+            this.txtNombre.Location = new System.Drawing.Point(115, 72);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(109, 21);
@@ -298,7 +304,7 @@
             // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.Location = new System.Drawing.Point(63, 115);
+            this.lblApellido.Location = new System.Drawing.Point(36, 115);
             this.lblApellido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(54, 15);
@@ -309,7 +315,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(65, 74);
+            this.lblNombre.Location = new System.Drawing.Point(38, 74);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(55, 15);
@@ -320,7 +326,7 @@
             // 
             this.lblCed.AutoSize = true;
             this.lblCed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCed.Location = new System.Drawing.Point(54, 35);
+            this.lblCed.Location = new System.Drawing.Point(41, 34);
             this.lblCed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCed.Name = "lblCed";
             this.lblCed.Size = new System.Drawing.Size(49, 15);
@@ -328,22 +334,22 @@
             this.lblCed.Text = "Cédula:";
             this.lblCed.Click += new System.EventHandler(this.lblCed_Click);
             // 
-            // dgvpacientes
+            // dgvDatos
             // 
-            this.dgvpacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvpacientes.Location = new System.Drawing.Point(9, 19);
-            this.dgvpacientes.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvpacientes.Name = "dgvpacientes";
-            this.dgvpacientes.RowHeadersWidth = 51;
-            this.dgvpacientes.RowTemplate.Height = 24;
-            this.dgvpacientes.Size = new System.Drawing.Size(671, 140);
-            this.dgvpacientes.TabIndex = 24;
-            this.dgvpacientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dgvpacientes.Click += new System.EventHandler(this.dgvpacientes_Click);
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.Location = new System.Drawing.Point(9, 19);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.RowHeadersWidth = 51;
+            this.dgvDatos.RowTemplate.Height = 24;
+            this.dgvDatos.Size = new System.Drawing.Size(671, 140);
+            this.dgvDatos.TabIndex = 24;
+            this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvDatos.Click += new System.EventHandler(this.dgvpacientes_Click);
             // 
             // gpbRegistro
             // 
-            this.gpbRegistro.Controls.Add(this.dgvpacientes);
+            this.gpbRegistro.Controls.Add(this.dgvDatos);
             this.gpbRegistro.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbRegistro.Location = new System.Drawing.Point(23, 431);
             this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2);
@@ -461,34 +467,35 @@
             this.pnlDivision.Size = new System.Drawing.Size(782, 13);
             this.pnlDivision.TabIndex = 34;
             // 
-            // lblGenero
+            // btnSalir
             // 
-            this.lblGenero.AutoSize = true;
-            this.lblGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenero.Location = new System.Drawing.Point(63, 164);
-            this.lblGenero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblGenero.Name = "lblGenero";
-            this.lblGenero.Size = new System.Drawing.Size(51, 15);
-            this.lblGenero.TabIndex = 34;
-            this.lblGenero.Text = "Genero:";
+            this.btnSalir.BackColor = System.Drawing.Color.Honeydew;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.Indigo;
+            this.btnSalir.Location = new System.Drawing.Point(716, 12);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(31, 28);
+            this.btnSalir.TabIndex = 35;
+            this.btnSalir.Text = "&X";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // cbGenero
+            // btnLim
             // 
-            this.cbGenero.FormattingEnabled = true;
-            this.cbGenero.Items.AddRange(new object[] {
-            "Femenino",
-            "Masculino"});
-            this.cbGenero.Location = new System.Drawing.Point(142, 160);
-            this.cbGenero.Name = "cbGenero";
-            this.cbGenero.Size = new System.Drawing.Size(121, 24);
-            this.cbGenero.TabIndex = 35;
-            // 
-            // dtpFechaNac
-            // 
-            this.dtpFechaNac.Location = new System.Drawing.Point(142, 203);
-            this.dtpFechaNac.Name = "dtpFechaNac";
-            this.dtpFechaNac.Size = new System.Drawing.Size(121, 22);
-            this.dtpFechaNac.TabIndex = 36;
+            this.btnLim.BackColor = System.Drawing.Color.Honeydew;
+            this.btnLim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLim.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLim.ForeColor = System.Drawing.Color.Indigo;
+            this.btnLim.Location = new System.Drawing.Point(530, 53);
+            this.btnLim.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLim.Name = "btnLim";
+            this.btnLim.Size = new System.Drawing.Size(146, 28);
+            this.btnLim.TabIndex = 37;
+            this.btnLim.Text = "&Limpiar";
+            this.btnLim.UseVisualStyleBackColor = false;
+            this.btnLim.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmManPaci02
             // 
@@ -496,6 +503,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(741, 601);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pnlDivision);
             this.Controls.Add(this.gpbFecha);
             this.Controls.Add(this.gpbTitulo);
@@ -510,7 +518,7 @@
             this.Load += new System.EventHandler(this.FrmManPaci02_Load);
             this.gpbInfo.ResumeLayout(false);
             this.gpbInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvpacientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.gpbRegistro.ResumeLayout(false);
             this.gpbTitulo.ResumeLayout(false);
             this.gpbTitulo.PerformLayout();
@@ -529,8 +537,6 @@
         private System.Windows.Forms.Label lblCed;
         private System.Windows.Forms.Label lblFechaNac;
         private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.TextBox txtTipo;
-        private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.Label lblTel;
         private System.Windows.Forms.TextBox txtCondi;
         private System.Windows.Forms.Label lblCondi;
@@ -540,7 +546,7 @@
         private System.Windows.Forms.Label lblSeguro;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label lblCorreo;
-        private System.Windows.Forms.DataGridView dgvpacientes;
+        private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.GroupBox gpbRegistro;
         private System.Windows.Forms.Timer Fecha;
         private System.Windows.Forms.Label lblEnca;
@@ -559,5 +565,7 @@
         private System.Windows.Forms.DateTimePicker dtpFechaNac;
         private System.Windows.Forms.ComboBox cbGenero;
         private System.Windows.Forms.Label lblGenero;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnLim;
     }
 }

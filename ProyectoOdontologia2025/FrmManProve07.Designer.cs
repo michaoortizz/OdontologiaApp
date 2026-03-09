@@ -53,6 +53,7 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblPro = new System.Windows.Forms.Label();
             this.hora = new System.Windows.Forms.Timer(this.components);
+            this.btnSalir = new System.Windows.Forms.Button();
             this.gpbFecha.SuspendLayout();
             this.gpbTitulo.SuspendLayout();
             this.gpbRegistros.SuspendLayout();
@@ -326,12 +327,28 @@
             this.hora.Interval = 50;
             this.hora.Tick += new System.EventHandler(this.hora_Tick);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.Honeydew;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.Indigo;
+            this.btnSalir.Location = new System.Drawing.Point(716, 12);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(31, 28);
+            this.btnSalir.TabIndex = 46;
+            this.btnSalir.Text = "&X";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FrmManProve07
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(741, 531);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblEnca);
             this.Controls.Add(this.pnlDivision);
             this.Controls.Add(this.gpbFecha);
@@ -382,5 +399,6 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblPro;
         private System.Windows.Forms.Timer hora;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

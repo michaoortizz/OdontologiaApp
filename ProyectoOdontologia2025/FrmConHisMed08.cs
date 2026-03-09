@@ -14,24 +14,26 @@ using System.Globalization;
 
 namespace ProyectoOdontologia2025
 {
-    public partial class FrmConPago10 : Form
+
+    public partial class FrmConHisMed08 : Form
     {
+
         //defino variables globales 
         SqlCommand comando = new SqlCommand();
         SqlConnection conexion = new SqlConnection("Data Source=132.145.163.113,1433;Initial Catalog=OdontologiaBD;User ID=sa;Password=Admin123@Strong");
 
-        public FrmConPago10()
+        public FrmConHisMed08()
         {
             InitializeComponent();
         }
 
-        private void FrmConPago10_Load(object sender, EventArgs e)
+        private void FrmConEval08_Load(object sender, EventArgs e)
         {
-            //Invocar procedimiento para visualizar datos
-            RefrescarTabla("Select * from Pagos");
-
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
+
+            //Invocar procedimiento para visualizar datos
+            RefrescarTabla("Select * from Historial_Clinico");
         }
 
         //Creo procedimiento para visualizar los datos en el data grid view
@@ -63,7 +65,7 @@ namespace ProyectoOdontologia2025
 
         }
 
-        private void FrmConPago10_Activated(object sender, EventArgs e)
+        private void FrmConEval08_Activated(object sender, EventArgs e)
         {
             comando.Connection = conexion;
         }
@@ -74,47 +76,53 @@ namespace ProyectoOdontologia2025
             lblhora2.Text = DateTime.Now.ToLongTimeString();
         }
 
-        private void rdbformap_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtBusqueda_TextChanged_1(object sender, EventArgs e)
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Pagos Where IdPago like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbCot.Checked == true)
-            {
-                RefrescarTabla("Select * from Pagos Where IdCotizacion like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbFormaPago.Checked == true)
-            {
-                RefrescarTabla("Select * from Pagos Where FormaPago like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbFechaPag.Checked == true)
-            {
-                RefrescarTabla("Select * from Pagos Where Fecha like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbMonto.Checked == true)
-            {
-                RefrescarTabla("Select * from Pagos Where MontoPago like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbEmp.Checked == true)
-            {
-                RefrescarTabla("Select * from Pagos Where IdEmpleado like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Historial_Clinico Where id_hcl like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCed.Checked == true)
             {
-                RefrescarTabla("Select * from Pagos Where Cedula like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Historial_Clinico Where ced_pac like '%" + txtBusqueda.Text + "%'");
             }
+
+            if (rdbDiag.Checked == true)
+            {
+                RefrescarTabla("Select * from Historial_Clinico Where dig_hcl like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbTra.Checked == true)
+            {
+                RefrescarTabla("Select * from Historial_Clinico Where trt_prev_hcl like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbAle.Checked == true)
+            {
+                RefrescarTabla("Select * from Historial_Clinico Where alg_hcl like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbMed.Checked == true)
+            {
+                RefrescarTabla("Select * from Historial_Clinico Where mds_hcl like '%" + txtBusqueda.Text + "%'");
+            }
+        }
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lblEnca_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbDoc_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

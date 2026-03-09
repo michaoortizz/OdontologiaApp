@@ -32,6 +32,9 @@
             this.gpbResultado = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbCriterios = new System.Windows.Forms.GroupBox();
+            this.rdbCor = new System.Windows.Forms.RadioButton();
+            this.rdbTel = new System.Windows.Forms.RadioButton();
+            this.rdbCedD = new System.Windows.Forms.RadioButton();
             this.btnRtn = new System.Windows.Forms.Button();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
@@ -61,9 +64,9 @@
             this.gpbResultado.Controls.Add(this.dgvDatos);
             this.gpbResultado.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbResultado.Location = new System.Drawing.Point(23, 347);
-            this.gpbResultado.Margin = new System.Windows.Forms.Padding(2);
+            this.gpbResultado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbResultado.Name = "gpbResultado";
-            this.gpbResultado.Padding = new System.Windows.Forms.Padding(2);
+            this.gpbResultado.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbResultado.Size = new System.Drawing.Size(689, 172);
             this.gpbResultado.TabIndex = 31;
             this.gpbResultado.TabStop = false;
@@ -74,7 +77,7 @@
             this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(135, 23);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
@@ -84,6 +87,9 @@
             // gpbCriterios
             // 
             this.gpbCriterios.BackColor = System.Drawing.Color.Lavender;
+            this.gpbCriterios.Controls.Add(this.rdbCor);
+            this.gpbCriterios.Controls.Add(this.rdbTel);
+            this.gpbCriterios.Controls.Add(this.rdbCedD);
             this.gpbCriterios.Controls.Add(this.btnRtn);
             this.gpbCriterios.Controls.Add(this.txtBusqueda);
             this.gpbCriterios.Controls.Add(this.lblBusqueda);
@@ -93,13 +99,52 @@
             this.gpbCriterios.Controls.Add(this.rdbId);
             this.gpbCriterios.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbCriterios.Location = new System.Drawing.Point(23, 171);
-            this.gpbCriterios.Margin = new System.Windows.Forms.Padding(2);
+            this.gpbCriterios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbCriterios.Name = "gpbCriterios";
-            this.gpbCriterios.Padding = new System.Windows.Forms.Padding(2);
+            this.gpbCriterios.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbCriterios.Size = new System.Drawing.Size(689, 143);
             this.gpbCriterios.TabIndex = 30;
             this.gpbCriterios.TabStop = false;
             this.gpbCriterios.Text = "Criterios de busqueda";
+            // 
+            // rdbCor
+            // 
+            this.rdbCor.AutoSize = true;
+            this.rdbCor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbCor.Location = new System.Drawing.Point(483, 48);
+            this.rdbCor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbCor.Name = "rdbCor";
+            this.rdbCor.Size = new System.Drawing.Size(62, 19);
+            this.rdbCor.TabIndex = 37;
+            this.rdbCor.TabStop = true;
+            this.rdbCor.Text = "Correo";
+            this.rdbCor.UseVisualStyleBackColor = true;
+            // 
+            // rdbTel
+            // 
+            this.rdbTel.AutoSize = true;
+            this.rdbTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbTel.Location = new System.Drawing.Point(394, 48);
+            this.rdbTel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbTel.Name = "rdbTel";
+            this.rdbTel.Size = new System.Drawing.Size(73, 19);
+            this.rdbTel.TabIndex = 36;
+            this.rdbTel.TabStop = true;
+            this.rdbTel.Text = "Teléfono";
+            this.rdbTel.UseVisualStyleBackColor = true;
+            // 
+            // rdbCedD
+            // 
+            this.rdbCedD.AutoSize = true;
+            this.rdbCedD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbCedD.Location = new System.Drawing.Point(278, 48);
+            this.rdbCedD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbCedD.Name = "rdbCedD";
+            this.rdbCedD.Size = new System.Drawing.Size(103, 19);
+            this.rdbCedD.TabIndex = 35;
+            this.rdbCedD.TabStop = true;
+            this.rdbCedD.Text = "Cédula Doctor";
+            this.rdbCedD.UseVisualStyleBackColor = true;
             // 
             // btnRtn
             // 
@@ -111,6 +156,7 @@
             this.btnRtn.TabIndex = 34;
             this.btnRtn.Text = "Retornar";
             this.btnRtn.UseVisualStyleBackColor = false;
+            this.btnRtn.Click += new System.EventHandler(this.btnRtn_Click);
             // 
             // txtBusqueda
             // 
@@ -135,13 +181,13 @@
             // 
             this.rdbEspec.AutoSize = true;
             this.rdbEspec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbEspec.Location = new System.Drawing.Point(433, 48);
-            this.rdbEspec.Margin = new System.Windows.Forms.Padding(2);
+            this.rdbEspec.Location = new System.Drawing.Point(568, 48);
+            this.rdbEspec.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbEspec.Name = "rdbEspec";
-            this.rdbEspec.Size = new System.Drawing.Size(96, 19);
+            this.rdbEspec.Size = new System.Drawing.Size(109, 19);
             this.rdbEspec.TabIndex = 11;
             this.rdbEspec.TabStop = true;
-            this.rdbEspec.Text = "Especialidad";
+            this.rdbEspec.Text = "Id Especialidad";
             this.rdbEspec.UseVisualStyleBackColor = true;
             this.rdbEspec.CheckedChanged += new System.EventHandler(this.rdbesp_CheckedChanged);
             // 
@@ -149,8 +195,8 @@
             // 
             this.rdbApellido.AutoSize = true;
             this.rdbApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbApellido.Location = new System.Drawing.Point(325, 48);
-            this.rdbApellido.Margin = new System.Windows.Forms.Padding(2);
+            this.rdbApellido.Location = new System.Drawing.Point(196, 48);
+            this.rdbApellido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbApellido.Name = "rdbApellido";
             this.rdbApellido.Size = new System.Drawing.Size(69, 19);
             this.rdbApellido.TabIndex = 2;
@@ -163,8 +209,8 @@
             // 
             this.rdbNombre.AutoSize = true;
             this.rdbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbNombre.Location = new System.Drawing.Point(230, 48);
-            this.rdbNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.rdbNombre.Location = new System.Drawing.Point(117, 48);
+            this.rdbNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbNombre.Name = "rdbNombre";
             this.rdbNombre.Size = new System.Drawing.Size(70, 19);
             this.rdbNombre.TabIndex = 1;
@@ -176,8 +222,8 @@
             // 
             this.rdbId.AutoSize = true;
             this.rdbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbId.Location = new System.Drawing.Point(116, 48);
-            this.rdbId.Margin = new System.Windows.Forms.Padding(2);
+            this.rdbId.Location = new System.Drawing.Point(33, 48);
+            this.rdbId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbId.Name = "rdbId";
             this.rdbId.Size = new System.Drawing.Size(74, 19);
             this.rdbId.TabIndex = 0;
@@ -295,7 +341,7 @@
             this.Controls.Add(this.gpbTitulo);
             this.Controls.Add(this.gpbResultado);
             this.Controls.Add(this.gpbCriterios);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmConDoct06";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Consulta de Doctores";
@@ -336,5 +382,8 @@
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Label lblBusqueda;
         private System.Windows.Forms.Button btnRtn;
+        private System.Windows.Forms.RadioButton rdbCor;
+        private System.Windows.Forms.RadioButton rdbTel;
+        private System.Windows.Forms.RadioButton rdbCedD;
     }
 }

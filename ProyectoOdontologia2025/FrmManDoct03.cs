@@ -132,7 +132,14 @@ namespace ProyectoOdontologia2025
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //Paso los datos del datagridview a los textbox
+            txtId.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtNombre.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtApellido.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            mtbCed.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            mtbTel.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtEmail.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            cbEspe.SelectedValue = dgvDatos[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
         }
 
         private void FrmManDoct03_Activated(object sender, EventArgs e)
@@ -155,21 +162,13 @@ namespace ProyectoOdontologia2025
             txtApellido.Clear();
             txtEmail.Clear();
             cbEspe.SelectedIndex = 0;
-            txtCedula.Clear();
-            txtTelefono.Clear();
+            mtbCed.Clear();
+            mtbTel.Clear();
             txtNombre.Focus();
         }
 
         private void dgvdoctores_Click(object sender, EventArgs e)
         {
-            //Paso los datos del datagridview a los textbox
-            txtId.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtNombre.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtApellido.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtCedula.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtTelefono.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtEmail.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            cbEspe.SelectedValue = dgvDatos[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
         }
 
       
@@ -189,13 +188,13 @@ namespace ProyectoOdontologia2025
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 //Agrego registro nuevo
-                EscribirDatos("Insert into Doctores (nom_doc, ape_doc, ced_doc, tel_doc, eml_doc, id_esp) Values ('" + txtNombre.Text.Trim() + "' , '" + txtApellido.Text.Trim() + "','" + txtCedula.Text.Trim() + "','" + txtTelefono.Text.Trim() + "','" + txtEmail.Text.Trim() + "','" + cbEspe.SelectedValue + "')");
+                EscribirDatos("Insert into Doctores (nom_doc, ape_doc, ced_doc, tel_doc, eml_doc, id_esp) Values ('" + txtNombre.Text.Trim() + "' , '" + txtApellido.Text.Trim() + "','" + mtbCed.Text.Trim() + "','" + mtbTel.Text.Trim() + "','" + txtEmail.Text.Trim() + "','" + cbEspe.SelectedValue + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 //Modificar un registro existente
-                EscribirDatos("Update Doctores Set nom_doc = '" + txtNombre.Text.Trim() + "', ape_doc = '" + txtApellido.Text.Trim() + "', ced_doc =  '" + txtCedula.Text.Trim() + "', tel_doc =  '" + txtTelefono.Text.Trim() + "', eml_doc =  '" + txtEmail.Text.Trim() + "', id_esp =  '" + cbEspe.SelectedValue + "' where id_doc = '" + txtId.Text + "'");
+                EscribirDatos("Update Doctores Set nom_doc = '" + txtNombre.Text.Trim() + "', ape_doc = '" + txtApellido.Text.Trim() + "', ced_doc =  '" + mtbCed.Text.Trim() + "', tel_doc =  '" + mtbTel.Text.Trim() + "', eml_doc =  '" + txtEmail.Text.Trim() + "', id_esp =  '" + cbEspe.SelectedValue + "' where id_doc = '" + txtId.Text + "'");
                 MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
 
@@ -205,7 +204,7 @@ namespace ProyectoOdontologia2025
 
         private void btnBorrar_Click_1(object sender, EventArgs e)
         {
-            EscribirDatos("Delete from Doctores where IdDoctor= '" + txtId.Text + "'");
+            EscribirDatos("Delete from Doctores where id_doc= '" + txtId.Text + "'");
             MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             LimpiarObjetos();
             RefrescarTabla();
@@ -216,6 +215,21 @@ namespace ProyectoOdontologia2025
 
 
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cbEspe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLim_Click(object sender, EventArgs e)
+        {
+            LimpiarObjetos();
         }
     }
 }

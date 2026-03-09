@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
-            this.txtCuad = new System.Windows.Forms.TextBox();
-            this.lblCua = new System.Windows.Forms.Label();
-            this.txtDesc = new System.Windows.Forms.TextBox();
-            this.lblDesc = new System.Windows.Forms.Label();
+            this.mtbCed = new System.Windows.Forms.MaskedTextBox();
+            this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
+            this.txtRes = new System.Windows.Forms.TextBox();
+            this.lblRes = new System.Windows.Forms.Label();
             this.lblCed = new System.Windows.Forms.Label();
             this.txtDoc = new System.Windows.Forms.TextBox();
-            this.txtEva = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.lblFechaEva = new System.Windows.Forms.Label();
             this.lblDoc = new System.Windows.Forms.Label();
             this.lblEva = new System.Windows.Forms.Label();
@@ -54,10 +55,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.gpbRegistro = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
-            this.txtCed = new System.Windows.Forms.MaskedTextBox();
-            this.lblObs = new System.Windows.Forms.Label();
-            this.txtObs = new System.Windows.Forms.TextBox();
+            this.btnLim = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.gpbInfo.SuspendLayout();
             this.gpbFecha.SuspendLayout();
             this.gpbTitulo.SuspendLayout();
@@ -67,81 +66,76 @@
             // 
             // gpbInfo
             // 
-            this.gpbInfo.Controls.Add(this.txtCed);
+            this.gpbInfo.Controls.Add(this.mtbCed);
             this.gpbInfo.Controls.Add(this.mtbFecha);
-            this.gpbInfo.Controls.Add(this.txtObs);
-            this.gpbInfo.Controls.Add(this.txtCuad);
-            this.gpbInfo.Controls.Add(this.lblObs);
-            this.gpbInfo.Controls.Add(this.lblCua);
-            this.gpbInfo.Controls.Add(this.txtDesc);
-            this.gpbInfo.Controls.Add(this.lblDesc);
+            this.gpbInfo.Controls.Add(this.txtRes);
+            this.gpbInfo.Controls.Add(this.lblRes);
             this.gpbInfo.Controls.Add(this.lblCed);
             this.gpbInfo.Controls.Add(this.txtDoc);
-            this.gpbInfo.Controls.Add(this.txtEva);
+            this.gpbInfo.Controls.Add(this.txtId);
             this.gpbInfo.Controls.Add(this.lblFechaEva);
             this.gpbInfo.Controls.Add(this.lblDoc);
             this.gpbInfo.Controls.Add(this.lblEva);
             this.gpbInfo.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbInfo.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.gpbInfo.Location = new System.Drawing.Point(23, 176);
-            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbInfo.ForeColor = System.Drawing.Color.Indigo;
+            this.gpbInfo.Location = new System.Drawing.Point(23, 183);
+            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2);
             this.gpbInfo.Name = "gpbInfo";
-            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gpbInfo.Size = new System.Drawing.Size(521, 177);
+            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2);
+            this.gpbInfo.Size = new System.Drawing.Size(521, 149);
             this.gpbInfo.TabIndex = 52;
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Text = "Información";
             // 
-            // txtCuad
+            // mtbCed
             // 
-            this.txtCuad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCuad.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtCuad.Location = new System.Drawing.Point(375, 84);
-            this.txtCuad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtCuad.Name = "txtCuad";
-            this.txtCuad.Size = new System.Drawing.Size(107, 21);
-            this.txtCuad.TabIndex = 14;
+            this.mtbCed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtbCed.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.mtbCed.Location = new System.Drawing.Point(133, 66);
+            this.mtbCed.Mask = "000-0000000-0";
+            this.mtbCed.Name = "mtbCed";
+            this.mtbCed.Size = new System.Drawing.Size(107, 21);
+            this.mtbCed.TabIndex = 16;
             // 
-            // lblCua
+            // mtbFecha
             // 
-            this.lblCua.AutoSize = true;
-            this.lblCua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCua.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCua.Location = new System.Drawing.Point(287, 89);
-            this.lblCua.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCua.Name = "lblCua";
-            this.lblCua.Size = new System.Drawing.Size(67, 15);
-            this.lblCua.TabIndex = 13;
-            this.lblCua.Text = "Cuadrante:";
+            this.mtbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtbFecha.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.mtbFecha.Location = new System.Drawing.Point(373, 42);
+            this.mtbFecha.Mask = "00/00/0000";
+            this.mtbFecha.Name = "mtbFecha";
+            this.mtbFecha.Size = new System.Drawing.Size(107, 21);
+            this.mtbFecha.TabIndex = 15;
+            this.mtbFecha.ValidatingType = typeof(System.DateTime);
             // 
-            // txtDesc
+            // txtRes
             // 
-            this.txtDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDesc.Location = new System.Drawing.Point(375, 40);
-            this.txtDesc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(107, 21);
-            this.txtDesc.TabIndex = 12;
+            this.txtRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRes.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtRes.Location = new System.Drawing.Point(373, 85);
+            this.txtRes.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRes.Name = "txtRes";
+            this.txtRes.Size = new System.Drawing.Size(107, 21);
+            this.txtRes.TabIndex = 12;
             // 
-            // lblDesc
+            // lblRes
             // 
-            this.lblDesc.AutoSize = true;
-            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblDesc.Location = new System.Drawing.Point(278, 44);
-            this.lblDesc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(75, 15);
-            this.lblDesc.TabIndex = 11;
-            this.lblDesc.Text = "Descripción:";
+            this.lblRes.AutoSize = true;
+            this.lblRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRes.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRes.Location = new System.Drawing.Point(279, 88);
+            this.lblRes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRes.Name = "lblRes";
+            this.lblRes.Size = new System.Drawing.Size(72, 15);
+            this.lblRes.TabIndex = 11;
+            this.lblRes.Text = "Resultados:";
             // 
             // lblCed
             // 
             this.lblCed.AutoSize = true;
             this.lblCed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCed.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCed.Location = new System.Drawing.Point(49, 146);
+            this.lblCed.Location = new System.Drawing.Point(49, 70);
             this.lblCed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCed.Name = "lblCed";
             this.lblCed.Size = new System.Drawing.Size(62, 15);
@@ -152,40 +146,40 @@
             // 
             this.txtDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDoc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDoc.Location = new System.Drawing.Point(133, 59);
-            this.txtDoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDoc.Location = new System.Drawing.Point(133, 104);
+            this.txtDoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtDoc.Name = "txtDoc";
             this.txtDoc.Size = new System.Drawing.Size(107, 21);
             this.txtDoc.TabIndex = 7;
             // 
-            // txtEva
+            // txtId
             // 
-            this.txtEva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEva.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtEva.Location = new System.Drawing.Point(133, 20);
-            this.txtEva.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtEva.Name = "txtEva";
-            this.txtEva.Size = new System.Drawing.Size(107, 21);
-            this.txtEva.TabIndex = 6;
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtId.Location = new System.Drawing.Point(133, 29);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(107, 21);
+            this.txtId.TabIndex = 6;
             // 
             // lblFechaEva
             // 
             this.lblFechaEva.AutoSize = true;
             this.lblFechaEva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaEva.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFechaEva.Location = new System.Drawing.Point(8, 103);
+            this.lblFechaEva.Location = new System.Drawing.Point(307, 45);
             this.lblFechaEva.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaEva.Name = "lblFechaEva";
-            this.lblFechaEva.Size = new System.Drawing.Size(107, 15);
+            this.lblFechaEva.Size = new System.Drawing.Size(44, 15);
             this.lblFechaEva.TabIndex = 6;
-            this.lblFechaEva.Text = "Fecha Evaluación:";
+            this.lblFechaEva.Text = "Fecha:";
             // 
             // lblDoc
             // 
             this.lblDoc.AutoSize = true;
             this.lblDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDoc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblDoc.Location = new System.Drawing.Point(57, 63);
+            this.lblDoc.Location = new System.Drawing.Point(57, 108);
             this.lblDoc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDoc.Name = "lblDoc";
             this.lblDoc.Size = new System.Drawing.Size(59, 15);
@@ -197,7 +191,7 @@
             this.lblEva.AutoSize = true;
             this.lblEva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEva.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEva.Location = new System.Drawing.Point(32, 24);
+            this.lblEva.Location = new System.Drawing.Point(32, 33);
             this.lblEva.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEva.Name = "lblEva";
             this.lblEva.Size = new System.Drawing.Size(83, 15);
@@ -216,7 +210,7 @@
             // 
             // pnlDivision
             // 
-            this.pnlDivision.BackColor = System.Drawing.Color.SteelBlue;
+            this.pnlDivision.BackColor = System.Drawing.Color.MediumPurple;
             this.pnlDivision.Location = new System.Drawing.Point(-9, 154);
             this.pnlDivision.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDivision.Name = "pnlDivision";
@@ -225,7 +219,7 @@
             // 
             // gpbFecha
             // 
-            this.gpbFecha.BackColor = System.Drawing.Color.SteelBlue;
+            this.gpbFecha.BackColor = System.Drawing.Color.MediumPurple;
             this.gpbFecha.Controls.Add(this.lblhora2);
             this.gpbFecha.Controls.Add(this.lblfecha2);
             this.gpbFecha.Controls.Add(this.lblhora);
@@ -257,7 +251,7 @@
             // lblhora
             // 
             this.lblhora.AutoSize = true;
-            this.lblhora.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblhora.BackColor = System.Drawing.Color.MediumPurple;
             this.lblhora.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblhora.ForeColor = System.Drawing.Color.White;
             this.lblhora.Location = new System.Drawing.Point(26, 47);
@@ -269,7 +263,7 @@
             // lblfecha
             // 
             this.lblfecha.AutoSize = true;
-            this.lblfecha.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblfecha.BackColor = System.Drawing.Color.MediumPurple;
             this.lblfecha.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblfecha.ForeColor = System.Drawing.Color.White;
             this.lblfecha.Location = new System.Drawing.Point(20, 16);
@@ -280,7 +274,7 @@
             // 
             // gpbTitulo
             // 
-            this.gpbTitulo.BackColor = System.Drawing.Color.SteelBlue;
+            this.gpbTitulo.BackColor = System.Drawing.Color.MediumPurple;
             this.gpbTitulo.Controls.Add(this.lblnom1);
             this.gpbTitulo.Controls.Add(this.lblnom);
             this.gpbTitulo.Location = new System.Drawing.Point(23, 12);
@@ -292,7 +286,7 @@
             // lblnom1
             // 
             this.lblnom1.AutoSize = true;
-            this.lblnom1.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblnom1.BackColor = System.Drawing.Color.MediumPurple;
             this.lblnom1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnom1.ForeColor = System.Drawing.Color.White;
             this.lblnom1.Location = new System.Drawing.Point(13, 45);
@@ -304,7 +298,7 @@
             // lblnom
             // 
             this.lblnom.AutoSize = true;
-            this.lblnom.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblnom.BackColor = System.Drawing.Color.MediumPurple;
             this.lblnom.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnom.ForeColor = System.Drawing.Color.White;
             this.lblnom.Location = new System.Drawing.Point(7, 21);
@@ -315,24 +309,25 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBorrar.BackColor = System.Drawing.Color.Lavender;
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnBorrar.Location = new System.Drawing.Point(566, 252);
+            this.btnBorrar.ForeColor = System.Drawing.Color.Indigo;
+            this.btnBorrar.Location = new System.Drawing.Point(566, 267);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(146, 29);
             this.btnBorrar.TabIndex = 56;
             this.btnBorrar.Text = "&Borrar";
             this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnRetornar
             // 
-            this.btnRetornar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnRetornar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRetornar.BackColor = System.Drawing.Color.Lavender;
+            this.btnRetornar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRetornar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRetornar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRetornar.ForeColor = System.Drawing.Color.Indigo;
             this.btnRetornar.Location = new System.Drawing.Point(566, 307);
             this.btnRetornar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRetornar.Name = "btnRetornar";
@@ -343,28 +338,29 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.BackColor = System.Drawing.Color.Lavender;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnGuardar.Location = new System.Drawing.Point(566, 201);
+            this.btnGuardar.ForeColor = System.Drawing.Color.Indigo;
+            this.btnGuardar.Location = new System.Drawing.Point(566, 226);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(146, 28);
             this.btnGuardar.TabIndex = 55;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // gpbRegistro
             // 
             this.gpbRegistro.Controls.Add(this.dgvDatos);
             this.gpbRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gpbRegistro.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbRegistro.Location = new System.Drawing.Point(23, 363);
+            this.gpbRegistro.Location = new System.Drawing.Point(23, 351);
             this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2);
             this.gpbRegistro.Name = "gpbRegistro";
             this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2);
-            this.gpbRegistro.Size = new System.Drawing.Size(689, 160);
+            this.gpbRegistro.Size = new System.Drawing.Size(689, 206);
             this.gpbRegistro.TabIndex = 58;
             this.gpbRegistro.TabStop = false;
             this.gpbRegistro.Text = "Consultas registradas";
@@ -372,63 +368,42 @@
             // dgvDatos
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(151, 16);
+            this.dgvDatos.Location = new System.Drawing.Point(60, 20);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(468, 129);
+            this.dgvDatos.Size = new System.Drawing.Size(565, 175);
             this.dgvDatos.TabIndex = 9;
+            this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
-            // mtbFecha
+            // btnLim
             // 
-            this.mtbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbFecha.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.mtbFecha.Location = new System.Drawing.Point(133, 98);
-            this.mtbFecha.Mask = "00/00/0000";
-            this.mtbFecha.Name = "mtbFecha";
-            this.mtbFecha.Size = new System.Drawing.Size(107, 21);
-            this.mtbFecha.TabIndex = 15;
-            this.mtbFecha.ValidatingType = typeof(System.DateTime);
+            this.btnLim.BackColor = System.Drawing.Color.Lavender;
+            this.btnLim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLim.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLim.ForeColor = System.Drawing.Color.Indigo;
+            this.btnLim.Location = new System.Drawing.Point(566, 187);
+            this.btnLim.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLim.Name = "btnLim";
+            this.btnLim.Size = new System.Drawing.Size(146, 28);
+            this.btnLim.TabIndex = 55;
+            this.btnLim.Text = "&Limpiar";
+            this.btnLim.UseVisualStyleBackColor = false;
+            this.btnLim.Click += new System.EventHandler(this.btnLim_Click);
             // 
-            // txtCed
+            // timer
             // 
-            this.txtCed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCed.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtCed.Location = new System.Drawing.Point(133, 142);
-            this.txtCed.Mask = "000-0000000-0";
-            this.txtCed.Name = "txtCed";
-            this.txtCed.Size = new System.Drawing.Size(107, 21);
-            this.txtCed.TabIndex = 16;
-            // 
-            // lblObs
-            // 
-            this.lblObs.AutoSize = true;
-            this.lblObs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObs.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblObs.Location = new System.Drawing.Point(275, 129);
-            this.lblObs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblObs.Name = "lblObs";
-            this.lblObs.Size = new System.Drawing.Size(78, 15);
-            this.lblObs.TabIndex = 13;
-            this.lblObs.Text = "Observación:";
-            // 
-            // txtObs
-            // 
-            this.txtObs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObs.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtObs.Location = new System.Drawing.Point(374, 126);
-            this.txtObs.Margin = new System.Windows.Forms.Padding(2);
-            this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(107, 21);
-            this.txtObs.TabIndex = 14;
+            this.timer.Enabled = true;
+            this.timer.Interval = 50;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // FrmProEval04
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(736, 531);
+            this.ClientSize = new System.Drawing.Size(736, 568);
             this.Controls.Add(this.gpbInfo);
             this.Controls.Add(this.lblEnca);
             this.Controls.Add(this.pnlDivision);
@@ -436,11 +411,14 @@
             this.Controls.Add(this.gpbTitulo);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnRetornar);
+            this.Controls.Add(this.btnLim);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gpbRegistro);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmProEval04";
             this.Text = "Formulario de Proceso de Evaluaciones";
+            this.Activated += new System.EventHandler(this.FrmProEval04_Activated);
+            this.Load += new System.EventHandler(this.FrmProEval04_Load);
             this.gpbInfo.ResumeLayout(false);
             this.gpbInfo.PerformLayout();
             this.gpbFecha.ResumeLayout(false);
@@ -456,16 +434,14 @@
 
         #endregion
         private System.Windows.Forms.GroupBox gpbInfo;
-        private System.Windows.Forms.TextBox txtDesc;
-        private System.Windows.Forms.Label lblDesc;
+        private System.Windows.Forms.TextBox txtRes;
+        private System.Windows.Forms.Label lblRes;
         private System.Windows.Forms.Label lblCed;
         private System.Windows.Forms.TextBox txtDoc;
-        private System.Windows.Forms.TextBox txtEva;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblFechaEva;
         private System.Windows.Forms.Label lblDoc;
         private System.Windows.Forms.Label lblEva;
-        private System.Windows.Forms.TextBox txtCuad;
-        private System.Windows.Forms.Label lblCua;
         private System.Windows.Forms.Label lblEnca;
         private System.Windows.Forms.Panel pnlDivision;
         private System.Windows.Forms.GroupBox gpbFecha;
@@ -481,9 +457,9 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.GroupBox gpbRegistro;
         private System.Windows.Forms.DataGridView dgvDatos;
-        private System.Windows.Forms.MaskedTextBox txtCed;
+        private System.Windows.Forms.MaskedTextBox mtbCed;
         private System.Windows.Forms.MaskedTextBox mtbFecha;
-        private System.Windows.Forms.TextBox txtObs;
-        private System.Windows.Forms.Label lblObs;
+        private System.Windows.Forms.Button btnLim;
+        private System.Windows.Forms.Timer timer;
     }
 }

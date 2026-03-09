@@ -14,13 +14,13 @@ using System.Globalization;
 
 namespace ProyectoOdontologia2025
 {
-    public partial class FrmConCmed02 : Form
+    public partial class FrmConTrata02 : Form
     {
         //defino variables globales 
         SqlCommand comando = new SqlCommand();
         SqlConnection conexion = new SqlConnection("Data Source=132.145.163.113,1433;Initial Catalog=OdontologiaBD;User ID=sa;Password=Admin123@Strong");
 
-        public FrmConCmed02()
+        public FrmConTrata02()
         {
             InitializeComponent();
         }
@@ -36,7 +36,7 @@ namespace ProyectoOdontologia2025
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
             //Invocar procedimiento para visualizar datos
-            RefrescarTabla("Select * from Consultas");
+            RefrescarTabla("Select * from Tratamientos");
 
         }
 
@@ -91,28 +91,76 @@ namespace ProyectoOdontologia2025
         {
             if (rdbId.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas Where IdConsulta like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbMotivo.Checked == true)
-            {
-                RefrescarTabla("Select * from Consultas Where Motivo like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where id_tra like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCed.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas Where Cedula like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbFecha.Checked == true)
-            {
-                RefrescarTabla("Select * from Consultas Where Fecha like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where ced_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbDoc.Checked == true)
             {
-                RefrescarTabla("Select * from Consultas Where IdDoctor like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where id_doc like '%" + txtBusqueda.Text + "%'");
             }
+
+            if (rdbIdTT.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where id_ttr like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rdbSer.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where id_srv like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdDescT.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where dsc_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdCosto.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where cst_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdFechaI.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where fec_ini_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdFechaF.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where fec_fin_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdNom.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where nom_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdDura.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where dur_tra like '%" + txtBusqueda.Text + "%'");
+            }
+
+            if (rbdIdC.Checked == true)
+            {
+                RefrescarTabla("Select * from Tratamientos Where id_cit like '%" + txtBusqueda.Text + "%'");
+            }
+
+        }
+
+        
+
+        private void btnRtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lblEnca_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
