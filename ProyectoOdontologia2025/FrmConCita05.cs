@@ -133,5 +133,10 @@ namespace ProyectoOdontologia2025
         {
             this.Close();
         }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

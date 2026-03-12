@@ -32,6 +32,7 @@
             this.gpbResultado = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbCriterio = new System.Windows.Forms.GroupBox();
+            this.rdbMed = new System.Windows.Forms.RadioButton();
             this.btnRtn = new System.Windows.Forms.Button();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.lblhora = new System.Windows.Forms.Label();
             this.lblfecha = new System.Windows.Forms.Label();
             this.lblEnca = new System.Windows.Forms.Label();
-            this.rdbMed = new System.Windows.Forms.RadioButton();
             this.gpbResultado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gpbCriterio.SuspendLayout();
@@ -63,11 +63,11 @@
             // 
             this.gpbResultado.Controls.Add(this.dgvDatos);
             this.gpbResultado.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbResultado.Location = new System.Drawing.Point(31, 427);
+            this.gpbResultado.Location = new System.Drawing.Point(124, 416);
             this.gpbResultado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gpbResultado.Name = "gpbResultado";
             this.gpbResultado.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gpbResultado.Size = new System.Drawing.Size(919, 213);
+            this.gpbResultado.Size = new System.Drawing.Size(709, 213);
             this.gpbResultado.TabIndex = 31;
             this.gpbResultado.TabStop = false;
             this.gpbResultado.Text = "Resultado de búsqueda";
@@ -80,7 +80,7 @@
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(849, 165);
+            this.dgvDatos.Size = new System.Drawing.Size(639, 165);
             this.dgvDatos.TabIndex = 0;
             // 
             // gpbCriterio
@@ -106,12 +106,25 @@
             this.gpbCriterio.TabStop = false;
             this.gpbCriterio.Text = "Criterios de busqueda";
             // 
+            // rdbMed
+            // 
+            this.rdbMed.AutoSize = true;
+            this.rdbMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbMed.Location = new System.Drawing.Point(757, 64);
+            this.rdbMed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbMed.Name = "rdbMed";
+            this.rdbMed.Size = new System.Drawing.Size(127, 22);
+            this.rdbMed.TabIndex = 17;
+            this.rdbMed.TabStop = true;
+            this.rdbMed.Text = "Medicamentos";
+            this.rdbMed.UseVisualStyleBackColor = true;
+            // 
             // btnRtn
             // 
             this.btnRtn.BackColor = System.Drawing.Color.AliceBlue;
             this.btnRtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRtn.Location = new System.Drawing.Point(668, 130);
-            this.btnRtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRtn.Margin = new System.Windows.Forms.Padding(4);
             this.btnRtn.Name = "btnRtn";
             this.btnRtn.Size = new System.Drawing.Size(208, 43);
             this.btnRtn.TabIndex = 16;
@@ -123,7 +136,7 @@
             // 
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusqueda.Location = new System.Drawing.Point(348, 140);
-            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(196, 26);
             this.txtBusqueda.TabIndex = 15;
@@ -227,9 +240,9 @@
             this.gpbTitulo.Controls.Add(this.lblnom1);
             this.gpbTitulo.Controls.Add(this.lblnom);
             this.gpbTitulo.Location = new System.Drawing.Point(31, 15);
-            this.gpbTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.gpbTitulo.Name = "gpbTitulo";
-            this.gpbTitulo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbTitulo.Padding = new System.Windows.Forms.Padding(4);
             this.gpbTitulo.Size = new System.Drawing.Size(263, 96);
             this.gpbTitulo.TabIndex = 32;
             this.gpbTitulo.TabStop = false;
@@ -264,9 +277,9 @@
             this.gpbFecha.Controls.Add(this.lblhora);
             this.gpbFecha.Controls.Add(this.lblfecha);
             this.gpbFecha.Location = new System.Drawing.Point(675, 15);
-            this.gpbFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbFecha.Margin = new System.Windows.Forms.Padding(4);
             this.gpbFecha.Name = "gpbFecha";
-            this.gpbFecha.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbFecha.Padding = new System.Windows.Forms.Padding(4);
             this.gpbFecha.Size = new System.Drawing.Size(275, 96);
             this.gpbFecha.TabIndex = 33;
             this.gpbFecha.TabStop = false;
@@ -324,19 +337,6 @@
             this.lblEnca.TabIndex = 34;
             this.lblEnca.Text = "Consulta de Historial Médico";
             this.lblEnca.Click += new System.EventHandler(this.lblEnca_Click);
-            // 
-            // rdbMed
-            // 
-            this.rdbMed.AutoSize = true;
-            this.rdbMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbMed.Location = new System.Drawing.Point(757, 64);
-            this.rdbMed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdbMed.Name = "rdbMed";
-            this.rdbMed.Size = new System.Drawing.Size(127, 22);
-            this.rdbMed.TabIndex = 17;
-            this.rdbMed.TabStop = true;
-            this.rdbMed.Text = "Medicamentos";
-            this.rdbMed.UseVisualStyleBackColor = true;
             // 
             // FrmConHisMed08
             // 

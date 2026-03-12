@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gpbCriterio = new System.Windows.Forms.GroupBox();
+            this.rdbPro = new System.Windows.Forms.RadioButton();
             this.rdbCos = new System.Windows.Forms.RadioButton();
             this.btnRtn = new System.Windows.Forms.Button();
             this.rdbNom = new System.Windows.Forms.RadioButton();
@@ -51,7 +52,6 @@
             this.lblEnca = new System.Windows.Forms.Label();
             this.gpbResultado = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.rdbPro = new System.Windows.Forms.RadioButton();
             this.gpbCriterio.SuspendLayout();
             this.gpbTitulo.SuspendLayout();
             this.gpbFecha.SuspendLayout();
@@ -82,6 +82,19 @@
             this.gpbCriterio.TabStop = false;
             this.gpbCriterio.Text = "Criterios de busqueda";
             // 
+            // rdbPro
+            // 
+            this.rdbPro.AutoSize = true;
+            this.rdbPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbPro.Location = new System.Drawing.Point(786, 62);
+            this.rdbPro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbPro.Name = "rdbPro";
+            this.rdbPro.Size = new System.Drawing.Size(98, 22);
+            this.rdbPro.TabIndex = 48;
+            this.rdbPro.TabStop = true;
+            this.rdbPro.Text = "Proveedor";
+            this.rdbPro.UseVisualStyleBackColor = true;
+            // 
             // rdbCos
             // 
             this.rdbCos.AutoSize = true;
@@ -100,7 +113,7 @@
             this.btnRtn.BackColor = System.Drawing.Color.AliceBlue;
             this.btnRtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRtn.Location = new System.Drawing.Point(676, 127);
-            this.btnRtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRtn.Margin = new System.Windows.Forms.Padding(4);
             this.btnRtn.Name = "btnRtn";
             this.btnRtn.Size = new System.Drawing.Size(208, 43);
             this.btnRtn.TabIndex = 46;
@@ -125,7 +138,7 @@
             // 
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusqueda.Location = new System.Drawing.Point(356, 134);
-            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(196, 26);
             this.txtBusqueda.TabIndex = 45;
@@ -206,9 +219,9 @@
             this.gpbTitulo.Controls.Add(this.lblnom1);
             this.gpbTitulo.Controls.Add(this.lblnom);
             this.gpbTitulo.Location = new System.Drawing.Point(31, 15);
-            this.gpbTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.gpbTitulo.Name = "gpbTitulo";
-            this.gpbTitulo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbTitulo.Padding = new System.Windows.Forms.Padding(4);
             this.gpbTitulo.Size = new System.Drawing.Size(263, 96);
             this.gpbTitulo.TabIndex = 41;
             this.gpbTitulo.TabStop = false;
@@ -243,9 +256,9 @@
             this.gpbFecha.Controls.Add(this.lblhora);
             this.gpbFecha.Controls.Add(this.lblfecha);
             this.gpbFecha.Location = new System.Drawing.Point(675, 15);
-            this.gpbFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbFecha.Margin = new System.Windows.Forms.Padding(4);
             this.gpbFecha.Name = "gpbFecha";
-            this.gpbFecha.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbFecha.Padding = new System.Windows.Forms.Padding(4);
             this.gpbFecha.Size = new System.Drawing.Size(275, 96);
             this.gpbFecha.TabIndex = 42;
             this.gpbFecha.TabStop = false;
@@ -307,11 +320,11 @@
             // 
             this.gpbResultado.Controls.Add(this.dgvDatos);
             this.gpbResultado.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbResultado.Location = new System.Drawing.Point(31, 427);
-            this.gpbResultado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbResultado.Location = new System.Drawing.Point(144, 413);
+            this.gpbResultado.Margin = new System.Windows.Forms.Padding(4);
             this.gpbResultado.Name = "gpbResultado";
-            this.gpbResultado.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gpbResultado.Size = new System.Drawing.Size(919, 212);
+            this.gpbResultado.Padding = new System.Windows.Forms.Padding(4);
+            this.gpbResultado.Size = new System.Drawing.Size(654, 212);
             this.gpbResultado.TabIndex = 43;
             this.gpbResultado.TabStop = false;
             this.gpbResultado.Text = "Resultado de búsqueda";
@@ -320,25 +333,12 @@
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(35, 33);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(853, 166);
+            this.dgvDatos.Size = new System.Drawing.Size(580, 166);
             this.dgvDatos.TabIndex = 0;
-            // 
-            // rdbPro
-            // 
-            this.rdbPro.AutoSize = true;
-            this.rdbPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbPro.Location = new System.Drawing.Point(786, 62);
-            this.rdbPro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdbPro.Name = "rdbPro";
-            this.rdbPro.Size = new System.Drawing.Size(98, 22);
-            this.rdbPro.TabIndex = 48;
-            this.rdbPro.TabStop = true;
-            this.rdbPro.Text = "Proveedor";
-            this.rdbPro.UseVisualStyleBackColor = true;
             // 
             // FrmConMate10
             // 

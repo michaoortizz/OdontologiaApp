@@ -32,6 +32,7 @@
             this.gpbResultado = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbCriterios = new System.Windows.Forms.GroupBox();
+            this.rdbHora = new System.Windows.Forms.RadioButton();
             this.rdbIdU = new System.Windows.Forms.RadioButton();
             this.rdbCom = new System.Windows.Forms.RadioButton();
             this.rdbMtv = new System.Windows.Forms.RadioButton();
@@ -53,7 +54,6 @@
             this.lblnom1 = new System.Windows.Forms.Label();
             this.lblnom = new System.Windows.Forms.Label();
             this.Fecha = new System.Windows.Forms.Timer(this.components);
-            this.rdbHora = new System.Windows.Forms.RadioButton();
             this.gpbResultado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gpbCriterios.SuspendLayout();
@@ -81,6 +81,7 @@
             this.dgvDatos.RowTemplate.Height = 24;
             this.dgvDatos.Size = new System.Drawing.Size(575, 135);
             this.dgvDatos.TabIndex = 0;
+            this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
             // gpbCriterios
             // 
@@ -104,6 +105,18 @@
             this.gpbCriterios.TabIndex = 30;
             this.gpbCriterios.TabStop = false;
             this.gpbCriterios.Text = "Criterios de busqueda";
+            // 
+            // rdbHora
+            // 
+            this.rdbHora.AutoSize = true;
+            this.rdbHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbHora.Location = new System.Drawing.Point(59, 73);
+            this.rdbHora.Name = "rdbHora";
+            this.rdbHora.Size = new System.Drawing.Size(62, 22);
+            this.rdbHora.TabIndex = 17;
+            this.rdbHora.TabStop = true;
+            this.rdbHora.Text = "Hora";
+            this.rdbHora.UseVisualStyleBackColor = true;
             // 
             // rdbIdU
             // 
@@ -330,18 +343,6 @@
             this.Fecha.Enabled = true;
             this.Fecha.Interval = 50;
             this.Fecha.Tick += new System.EventHandler(this.Fecha_Tick);
-            // 
-            // rdbHora
-            // 
-            this.rdbHora.AutoSize = true;
-            this.rdbHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbHora.Location = new System.Drawing.Point(59, 73);
-            this.rdbHora.Name = "rdbHora";
-            this.rdbHora.Size = new System.Drawing.Size(62, 22);
-            this.rdbHora.TabIndex = 17;
-            this.rdbHora.TabStop = true;
-            this.rdbHora.Text = "Hora";
-            this.rdbHora.UseVisualStyleBackColor = true;
             // 
             // FrmConCita05
             // 
