@@ -154,6 +154,7 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtId.Location = new System.Drawing.Point(133, 29);

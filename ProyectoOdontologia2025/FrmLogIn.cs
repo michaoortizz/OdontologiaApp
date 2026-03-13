@@ -16,7 +16,7 @@ namespace ProyectoOdontologia2025
     public partial class FrmLogIn : Form
     {
         //defino variables globales 
-        SqlConnection conexion = new SqlConnection("Data Source=localhost; initial catalog=OdontologiaBD; trusted_connection=yes");
+        SqlConnection conexion = new SqlConnection("Data Source=132.145.163.113,1433;Initial Catalog=OdontologiaBD;User ID=sa;Password=Admin123@Strong");
 
 
         public FrmLogIn()
@@ -34,7 +34,7 @@ namespace ProyectoOdontologia2025
             try
             {
                 // Usamos parámetros 
-                string query = "SELECT nmb_usr FROM Usuarios WHERE nom_usr = @user AND pas_usr = @pass";
+                string query = "SELECT nmb_usr FROM Usuarios WHERE RTRIM(nom_usr) = RTRIM(@user) AND RTRIM(pas_usr) = RTRIM(@pass)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conexion))
                 {

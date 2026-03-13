@@ -307,5 +307,10 @@ namespace ProyectoOdontologia2025
         {
 
         }
+
+        private void frmInicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -875,6 +875,7 @@
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú de Inicio";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmInicio_FormClosed);
             this.Load += new System.EventHandler(this.frmInicio_Load);
             this.panelSideBar.ResumeLayout(false);
             this.panelSubMenuUtilitarios.ResumeLayout(false);
