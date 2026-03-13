@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,16 @@ namespace ProyectoOdontologia2025
 {
     public partial class frmInicio : Form
     {
-        public frmInicio()
+        private string nomUsuario;
+
+        public frmInicio(string nombre)
         {
             InitializeComponent();
             customizeDesign();
+
+            this.nomUsuario = nombre;
         }
+
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
@@ -295,6 +301,16 @@ namespace ProyectoOdontologia2025
         {
             openChildForm(new FrmConMate10());
             hideSubMenu();
+        }
+
+        private void panelChildForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmInicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
