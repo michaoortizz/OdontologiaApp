@@ -228,5 +228,10 @@ namespace ProyectoOdontologia2025
         {
             this.Close();
         }
+
+        private void btnli_Click(object sender, EventArgs e)
+        {
+            LimpiarObjetos();
+        }
     }
 }
