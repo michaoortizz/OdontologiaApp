@@ -79,7 +79,7 @@
             this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2);
             this.gpbRegistro.Name = "gpbRegistro";
             this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2);
-            this.gpbRegistro.Size = new System.Drawing.Size(689, 156);
+            this.gpbRegistro.Size = new System.Drawing.Size(689, 178);
             this.gpbRegistro.TabIndex = 30;
             this.gpbRegistro.TabStop = false;
             this.gpbRegistro.Text = "Consultas registradas";
@@ -92,7 +92,7 @@
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(647, 129);
+            this.dgvDatos.Size = new System.Drawing.Size(647, 152);
             this.dgvDatos.TabIndex = 9;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
@@ -481,7 +481,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(736, 556);
+            this.ClientSize = new System.Drawing.Size(736, 569);
             this.Controls.Add(this.btnLim);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnRetornar);

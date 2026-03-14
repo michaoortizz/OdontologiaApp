@@ -347,5 +347,14 @@
   <ItemGroup>
     <None Include="imgs\logo_diente.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\nosee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\see.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

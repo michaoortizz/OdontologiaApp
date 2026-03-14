@@ -260,17 +260,17 @@
             this.gpbRegistro.Size = new System.Drawing.Size(689, 200);
             this.gpbRegistro.TabIndex = 58;
             this.gpbRegistro.TabStop = false;
-            this.gpbRegistro.Text = "Consultas registradas";
+            this.gpbRegistro.Text = "Pagos registrados";
             // 
             // dgvDatos
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(35, 24);
+            this.dgvDatos.Location = new System.Drawing.Point(11, 19);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(620, 162);
+            this.dgvDatos.Size = new System.Drawing.Size(674, 162);
             this.dgvDatos.TabIndex = 9;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 

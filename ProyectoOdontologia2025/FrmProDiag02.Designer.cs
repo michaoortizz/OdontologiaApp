@@ -32,10 +32,14 @@
             this.gpbRegistro = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
+            this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
+            this.btnLim = new System.Windows.Forms.Button();
             this.mtbCed = new System.Windows.Forms.MaskedTextBox();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnRetornar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtCon = new System.Windows.Forms.TextBox();
+            this.lblCon = new System.Windows.Forms.Label();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblCed = new System.Windows.Forms.Label();
@@ -54,10 +58,6 @@
             this.gpbTitulo = new System.Windows.Forms.GroupBox();
             this.lblnom1 = new System.Windows.Forms.Label();
             this.lblnom = new System.Windows.Forms.Label();
-            this.lblCon = new System.Windows.Forms.Label();
-            this.txtCon = new System.Windows.Forms.TextBox();
-            this.btnLim = new System.Windows.Forms.Button();
-            this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.gpbRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
@@ -82,12 +82,12 @@
             // dgvDatos
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(31, 22);
+            this.dgvDatos.Location = new System.Drawing.Point(54, 19);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(624, 134);
+            this.dgvDatos.Size = new System.Drawing.Size(597, 134);
             this.dgvDatos.TabIndex = 9;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
@@ -119,6 +119,28 @@
             this.gpbInfo.TabIndex = 34;
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Text = "Información";
+            // 
+            // mtbFecha
+            // 
+            this.mtbFecha.Location = new System.Drawing.Point(361, 41);
+            this.mtbFecha.Mask = "00/00/0000";
+            this.mtbFecha.Name = "mtbFecha";
+            this.mtbFecha.Size = new System.Drawing.Size(107, 22);
+            this.mtbFecha.TabIndex = 32;
+            this.mtbFecha.ValidatingType = typeof(System.DateTime);
+            // 
+            // btnLim
+            // 
+            this.btnLim.BackColor = System.Drawing.Color.Lavender;
+            this.btnLim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLim.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLim.Location = new System.Drawing.Point(506, 16);
+            this.btnLim.Name = "btnLim";
+            this.btnLim.Size = new System.Drawing.Size(146, 28);
+            this.btnLim.TabIndex = 31;
+            this.btnLim.Text = "&Limpiar";
+            this.btnLim.UseVisualStyleBackColor = false;
+            this.btnLim.Click += new System.EventHandler(this.btnLim_Click);
             // 
             // mtbCed
             // 
@@ -172,6 +194,29 @@
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // txtCon
+            // 
+            this.txtCon.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCon.Location = new System.Drawing.Point(361, 125);
+            this.txtCon.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCon.Name = "txtCon";
+            this.txtCon.Size = new System.Drawing.Size(107, 23);
+            this.txtCon.TabIndex = 12;
+            // 
+            // lblCon
+            // 
+            this.lblCon.AutoSize = true;
+            this.lblCon.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCon.Location = new System.Drawing.Point(269, 128);
+            this.lblCon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCon.Name = "lblCon";
+            this.lblCon.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblCon.Size = new System.Drawing.Size(77, 17);
+            this.lblCon.TabIndex = 11;
+            this.lblCon.Text = "Id Consulta:";
             // 
             // txtDesc
             // 
@@ -372,51 +417,6 @@
             this.lblnom.Size = new System.Drawing.Size(183, 19);
             this.lblnom.TabIndex = 0;
             this.lblnom.Text = "Consultorio Odontológico";
-            // 
-            // lblCon
-            // 
-            this.lblCon.AutoSize = true;
-            this.lblCon.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCon.Location = new System.Drawing.Point(269, 128);
-            this.lblCon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCon.Name = "lblCon";
-            this.lblCon.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblCon.Size = new System.Drawing.Size(77, 17);
-            this.lblCon.TabIndex = 11;
-            this.lblCon.Text = "Id Consulta:";
-            // 
-            // txtCon
-            // 
-            this.txtCon.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtCon.Location = new System.Drawing.Point(361, 125);
-            this.txtCon.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCon.Name = "txtCon";
-            this.txtCon.Size = new System.Drawing.Size(107, 23);
-            this.txtCon.TabIndex = 12;
-            // 
-            // btnLim
-            // 
-            this.btnLim.BackColor = System.Drawing.Color.Lavender;
-            this.btnLim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLim.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLim.Location = new System.Drawing.Point(506, 16);
-            this.btnLim.Name = "btnLim";
-            this.btnLim.Size = new System.Drawing.Size(146, 28);
-            this.btnLim.TabIndex = 31;
-            this.btnLim.Text = "&Limpiar";
-            this.btnLim.UseVisualStyleBackColor = false;
-            this.btnLim.Click += new System.EventHandler(this.btnLim_Click);
-            // 
-            // mtbFecha
-            // 
-            this.mtbFecha.Location = new System.Drawing.Point(361, 41);
-            this.mtbFecha.Mask = "00/00/0000";
-            this.mtbFecha.Name = "mtbFecha";
-            this.mtbFecha.Size = new System.Drawing.Size(107, 22);
-            this.mtbFecha.TabIndex = 32;
-            this.mtbFecha.ValidatingType = typeof(System.DateTime);
             // 
             // timer
             // 

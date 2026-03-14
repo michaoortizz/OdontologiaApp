@@ -26,7 +26,7 @@ namespace ProyectoOdontologia2025
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
-
+            this.Text = "Bienvenido al Sistema, " + nomUsuario;
         }
 
         private void customizeDesign()
