@@ -35,11 +35,11 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
             this.txtCon = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnOpen = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.btnSlash = new System.Windows.Forms.Button();
             this.gpbInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // btnIniciar
@@ -48,7 +48,7 @@
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciar.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnIniciar.Location = new System.Drawing.Point(108, 153);
+            this.btnIniciar.Location = new System.Drawing.Point(152, 284);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(199, 38);
             this.btnIniciar.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(199, 63);
+            this.txtUsuario.Location = new System.Drawing.Point(212, 150);
             this.txtUsuario.Multiline = true;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(134, 25);
@@ -70,7 +70,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.Indigo;
-            this.lblUsuario.Location = new System.Drawing.Point(87, 63);
+            this.lblUsuario.Location = new System.Drawing.Point(100, 150);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(64, 19);
             this.lblUsuario.TabIndex = 3;
@@ -81,7 +81,7 @@
             this.lblCtr.AutoSize = true;
             this.lblCtr.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCtr.ForeColor = System.Drawing.Color.Indigo;
-            this.lblCtr.Location = new System.Drawing.Point(63, 104);
+            this.lblCtr.Location = new System.Drawing.Point(76, 191);
             this.lblCtr.Name = "lblCtr";
             this.lblCtr.Size = new System.Drawing.Size(88, 19);
             this.lblCtr.TabIndex = 4;
@@ -101,23 +101,23 @@
             // gpbInfo
             // 
             this.gpbInfo.BackColor = System.Drawing.Color.Lavender;
-            this.gpbInfo.Controls.Add(this.btnIniciar);
             this.gpbInfo.Controls.Add(this.btnOpen);
+            this.gpbInfo.Controls.Add(this.pictureBox);
             this.gpbInfo.Controls.Add(this.btnSlash);
             this.gpbInfo.Controls.Add(this.txtCon);
             this.gpbInfo.Controls.Add(this.txtUsuario);
             this.gpbInfo.Controls.Add(this.lblCtr);
             this.gpbInfo.Controls.Add(this.lblUsuario);
-            this.gpbInfo.Location = new System.Drawing.Point(44, 117);
+            this.gpbInfo.Location = new System.Drawing.Point(44, 43);
             this.gpbInfo.Name = "gpbInfo";
-            this.gpbInfo.Size = new System.Drawing.Size(410, 206);
+            this.gpbInfo.Size = new System.Drawing.Size(410, 265);
             this.gpbInfo.TabIndex = 6;
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Enter += new System.EventHandler(this.gpbInfo_Enter);
             // 
             // txtCon
             // 
-            this.txtCon.Location = new System.Drawing.Point(199, 104);
+            this.txtCon.Location = new System.Drawing.Point(212, 191);
             this.txtCon.Multiline = true;
             this.txtCon.Name = "txtCon";
             this.txtCon.Size = new System.Drawing.Size(134, 25);
@@ -125,39 +125,45 @@
             this.txtCon.TextChanged += new System.EventHandler(this.txtCon_TextChanged);
             this.txtCon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProyectoOdontologia2025.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(191, 52);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(115, 107);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnOpen
             // 
             this.btnOpen.BackColor = System.Drawing.SystemColors.Window;
+            this.btnOpen.BackgroundImage = global::ProyectoOdontologia2025.Properties.Resources.see;
+            this.btnOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpen.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnOpen.Image = global::ProyectoOdontologia2025.Properties.Resources.see;
-            this.btnOpen.Location = new System.Drawing.Point(308, 104);
+            this.btnOpen.Location = new System.Drawing.Point(321, 191);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(25, 25);
             this.btnOpen.TabIndex = 6;
             this.btnOpen.UseVisualStyleBackColor = false;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click_1);
             // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.Color.Lavender;
+            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox.Image = global::ProyectoOdontologia2025.Properties.Resources.user;
+            this.pictureBox.Location = new System.Drawing.Point(143, 19);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(120, 108);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 7;
+            this.pictureBox.TabStop = false;
+            // 
             // btnSlash
             // 
             this.btnSlash.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSlash.FlatAppearance.BorderSize = 0;
+            this.btnSlash.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSlash.BackgroundImage = global::ProyectoOdontologia2025.Properties.Resources.nosee;
+            this.btnSlash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSlash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSlash.Image = global::ProyectoOdontologia2025.Properties.Resources.nosee;
-            this.btnSlash.Location = new System.Drawing.Point(308, 104);
+            this.btnSlash.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnSlash.Location = new System.Drawing.Point(321, 191);
             this.btnSlash.Name = "btnSlash";
             this.btnSlash.Size = new System.Drawing.Size(25, 25);
             this.btnSlash.TabIndex = 6;
-            this.btnSlash.UseVisualStyleBackColor = true;
+            this.btnSlash.UseVisualStyleBackColor = false;
             this.btnSlash.Click += new System.EventHandler(this.button2_Click);
             // 
             // FrmLogIn
@@ -165,8 +171,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(483, 358);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(501, 358);
+            this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.gpbInfo);
             this.Controls.Add(this.lblTitulo);
             this.Name = "FrmLogIn";
@@ -176,7 +182,7 @@
             this.Load += new System.EventHandler(this.FrmLogIn_Load);
             this.gpbInfo.ResumeLayout(false);
             this.gpbInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,7 +198,7 @@
         private System.Windows.Forms.GroupBox gpbInfo;
         private System.Windows.Forms.TextBox txtCon;
         private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button btnSlash;
     }
 }
