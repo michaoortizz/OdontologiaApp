@@ -47,19 +47,19 @@
             this.gpbRegistro = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
+            this.cbMetPag = new System.Windows.Forms.ComboBox();
+            this.mtbCed = new System.Windows.Forms.MaskedTextBox();
             this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
             this.lblEmp = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.lblMonto = new System.Windows.Forms.Label();
             this.lblCedu = new System.Windows.Forms.Label();
+            this.txtCita = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblFechaC = new System.Windows.Forms.Label();
             this.lblCita = new System.Windows.Forms.Label();
             this.lblPago = new System.Windows.Forms.Label();
             this.btnLim = new System.Windows.Forms.Button();
-            this.mtbCed = new System.Windows.Forms.MaskedTextBox();
-            this.txtCita = new System.Windows.Forms.TextBox();
-            this.cbMetPag = new System.Windows.Forms.ComboBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -260,17 +260,17 @@
             this.gpbRegistro.Size = new System.Drawing.Size(689, 200);
             this.gpbRegistro.TabIndex = 58;
             this.gpbRegistro.TabStop = false;
-            this.gpbRegistro.Text = "Consultas registradas";
+            this.gpbRegistro.Text = "Pagos registrados";
             // 
             // dgvDatos
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(35, 24);
+            this.dgvDatos.Location = new System.Drawing.Point(11, 19);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(620, 162);
+            this.dgvDatos.Size = new System.Drawing.Size(674, 162);
             this.dgvDatos.TabIndex = 9;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
@@ -298,6 +298,26 @@
             this.gpbInfo.TabIndex = 52;
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Text = "Información";
+            // 
+            // cbMetPag
+            // 
+            this.cbMetPag.FormattingEnabled = true;
+            this.cbMetPag.Items.AddRange(new object[] {
+            "Efectivo",
+            "Tarjeta"});
+            this.cbMetPag.Location = new System.Drawing.Point(376, 30);
+            this.cbMetPag.Name = "cbMetPag";
+            this.cbMetPag.Size = new System.Drawing.Size(107, 24);
+            this.cbMetPag.TabIndex = 14;
+            // 
+            // mtbCed
+            // 
+            this.mtbCed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtbCed.Location = new System.Drawing.Point(125, 74);
+            this.mtbCed.Mask = "000-0000000-0";
+            this.mtbCed.Name = "mtbCed";
+            this.mtbCed.Size = new System.Drawing.Size(107, 21);
+            this.mtbCed.TabIndex = 13;
             // 
             // mtbFecha
             // 
@@ -355,8 +375,19 @@
             this.lblCedu.TabIndex = 9;
             this.lblCedu.Text = "Cédula Paciente:";
             // 
+            // txtCita
+            // 
+            this.txtCita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCita.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCita.Location = new System.Drawing.Point(125, 116);
+            this.txtCita.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCita.Name = "txtCita";
+            this.txtCita.Size = new System.Drawing.Size(107, 21);
+            this.txtCita.TabIndex = 6;
+            // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtId.Location = new System.Drawing.Point(125, 33);
@@ -415,36 +446,6 @@
             this.btnLim.Text = "&Limpiar";
             this.btnLim.UseVisualStyleBackColor = false;
             this.btnLim.Click += new System.EventHandler(this.btnLim_Click);
-            // 
-            // mtbCed
-            // 
-            this.mtbCed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbCed.Location = new System.Drawing.Point(125, 74);
-            this.mtbCed.Mask = "000-0000000-0";
-            this.mtbCed.Name = "mtbCed";
-            this.mtbCed.Size = new System.Drawing.Size(107, 21);
-            this.mtbCed.TabIndex = 13;
-            // 
-            // txtCita
-            // 
-            this.txtCita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCita.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtCita.Location = new System.Drawing.Point(125, 116);
-            this.txtCita.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCita.Name = "txtCita";
-            this.txtCita.Size = new System.Drawing.Size(107, 21);
-            this.txtCita.TabIndex = 6;
-            // 
-            // cbMetPag
-            // 
-            this.cbMetPag.FormattingEnabled = true;
-            this.cbMetPag.Items.AddRange(new object[] {
-            "Efectivo",
-            "Tarjeta"});
-            this.cbMetPag.Location = new System.Drawing.Point(376, 30);
-            this.cbMetPag.Name = "cbMetPag";
-            this.cbMetPag.Size = new System.Drawing.Size(107, 24);
-            this.cbMetPag.TabIndex = 14;
             // 
             // timer
             // 

@@ -429,7 +429,7 @@
             this.gpbRegistros.Size = new System.Drawing.Size(689, 201);
             this.gpbRegistros.TabIndex = 55;
             this.gpbRegistros.TabStop = false;
-            this.gpbRegistros.Text = "Consultas registradas";
+            this.gpbRegistros.Text = "Citas registradas";
             // 
             // dgvCitas
             // 

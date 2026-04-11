@@ -66,7 +66,7 @@
             this.gpbDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gpbDatos.Name = "gpbDatos";
             this.gpbDatos.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gpbDatos.Size = new System.Drawing.Size(813, 212);
+            this.gpbDatos.Size = new System.Drawing.Size(721, 212);
             this.gpbDatos.TabIndex = 21;
             this.gpbDatos.TabStop = false;
             this.gpbDatos.Text = "Resultado de búsqueda";
@@ -80,7 +80,7 @@
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(679, 161);
+            this.dgvDatos.Size = new System.Drawing.Size(617, 161);
             this.dgvDatos.TabIndex = 0;
             // 
             // gpbCriterios
