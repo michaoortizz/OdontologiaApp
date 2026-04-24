@@ -246,31 +246,29 @@ namespace ProyectoOdontologia2025
 
         private void btnRepPac_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmRepPaci01());
+            openChildForm(new FrmRepIng01());
             hideSubMenu();
         }
 
         private void btnRepDiag_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmRepDiag02());
+            openChildForm(new FrmRepMat02());
             hideSubMenu();
         }
 
         private void btnRepCitas_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmRepCita03());
+            openChildForm(new FrmRepTrat03());
             hideSubMenu();
         }
 
         private void btnRepCoti_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmRepCoti04());
             hideSubMenu();
         }
 
         private void btnRepPagos_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmRepPago05());
             hideSubMenu();
 
         }
