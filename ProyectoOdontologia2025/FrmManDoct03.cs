@@ -54,12 +54,14 @@ namespace ProyectoOdontologia2025
             {
                 new Option { Id = 1, Name = "Ortodoncia" },
                 new Option { Id = 2, Name = "Endodoncia" },
-                new Option { Id = 3, Name = "Periodoncia" },
-                new Option { Id = 4, Name = "Odontopediatría" },
-                new Option { Id = 5, Name = "Rehabilitación" },
-                new Option { Id = 6, Name = "Oral/Prostodoncia" },
-                new Option { Id = 7, Name = "Cirugía Oral y Maxilofacial" },
-                new Option { Id = 8, Name = "Radiología Oral" }
+                new Option { Id = 3, Name = "Odontopediatría" },
+                new Option { Id = 4, Name = "Periodoncia" },
+                new Option { Id = 5, Name = "Cirugía Oral y Maxilofacial" },
+                new Option { Id = 6, Name = "Estética Dental" },
+                new Option { Id = 7, Name = "Rehabilitación" },
+                new Option { Id = 8, Name = "Oral/Prostodoncia" },
+                
+                new Option { Id = 9, Name = "Radiología Oral" }
             };                                             
 
             cbEspe.DataSource = optionsList;
@@ -132,14 +134,19 @@ namespace ProyectoOdontologia2025
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Paso los datos del datagridview a los textbox
-            txtId.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtNombre.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtApellido.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCed.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbTel.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtEmail.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            cbEspe.SelectedValue = dgvDatos[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                txtId.Text = dgvDatos[0, e.RowIndex].Value.ToString();
+                txtNombre.Text = dgvDatos[1, e.RowIndex].Value.ToString();
+                txtApellido.Text = dgvDatos[2, e.RowIndex].Value.ToString();
+                mtbCed.Text = dgvDatos[3, e.RowIndex].Value.ToString();
+                mtbTel.Text = dgvDatos[4, e.RowIndex].Value.ToString();
+                txtEmail.Text = dgvDatos[5, e.RowIndex].Value.ToString();
+                cbEspe.SelectedValue = dgvDatos[6, e.RowIndex].Value;
+                txtUsua.Text = dgvDatos[7, e.RowIndex].Value.ToString();
+
+                
+            }
         }
 
         private void FrmManDoct03_Activated(object sender, EventArgs e)
@@ -165,6 +172,7 @@ namespace ProyectoOdontologia2025
             mtbCed.Clear();
             mtbTel.Clear();
             txtNombre.Focus();
+            txtUsua.Clear();
         }
 
         private void dgvdoctores_Click(object sender, EventArgs e)
@@ -187,18 +195,25 @@ namespace ProyectoOdontologia2025
         {
             if (string.IsNullOrEmpty(txtId.Text))
             {
-                //Agrego registro nuevo
-                EscribirDatos("Insert into Doctores (nom_doc, ape_doc, ced_doc, tel_doc, eml_doc, id_esp) Values ('" + txtNombre.Text.Trim() + "' , '" + txtApellido.Text.Trim() + "','" + mtbCed.Text.Trim() + "','" + mtbTel.Text.Trim() + "','" + txtEmail.Text.Trim() + "','" + cbEspe.SelectedValue + "')");
-                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                // INSERT: Cambiado id_esp por id_espe
+                EscribirDatos("Insert into Doctores (nom_doc, ape_doc, ced_doc, tel_doc, eml_doc, id_esp, user_id) Values ('" + txtNombre.Text.Trim() + "' , '" + txtApellido.Text.Trim() + "','" + mtbCed.Text.Trim() + "','" + mtbTel.Text.Trim() + "','" + txtEmail.Text.Trim() + "','" + cbEspe.SelectedValue + "', '" + txtUsua.Text.Trim() + "')");
+                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                //Modificar un registro existente
-                EscribirDatos("Update Doctores Set nom_doc = '" + txtNombre.Text.Trim() + "', ape_doc = '" + txtApellido.Text.Trim() + "', ced_doc =  '" + mtbCed.Text.Trim() + "', tel_doc =  '" + mtbTel.Text.Trim() + "', eml_doc =  '" + txtEmail.Text.Trim() + "', id_esp =  '" + cbEspe.SelectedValue + "' where id_doc = '" + txtId.Text + "'");
-                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                // UPDATE: Cambiado id_esp por id_espe
+                EscribirDatos("Update Doctores Set nom_doc = '" + txtNombre.Text.Trim() +
+                           "', ape_doc = '" + txtApellido.Text.Trim() +
+                           "', ced_doc = '" + mtbCed.Text.Trim() +
+                           "', tel_doc = '" + mtbTel.Text.Trim() +
+                           "', eml_doc = '" + txtEmail.Text.Trim() +
+                           "', id_esp = '" + cbEspe.SelectedValue +
+                           "', user_id = '" + txtUsua.Text.Trim() + // <--- Nueva parte
+                           "' where id_doc = '" + txtId.Text + "'");
+                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            RefrescarTabla(); //Invoco función
+            RefrescarTabla();
             LimpiarObjetos();
         }
 

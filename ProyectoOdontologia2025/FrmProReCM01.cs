@@ -141,41 +141,70 @@ namespace ProyectoOdontologia2025
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Paso los datos del datagridview a los textbox
-            txtCon.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtCita.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCed.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtDoc.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            cbTrata.SelectedValue = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbFecha.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtMotivo.Text = dgvDatos[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtObs.Text = dgvDatos[7, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                // 0: id_con, 1: ced_pac, 2: id_doc, 3: fec_con, 4: motivo, 5: observaciones
+                txtCon.Text = dgvDatos[0, e.RowIndex].Value.ToString();
+                mtbCed.Text = dgvDatos[1, e.RowIndex].Value.ToString();
+                txtDoc.Text = dgvDatos[2, e.RowIndex].Value.ToString();
 
+                // Corregir Fecha
+                if (DateTime.TryParse(dgvDatos[3, e.RowIndex].Value.ToString(), out DateTime f))
+                    mtbFecha.Text = f.ToString("dd/MM/yyyy");
+
+                txtMotivo.Text = dgvDatos[4, e.RowIndex].Value.ToString();
+                txtObs.Text = dgvDatos[5, e.RowIndex].Value.ToString();
+
+                // El tratamiento no está en la tabla visualmente, 
+                // tendrías que seleccionarlo manualmente en el combo 
+                // o traer id_trata en el SELECT de RefrescarTabla.
+            }
         }
 
+        // 2. CORRECCIÓN DEL BOTÓN GUARDAR (Manejo de ComboBox y Fechas)
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Validar que el tratamiento esté seleccionado
+            if (cbTrata.SelectedValue == null)
+            {
+                MessageBox.Show("Por favor seleccione un tratamiento.");
+                return;
+            }
+
+            string idTratamiento = cbTrata.SelectedValue.ToString();
+
             if (string.IsNullOrEmpty(txtCon.Text))
             {
-                //Agrego registro nuevo
-                EscribirDatos("Insert into Consultas_Medicas (id_cita, ced_pac, id_doc, id_trata, fec_con, motivo, observaciones) Values ('" + txtCita.Text.Trim() + "' , '" + mtbCed.Text.Trim() + "' , '" + txtDoc.Text.Trim() + "' , '" + cbTrata.SelectedValue +"' , '" + mtbFecha.Text.Trim() + "', '" + txtMotivo.Text.Trim() + "', '" + txtObs.Text.Trim() + "')");
-                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                // AGREGAR REGISTRO NUEVO
+                // Se agregó la columna id_trata en el orden correcto
+                string consulta = "Insert into Consultas_Medicas (ced_pac, id_doc, id_trata, fec_con, motivo, observaciones) " +
+                                  "Values ('" + mtbCed.Text.Trim() + "', " +
+                                  "'" + txtDoc.Text.Trim() + "', " +
+                                  "'" + idTratamiento + "', " +
+                                  "'" + mtbFecha.Text.Trim() + "', " +
+                                  "'" + txtMotivo.Text.Trim() + "', " +
+                                  "'" + txtObs.Text.Trim() + "')";
+
+                EscribirDatos(consulta);
+                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                //Modificar un registro existente
-                EscribirDatos("Update Consultas_Medicas Set id_cita = '" + txtCita.Text.Trim() +
-                    "', ced_pac = '" + mtbCed.Text.Trim() +
-                    "', id_doc = '" + txtDoc.Text.Trim() +
-                    "', id_trata = '" + cbTrata.SelectedValue +
-                    "', fec_con = '" + mtbFecha.Text.Trim() +
-                    "', motivo =  '" + txtMotivo.Text.Trim() +
-                    "', observaciones = '" + txtObs.Text.Trim() +
-                    "' where id_con = '" + txtCon.Text + "'");
-                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                // MODIFICAR REGISTRO EXISTENTE
+                string consulta = "Update Consultas_Medicas Set " +
+                                  "ced_pac = '" + mtbCed.Text.Trim() + "', " +
+                                  "id_doc = '" + txtDoc.Text.Trim() + "', " +
+                                  "id_trata = '" + idTratamiento + "', " +
+                                  "fec_con = '" + mtbFecha.Text.Trim() + "', " +
+                                  "motivo = '" + txtMotivo.Text.Trim() + "', " +
+                                  "observaciones = '" + txtObs.Text.Trim() + "' " +
+                                  "where id_con = '" + txtCon.Text + "'";
+
+                EscribirDatos(consulta);
+                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            RefrescarTabla(); //Invoco función
+            RefrescarTabla();
             LimpiarObjetos();
         }
 
