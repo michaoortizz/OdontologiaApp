@@ -67,13 +67,14 @@
             this.gpbResultado.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbResultado.Location = new System.Drawing.Point(23, 376);
             this.gpbResultado.Name = "gpbResultado";
-            this.gpbResultado.Size = new System.Drawing.Size(689, 172);
+            this.gpbResultado.Size = new System.Drawing.Size(689, 181);
             this.gpbResultado.TabIndex = 31;
             this.gpbResultado.TabStop = false;
             this.gpbResultado.Text = "Resultado de búsqueda";
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(56, 25);
             this.dgvDatos.Name = "dgvDatos";

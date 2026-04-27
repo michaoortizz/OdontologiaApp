@@ -22,6 +22,7 @@ namespace ProyectoOdontologia2025
         public FrmLogIn()
         {
             InitializeComponent();
+            txtUsuario.Focus();
         }
 
         private void gpbInfo_Enter(object sender, EventArgs e)

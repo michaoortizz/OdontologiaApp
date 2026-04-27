@@ -189,13 +189,14 @@ namespace ProyectoOdontologia2025
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(20, 23);
+            this.dgvDatos.Location = new System.Drawing.Point(115, 19);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(338, 129);
+            this.dgvDatos.Size = new System.Drawing.Size(436, 134);
             this.dgvDatos.TabIndex = 9;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvDatos.Click += new System.EventHandler(this.dgvre_Click);
@@ -204,11 +205,11 @@ namespace ProyectoOdontologia2025
             // 
             this.gpbRegistro.Controls.Add(this.dgvDatos);
             this.gpbRegistro.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbRegistro.Location = new System.Drawing.Point(165, 352);
+            this.gpbRegistro.Location = new System.Drawing.Point(23, 352);
             this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2);
             this.gpbRegistro.Name = "gpbRegistro";
             this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2);
-            this.gpbRegistro.Size = new System.Drawing.Size(373, 167);
+            this.gpbRegistro.Size = new System.Drawing.Size(689, 167);
             this.gpbRegistro.TabIndex = 21;
             this.gpbRegistro.TabStop = false;
             this.gpbRegistro.Text = "Seguros Registrados";

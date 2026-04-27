@@ -92,7 +92,7 @@
             // 
             this.pnlDivision.BackColor = System.Drawing.Color.MediumPurple;
             this.pnlDivision.Location = new System.Drawing.Point(-14, 154);
-            this.pnlDivision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlDivision.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDivision.Name = "pnlDivision";
             this.pnlDivision.Size = new System.Drawing.Size(768, 13);
             this.pnlDivision.TabIndex = 44;
@@ -188,9 +188,9 @@
             this.gpbRegistros.Controls.Add(this.dgvDatos);
             this.gpbRegistros.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbRegistros.Location = new System.Drawing.Point(23, 410);
-            this.gpbRegistros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbRegistros.Margin = new System.Windows.Forms.Padding(2);
             this.gpbRegistros.Name = "gpbRegistros";
-            this.gpbRegistros.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbRegistros.Padding = new System.Windows.Forms.Padding(2);
             this.gpbRegistros.Size = new System.Drawing.Size(689, 193);
             this.gpbRegistros.TabIndex = 41;
             this.gpbRegistros.TabStop = false;
@@ -198,9 +198,10 @@
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(10, 19);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
@@ -237,9 +238,9 @@
             this.gpbInfo.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbInfo.ForeColor = System.Drawing.Color.Indigo;
             this.gpbInfo.Location = new System.Drawing.Point(23, 183);
-            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2);
             this.gpbInfo.Name = "gpbInfo";
-            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2);
             this.gpbInfo.Size = new System.Drawing.Size(508, 223);
             this.gpbInfo.TabIndex = 40;
             this.gpbInfo.TabStop = false;
@@ -303,7 +304,7 @@
             // 
             this.txtCita.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCita.Location = new System.Drawing.Point(351, 180);
-            this.txtCita.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCita.Margin = new System.Windows.Forms.Padding(2);
             this.txtCita.Name = "txtCita";
             this.txtCita.Size = new System.Drawing.Size(107, 23);
             this.txtCita.TabIndex = 32;
@@ -324,7 +325,7 @@
             // 
             this.txtDoc.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDoc.Location = new System.Drawing.Point(113, 86);
-            this.txtDoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtDoc.Name = "txtDoc";
             this.txtDoc.Size = new System.Drawing.Size(107, 23);
             this.txtDoc.TabIndex = 32;
@@ -369,7 +370,7 @@
             // 
             this.mtbCed.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbCed.Location = new System.Drawing.Point(113, 56);
-            this.mtbCed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mtbCed.Margin = new System.Windows.Forms.Padding(2);
             this.mtbCed.Mask = "000-0000000-0";
             this.mtbCed.Name = "mtbCed";
             this.mtbCed.Size = new System.Drawing.Size(107, 23);
@@ -391,7 +392,7 @@
             // 
             this.txtDurac.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDurac.Location = new System.Drawing.Point(113, 177);
-            this.txtDurac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDurac.Margin = new System.Windows.Forms.Padding(2);
             this.txtDurac.Name = "txtDurac";
             this.txtDurac.Size = new System.Drawing.Size(107, 23);
             this.txtDurac.TabIndex = 10;
@@ -400,7 +401,7 @@
             // 
             this.txtCosto.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCosto.Location = new System.Drawing.Point(351, 117);
-            this.txtCosto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCosto.Margin = new System.Windows.Forms.Padding(2);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(107, 23);
             this.txtCosto.TabIndex = 8;
@@ -421,7 +422,7 @@
             // 
             this.txtDesc.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDesc.Location = new System.Drawing.Point(351, 28);
-            this.txtDesc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(107, 23);
             this.txtDesc.TabIndex = 8;
@@ -430,7 +431,7 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(351, 148);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(107, 23);
             this.txtNombre.TabIndex = 7;
@@ -452,7 +453,7 @@
             this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(113, 29);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(107, 23);
             this.txtId.TabIndex = 6;
@@ -500,7 +501,7 @@
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrar.ForeColor = System.Drawing.Color.Indigo;
             this.btnBorrar.Location = new System.Drawing.Point(556, 323);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(146, 29);
             this.btnBorrar.TabIndex = 35;
@@ -515,7 +516,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Indigo;
             this.btnGuardar.Location = new System.Drawing.Point(556, 234);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(146, 28);
             this.btnGuardar.TabIndex = 34;
@@ -536,7 +537,7 @@
             this.btnSalir.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Indigo;
             this.btnSalir.Location = new System.Drawing.Point(716, 12);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(31, 28);
             this.btnSalir.TabIndex = 46;
@@ -551,7 +552,7 @@
             this.btnli.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnli.ForeColor = System.Drawing.Color.Indigo;
             this.btnli.Location = new System.Drawing.Point(556, 280);
-            this.btnli.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnli.Margin = new System.Windows.Forms.Padding(2);
             this.btnli.Name = "btnli";
             this.btnli.Size = new System.Drawing.Size(146, 28);
             this.btnli.TabIndex = 47;
