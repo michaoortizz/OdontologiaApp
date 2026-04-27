@@ -35,7 +35,6 @@ namespace ProyectoOdontologia2025
             panelSubMenuConsultas.Visible = false;
             panelSubMenuProcesos.Visible = false;
             panelSubMenuReportes.Visible = false;
-            panelSubMenuUtilitarios.Visible = false;
         }
 
         private void hideSubMenu()
@@ -55,10 +54,6 @@ namespace ProyectoOdontologia2025
             if (panelSubMenuReportes.Visible == true)
             {
                 panelSubMenuReportes.Visible = false;
-            }
-            if (panelSubMenuUtilitarios.Visible == true)
-            {
-                panelSubMenuUtilitarios.Visible = false;
             }
         }
 
@@ -98,7 +93,7 @@ namespace ProyectoOdontologia2025
 
         private void btnUti_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelSubMenuUtilitarios);
+            
         }
 
         private void btnManSeg_Click(object sender, EventArgs e)
@@ -309,6 +304,23 @@ namespace ProyectoOdontologia2025
         private void frmInicio_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void panelSubMenuUtilitarios_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que quiere salir del programa?",
+                "Confirmar salida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Evaluar la respuesta del usuario
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit(); // Si presionó "Sí", cerramos la aplicación
+            }
         }
     }
 }
