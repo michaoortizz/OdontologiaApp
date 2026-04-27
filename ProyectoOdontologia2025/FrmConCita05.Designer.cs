@@ -32,7 +32,6 @@
             this.gpbResultado = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbCriterios = new System.Windows.Forms.GroupBox();
-            this.rdbHora = new System.Windows.Forms.RadioButton();
             this.rdbIdU = new System.Windows.Forms.RadioButton();
             this.rdbCom = new System.Windows.Forms.RadioButton();
             this.rdbMtv = new System.Windows.Forms.RadioButton();
@@ -87,7 +86,6 @@
             // gpbCriterios
             // 
             this.gpbCriterios.BackColor = System.Drawing.Color.Transparent;
-            this.gpbCriterios.Controls.Add(this.rdbHora);
             this.gpbCriterios.Controls.Add(this.rdbIdU);
             this.gpbCriterios.Controls.Add(this.rdbCom);
             this.gpbCriterios.Controls.Add(this.rdbMtv);
@@ -108,25 +106,12 @@
             this.gpbCriterios.TabStop = false;
             this.gpbCriterios.Text = "Criterios de busqueda";
             // 
-            // rdbHora
-            // 
-            this.rdbHora.AutoSize = true;
-            this.rdbHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbHora.ForeColor = System.Drawing.Color.Black;
-            this.rdbHora.Location = new System.Drawing.Point(59, 73);
-            this.rdbHora.Name = "rdbHora";
-            this.rdbHora.Size = new System.Drawing.Size(62, 22);
-            this.rdbHora.TabIndex = 17;
-            this.rdbHora.TabStop = true;
-            this.rdbHora.Text = "Hora";
-            this.rdbHora.UseVisualStyleBackColor = true;
-            // 
             // rdbIdU
             // 
             this.rdbIdU.AutoSize = true;
             this.rdbIdU.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbIdU.ForeColor = System.Drawing.Color.Black;
-            this.rdbIdU.Location = new System.Drawing.Point(327, 73);
+            this.rdbIdU.Location = new System.Drawing.Point(179, 73);
             this.rdbIdU.Name = "rdbIdU";
             this.rdbIdU.Size = new System.Drawing.Size(96, 22);
             this.rdbIdU.TabIndex = 16;
@@ -139,7 +124,7 @@
             this.rdbCom.AutoSize = true;
             this.rdbCom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbCom.ForeColor = System.Drawing.Color.Black;
-            this.rdbCom.Location = new System.Drawing.Point(168, 73);
+            this.rdbCom.Location = new System.Drawing.Point(34, 73);
             this.rdbCom.Name = "rdbCom";
             this.rdbCom.Size = new System.Drawing.Size(107, 22);
             this.rdbCom.TabIndex = 15;
@@ -203,7 +188,7 @@
             // txtBusqueda
             // 
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.Location = new System.Drawing.Point(269, 109);
+            this.txtBusqueda.Location = new System.Drawing.Point(243, 111);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(148, 26);
             this.txtBusqueda.TabIndex = 10;
@@ -428,7 +413,6 @@
         private System.Windows.Forms.RadioButton rdbMtv;
         private System.Windows.Forms.RadioButton rdbIdU;
         private System.Windows.Forms.RadioButton rdbCom;
-        private System.Windows.Forms.RadioButton rdbHora;
         private System.Windows.Forms.Panel pnlDivision;
     }
 }

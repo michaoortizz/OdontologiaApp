@@ -89,13 +89,13 @@
             this.rdbPro.AutoSize = true;
             this.rdbPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbPro.ForeColor = System.Drawing.Color.Black;
-            this.rdbPro.Location = new System.Drawing.Point(786, 62);
+            this.rdbPro.Location = new System.Drawing.Point(774, 62);
             this.rdbPro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbPro.Name = "rdbPro";
-            this.rdbPro.Size = new System.Drawing.Size(98, 22);
+            this.rdbPro.Size = new System.Drawing.Size(113, 22);
             this.rdbPro.TabIndex = 48;
             this.rdbPro.TabStop = true;
-            this.rdbPro.Text = "Proveedor";
+            this.rdbPro.Text = "Id Proveedor";
             this.rdbPro.UseVisualStyleBackColor = true;
             // 
             // rdbCos

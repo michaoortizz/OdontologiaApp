@@ -126,12 +126,12 @@ namespace ProyectoOdontologia2025
 
             if (rbdFechaI.Checked == true)
             {
-                RefrescarTabla("Select * from Tratamientos Where fec_ini_tra like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where FORMAT(fec_ini_tra, 'd/M/yyyy') like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rbdFechaF.Checked == true)
             {
-                RefrescarTabla("Select * from Tratamientos Where fec_fin_tra like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Tratamientos Where FORMAT(fec_fin_tra, 'd/M/yyyy') like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rbdNom.Checked == true)

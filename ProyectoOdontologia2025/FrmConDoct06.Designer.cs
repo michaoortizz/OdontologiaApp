@@ -53,6 +53,7 @@
             this.lblfecha = new System.Windows.Forms.Label();
             this.lblEnca = new System.Windows.Forms.Label();
             this.pnlDivision = new System.Windows.Forms.Panel();
+            this.rdbUsu = new System.Windows.Forms.RadioButton();
             this.gpbResultado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gpbCriterios.SuspendLayout();
@@ -88,6 +89,7 @@
             // gpbCriterios
             // 
             this.gpbCriterios.BackColor = System.Drawing.Color.Transparent;
+            this.gpbCriterios.Controls.Add(this.rdbUsu);
             this.gpbCriterios.Controls.Add(this.rdbCor);
             this.gpbCriterios.Controls.Add(this.rdbTel);
             this.gpbCriterios.Controls.Add(this.rdbCedD);
@@ -369,6 +371,20 @@
             this.pnlDivision.Size = new System.Drawing.Size(1069, 16);
             this.pnlDivision.TabIndex = 54;
             // 
+            // rdbUsu
+            // 
+            this.rdbUsu.AutoSize = true;
+            this.rdbUsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbUsu.ForeColor = System.Drawing.Color.Black;
+            this.rdbUsu.Location = new System.Drawing.Point(44, 85);
+            this.rdbUsu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbUsu.Name = "rdbUsu";
+            this.rdbUsu.Size = new System.Drawing.Size(96, 22);
+            this.rdbUsu.TabIndex = 38;
+            this.rdbUsu.TabStop = true;
+            this.rdbUsu.Text = "Id Usuario";
+            this.rdbUsu.UseVisualStyleBackColor = true;
+            // 
             // FrmConDoct06
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -426,5 +442,6 @@
         private System.Windows.Forms.RadioButton rdbTel;
         private System.Windows.Forms.RadioButton rdbCedD;
         private System.Windows.Forms.Panel pnlDivision;
+        private System.Windows.Forms.RadioButton rdbUsu;
     }
 }

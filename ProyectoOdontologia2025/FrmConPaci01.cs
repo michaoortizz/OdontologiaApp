@@ -107,7 +107,7 @@ namespace ProyectoOdontologia2025
 
             if (rdbApellido.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where apec_pac like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where ape_pac like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rbdGen.Checked == true)
@@ -117,7 +117,7 @@ namespace ProyectoOdontologia2025
 
             if (rdbFecha.Checked == true)
             {
-                RefrescarTabla("Select * from Pacientes Where fec_nac_pac like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Pacientes Where FORMAT(fec_nac_pac, 'd/M/yyyy') like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbTipo.Checked == true)
