@@ -40,13 +40,28 @@ namespace ProyectoOdontologia2025
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtId.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCed.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtCita.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            cbMetPag.SelectedValue = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtMonto.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbFecha.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            // Validación para evitar errores si se hace clic en el encabezado
+            if (e.RowIndex >= 0)
+            {
+                txtId.Text = dgvDatos[0, e.RowIndex].Value.ToString();
+                mtbCed.Text = dgvDatos[1, e.RowIndex].Value.ToString();
+                txtCita.Text = dgvDatos[2, e.RowIndex].Value.ToString();
 
+                // ASIGNACIÓN DEL MÉTODO DE PAGO
+                cbMetPag.SelectedValue = dgvDatos[3, e.RowIndex].Value;
+
+                txtMonto.Text = dgvDatos[4, e.RowIndex].Value.ToString();
+
+                // CORRECCIÓN DE FECHA (Formato completo)
+                if (dgvDatos[5, e.RowIndex].Value != null)
+                {
+                    DateTime fecha;
+                    if (DateTime.TryParse(dgvDatos[5, e.RowIndex].Value.ToString(), out fecha))
+                    {
+                        mtbFecha.Text = fecha.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
         }
 
         private void btnRetornar_Click(object sender, EventArgs e)
@@ -126,7 +141,11 @@ namespace ProyectoOdontologia2025
             List<Option> optionsList = new List<Option>
             {
                 new Option { Id = 1, Name = "Efectivo" },
-                new Option { Id = 2, Name = "Tarjeta" }
+                new Option { Id = 2, Name = "Tarjeta Crédito" },
+                new Option { Id = 3, Name = "Tarjeta Débito" },
+                new Option { Id = 4, Name = "Transferencia" },
+                new Option { Id = 5, Name = "Seguro" },
+                new Option { Id = 6, Name = "Pago Móvil" }
             };
 
             cbMetPag.DataSource = optionsList;
@@ -147,26 +166,30 @@ namespace ProyectoOdontologia2025
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Convertimos la fecha del MaskedTextBox a formato SQL
+            DateTime fechaConvertida = DateTime.Parse(mtbFecha.Text);
+            string fechaSQL = fechaConvertida.ToString("yyyy-MM-dd");
 
-            if (string.IsNullOrEmpty(txtCita.Text))
+            // Validamos si es un registro nuevo (si txtId está vacío)
+            if (string.IsNullOrEmpty(txtId.Text))
             {
-                //Agrego registro nuevo
-                EscribirDatos("Insert into Pagos (ced_pac, id_cita, id_mpag, mnt_pag, fec_pag) Values ('" + mtbCed.Text.Trim() + "' , '" + txtCita.Text.Trim() + "' , '" + cbMetPag.SelectedValue + "' , '" + txtMonto.Text.Trim() + "' , '" + mtbFecha.Text.Trim() + "')");
-                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                // Insertar usando la variable fechaSQL
+                EscribirDatos("Insert into Pagos (ced_pac, id_cit, id_mpa, mnt_pag, fec_pag) Values ('" + mtbCed.Text.Trim() + "' , '" + txtCita.Text.Trim() + "' , '" + cbMetPag.SelectedValue + "' , '" + txtMonto.Text.Trim() + "' , '" + fechaSQL + "')");
+                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                //Modificar un registro existente
+                // Actualizar usando la variable fechaSQL
                 EscribirDatos("Update Pagos Set ced_pac = '" + mtbCed.Text.Trim() +
-                    "', id_cita = '" + txtCita.Text.Trim() +
-                    "', id_mpag = '" + cbMetPag.SelectedValue +
+                    "', id_cit = '" + txtCita.Text.Trim() +
+                    "', id_mpa = '" + cbMetPag.SelectedValue +
                     "', mnt_pag = '" + txtMonto.Text.Trim() +
-                    "', fec_pag =  '" + mtbFecha.Text.Trim() +
+                    "', fec_pag =  '" + fechaSQL +
                     "' where id_pag = '" + txtId.Text + "'");
-                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            RefrescarTabla(); //Invoco función
+            RefrescarTabla();
             LimpiarObjetos();
         }
 

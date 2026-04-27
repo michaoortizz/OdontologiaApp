@@ -32,10 +32,8 @@
             this.gpbRegistro = new System.Windows.Forms.GroupBox();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
-            this.cbTrata = new System.Windows.Forms.ComboBox();
             this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
             this.mtbCed = new System.Windows.Forms.MaskedTextBox();
-            this.lblTrata = new System.Windows.Forms.Label();
             this.txtDoc = new System.Windows.Forms.TextBox();
             this.lblDoc = new System.Windows.Forms.Label();
             this.lblFech = new System.Windows.Forms.Label();
@@ -97,10 +95,8 @@
             // 
             // gpbInfo
             // 
-            this.gpbInfo.Controls.Add(this.cbTrata);
             this.gpbInfo.Controls.Add(this.mtbFecha);
             this.gpbInfo.Controls.Add(this.mtbCed);
-            this.gpbInfo.Controls.Add(this.lblTrata);
             this.gpbInfo.Controls.Add(this.txtDoc);
             this.gpbInfo.Controls.Add(this.lblDoc);
             this.gpbInfo.Controls.Add(this.lblFech);
@@ -125,21 +121,10 @@
             this.gpbInfo.Text = "Información";
             this.gpbInfo.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // cbTrata
-            // 
-            this.cbTrata.FormattingEnabled = true;
-            this.cbTrata.Items.AddRange(new object[] {
-            "Tratamiento Inicial"});
-            this.cbTrata.Location = new System.Drawing.Point(163, 187);
-            this.cbTrata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cbTrata.Name = "cbTrata";
-            this.cbTrata.Size = new System.Drawing.Size(140, 28);
-            this.cbTrata.TabIndex = 15;
-            // 
             // mtbFecha
             // 
             this.mtbFecha.Location = new System.Drawing.Point(480, 35);
-            this.mtbFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbFecha.Margin = new System.Windows.Forms.Padding(4);
             this.mtbFecha.Mask = "00/00/0000";
             this.mtbFecha.Name = "mtbFecha";
             this.mtbFecha.Size = new System.Drawing.Size(141, 26);
@@ -149,22 +134,11 @@
             // mtbCed
             // 
             this.mtbCed.Location = new System.Drawing.Point(163, 84);
-            this.mtbCed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbCed.Margin = new System.Windows.Forms.Padding(4);
             this.mtbCed.Mask = "000-0000000-0";
             this.mtbCed.Name = "mtbCed";
             this.mtbCed.Size = new System.Drawing.Size(141, 26);
             this.mtbCed.TabIndex = 13;
-            // 
-            // lblTrata
-            // 
-            this.lblTrata.AutoSize = true;
-            this.lblTrata.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrata.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTrata.Location = new System.Drawing.Point(18, 182);
-            this.lblTrata.Name = "lblTrata";
-            this.lblTrata.Size = new System.Drawing.Size(102, 20);
-            this.lblTrata.TabIndex = 11;
-            this.lblTrata.Text = "Tratamiento:";
             // 
             // txtDoc
             // 
@@ -292,9 +266,9 @@
             this.gpbFecha.Controls.Add(this.lblhora);
             this.gpbFecha.Controls.Add(this.lblfecha);
             this.gpbFecha.Location = new System.Drawing.Point(675, 15);
-            this.gpbFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbFecha.Margin = new System.Windows.Forms.Padding(4);
             this.gpbFecha.Name = "gpbFecha";
-            this.gpbFecha.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbFecha.Padding = new System.Windows.Forms.Padding(4);
             this.gpbFecha.Size = new System.Drawing.Size(275, 96);
             this.gpbFecha.TabIndex = 31;
             this.gpbFecha.TabStop = false;
@@ -351,9 +325,9 @@
             this.gpbTitulo.Controls.Add(this.lblnom1);
             this.gpbTitulo.Controls.Add(this.lblnom);
             this.gpbTitulo.Location = new System.Drawing.Point(31, 15);
-            this.gpbTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.gpbTitulo.Name = "gpbTitulo";
-            this.gpbTitulo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpbTitulo.Padding = new System.Windows.Forms.Padding(4);
             this.gpbTitulo.Size = new System.Drawing.Size(263, 96);
             this.gpbTitulo.TabIndex = 30;
             this.gpbTitulo.TabStop = false;
@@ -462,7 +436,7 @@
             this.btnLim.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLim.ForeColor = System.Drawing.Color.Indigo;
             this.btnLim.Location = new System.Drawing.Point(755, 231);
-            this.btnLim.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLim.Margin = new System.Windows.Forms.Padding(4);
             this.btnLim.Name = "btnLim";
             this.btnLim.Size = new System.Drawing.Size(195, 38);
             this.btnLim.TabIndex = 33;
@@ -536,9 +510,7 @@
         private System.Windows.Forms.TextBox txtObs;
         private System.Windows.Forms.Label lblObs;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Label lblTrata;
         private System.Windows.Forms.Label lblCita;
-        private System.Windows.Forms.ComboBox cbTrata;
         private System.Windows.Forms.Button btnLim;
     }
 }

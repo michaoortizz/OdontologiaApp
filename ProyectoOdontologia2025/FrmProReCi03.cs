@@ -27,7 +27,7 @@ namespace ProyectoOdontologia2025
             mtbCed.Clear();
             txtDoc.Clear();
             cbEstado.SelectedValue= " ";
-            mtbHora.Clear();
+            
             mtbFecha.Clear();
             txtMotivo.Clear();
             txtCmt.Clear();
@@ -146,17 +146,36 @@ namespace ProyectoOdontologia2025
 
         private void dgvCitas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Paso los datos del datagridview a los textbox
-            txtCita.Text = dgvCitas[0, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCed.Text = dgvCitas[1, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
-            txtDoc.Text = dgvCitas[2, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
-            cbEstado.SelectedValue = dgvCitas[3, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
-            mtbFecha.Text = dgvCitas[4, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
-            mtbHora.Text = dgvCitas[5, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
-            txtMotivo.Text = dgvCitas[6, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
-            txtCmt.Text = dgvCitas[7, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
-            txtUsu.Text = dgvCitas[8, dgvCitas.SelectedCells[0].RowIndex].Value.ToString();
+            // Verificamos que se haya hecho clic en una fila real (no en el encabezado)
+            if (e.RowIndex >= 0)
+            {
+                // Usamos e.RowIndex que es mucho más seguro
+                txtCita.Text = dgvCitas[0, e.RowIndex].Value.ToString();
+                mtbCed.Text = dgvCitas[1, e.RowIndex].Value.ToString();
+                txtDoc.Text = dgvCitas[2, e.RowIndex].Value.ToString();
 
+                // Para el ComboBox de Estado
+                if (dgvCitas[3, e.RowIndex].Value != null)
+                    cbEstado.SelectedValue = dgvCitas[3, e.RowIndex].Value;
+
+                // Manejo de Fecha para que no le falten dígitos
+                if (dgvCitas[4, e.RowIndex].Value != null)
+                {
+                    DateTime fecha;
+                    if (DateTime.TryParse(dgvCitas[4, e.RowIndex].Value.ToString(), out fecha))
+                    {
+                        mtbFecha.Text = fecha.ToString("dd/MM/yyyy");
+                    }
+                }
+
+                // El resto de los campos
+                
+                txtMotivo.Text = dgvCitas[5, e.RowIndex].Value.ToString();
+
+                // Verificamos nulos para Comentarios y Usuario por si están vacíos en la BD
+                txtCmt.Text = dgvCitas[6, e.RowIndex].Value?.ToString() ?? "";
+                txtUsu.Text = dgvCitas[7, e.RowIndex].Value?.ToString() ?? "";
+            }
         }
 
         private void btnGuard_Click(object sender, EventArgs e)
@@ -164,7 +183,7 @@ namespace ProyectoOdontologia2025
             if (string.IsNullOrEmpty(txtCita.Text))
             {
                 //Agrego registro nuevo
-                EscribirDatos("Insert into Citas (ced_pac, id_doc, id_eci, fecha_cit, hora_cit, mtv_cit, cmt_cit, id_usr) Values ('" + mtbCed.Text.Trim() + "' , '" + txtDoc.Text.Trim() + "' , '" + cbEstado.SelectedValue + "' , '" + mtbFecha.Text.Trim() + "' , '" + mtbHora.Text.Trim() + "', '" + txtMotivo.Text.Trim() + "', '" + txtCmt.Text.Trim() + "', '" + txtUsu.Text.Trim() + "')");
+                EscribirDatos("Insert into Citas (ced_pac, id_doc, id_eci, fec_cit, mtv_cit, cmt_cit, id_usr) Values ('" + mtbCed.Text.Trim() + "' , '" + txtDoc.Text.Trim() + "' , '" + cbEstado.SelectedValue + "' , '" + mtbFecha.Text.Trim() + "', '" + txtMotivo.Text.Trim() + "', '" + txtCmt.Text.Trim() + "', '" + txtUsu.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
@@ -173,8 +192,7 @@ namespace ProyectoOdontologia2025
                 EscribirDatos("Update Citas Set ced_pac = '" + mtbCed.Text.Trim() +
                     "', id_doc = '" + txtDoc.Text.Trim() +
                     "', id_eci = '" + cbEstado.SelectedValue +
-                    "', fecha_cit = '" + mtbFecha.Text.Trim() +
-                    "', hora_cit =  '" + mtbHora.Text.Trim() +
+                    "', fec_cit = '" + mtbFecha.Text.Trim() +
                     "', mtv_cit = '" + txtMotivo.Text.Trim() +
                     "', cmt_cit =  '" + txtCmt.Text.Trim() +
                     "', id_usr = '" + txtUsu.Text.Trim() +

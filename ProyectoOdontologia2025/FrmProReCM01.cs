@@ -45,18 +45,13 @@ namespace ProyectoOdontologia2025
 
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
+            
 
-            List<Option> optionsList = new List<Option>
-            {
-                new Option { Id = 1, Name = "Tratamiento inicial" }
-            };
 
-            cbTrata.DataSource = optionsList;
-            cbTrata.DisplayMember = "Name"; // Property to display in the control
-            cbTrata.ValueMember = "Id";
-            cbTrata.SelectedIndex = -1;
+            } 
+            
 
-        }
+            
 
         private void FrmProReCM01_Activated(object sender, EventArgs e)
         {
@@ -164,23 +159,14 @@ namespace ProyectoOdontologia2025
         // 2. CORRECCIÓN DEL BOTÓN GUARDAR (Manejo de ComboBox y Fechas)
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // Validar que el tratamiento esté seleccionado
-            if (cbTrata.SelectedValue == null)
-            {
-                MessageBox.Show("Por favor seleccione un tratamiento.");
-                return;
-            }
-
-            string idTratamiento = cbTrata.SelectedValue.ToString();
-
             if (string.IsNullOrEmpty(txtCon.Text))
             {
                 // AGREGAR REGISTRO NUEVO
-                // Se agregó la columna id_trata en el orden correcto
-                string consulta = "Insert into Consultas_Medicas (ced_pac, id_doc, id_trata, fec_con, motivo, observaciones) " +
+                // Nota: He quitado 'id_trata' para que coincida con tus valores. 
+                // Si la agregas, debes ponerla tanto en la lista de columnas como en los Values.
+                string consulta = "Insert into Consultas_Medicas (ced_pac, id_doc, fec_con, motivo, observaciones) " +
                                   "Values ('" + mtbCed.Text.Trim() + "', " +
                                   "'" + txtDoc.Text.Trim() + "', " +
-                                  "'" + idTratamiento + "', " +
                                   "'" + mtbFecha.Text.Trim() + "', " +
                                   "'" + txtMotivo.Text.Trim() + "', " +
                                   "'" + txtObs.Text.Trim() + "')";
@@ -194,7 +180,6 @@ namespace ProyectoOdontologia2025
                 string consulta = "Update Consultas_Medicas Set " +
                                   "ced_pac = '" + mtbCed.Text.Trim() + "', " +
                                   "id_doc = '" + txtDoc.Text.Trim() + "', " +
-                                  "id_trata = '" + idTratamiento + "', " +
                                   "fec_con = '" + mtbFecha.Text.Trim() + "', " +
                                   "motivo = '" + txtMotivo.Text.Trim() + "', " +
                                   "observaciones = '" + txtObs.Text.Trim() + "' " +

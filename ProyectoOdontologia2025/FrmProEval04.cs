@@ -113,12 +113,33 @@ namespace ProyectoOdontologia2025
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtId.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCed.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtDoc.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbFecha.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtRes.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            // Verificamos que se haya hecho clic en una fila con datos (no en el encabezado)
+            if (e.RowIndex >= 0)
+            {
+                // Usamos e.RowIndex en lugar de SelectedCells para evitar errores de índice
+                txtId.Text = dgvDatos[0, e.RowIndex].Value.ToString();
+                mtbCed.Text = dgvDatos[1, e.RowIndex].Value.ToString();
+                txtDoc.Text = dgvDatos[2, e.RowIndex].Value.ToString();
 
+                // SOLUCIÓN PARA LA FECHA:
+                // Si el valor no es nulo, lo convertimos a DateTime para darle el formato correcto
+                if (dgvDatos[3, e.RowIndex].Value != null)
+                {
+                    DateTime fecha;
+                    if (DateTime.TryParse(dgvDatos[3, e.RowIndex].Value.ToString(), out fecha))
+                    {
+                        // Esto asegura que se envíen todos los dígitos (ej: 10/01/2025)
+                        mtbFecha.Text = fecha.ToString("dd/MM/yyyy");
+                    }
+                    else
+                    {
+                        // Si no puede convertir, intentamos pasar el texto tal cual
+                        mtbFecha.Text = dgvDatos[3, e.RowIndex].Value.ToString();
+                    }
+                }
+
+                txtRes.Text = dgvDatos[4, e.RowIndex].Value.ToString();
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

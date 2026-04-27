@@ -38,7 +38,7 @@ namespace ProyectoOdontologia2025
             txtMonto.Clear();
             mtbFecha.Clear();
             txtDet.Clear();
-            txtEmp.Clear();
+            
         }
 
         private void btnLim_Click(object sender, EventArgs e)
@@ -114,34 +114,59 @@ namespace ProyectoOdontologia2025
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtId.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCed.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbFecha.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtMonto.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtDet.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtEmp.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            // Verificamos que se haya hecho clic en una fila con datos real
+            if (e.RowIndex >= 0)
+            {
+                // 0=id_coti, 1=ced_pac, 2=fecha_coti, 3=monto, 4=detalle
+                txtId.Text = dgvDatos[0, e.RowIndex].Value.ToString();
+                mtbCed.Text = dgvDatos[1, e.RowIndex].Value.ToString();
+
+                // --- CORRECCIÓN DE FECHA ---
+                if (dgvDatos[2, e.RowIndex].Value != null)
+                {
+                    DateTime fecha;
+                    // Intentamos convertir el valor a un objeto DateTime
+                    if (DateTime.TryParse(dgvDatos[2, e.RowIndex].Value.ToString(), out fecha))
+                    {
+                        // Forzamos el formato dd/MM/yyyy para llenar todos los dígitos del MaskedTextBox
+                        mtbFecha.Text = fecha.ToString("dd/MM/yyyy");
+                    }
+                    else
+                    {
+                        mtbFecha.Text = dgvDatos[2, e.RowIndex].Value.ToString();
+                    }
+                }
+                // ---------------------------
+
+                txtMonto.Text = dgvDatos[3, e.RowIndex].Value.ToString();
+                txtDet.Text = dgvDatos[4, e.RowIndex].Value.ToString();
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Convertimos la fecha al formato que SQL entiende (YYYY-MM-DD)
+            DateTime fechaConvertida = DateTime.Parse(mtbFecha.Text);
+            string fechaSQL = fechaConvertida.ToString("yyyy-MM-dd");
+
             if (string.IsNullOrEmpty(txtId.Text))
             {
-                //Agrego registro nuevo
-                EscribirDatos("Insert into Cotizaciones (ced_pac, fecha_coti, monto, detalle) Values ('" + mtbCed.Text.Trim() + "' , '" + mtbFecha.Text.Trim() + "' , '"+ txtMonto.Text.Trim() + "' , '" + txtDet.Text.Trim() + "' , '" + txtEmp.Text.Trim() + "')");
+                // INSERT: Usando la variable fechaSQL
+                EscribirDatos("Insert into Cotizaciones (ced_pac, fecha_coti, monto, detalle) Values ('" + mtbCed.Text.Trim() + "' , '" + fechaSQL + "' , '" + txtMonto.Text.Trim() + "' , '" + txtDet.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
-                //Modificar un registro existente
+                // UPDATE: Usando la variable fechaSQL
                 EscribirDatos("Update Cotizaciones Set ced_pac = '" + mtbCed.Text.Trim() +
-                    "', fecha_coti = '" + mtbFecha.Text.Trim() +
+                    "', fecha_coti = '" + fechaSQL +
                     "', monto = '" + txtMonto.Text.Trim() +
                     "', detalle =  '" + txtDet.Text.Trim() +
                     "' where id_coti = '" + txtId.Text + "'");
                 MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
 
-            RefrescarTabla(); //Invoco función
+            RefrescarTabla();
             LimpiarObjetos();
         }
 
