@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,29 +24,23 @@ namespace ProyectoOdontologia2025
 
         private void LimpiarObjetos()
         {
-            txtCita.Clear();
-            mtbCed.Clear();
-            cbMetPag.SelectedValue = " ";
-            txtCita.Clear();
-            mtbFecha.Clear();
+            cbPaciente.SelectedIndex = -1;
+            cbCita.SelectedIndex = -1;
+            cbMetPag.SelectedIndex = -1;
+            dtpFecha.Value = DateTime.Now;
             txtMonto.Clear();
+            txtId.Clear();
         }
 
-        public class Option
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-        }
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtId.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCed.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtCita.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            cbMetPag.SelectedValue = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            cbPaciente.SelectedValue = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value;
+            cbCita.SelectedValue = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value;
+            cbMetPag.SelectedValue = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value;
             txtMonto.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbFecha.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-
+            dtpFecha.Value = Convert.ToDateTime(dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value);
         }
 
         private void btnRetornar_Click(object sender, EventArgs e)
@@ -123,16 +117,41 @@ namespace ProyectoOdontologia2025
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
-            List<Option> optionsList = new List<Option>
-            {
-                new Option { Id = 1, Name = "Efectivo" },
-                new Option { Id = 2, Name = "Tarjeta" }
-            };
-
-            cbMetPag.DataSource = optionsList;
-            cbMetPag.DisplayMember = "Name"; // Property to display in the control
-            cbMetPag.ValueMember = "Id";
+            // Cargar Métodos de Pago desde DB
+            DataTable dtMet = new DataTable();
+            SqlDataAdapter daMet = new SqlDataAdapter("SELECT id_mpa, nom_mpa FROM Metodos_Pago", conexion);
+            daMet.Fill(dtMet);
+            cbMetPag.DataSource = dtMet;
+            cbMetPag.DisplayMember = "nom_mpa";
+            cbMetPag.ValueMember = "id_mpa";
             cbMetPag.SelectedIndex = -1;
+
+            // Cargar Pacientes desde DB
+            DataTable dtPac = new DataTable();
+            SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac + ' ' + ape_pac as Nombre FROM Pacientes", conexion);
+            daPac.Fill(dtPac);
+            cbPaciente.DataSource = dtPac;
+            cbPaciente.DisplayMember = "Nombre";
+            cbPaciente.ValueMember = "ced_pac";
+            cbPaciente.SelectedIndex = -1;
+
+            // La carga de Citas se hará cuando se seleccione un paciente
+        }
+
+        private void cbPaciente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbPaciente.SelectedValue != null && cbPaciente.SelectedIndex != -1)
+            {
+                string cedula = cbPaciente.SelectedValue.ToString();
+                DataTable dtCit = new DataTable();
+                // Corregido: fecha_cit -> fec_cit y casteo para concatenación
+                SqlDataAdapter daCit = new SqlDataAdapter("SELECT id_cit, CAST(id_cit AS VARCHAR) + ' - ' + CAST(fec_cit AS VARCHAR) as Display FROM Citas WHERE ced_pac = '" + cedula + "'", conexion);
+                daCit.Fill(dtCit);
+                cbCita.DataSource = dtCit;
+                cbCita.DisplayMember = "Display";
+                cbCita.ValueMember = "id_cit";
+                cbCita.SelectedIndex = -1;
+            }
         }
 
         private void FrmProRePa06_Activated(object sender, EventArgs e)
@@ -148,20 +167,20 @@ namespace ProyectoOdontologia2025
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(txtCita.Text))
+            if (string.IsNullOrEmpty(txtId.Text))
             {
                 //Agrego registro nuevo
-                EscribirDatos("Insert into Pagos (ced_pac, id_cita, id_mpag, mnt_pag, fec_pag) Values ('" + mtbCed.Text.Trim() + "' , '" + txtCita.Text.Trim() + "' , '" + cbMetPag.SelectedValue + "' , '" + txtMonto.Text.Trim() + "' , '" + mtbFecha.Text.Trim() + "')");
+                EscribirDatos("Insert into Pagos (ced_pac, id_cit, id_mpa, mnt_pag, fec_pag) Values ('" + cbPaciente.SelectedValue + "' , '" + cbCita.SelectedValue + "' , '" + cbMetPag.SelectedValue + "' , '" + txtMonto.Text.Trim() + "' , '" + dtpFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 //Modificar un registro existente
-                EscribirDatos("Update Pagos Set ced_pac = '" + mtbCed.Text.Trim() +
-                    "', id_cita = '" + txtCita.Text.Trim() +
-                    "', id_mpag = '" + cbMetPag.SelectedValue +
+                EscribirDatos("Update Pagos Set ced_pac = '" + cbPaciente.SelectedValue +
+                    "', id_cit = '" + cbCita.SelectedValue +
+                    "', id_mpa = '" + cbMetPag.SelectedValue +
                     "', mnt_pag = '" + txtMonto.Text.Trim() +
-                    "', fec_pag =  '" + mtbFecha.Text.Trim() +
+                    "', fec_pag =  '" + dtpFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") +
                     "' where id_pag = '" + txtId.Text + "'");
                 MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
@@ -181,6 +200,19 @@ namespace ProyectoOdontologia2025
         private void btnLim_Click(object sender, EventArgs e)
         {
             LimpiarObjetos();
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                MessageBox.Show("Debe seleccionar un pago de la lista para generar la factura.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int idPago = int.Parse(txtId.Text);
+            FrmFacturaPreview factura = new FrmFacturaPreview(idPago);
+            factura.ShowDialog();
         }
     }
 }

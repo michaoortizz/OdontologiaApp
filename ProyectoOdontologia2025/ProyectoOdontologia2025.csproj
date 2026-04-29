@@ -209,6 +209,12 @@
     <Compile Include="FrmProRePa06.Designer.cs">
       <DependentUpon>FrmProRePa06.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFacturaPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFacturaPreview.Designer.cs">
+      <DependentUpon>FrmFacturaPreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRepTrat03.cs">
       <SubType>Form</SubType>
     </Compile>
