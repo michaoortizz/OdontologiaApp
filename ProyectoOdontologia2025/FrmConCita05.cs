@@ -99,17 +99,12 @@ namespace ProyectoOdontologia2025
 
             if (rdbMtv.Checked==true)
             {
-                RefrescarTabla("Select * from Citas Where mtv_cita like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Citas Where mtv_cit like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbFecha.Checked == true)
             {
-                RefrescarTabla("Select * from Citas Where fec_cit like '%" + txtBusqueda.Text + "%'");
-            }
-
-            if (rdbHora.Checked == true)
-            {
-                RefrescarTabla("Select * from Citas Where hora_cit like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Citas Where FORMAT(fec_cit, 'd/M/yyyy') like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbCom.Checked == true)

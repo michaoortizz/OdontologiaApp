@@ -94,7 +94,7 @@ namespace ProyectoOdontologia2025
 
             if (rdbFe.Checked == true)
             {
-                RefrescarTabla("Select * from Diagnosticos Where fecha_dia like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Diagnosticos Where FORMAT (fecha_dia, 'd/M/yyyy') like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbDesc.Checked == true)

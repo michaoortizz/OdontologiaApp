@@ -166,6 +166,9 @@ namespace ProyectoOdontologia2025
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Convertimos la fecha del MaskedTextBox a formato SQL
+            DateTime fechaConvertida = DateTime.Parse(mtbFecha.Text);
+            string fechaSQL = fechaConvertida.ToString("yyyy-MM-dd");
 
             if (string.IsNullOrEmpty(txtId.Text))
             {
@@ -182,10 +185,10 @@ namespace ProyectoOdontologia2025
                     "', mnt_pag = '" + txtMonto.Text.Trim() +
                     "', fec_pag =  '" + dtpFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") +
                     "' where id_pag = '" + txtId.Text + "'");
-                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            RefrescarTabla(); //Invoco función
+            RefrescarTabla();
             LimpiarObjetos();
         }
 

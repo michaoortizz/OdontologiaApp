@@ -35,8 +35,6 @@
             this.lblFechaCoti = new System.Windows.Forms.Label();
             this.txtDet = new System.Windows.Forms.TextBox();
             this.lblDet = new System.Windows.Forms.Label();
-            this.txtEmp = new System.Windows.Forms.TextBox();
-            this.lblEmp = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.lblMonto = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -73,8 +71,6 @@
             this.gpbInfo.Controls.Add(this.lblFechaCoti);
             this.gpbInfo.Controls.Add(this.txtDet);
             this.gpbInfo.Controls.Add(this.lblDet);
-            this.gpbInfo.Controls.Add(this.txtEmp);
-            this.gpbInfo.Controls.Add(this.lblEmp);
             this.gpbInfo.Controls.Add(this.txtMonto);
             this.gpbInfo.Controls.Add(this.lblMonto);
             this.gpbInfo.Controls.Add(this.txtId);
@@ -83,9 +79,9 @@
             this.gpbInfo.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbInfo.ForeColor = System.Drawing.Color.Indigo;
             this.gpbInfo.Location = new System.Drawing.Point(16, 171);
-            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbInfo.Name = "gpbInfo";
-            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2);
+            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbInfo.Size = new System.Drawing.Size(522, 170);
             this.gpbInfo.TabIndex = 25;
             this.gpbInfo.TabStop = false;
@@ -125,7 +121,7 @@
             this.txtDet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDet.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDet.Location = new System.Drawing.Point(377, 75);
-            this.txtDet.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDet.Name = "txtDet";
             this.txtDet.Size = new System.Drawing.Size(107, 21);
             this.txtDet.TabIndex = 14;
@@ -142,34 +138,12 @@
             this.lblDet.TabIndex = 13;
             this.lblDet.Text = "Detalles:";
             // 
-            // txtEmp
-            // 
-            this.txtEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtEmp.Location = new System.Drawing.Point(377, 113);
-            this.txtEmp.Margin = new System.Windows.Forms.Padding(2);
-            this.txtEmp.Name = "txtEmp";
-            this.txtEmp.Size = new System.Drawing.Size(107, 21);
-            this.txtEmp.TabIndex = 12;
-            // 
-            // lblEmp
-            // 
-            this.lblEmp.AutoSize = true;
-            this.lblEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEmp.Location = new System.Drawing.Point(280, 116);
-            this.lblEmp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmp.Name = "lblEmp";
-            this.lblEmp.Size = new System.Drawing.Size(80, 15);
-            this.lblEmp.TabIndex = 11;
-            this.lblEmp.Text = "Id Empleado:";
-            // 
             // txtMonto
             // 
             this.txtMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMonto.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtMonto.Location = new System.Drawing.Point(377, 43);
-            this.txtMonto.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMonto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(107, 21);
             this.txtMonto.TabIndex = 10;
@@ -192,7 +166,7 @@
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtId.Location = new System.Drawing.Point(135, 44);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(107, 21);
             this.txtId.TabIndex = 6;
@@ -235,7 +209,7 @@
             // 
             this.pnlDivision.BackColor = System.Drawing.Color.MediumPurple;
             this.pnlDivision.Location = new System.Drawing.Point(-16, 146);
-            this.pnlDivision.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlDivision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlDivision.Name = "pnlDivision";
             this.pnlDivision.Size = new System.Drawing.Size(768, 13);
             this.pnlDivision.TabIndex = 52;
@@ -337,7 +311,7 @@
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrar.ForeColor = System.Drawing.Color.Indigo;
             this.btnBorrar.Location = new System.Drawing.Point(559, 264);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(146, 29);
             this.btnBorrar.TabIndex = 55;
@@ -352,7 +326,7 @@
             this.btnRetornar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRetornar.ForeColor = System.Drawing.Color.Indigo;
             this.btnRetornar.Location = new System.Drawing.Point(559, 306);
-            this.btnRetornar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRetornar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRetornar.Name = "btnRetornar";
             this.btnRetornar.Size = new System.Drawing.Size(146, 30);
             this.btnRetornar.TabIndex = 53;
@@ -367,7 +341,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Indigo;
             this.btnGuardar.Location = new System.Drawing.Point(559, 224);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(146, 28);
             this.btnGuardar.TabIndex = 54;
@@ -381,9 +355,9 @@
             this.gpbRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gpbRegistro.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbRegistro.Location = new System.Drawing.Point(16, 357);
-            this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2);
+            this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbRegistro.Name = "gpbRegistro";
-            this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2);
+            this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbRegistro.Size = new System.Drawing.Size(683, 218);
             this.gpbRegistro.TabIndex = 57;
             this.gpbRegistro.TabStop = false;
@@ -391,13 +365,14 @@
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(69, 24);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvDatos.Location = new System.Drawing.Point(37, 19);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(568, 182);
+            this.dgvDatos.Size = new System.Drawing.Size(597, 189);
             this.dgvDatos.TabIndex = 9;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
@@ -408,7 +383,7 @@
             this.btnLim.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLim.ForeColor = System.Drawing.Color.Indigo;
             this.btnLim.Location = new System.Drawing.Point(559, 184);
-            this.btnLim.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLim.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLim.Name = "btnLim";
             this.btnLim.Size = new System.Drawing.Size(146, 28);
             this.btnLim.TabIndex = 54;
@@ -438,7 +413,7 @@
             this.Controls.Add(this.btnLim);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gpbRegistro);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmProCoti05";
             this.Text = "Formulario de Proceso de Cotización";
             this.Activated += new System.EventHandler(this.FrmProCoti05_Activated);
@@ -461,8 +436,6 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblCed;
         private System.Windows.Forms.Label lblCoti;
-        private System.Windows.Forms.TextBox txtEmp;
-        private System.Windows.Forms.Label lblEmp;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.Label lblFechaCoti;

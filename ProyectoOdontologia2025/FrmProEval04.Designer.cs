@@ -79,9 +79,9 @@
             this.gpbInfo.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbInfo.ForeColor = System.Drawing.Color.Indigo;
             this.gpbInfo.Location = new System.Drawing.Point(23, 183);
-            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbInfo.Name = "gpbInfo";
-            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2);
+            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbInfo.Size = new System.Drawing.Size(521, 149);
             this.gpbInfo.TabIndex = 52;
             this.gpbInfo.TabStop = false;
@@ -113,7 +113,7 @@
             this.txtRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRes.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtRes.Location = new System.Drawing.Point(373, 85);
-            this.txtRes.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRes.Name = "txtRes";
             this.txtRes.Size = new System.Drawing.Size(107, 21);
             this.txtRes.TabIndex = 12;
@@ -147,7 +147,7 @@
             this.txtDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDoc.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDoc.Location = new System.Drawing.Point(133, 104);
-            this.txtDoc.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDoc.Name = "txtDoc";
             this.txtDoc.Size = new System.Drawing.Size(107, 21);
             this.txtDoc.TabIndex = 7;
@@ -158,7 +158,7 @@
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtId.Location = new System.Drawing.Point(133, 29);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(107, 21);
             this.txtId.TabIndex = 6;
@@ -213,7 +213,7 @@
             // 
             this.pnlDivision.BackColor = System.Drawing.Color.MediumPurple;
             this.pnlDivision.Location = new System.Drawing.Point(-9, 154);
-            this.pnlDivision.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlDivision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlDivision.Name = "pnlDivision";
             this.pnlDivision.Size = new System.Drawing.Size(768, 13);
             this.pnlDivision.TabIndex = 53;
@@ -315,7 +315,7 @@
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrar.ForeColor = System.Drawing.Color.Indigo;
             this.btnBorrar.Location = new System.Drawing.Point(566, 267);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(146, 29);
             this.btnBorrar.TabIndex = 56;
@@ -330,7 +330,7 @@
             this.btnRetornar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRetornar.ForeColor = System.Drawing.Color.Indigo;
             this.btnRetornar.Location = new System.Drawing.Point(566, 307);
-            this.btnRetornar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRetornar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRetornar.Name = "btnRetornar";
             this.btnRetornar.Size = new System.Drawing.Size(146, 30);
             this.btnRetornar.TabIndex = 54;
@@ -344,7 +344,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Indigo;
             this.btnGuardar.Location = new System.Drawing.Point(566, 226);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(146, 28);
             this.btnGuardar.TabIndex = 55;
@@ -358,9 +358,9 @@
             this.gpbRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gpbRegistro.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbRegistro.Location = new System.Drawing.Point(23, 351);
-            this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2);
+            this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbRegistro.Name = "gpbRegistro";
-            this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2);
+            this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbRegistro.Size = new System.Drawing.Size(689, 206);
             this.gpbRegistro.TabIndex = 58;
             this.gpbRegistro.TabStop = false;
@@ -368,13 +368,14 @@
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(60, 19);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvDatos.Location = new System.Drawing.Point(72, 23);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(567, 175);
+            this.dgvDatos.Size = new System.Drawing.Size(541, 172);
             this.dgvDatos.TabIndex = 9;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
@@ -385,7 +386,7 @@
             this.btnLim.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLim.ForeColor = System.Drawing.Color.Indigo;
             this.btnLim.Location = new System.Drawing.Point(566, 187);
-            this.btnLim.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLim.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLim.Name = "btnLim";
             this.btnLim.Size = new System.Drawing.Size(146, 28);
             this.btnLim.TabIndex = 55;
@@ -415,7 +416,7 @@
             this.Controls.Add(this.btnLim);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gpbRegistro);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmProEval04";
             this.Text = "Formulario de Proceso de Evaluaciones";
             this.Activated += new System.EventHandler(this.FrmProEval04_Activated);

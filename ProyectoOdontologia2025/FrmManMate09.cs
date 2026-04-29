@@ -123,10 +123,11 @@ namespace ProyectoOdontologia2025
             //Paso los datos del datagridview a los textbox
             txtId.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
             txtNombre.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCant.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            mtbCosto.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtTipo.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtProve.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtDescripcion.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            mtbCant.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            mtbCosto.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtTipo.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtProve.Text = dgvDatos[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
 
         }
 

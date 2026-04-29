@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogIn));
             this.btnIniciar = new System.Windows.Forms.Button();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblCtr = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
-            this.txtCon = new System.Windows.Forms.TextBox();
             this.btnOpen = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.btnSlash = new System.Windows.Forms.Button();
+            this.txtCon = new System.Windows.Forms.TextBox();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.gpbInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -115,16 +117,6 @@
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Enter += new System.EventHandler(this.gpbInfo_Enter);
             // 
-            // txtCon
-            // 
-            this.txtCon.Location = new System.Drawing.Point(212, 191);
-            this.txtCon.Multiline = true;
-            this.txtCon.Name = "txtCon";
-            this.txtCon.Size = new System.Drawing.Size(134, 25);
-            this.txtCon.TabIndex = 1;
-            this.txtCon.TextChanged += new System.EventHandler(this.txtCon_TextChanged);
-            this.txtCon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
-            // 
             // btnOpen
             // 
             this.btnOpen.BackColor = System.Drawing.SystemColors.Window;
@@ -166,19 +158,45 @@
             this.btnSlash.UseVisualStyleBackColor = false;
             this.btnSlash.Click += new System.EventHandler(this.button2_Click);
             // 
+            // txtCon
+            // 
+            this.txtCon.Location = new System.Drawing.Point(212, 191);
+            this.txtCon.Multiline = true;
+            this.txtCon.Name = "txtCon";
+            this.txtCon.Size = new System.Drawing.Size(134, 25);
+            this.txtCon.TabIndex = 1;
+            this.txtCon.TextChanged += new System.EventHandler(this.txtCon_TextChanged);
+            this.txtCon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.Lavender;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.ForeColor = System.Drawing.Color.Indigo;
+            this.btnSalir.Location = new System.Drawing.Point(213, 340);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 7;
+            this.btnSalir.Text = "Cerrar";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FrmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(501, 358);
+            this.ClientSize = new System.Drawing.Size(501, 381);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.gpbInfo);
             this.Controls.Add(this.lblTitulo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(517, 397);
             this.Name = "FrmLogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de sesión: Clinica Dental Dr. Cepin";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.FrmLogIn_Load);
             this.gpbInfo.ResumeLayout(false);
             this.gpbInfo.PerformLayout();
@@ -200,5 +218,6 @@
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button btnSlash;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

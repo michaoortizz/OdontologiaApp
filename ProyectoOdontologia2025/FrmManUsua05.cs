@@ -146,11 +146,14 @@ namespace ProyectoOdontologia2025
         private void dgvusuarios_Click(object sender, EventArgs e)
         {
             //Paso los datos del datagridview a los textbox
+            int fila = dgvDatos.SelectedCells[0].RowIndex;
             txtUsu.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
             txtNombre.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtNomUsu.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtContra.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtContra.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            cbRol.SelectedValue = dgvDatos[3, fila].Value;
             txtEstado.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtNomUsu.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)

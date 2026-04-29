@@ -64,24 +64,25 @@
             // 
             this.gpbResultado.Controls.Add(this.dgvDatos);
             this.gpbResultado.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbResultado.Location = new System.Drawing.Point(132, 430);
-            this.gpbResultado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gpbResultado.Location = new System.Drawing.Point(23, 347);
+            this.gpbResultado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbResultado.Name = "gpbResultado";
-            this.gpbResultado.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gpbResultado.Size = new System.Drawing.Size(709, 213);
+            this.gpbResultado.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbResultado.Size = new System.Drawing.Size(689, 180);
             this.gpbResultado.TabIndex = 31;
             this.gpbResultado.TabStop = false;
             this.gpbResultado.Text = "Resultado de búsqueda";
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(35, 30);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDatos.Location = new System.Drawing.Point(26, 22);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(639, 165);
+            this.dgvDatos.Size = new System.Drawing.Size(631, 149);
             this.dgvDatos.TabIndex = 0;
             // 
             // gpbCriterio
@@ -99,11 +100,11 @@
             this.gpbCriterio.Controls.Add(this.rdbId);
             this.gpbCriterio.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F);
             this.gpbCriterio.ForeColor = System.Drawing.Color.Indigo;
-            this.gpbCriterio.Location = new System.Drawing.Point(31, 221);
-            this.gpbCriterio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gpbCriterio.Location = new System.Drawing.Point(23, 180);
+            this.gpbCriterio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbCriterio.Name = "gpbCriterio";
-            this.gpbCriterio.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gpbCriterio.Size = new System.Drawing.Size(919, 188);
+            this.gpbCriterio.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbCriterio.Size = new System.Drawing.Size(689, 153);
             this.gpbCriterio.TabIndex = 30;
             this.gpbCriterio.TabStop = false;
             this.gpbCriterio.Text = "Criterios de busqueda";
@@ -113,10 +114,10 @@
             this.rdbMed.AutoSize = true;
             this.rdbMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbMed.ForeColor = System.Drawing.Color.Black;
-            this.rdbMed.Location = new System.Drawing.Point(757, 64);
-            this.rdbMed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbMed.Location = new System.Drawing.Point(568, 52);
+            this.rdbMed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbMed.Name = "rdbMed";
-            this.rdbMed.Size = new System.Drawing.Size(127, 22);
+            this.rdbMed.Size = new System.Drawing.Size(107, 19);
             this.rdbMed.TabIndex = 17;
             this.rdbMed.TabStop = true;
             this.rdbMed.Text = "Medicamentos";
@@ -128,10 +129,9 @@
             this.btnRtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRtn.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRtn.ForeColor = System.Drawing.Color.Indigo;
-            this.btnRtn.Location = new System.Drawing.Point(668, 130);
-            this.btnRtn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRtn.Location = new System.Drawing.Point(501, 106);
             this.btnRtn.Name = "btnRtn";
-            this.btnRtn.Size = new System.Drawing.Size(208, 43);
+            this.btnRtn.Size = new System.Drawing.Size(156, 35);
             this.btnRtn.TabIndex = 16;
             this.btnRtn.Text = "Retornar";
             this.btnRtn.UseVisualStyleBackColor = false;
@@ -140,10 +140,9 @@
             // txtBusqueda
             // 
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.Location = new System.Drawing.Point(287, 140);
-            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBusqueda.Location = new System.Drawing.Point(215, 114);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(196, 26);
+            this.txtBusqueda.Size = new System.Drawing.Size(148, 22);
             this.txtBusqueda.TabIndex = 15;
             this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged_1);
             // 
@@ -152,10 +151,9 @@
             this.lblBusqueda.AutoSize = true;
             this.lblBusqueda.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBusqueda.ForeColor = System.Drawing.Color.Black;
-            this.lblBusqueda.Location = new System.Drawing.Point(33, 140);
-            this.lblBusqueda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBusqueda.Location = new System.Drawing.Point(25, 114);
             this.lblBusqueda.Name = "lblBusqueda";
-            this.lblBusqueda.Size = new System.Drawing.Size(246, 24);
+            this.lblBusqueda.Size = new System.Drawing.Size(196, 19);
             this.lblBusqueda.TabIndex = 14;
             this.lblBusqueda.Text = "Digite criterio de búsqueda:";
             // 
@@ -163,9 +161,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(321, 68);
+            this.label9.Location = new System.Drawing.Point(241, 55);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 16);
+            this.label9.Size = new System.Drawing.Size(0, 13);
             this.label9.TabIndex = 12;
             // 
             // rdbCed
@@ -173,10 +172,10 @@
             this.rdbCed.AutoSize = true;
             this.rdbCed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbCed.ForeColor = System.Drawing.Color.Black;
-            this.rdbCed.Location = new System.Drawing.Point(213, 62);
-            this.rdbCed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbCed.Location = new System.Drawing.Point(160, 50);
+            this.rdbCed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbCed.Name = "rdbCed";
-            this.rdbCed.Size = new System.Drawing.Size(90, 22);
+            this.rdbCed.Size = new System.Drawing.Size(77, 19);
             this.rdbCed.TabIndex = 4;
             this.rdbCed.TabStop = true;
             this.rdbCed.Text = "Id Cédula";
@@ -187,10 +186,10 @@
             this.rdbAle.AutoSize = true;
             this.rdbAle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbAle.ForeColor = System.Drawing.Color.Black;
-            this.rdbAle.Location = new System.Drawing.Point(651, 64);
-            this.rdbAle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbAle.Location = new System.Drawing.Point(488, 52);
+            this.rdbAle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbAle.Name = "rdbAle";
-            this.rdbAle.Size = new System.Drawing.Size(81, 22);
+            this.rdbAle.Size = new System.Drawing.Size(69, 19);
             this.rdbAle.TabIndex = 3;
             this.rdbAle.TabStop = true;
             this.rdbAle.Text = "Alergias";
@@ -201,10 +200,10 @@
             this.rdbTra.AutoSize = true;
             this.rdbTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbTra.ForeColor = System.Drawing.Color.Black;
-            this.rdbTra.Location = new System.Drawing.Point(472, 64);
-            this.rdbTra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbTra.Location = new System.Drawing.Point(354, 52);
+            this.rdbTra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbTra.Name = "rdbTra";
-            this.rdbTra.Size = new System.Drawing.Size(154, 22);
+            this.rdbTra.Size = new System.Drawing.Size(128, 19);
             this.rdbTra.TabIndex = 2;
             this.rdbTra.TabStop = true;
             this.rdbTra.Text = "Tratamiento Previo";
@@ -215,10 +214,10 @@
             this.rdbDiag.AutoSize = true;
             this.rdbDiag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbDiag.ForeColor = System.Drawing.Color.Black;
-            this.rdbDiag.Location = new System.Drawing.Point(338, 62);
-            this.rdbDiag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbDiag.Location = new System.Drawing.Point(254, 50);
+            this.rdbDiag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbDiag.Name = "rdbDiag";
-            this.rdbDiag.Size = new System.Drawing.Size(108, 22);
+            this.rdbDiag.Size = new System.Drawing.Size(90, 19);
             this.rdbDiag.TabIndex = 1;
             this.rdbDiag.TabStop = true;
             this.rdbDiag.Text = "Diagnóstico";
@@ -230,10 +229,10 @@
             this.rdbId.AutoSize = true;
             this.rdbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbId.ForeColor = System.Drawing.Color.Black;
-            this.rdbId.Location = new System.Drawing.Point(35, 62);
-            this.rdbId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbId.Location = new System.Drawing.Point(26, 50);
+            this.rdbId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rdbId.Name = "rdbId";
-            this.rdbId.Size = new System.Drawing.Size(151, 22);
+            this.rdbId.Size = new System.Drawing.Size(127, 19);
             this.rdbId.TabIndex = 0;
             this.rdbId.TabStop = true;
             this.rdbId.Text = "Id Historial Médico";
@@ -250,11 +249,9 @@
             this.gpbTitulo.BackColor = System.Drawing.Color.MediumPurple;
             this.gpbTitulo.Controls.Add(this.lblnom1);
             this.gpbTitulo.Controls.Add(this.lblnom);
-            this.gpbTitulo.Location = new System.Drawing.Point(31, 15);
-            this.gpbTitulo.Margin = new System.Windows.Forms.Padding(4);
+            this.gpbTitulo.Location = new System.Drawing.Point(23, 12);
             this.gpbTitulo.Name = "gpbTitulo";
-            this.gpbTitulo.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbTitulo.Size = new System.Drawing.Size(263, 96);
+            this.gpbTitulo.Size = new System.Drawing.Size(197, 78);
             this.gpbTitulo.TabIndex = 32;
             this.gpbTitulo.TabStop = false;
             // 
@@ -263,10 +260,9 @@
             this.lblnom1.AutoSize = true;
             this.lblnom1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnom1.ForeColor = System.Drawing.Color.White;
-            this.lblnom1.Location = new System.Drawing.Point(17, 55);
-            this.lblnom1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblnom1.Location = new System.Drawing.Point(13, 45);
             this.lblnom1.Name = "lblnom1";
-            this.lblnom1.Size = new System.Drawing.Size(218, 23);
+            this.lblnom1.Size = new System.Drawing.Size(164, 19);
             this.lblnom1.TabIndex = 1;
             this.lblnom1.Text = "Politécnico Las Mercedes";
             // 
@@ -275,10 +271,9 @@
             this.lblnom.AutoSize = true;
             this.lblnom.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnom.ForeColor = System.Drawing.Color.White;
-            this.lblnom.Location = new System.Drawing.Point(9, 26);
-            this.lblnom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblnom.Location = new System.Drawing.Point(7, 21);
             this.lblnom.Name = "lblnom";
-            this.lblnom.Size = new System.Drawing.Size(230, 24);
+            this.lblnom.Size = new System.Drawing.Size(183, 19);
             this.lblnom.TabIndex = 0;
             this.lblnom.Text = "Consultorio Odontológico";
             // 
@@ -289,11 +284,9 @@
             this.gpbFecha.Controls.Add(this.lblfecha2);
             this.gpbFecha.Controls.Add(this.lblhora);
             this.gpbFecha.Controls.Add(this.lblfecha);
-            this.gpbFecha.Location = new System.Drawing.Point(675, 15);
-            this.gpbFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.gpbFecha.Location = new System.Drawing.Point(506, 12);
             this.gpbFecha.Name = "gpbFecha";
-            this.gpbFecha.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbFecha.Size = new System.Drawing.Size(275, 96);
+            this.gpbFecha.Size = new System.Drawing.Size(206, 78);
             this.gpbFecha.TabIndex = 33;
             this.gpbFecha.TabStop = false;
             // 
@@ -301,20 +294,18 @@
             // 
             this.lblhora2.BackColor = System.Drawing.Color.White;
             this.lblhora2.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhora2.Location = new System.Drawing.Point(155, 58);
-            this.lblhora2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblhora2.Location = new System.Drawing.Point(116, 47);
             this.lblhora2.Name = "lblhora2";
-            this.lblhora2.Size = new System.Drawing.Size(103, 23);
+            this.lblhora2.Size = new System.Drawing.Size(77, 19);
             this.lblhora2.TabIndex = 3;
             // 
             // lblfecha2
             // 
             this.lblfecha2.BackColor = System.Drawing.Color.White;
             this.lblfecha2.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfecha2.Location = new System.Drawing.Point(155, 20);
-            this.lblfecha2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblfecha2.Location = new System.Drawing.Point(116, 16);
             this.lblfecha2.Name = "lblfecha2";
-            this.lblfecha2.Size = new System.Drawing.Size(103, 23);
+            this.lblfecha2.Size = new System.Drawing.Size(77, 19);
             this.lblfecha2.TabIndex = 2;
             // 
             // lblhora
@@ -322,10 +313,9 @@
             this.lblhora.AutoSize = true;
             this.lblhora.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblhora.ForeColor = System.Drawing.Color.White;
-            this.lblhora.Location = new System.Drawing.Point(27, 55);
-            this.lblhora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblhora.Location = new System.Drawing.Point(20, 45);
             this.lblhora.Name = "lblhora";
-            this.lblhora.Size = new System.Drawing.Size(53, 23);
+            this.lblhora.Size = new System.Drawing.Size(42, 19);
             this.lblhora.TabIndex = 1;
             this.lblhora.Text = "Hora:";
             // 
@@ -334,10 +324,9 @@
             this.lblfecha.AutoSize = true;
             this.lblfecha.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblfecha.ForeColor = System.Drawing.Color.White;
-            this.lblfecha.Location = new System.Drawing.Point(27, 20);
-            this.lblfecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblfecha.Location = new System.Drawing.Point(20, 16);
             this.lblfecha.Name = "lblfecha";
-            this.lblfecha.Size = new System.Drawing.Size(61, 23);
+            this.lblfecha.Size = new System.Drawing.Size(48, 19);
             this.lblfecha.TabIndex = 0;
             this.lblfecha.Text = "Fecha:";
             // 
@@ -345,10 +334,9 @@
             // 
             this.lblEnca.AutoSize = true;
             this.lblEnca.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnca.Location = new System.Drawing.Point(271, 132);
-            this.lblEnca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEnca.Location = new System.Drawing.Point(203, 107);
             this.lblEnca.Name = "lblEnca";
-            this.lblEnca.Size = new System.Drawing.Size(410, 36);
+            this.lblEnca.Size = new System.Drawing.Size(317, 28);
             this.lblEnca.TabIndex = 34;
             this.lblEnca.Text = "Consulta de Historial Médico";
             this.lblEnca.Click += new System.EventHandler(this.lblEnca_Click);
@@ -356,25 +344,25 @@
             // pnlDivision
             // 
             this.pnlDivision.BackColor = System.Drawing.Color.MediumPurple;
-            this.pnlDivision.Location = new System.Drawing.Point(-33, 185);
-            this.pnlDivision.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlDivision.Location = new System.Drawing.Point(-25, 150);
+            this.pnlDivision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlDivision.Name = "pnlDivision";
-            this.pnlDivision.Size = new System.Drawing.Size(1123, 16);
+            this.pnlDivision.Size = new System.Drawing.Size(842, 13);
             this.pnlDivision.TabIndex = 54;
             // 
             // FrmConHisMed08
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(988, 654);
+            this.ClientSize = new System.Drawing.Size(741, 531);
             this.Controls.Add(this.pnlDivision);
             this.Controls.Add(this.lblEnca);
             this.Controls.Add(this.gpbFecha);
             this.Controls.Add(this.gpbTitulo);
             this.Controls.Add(this.gpbResultado);
             this.Controls.Add(this.gpbCriterio);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmConHisMed08";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Consulta de Evaluaciones";

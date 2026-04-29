@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.panelSideBar = new System.Windows.Forms.Panel();
-            this.panelSubMenuUtilitarios = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panelSubMenuReportes = new System.Windows.Forms.Panel();
             this.btnRepCitas = new System.Windows.Forms.Button();
             this.btnRepDiag = new System.Windows.Forms.Button();
@@ -84,7 +85,7 @@
             // 
             this.panelSideBar.AutoScroll = true;
             this.panelSideBar.BackColor = System.Drawing.Color.Indigo;
-            this.panelSideBar.Controls.Add(this.panelSubMenuUtilitarios);
+            this.panelSideBar.Controls.Add(this.btnSalir);
             this.panelSideBar.Controls.Add(this.panelSubMenuReportes);
             this.panelSideBar.Controls.Add(this.btnReportes);
             this.panelSideBar.Controls.Add(this.panelSubMenuProcesos);
@@ -100,14 +101,21 @@
             this.panelSideBar.Size = new System.Drawing.Size(250, 601);
             this.panelSideBar.TabIndex = 0;
             // 
-            // panelSubMenuUtilitarios
+            // btnSalir
             // 
-            this.panelSubMenuUtilitarios.BackColor = System.Drawing.Color.MediumPurple;
-            this.panelSubMenuUtilitarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuUtilitarios.Location = new System.Drawing.Point(0, 1012);
-            this.panelSubMenuUtilitarios.Name = "panelSubMenuUtilitarios";
-            this.panelSubMenuUtilitarios.Size = new System.Drawing.Size(233, 150);
-            this.panelSubMenuUtilitarios.TabIndex = 10;
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnSalir.Location = new System.Drawing.Point(0, 1012);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnSalir.Size = new System.Drawing.Size(233, 35);
+            this.btnSalir.TabIndex = 9;
+            this.btnSalir.Text = "&Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // panelSubMenuReportes
             // 
@@ -730,8 +738,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(1007, 601);
+            this.ControlBox = false;
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú de Inicio";
@@ -788,11 +798,11 @@
         private System.Windows.Forms.Button btnRepDiag;
         private System.Windows.Forms.Button btnRepPac;
         private System.Windows.Forms.Button btnReportes;
-        private System.Windows.Forms.Panel panelSubMenuUtilitarios;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.PictureBox picBoxLogo;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblClinic;
         private System.Windows.Forms.Button btnConMate;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

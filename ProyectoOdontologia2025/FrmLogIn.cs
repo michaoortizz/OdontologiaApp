@@ -22,6 +22,7 @@ namespace ProyectoOdontologia2025
         public FrmLogIn()
         {
             InitializeComponent();
+            txtUsuario.Focus();
         }
 
         private void gpbInfo_Enter(object sender, EventArgs e)
@@ -136,6 +137,18 @@ namespace ProyectoOdontologia2025
         private void txtCon_TextChanged(object sender, EventArgs e)
         {
             btnSlash.Visible = true;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que quiere cerrar del programa?",
+    "Confirmar salida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Evaluar la respuesta del usuario
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit(); // Si presionó "Sí", cerramos la aplicación
+            }
         }
     }
 }

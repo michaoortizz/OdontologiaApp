@@ -74,9 +74,9 @@ namespace ProyectoOdontologia2025
             this.gpbInfo.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbInfo.ForeColor = System.Drawing.Color.Indigo;
             this.gpbInfo.Location = new System.Drawing.Point(23, 192);
-            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbInfo.Margin = new System.Windows.Forms.Padding(2);
             this.gpbInfo.Name = "gpbInfo";
-            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbInfo.Padding = new System.Windows.Forms.Padding(2);
             this.gpbInfo.Size = new System.Drawing.Size(412, 150);
             this.gpbInfo.TabIndex = 4;
             this.gpbInfo.TabStop = false;
@@ -94,7 +94,7 @@ namespace ProyectoOdontologia2025
             // 
             this.txtNom.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNom.Location = new System.Drawing.Point(197, 61);
-            this.txtNom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNom.Margin = new System.Windows.Forms.Padding(2);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(107, 23);
             this.txtNom.TabIndex = 7;
@@ -105,7 +105,7 @@ namespace ProyectoOdontologia2025
             this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(197, 22);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(107, 23);
             this.txtId.TabIndex = 6;
@@ -153,7 +153,7 @@ namespace ProyectoOdontologia2025
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrar.ForeColor = System.Drawing.Color.Indigo;
             this.btnBorrar.Location = new System.Drawing.Point(520, 294);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(146, 29);
             this.btnBorrar.TabIndex = 23;
@@ -168,7 +168,7 @@ namespace ProyectoOdontologia2025
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Indigo;
             this.btnGuardar.Location = new System.Drawing.Point(520, 211);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(146, 28);
             this.btnGuardar.TabIndex = 22;
@@ -178,22 +178,25 @@ namespace ProyectoOdontologia2025
             // 
             // pnlDivision
             // 
+            this.pnlDivision.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlDivision.BackColor = System.Drawing.Color.MediumPurple;
             this.pnlDivision.Location = new System.Drawing.Point(-20, 154);
-            this.pnlDivision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlDivision.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDivision.Name = "pnlDivision";
             this.pnlDivision.Size = new System.Drawing.Size(768, 13);
             this.pnlDivision.TabIndex = 5;
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(20, 23);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDatos.Location = new System.Drawing.Point(115, 19);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(338, 129);
+            this.dgvDatos.Size = new System.Drawing.Size(436, 134);
             this.dgvDatos.TabIndex = 9;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvDatos.Click += new System.EventHandler(this.dgvre_Click);
@@ -202,11 +205,11 @@ namespace ProyectoOdontologia2025
             // 
             this.gpbRegistro.Controls.Add(this.dgvDatos);
             this.gpbRegistro.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbRegistro.Location = new System.Drawing.Point(165, 352);
-            this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbRegistro.Location = new System.Drawing.Point(23, 352);
+            this.gpbRegistro.Margin = new System.Windows.Forms.Padding(2);
             this.gpbRegistro.Name = "gpbRegistro";
-            this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gpbRegistro.Size = new System.Drawing.Size(373, 167);
+            this.gpbRegistro.Padding = new System.Windows.Forms.Padding(2);
+            this.gpbRegistro.Size = new System.Drawing.Size(689, 167);
             this.gpbRegistro.TabIndex = 21;
             this.gpbRegistro.TabStop = false;
             this.gpbRegistro.Text = "Seguros Registrados";
@@ -252,6 +255,7 @@ namespace ProyectoOdontologia2025
             // 
             // gpbFecha
             // 
+            this.gpbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gpbFecha.BackColor = System.Drawing.Color.MediumPurple;
             this.gpbFecha.Controls.Add(this.lblhora2);
             this.gpbFecha.Controls.Add(this.lblfecha2);
@@ -305,6 +309,8 @@ namespace ProyectoOdontologia2025
             // 
             // lblEnca
             // 
+            this.lblEnca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEnca.AutoSize = true;
             this.lblEnca.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnca.Location = new System.Drawing.Point(227, 108);
@@ -315,12 +321,13 @@ namespace ProyectoOdontologia2025
             // 
             // btnSalir
             // 
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalir.BackColor = System.Drawing.Color.Lavender;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Indigo;
             this.btnSalir.Location = new System.Drawing.Point(716, 12);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(31, 28);
             this.btnSalir.TabIndex = 33;
@@ -335,7 +342,7 @@ namespace ProyectoOdontologia2025
             this.btnli.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnli.ForeColor = System.Drawing.Color.Indigo;
             this.btnli.Location = new System.Drawing.Point(520, 253);
-            this.btnli.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnli.Margin = new System.Windows.Forms.Padding(2);
             this.btnli.Name = "btnli";
             this.btnli.Size = new System.Drawing.Size(146, 28);
             this.btnli.TabIndex = 34;
@@ -359,7 +366,7 @@ namespace ProyectoOdontologia2025
             this.Controls.Add(this.gpbRegistro);
             this.Controls.Add(this.pnlDivision);
             this.Controls.Add(this.gpbInfo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmManSegu01";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Mantenimiento de Seguros";

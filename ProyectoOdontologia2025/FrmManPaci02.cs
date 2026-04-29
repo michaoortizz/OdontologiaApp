@@ -132,6 +132,7 @@ namespace ProyectoOdontologia2025
             mtbTel.Clear();
             txtCondi.Clear();
             txtCorreo.Clear();
+            TxtTipoP.Clear();
             txtSeguro.Clear();
             txtNombre.Focus();
         }
@@ -140,15 +141,19 @@ namespace ProyectoOdontologia2025
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int fila = e.RowIndex; // Es mejor usar e.RowIndex directamente
+            if (fila == -1) return; // Por si hacen clic en el encabezado
+
             mtbCed.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
             txtNombre.Text = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
             txtApellido.Text = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
             cbGenero.Text = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            dtpFechaNac.Value = Convert.ToDateTime(dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value);
+            dtpFechaNac.Value = Convert.ToDateTime(dgvDatos[4, fila].Value);
             mtbTel.Text = dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtCondi.Text = dgvDatos[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtCorreo.Text = dgvDatos[7, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtSeguro.Text = dgvDatos[8, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtCorreo.Text = dgvDatos[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            TxtTipoP.Text = dgvDatos[7, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtCondi.Text = dgvDatos[8, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            txtSeguro.Text = dgvDatos[9, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
 
         }
 
@@ -188,14 +193,15 @@ namespace ProyectoOdontologia2025
             if (existe)
             {
                 EscribirDatos("UPDATE Pacientes SET nom_pac = '" + txtNombre.Text.Trim() +
-                              "', ape_pac = '" + txtApellido.Text.Trim() +
-                              "', gen_pac = '" + cbGenero.Text.Trim() +
-                              "', fec_nac_pac = '" + dtpFechaNac.Value +
-                              "', tel_pac = '" + mtbTel.Text.Trim() +
-                              "', eml_pac = '" + txtCorreo.Text.Trim() +
-                              "', cnd_sal_pac= '" + txtCondi.Text.Trim() +
-                              "', id_seg = '" + txtSeguro.Text.Trim() +
-                              "' WHERE ced_pac = '" + mtbCed.Text.Trim() + "'");
+              "', ape_pac = '" + txtApellido.Text.Trim() +
+              "', gen_pac = '" + cbGenero.Text.Trim() +
+              "', tip_pac = '" + TxtTipoP.Text.Trim() +
+              "', fec_nac_pac = '" + dtpFechaNac.Value.ToString("yyyy-MM-dd") + // Limpié las comas extra aquí
+              "', tel_pac = '" + mtbTel.Text.Trim() +
+              "', eml_pac = '" + txtCorreo.Text.Trim() +
+              "', cnd_sal_pac= '" + txtCondi.Text.Trim() +
+              "', id_seg = '" + txtSeguro.Text.Trim() +
+              "' WHERE ced_pac = '" + mtbCed.Text.Trim() + "'");
                 MessageBox.Show("Registro actualizado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -203,16 +209,17 @@ namespace ProyectoOdontologia2025
 
             }
             {
-                EscribirDatos("INSERT INTO Pacientes (ced_pac, nom_pac, ape_pac, gen_pac, fec_nac_pac, tel_pac, eml_pac, tip_pac, cnd_sal_pac, id_seg) VALUES ('" +
-                              mtbCed.Text.Trim() + "', '" +
-                              txtNombre.Text.Trim() + "', '" +
-                              txtApellido.Text.Trim() + "', '" +
-                              cbGenero.Text.Trim() + "', '" +
-                              dtpFechaNac.Value + "', '" +
-                              mtbTel.Text.Trim() + "', '" +
-                              txtCorreo.Text.Trim() + "', '" +
-                              txtCondi.Text.Trim() + "', '" +
-                              txtSeguro.Text.Trim() + "')");
+                EscribirDatos("INSERT INTO Pacientes (ced_pac, nom_pac, ape_pac, gen_pac, fec_nac_pac, tel_pac, eml_pac, tip_pac, cnd_sal_pac, id_seg) " +
+              "VALUES ('" + mtbCed.Text.Trim() + "', '" +
+                            txtNombre.Text.Trim() + "', '" +
+                            txtApellido.Text.Trim() + "', '" +
+                            cbGenero.Text.Trim() + "', '" +
+                            dtpFechaNac.Value.ToString("yyyy-MM-dd") + "', '" + // Fecha en su lugar
+                            mtbTel.Text.Trim() + "', '" +
+                            txtCorreo.Text.Trim() + "', '" +
+                            TxtTipoP.Text.Trim() + "', '" +
+                            txtCondi.Text.Trim() + "', '" +
+                            txtSeguro.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             conexion.Close();

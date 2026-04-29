@@ -120,7 +120,7 @@ namespace ProyectoOdontologia2025
 
             if (rdbFecha.Checked == true)
             {
-                RefrescarTabla("Select * from Cotizaciones Where fecha_coti like '%" + txtBusqueda.Text + "%'");
+                RefrescarTabla("Select * from Cotizaciones Where FORMAT (fecha_coti, 'd/M/yyyy') like '%" + txtBusqueda.Text + "%'");
             }
 
             if (rdbMonto.Checked == true)

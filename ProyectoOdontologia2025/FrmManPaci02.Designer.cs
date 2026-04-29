@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
+            this.LblTipoP = new System.Windows.Forms.Label();
+            this.TxtTipoP = new System.Windows.Forms.TextBox();
             this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.cbGenero = new System.Windows.Forms.ComboBox();
             this.lblGenero = new System.Windows.Forms.Label();
@@ -75,6 +77,8 @@
             // 
             // gpbInfo
             // 
+            this.gpbInfo.Controls.Add(this.LblTipoP);
+            this.gpbInfo.Controls.Add(this.TxtTipoP);
             this.gpbInfo.Controls.Add(this.dtpFechaNac);
             this.gpbInfo.Controls.Add(this.cbGenero);
             this.gpbInfo.Controls.Add(this.lblGenero);
@@ -104,6 +108,27 @@
             this.gpbInfo.TabIndex = 13;
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Text = "Información";
+            // 
+            // LblTipoP
+            // 
+            this.LblTipoP.AutoSize = true;
+            this.LblTipoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTipoP.ForeColor = System.Drawing.Color.Black;
+            this.LblTipoP.Location = new System.Drawing.Point(37, 209);
+            this.LblTipoP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblTipoP.Name = "LblTipoP";
+            this.LblTipoP.Size = new System.Drawing.Size(85, 15);
+            this.LblTipoP.TabIndex = 38;
+            this.LblTipoP.Text = "Tipo Paciente:";
+            // 
+            // TxtTipoP
+            // 
+            this.TxtTipoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTipoP.Location = new System.Drawing.Point(115, 204);
+            this.TxtTipoP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtTipoP.Name = "TxtTipoP";
+            this.TxtTipoP.Size = new System.Drawing.Size(107, 21);
+            this.TxtTipoP.TabIndex = 37;
             // 
             // dtpFechaNac
             // 
@@ -358,6 +383,7 @@
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(11, 19);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -513,7 +539,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(741, 624);
+            this.ClientSize = new System.Drawing.Size(741, 609);
             this.Controls.Add(this.btnLim);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pnlDivision);
@@ -581,5 +607,7 @@
         private System.Windows.Forms.Label lblGenero;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnLim;
+        private System.Windows.Forms.Label LblTipoP;
+        private System.Windows.Forms.TextBox TxtTipoP;
     }
 }

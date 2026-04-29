@@ -130,6 +130,11 @@ namespace ProyectoOdontologia2025
             {
                 RefrescarTabla("Select * from Doctores Where id_esp like '%" + txtBusqueda.Text + "%'");
             }
+
+            if (rdbUsu.Checked == true)
+            {
+                RefrescarTabla("Select * from Doctores Where user_id like '%" + txtBusqueda.Text + "%'");
+            }
         }
 
         private void btnRtn_Click(object sender, EventArgs e)
