@@ -166,10 +166,6 @@ namespace ProyectoOdontologia2025
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // Convertimos la fecha del MaskedTextBox a formato SQL
-            DateTime fechaConvertida = DateTime.Parse(mtbFecha.Text);
-            string fechaSQL = fechaConvertida.ToString("yyyy-MM-dd");
-
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 //Agrego registro nuevo
