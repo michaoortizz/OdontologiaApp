@@ -161,8 +161,8 @@ namespace ProyectoOdontologia2025
                 PrintDocument pd = new PrintDocument();
                 pd.PrintPage += new PrintPageEventHandler(PrintTicket);
                 
-                // Configuración para impresora térmica (80mm aprox)
-                pd.DefaultPageSettings.PaperSize = new PaperSize("Custom", 285, 1000); 
+                // Configuración para impresora térmica de 7.8cm (aprox 307 unidades)
+                pd.DefaultPageSettings.PaperSize = new PaperSize("Custom", 307, 1000); 
                 
                 PrintPreviewDialog ppd = new PrintPreviewDialog();
                 ppd.Document = pd;
@@ -247,7 +247,7 @@ namespace ProyectoOdontologia2025
             Font fontTitle = new Font("Courier New", 10, FontStyle.Bold);
             Font fontNormal = new Font("Courier New", 9);
             float y = 10;
-            float width = 280;
+            float width = 300; // Ajustado para 7.8cm (307 unidades)
 
             StringFormat center = new StringFormat() { Alignment = StringAlignment.Center };
             
