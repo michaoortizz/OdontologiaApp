@@ -30,9 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
-            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
-            this.mtbCed = new System.Windows.Forms.MaskedTextBox();
             this.txtMotivo = new System.Windows.Forms.TextBox();
             this.lblMot = new System.Windows.Forms.Label();
             this.txtUsu = new System.Windows.Forms.TextBox();
@@ -64,6 +62,8 @@
             this.btnRet = new System.Windows.Forms.Button();
             this.btnGuard = new System.Windows.Forms.Button();
             this.lblEstado = new System.Windows.Forms.Label();
+            this.cbPaciente = new System.Windows.Forms.ComboBox();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.gpbInfo.SuspendLayout();
             this.gpbFecha.SuspendLayout();
             this.gpbTitulo.SuspendLayout();
@@ -75,8 +75,8 @@
             // gpbInfo
             // 
             this.gpbInfo.Controls.Add(this.cbEstado);
+            this.gpbInfo.Controls.Add(this.cbPaciente);
             this.gpbInfo.Controls.Add(this.mtbFecha);
-            this.gpbInfo.Controls.Add(this.mtbCed);
             this.gpbInfo.Controls.Add(this.txtMotivo);
             this.gpbInfo.Controls.Add(this.lblMot);
             this.gpbInfo.Controls.Add(this.txtUsu);
@@ -100,19 +100,6 @@
             this.gpbInfo.TabStop = false;
             this.gpbInfo.Text = "Información";
             // 
-            // cbEstado
-            // 
-            this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Items.AddRange(new object[] {
-            "Confirmada",
-            "Finalizada",
-            "Pendiente",
-            "Cancelada"});
-            this.cbEstado.Location = new System.Drawing.Point(98, 132);
-            this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(107, 24);
-            this.cbEstado.TabIndex = 14;
-            // 
             // mtbFecha
             // 
             this.mtbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,15 +110,6 @@
             this.mtbFecha.TabIndex = 13;
             this.mtbFecha.ValidatingType = typeof(System.DateTime);
             this.mtbFecha.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtbFecha_MaskInputRejected);
-            // 
-            // mtbCed
-            // 
-            this.mtbCed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbCed.Location = new System.Drawing.Point(98, 62);
-            this.mtbCed.Mask = "000-0000000-0";
-            this.mtbCed.Name = "mtbCed";
-            this.mtbCed.Size = new System.Drawing.Size(107, 21);
-            this.mtbCed.TabIndex = 13;
             // 
             // txtMotivo
             // 
@@ -253,9 +231,9 @@
             this.lblCed.Location = new System.Drawing.Point(19, 64);
             this.lblCed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCed.Name = "lblCed";
-            this.lblCed.Size = new System.Drawing.Size(62, 15);
+            this.lblCed.Size = new System.Drawing.Size(58, 15);
             this.lblCed.TabIndex = 5;
-            this.lblCed.Text = "Id Cédula:";
+            this.lblCed.Text = "Paciente:";
             // 
             // lblCita
             // 
@@ -491,6 +469,24 @@
             this.lblEstado.TabIndex = 4;
             this.lblEstado.Text = "Estado:";
             // 
+            // cbPaciente
+            // 
+            this.cbPaciente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPaciente.FormattingEnabled = true;
+            this.cbPaciente.Location = new System.Drawing.Point(98, 62);
+            this.cbPaciente.Name = "cbPaciente";
+            this.cbPaciente.Size = new System.Drawing.Size(107, 24);
+            this.cbPaciente.TabIndex = 15;
+            // 
+            // cbEstado
+            // 
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(98, 133);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(107, 24);
+            this.cbEstado.TabIndex = 15;
+            // 
             // FrmProReCi03
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,7 +543,6 @@
         private System.Windows.Forms.Label lblnom;
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.MaskedTextBox mtbFecha;
-        private System.Windows.Forms.MaskedTextBox mtbCed;
         private System.Windows.Forms.TextBox txtMotivo;
         private System.Windows.Forms.Label lblMot;
         private System.Windows.Forms.Timer timer;
@@ -562,6 +557,7 @@
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.TextBox txtUsu;
         private System.Windows.Forms.TextBox txtCmt;
+        private System.Windows.Forms.ComboBox cbPaciente;
         private System.Windows.Forms.ComboBox cbEstado;
     }
 }

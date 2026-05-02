@@ -30,11 +30,20 @@ namespace ProyectoOdontologia2025
 
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
+
+            // Cargar Pacientes desde DB
+            DataTable dtPac = new DataTable();
+            SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac + ' ' + ape_pac as Nombre FROM Pacientes", conexion);
+            daPac.Fill(dtPac);
+            cbPaciente.DataSource = dtPac;
+            cbPaciente.DisplayMember = "Nombre";
+            cbPaciente.ValueMember = "ced_pac";
+            cbPaciente.SelectedIndex = -1;
         }
         private void LimpiarObjetos()
         {
             txtId.Clear();
-            mtbCed.Clear();
+            cbPaciente.SelectedValue = -1;
             txtMonto.Clear();
             mtbFecha.Clear();
             txtDet.Clear();
@@ -119,7 +128,7 @@ namespace ProyectoOdontologia2025
             {
                 // 0=id_coti, 1=ced_pac, 2=fecha_coti, 3=monto, 4=detalle
                 txtId.Text = dgvDatos[0, e.RowIndex].Value.ToString();
-                mtbCed.Text = dgvDatos[1, e.RowIndex].Value.ToString();
+                cbPaciente.SelectedValue = dgvDatos[1, e.RowIndex].Value.ToString();
 
                 // --- CORRECCIÓN DE FECHA ---
                 if (dgvDatos[2, e.RowIndex].Value != null)
@@ -152,13 +161,13 @@ namespace ProyectoOdontologia2025
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 // INSERT: Usando la variable fechaSQL
-                EscribirDatos("Insert into Cotizaciones (ced_pac, fecha_coti, monto, detalle) Values ('" + mtbCed.Text.Trim() + "' , '" + fechaSQL + "' , '" + txtMonto.Text.Trim() + "' , '" + txtDet.Text.Trim() + "')");
+                EscribirDatos("Insert into Cotizaciones (ced_pac, fecha_coti, monto, detalle) Values ('" + cbPaciente.SelectedValue + "' , '" + fechaSQL + "' , '" + txtMonto.Text.Trim() + "' , '" + txtDet.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 // UPDATE: Usando la variable fechaSQL
-                EscribirDatos("Update Cotizaciones Set ced_pac = '" + mtbCed.Text.Trim() +
+                EscribirDatos("Update Cotizaciones Set ced_pac = '" + cbPaciente.SelectedValue +
                     "', fecha_coti = '" + fechaSQL +
                     "', monto = '" + txtMonto.Text.Trim() +
                     "', detalle =  '" + txtDet.Text.Trim() +

@@ -24,9 +24,9 @@ namespace ProyectoOdontologia2025
         private void LimpiarObjetos()
         {
             txtCita.Clear();
-            mtbCed.Clear();
+            cbPaciente.SelectedValue = -1;
             txtDoc.Clear();
-            cbEstado.SelectedValue= " ";
+            cbEstado.SelectedValue= -1;
             
             mtbFecha.Clear();
             txtMotivo.Clear();
@@ -48,18 +48,23 @@ namespace ProyectoOdontologia2025
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
-            List<Option> optionsList = new List<Option>
-            {
-                new Option { Id = 1, Name = "Confirmada" },
-                new Option { Id = 2, Name = "Finalizada" },
-                new Option { Id = 1002, Name = "Pendiente" },
-                new Option { Id = 1003, Name = "Cancelada" }
-            };
-
-            cbEstado.DataSource = optionsList;
-            cbEstado.DisplayMember = "Name"; // Property to display in the control
-            cbEstado.ValueMember = "Id";
+            // Cargar Estados desde DB
+            DataTable dtEs = new DataTable();
+            SqlDataAdapter daEs = new SqlDataAdapter("SELECT id_eci, nom_eci as Estado FROM Estado_Cita", conexion);
+            daEs.Fill(dtEs);
+            cbEstado.DataSource = dtEs;
+            cbEstado.DisplayMember = "Estado";
+            cbEstado.ValueMember = "id_eci";
             cbEstado.SelectedIndex = -1;
+
+            // Cargar Pacientes desde DB
+            DataTable dtPac = new DataTable();
+            SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac + ' ' + ape_pac as Nombre FROM Pacientes", conexion);
+            daPac.Fill(dtPac);
+            cbPaciente.DataSource = dtPac;
+            cbPaciente.DisplayMember = "Nombre";
+            cbPaciente.ValueMember = "ced_pac";
+            cbPaciente.SelectedIndex = -1;
 
         }
 
@@ -151,12 +156,9 @@ namespace ProyectoOdontologia2025
             {
                 // Usamos e.RowIndex que es mucho más seguro
                 txtCita.Text = dgvCitas[0, e.RowIndex].Value.ToString();
-                mtbCed.Text = dgvCitas[1, e.RowIndex].Value.ToString();
+                cbPaciente.SelectedValue = dgvCitas[1, e.RowIndex].Value.ToString();
                 txtDoc.Text = dgvCitas[2, e.RowIndex].Value.ToString();
-
-                // Para el ComboBox de Estado
-                if (dgvCitas[3, e.RowIndex].Value != null)
-                    cbEstado.SelectedValue = dgvCitas[3, e.RowIndex].Value;
+                cbEstado.SelectedValue = dgvCitas[3, e.RowIndex].Value.ToString();
 
                 // Manejo de Fecha para que no le falten dígitos
                 if (dgvCitas[4, e.RowIndex].Value != null)
@@ -171,10 +173,8 @@ namespace ProyectoOdontologia2025
                 // El resto de los campos
                 
                 txtMotivo.Text = dgvCitas[5, e.RowIndex].Value.ToString();
-
-                // Verificamos nulos para Comentarios y Usuario por si están vacíos en la BD
-                txtCmt.Text = dgvCitas[6, e.RowIndex].Value?.ToString() ?? "";
-                txtUsu.Text = dgvCitas[7, e.RowIndex].Value?.ToString() ?? "";
+                txtCmt.Text = dgvCitas[6, e.RowIndex].Value?.ToString();
+                txtUsu.Text = dgvCitas[7, e.RowIndex].Value?.ToString();
             }
         }
 
@@ -183,13 +183,13 @@ namespace ProyectoOdontologia2025
             if (string.IsNullOrEmpty(txtCita.Text))
             {
                 //Agrego registro nuevo
-                EscribirDatos("Insert into Citas (ced_pac, id_doc, id_eci, fec_cit, mtv_cit, cmt_cit, id_usr) Values ('" + mtbCed.Text.Trim() + "' , '" + txtDoc.Text.Trim() + "' , '" + cbEstado.SelectedValue + "' , '" + mtbFecha.Text.Trim() + "', '" + txtMotivo.Text.Trim() + "', '" + txtCmt.Text.Trim() + "', '" + txtUsu.Text.Trim() + "')");
+                EscribirDatos("Insert into Citas (ced_pac, id_doc, id_eci, fec_cit, mtv_cit, cmt_cit, id_usr) Values ('" + cbPaciente.SelectedValue + "' , '" + txtDoc.Text.Trim() + "' , '" + cbEstado.SelectedValue + "' , '" + mtbFecha.Text.Trim() + "', '" + txtMotivo.Text.Trim() + "', '" + txtCmt.Text.Trim() + "', '" + txtUsu.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 //Modificar un registro existente
-                EscribirDatos("Update Citas Set ced_pac = '" + mtbCed.Text.Trim() +
+                EscribirDatos("Update Citas Set ced_pac = '" + cbPaciente.SelectedValue +
                     "', id_doc = '" + txtDoc.Text.Trim() +
                     "', id_eci = '" + cbEstado.SelectedValue +
                     "', fec_cit = '" + mtbFecha.Text.Trim() +

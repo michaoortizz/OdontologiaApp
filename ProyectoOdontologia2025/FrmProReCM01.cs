@@ -45,12 +45,17 @@ namespace ProyectoOdontologia2025
 
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
-            
 
+            // Cargar Pacientes desde DB
+            DataTable dtPac = new DataTable();
+            SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac + ' ' + ape_pac as Nombre FROM Pacientes", conexion);
+            daPac.Fill(dtPac);
+            cbPaciente.DataSource = dtPac;
+            cbPaciente.DisplayMember = "Nombre";
+            cbPaciente.ValueMember = "ced_pac";
+            cbPaciente.SelectedIndex = -1;
 
-            } 
-            
-
+        } 
             
 
         private void FrmProReCM01_Activated(object sender, EventArgs e)
@@ -122,7 +127,7 @@ namespace ProyectoOdontologia2025
         private void LimpiarObjetos()
         {
             txtCon.Clear();
-            mtbCed.Clear();
+            cbPaciente.SelectedIndex = -1;
             txtDoc.Clear();
             mtbFecha.Clear();
             txtMotivo.Clear();
@@ -140,7 +145,7 @@ namespace ProyectoOdontologia2025
             {
                 // 0: id_con, 1: ced_pac, 2: id_doc, 3: fec_con, 4: motivo, 5: observaciones
                 txtCon.Text = dgvDatos[0, e.RowIndex].Value.ToString();
-                mtbCed.Text = dgvDatos[1, e.RowIndex].Value.ToString();
+                cbPaciente.SelectedValue = dgvDatos[1, e.RowIndex].Value.ToString();
                 txtDoc.Text = dgvDatos[2, e.RowIndex].Value.ToString();
 
                 // Corregir Fecha
@@ -165,7 +170,7 @@ namespace ProyectoOdontologia2025
                 // Nota: He quitado 'id_trata' para que coincida con tus valores. 
                 // Si la agregas, debes ponerla tanto en la lista de columnas como en los Values.
                 string consulta = "Insert into Consultas_Medicas (ced_pac, id_doc, fec_con, motivo, observaciones) " +
-                                  "Values ('" + mtbCed.Text.Trim() + "', " +
+                                  "Values ('" + cbPaciente.SelectedValue + "', " +
                                   "'" + txtDoc.Text.Trim() + "', " +
                                   "'" + mtbFecha.Text.Trim() + "', " +
                                   "'" + txtMotivo.Text.Trim() + "', " +
@@ -178,7 +183,7 @@ namespace ProyectoOdontologia2025
             {
                 // MODIFICAR REGISTRO EXISTENTE
                 string consulta = "Update Consultas_Medicas Set " +
-                                  "ced_pac = '" + mtbCed.Text.Trim() + "', " +
+                                  "ced_pac = '" + cbPaciente.SelectedValue + "', " +
                                   "id_doc = '" + txtDoc.Text.Trim() + "', " +
                                   "fec_con = '" + mtbFecha.Text.Trim() + "', " +
                                   "motivo = '" + txtMotivo.Text.Trim() + "', " +
@@ -204,6 +209,11 @@ namespace ProyectoOdontologia2025
             MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             LimpiarObjetos();
             RefrescarTabla();
+        }
+
+        private void cbPac_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
