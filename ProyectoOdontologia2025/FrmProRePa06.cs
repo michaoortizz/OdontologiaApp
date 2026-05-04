@@ -2,198 +2,153 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ProyectoOdontologia2025
 {
     public partial class FrmProRePa06 : Form
     {
-        //defino variables globales 
-        SqlCommand comando = new SqlCommand();
-        SqlConnection conexion = new SqlConnection("Data Source=132.145.163.113,1433;Initial Catalog=OdontologiaBD;User ID=sa;Password=Admin123@Strong");
-
         public FrmProRePa06()
         {
             InitializeComponent();
         }
 
-        private void LimpiarObjetos()
-        {
-            cbPaciente.SelectedIndex = -1;
-            cbCita.SelectedIndex = -1;
-            cbMetPag.SelectedIndex = -1;
-            dtpFecha.Value = DateTime.Now;
-            txtMonto.Clear();
-            txtId.Clear();
-        }
-
-
-        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtId.Text = dgvDatos[0, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            cbPaciente.SelectedValue = dgvDatos[1, dgvDatos.SelectedCells[0].RowIndex].Value;
-            cbCita.SelectedValue = dgvDatos[2, dgvDatos.SelectedCells[0].RowIndex].Value;
-            cbMetPag.SelectedValue = dgvDatos[3, dgvDatos.SelectedCells[0].RowIndex].Value;
-            txtMonto.Text = dgvDatos[4, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            dtpFecha.Value = Convert.ToDateTime(dgvDatos[5, dgvDatos.SelectedCells[0].RowIndex].Value);
-        }
-
-        private void btnRetornar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        SqlConnection conexion = new SqlConnection("Server=localhost;Database=OdontologiaBEA;Integrated Security=True;");
 
         private void RefrescarTabla()
         {
-            dgvDatos.DataSource = null;
             try
             {
-                conexion.Open(); //Abro la conexión
-                DataTable datos = new DataTable();
-                SqlDataAdapter Adaptador = new SqlDataAdapter("Select * from Pagos ", conexion);
-                Adaptador.Fill(datos);
-                BindingSource fuenteDatos = new BindingSource();
-                fuenteDatos.DataSource = datos;
-                dgvDatos.DataSource = fuenteDatos;
-
-            }
-            catch (Exception Error)
-            {
-                MessageBox.Show(Error.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1);
-
-            }
-            finally
-            {
-                conexion.Close();
-            }
-
-        }
-        private void EscribirDatos(string Parametro)
-        {
-            try
-            {
-                comando.Connection = conexion;
-                comando.CommandText = Parametro;
-
-                if (conexion.State == ConnectionState.Closed)
-                {
-                    conexion.Open();
-                }
-
-                // ASIGNAMOS LA TRANSACCIÓN AL COMANDO
-                SqlTransaction transaccion = conexion.BeginTransaction();
-                comando.Transaction = transaccion; // <--- ESTO ES VITAL
-
-                comando.ExecuteNonQuery();
-
-                transaccion.Commit(); // Confirmamos
+                string query = "SELECT * FROM Pagos";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dgvDatos.DataSource = dt;
             }
             catch (Exception ex)
             {
-                // Si hay error y existe una transacción, la revertimos
-                if (comando.Transaction != null)
-                {
-                    comando.Transaction.Rollback();
-                }
-                MessageBox.Show("Error al escribir datos: " + ex.Message);
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
             }
-            finally
-            {
-                conexion.Close();
-            }
+        }
+
+        private void LimpiarObjetos()
+        {
+            txtId.Clear();
+            cbPaciente.SelectedIndex = -1;
+            cbCita.SelectedIndex = -1;
+            cbMetPag.SelectedIndex = -1;
+            txtMonto.Clear();
+            dtpFecha.Value = DateTime.Now;
         }
 
         private void FrmProRePa06_Load(object sender, EventArgs e)
         {
-            //Invocar procedimiento para visualizar datos
             RefrescarTabla();
-
-            //Para mostrar la fecha
-            lblfecha2.Text = DateTime.Now.ToShortDateString();
-
-            // Cargar Métodos de Pago desde DB
-            DataTable dtMet = new DataTable();
-            SqlDataAdapter daMet = new SqlDataAdapter("SELECT id_mpa, nom_mpa FROM Metodos_Pago", conexion);
-            daMet.Fill(dtMet);
-            cbMetPag.DataSource = dtMet;
-            cbMetPag.DisplayMember = "nom_mpa";
-            cbMetPag.ValueMember = "id_mpa";
-            cbMetPag.SelectedIndex = -1;
-
-            // Cargar Pacientes desde DB
-            DataTable dtPac = new DataTable();
-            SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac + ' ' + ape_pac as Nombre FROM Pacientes", conexion);
-            daPac.Fill(dtPac);
-            cbPaciente.DataSource = dtPac;
-            cbPaciente.DisplayMember = "Nombre";
-            cbPaciente.ValueMember = "ced_pac";
-            cbPaciente.SelectedIndex = -1;
-
-            // La carga de Citas se hará cuando se seleccione un paciente
+            CargarCombos();
         }
 
-        private void cbPaciente_SelectedIndexChanged(object sender, EventArgs e)
+        private void CargarCombos()
         {
-            if (cbPaciente.SelectedValue != null && cbPaciente.SelectedIndex != -1)
+            try
             {
-                string cedula = cbPaciente.SelectedValue.ToString();
+                // Cargar Pacientes
+                SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac FROM Pacientes", conexion);
+                DataTable dtPac = new DataTable();
+                daPac.Fill(dtPac);
+                cbPaciente.DataSource = dtPac;
+                cbPaciente.DisplayMember = "ced_pac";
+                cbPaciente.ValueMember = "ced_pac";
+                cbPaciente.SelectedIndex = -1;
+
+                // Cargar Citas
+                SqlDataAdapter daCit = new SqlDataAdapter("SELECT id_cit FROM Citas", conexion);
                 DataTable dtCit = new DataTable();
-                // Corregido: fecha_cit -> fec_cit y casteo para concatenación
-                SqlDataAdapter daCit = new SqlDataAdapter("SELECT id_cit, CAST(id_cit AS VARCHAR) + ' - ' + CAST(fec_cit AS VARCHAR) as Display FROM Citas WHERE ced_pac = '" + cedula + "'", conexion);
                 daCit.Fill(dtCit);
                 cbCita.DataSource = dtCit;
-                cbCita.DisplayMember = "Display";
+                cbCita.DisplayMember = "id_cit";
                 cbCita.ValueMember = "id_cit";
                 cbCita.SelectedIndex = -1;
             }
-        }
-
-        private void FrmProRePa06_Activated(object sender, EventArgs e)
-        {
-            comando.Connection = conexion;
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            lblhora2.Text = DateTime.Now.ToLongTimeString();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar combos: " + ex.Message);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtId.Text))
+            try
             {
-                //Agrego registro nuevo
-                EscribirDatos("Insert into Pagos (ced_pac, id_cit, id_mpa, mnt_pag, fec_pag) Values ('" + cbPaciente.SelectedValue + "' , '" + cbCita.SelectedValue + "' , '" + cbMetPag.SelectedValue + "' , '" + txtMonto.Text.Trim() + "' , '" + dtpFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
-                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-            }
-            else
-            {
-                //Modificar un registro existente
-                EscribirDatos("Update Pagos Set ced_pac = '" + cbPaciente.SelectedValue +
-                    "', id_cit = '" + cbCita.SelectedValue +
-                    "', id_mpa = '" + cbMetPag.SelectedValue +
-                    "', mnt_pag = '" + txtMonto.Text.Trim() +
-                    "', fec_pag =  '" + dtpFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") +
-                    "' where id_pag = '" + txtId.Text + "'");
-                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                if (string.IsNullOrEmpty(txtId.Text))
+                {
+                    // Insertar
+                    string query = "INSERT INTO Pagos (ced_pac, id_cit, met_pag, mon_pag, fec_pag) VALUES (@ced, @cita, @met, @mon, @fec)";
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("@ced", cbPaciente.SelectedValue);
+                    cmd.Parameters.AddWithValue("@cita", cbCita.SelectedValue);
+                    cmd.Parameters.AddWithValue("@met", cbMetPag.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@mon", decimal.Parse(txtMonto.Text));
+                    cmd.Parameters.AddWithValue("@fec", dtpFecha.Value);
 
-            RefrescarTabla();
-            LimpiarObjetos();
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+                    conexion.Close();
+                    MessageBox.Show("Pago registrado correctamente.");
+                }
+                else
+                {
+                    // Actualizar
+                    string query = "UPDATE Pagos SET ced_pac=@ced, id_cit=@cita, met_pag=@met, mon_pag=@mon, fec_pag=@fec WHERE id_pag=@id";
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("@id", int.Parse(txtId.Text));
+                    cmd.Parameters.AddWithValue("@ced", cbPaciente.SelectedValue);
+                    cmd.Parameters.AddWithValue("@cita", cbCita.SelectedValue);
+                    cmd.Parameters.AddWithValue("@met", cbMetPag.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@mon", decimal.Parse(txtMonto.Text));
+                    cmd.Parameters.AddWithValue("@fec", dtpFecha.Value);
+
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+                    conexion.Close();
+                    MessageBox.Show("Pago actualizado correctamente.");
+                }
+                RefrescarTabla();
+                LimpiarObjetos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message);
+                if (conexion.State == ConnectionState.Open) conexion.Close();
+            }
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            EscribirDatos("Delete from Pagos where id_pag= '" + txtId.Text + "'");
-            MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-            LimpiarObjetos();
-            RefrescarTabla();
+            if (string.IsNullOrEmpty(txtId.Text)) return;
+            if (MessageBox.Show("¿Está seguro de borrar este registro?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    string query = "DELETE FROM Pagos WHERE id_pag=@id";
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("@id", int.Parse(txtId.Text));
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+                    conexion.Close();
+                    RefrescarTabla();
+                    LimpiarObjetos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al borrar: " + ex.Message);
+                    if (conexion.State == ConnectionState.Open) conexion.Close();
+                }
+            }
         }
 
         private void btnLim_Click(object sender, EventArgs e)
@@ -201,11 +156,46 @@ namespace ProyectoOdontologia2025
             LimpiarObjetos();
         }
 
+        private void btnRetornar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvDatos.Rows[e.RowIndex];
+                txtId.Text = row.Cells["id_pag"].Value.ToString();
+                cbPaciente.SelectedValue = row.Cells["ced_pac"].Value.ToString();
+                cbCita.SelectedValue = row.Cells["id_cit"].Value.ToString();
+                cbMetPag.SelectedItem = row.Cells["met_pag"].Value.ToString();
+                txtMonto.Text = row.Cells["mon_pag"].Value.ToString();
+                dtpFecha.Value = Convert.ToDateTime(row.Cells["fec_pag"].Value);
+            }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lblfecha2.Text = DateTime.Now.ToShortDateString();
+            lblhora2.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void FrmProRePa06_Activated(object sender, EventArgs e)
+        {
+            RefrescarTabla();
+        }
+
+        private void cbPaciente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnFacturar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtId.Text))
             {
-                MessageBox.Show("Debe seleccionar un pago de la lista para generar la factura.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione un pago para generar factura.");
                 return;
             }
 

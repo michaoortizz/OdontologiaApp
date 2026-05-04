@@ -296,6 +296,21 @@ namespace ProyectoOdontologia2025
             }
         }
 
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            ReportUtils.ExportToCSV(dgvDatos);
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            ReportUtils.PrintDataGridView(dgvDatos, "Reporte de Tratamientos", chartTratamientos);
+        }
+
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+            ReportUtils.ExportToPDF(dgvDatos, "Reporte de Tratamientos", chartTratamientos);
+        }
+
         // ═════════════════════════════════════════════════════════════════════
         //  EVENTOS
         // ═════════════════════════════════════════════════════════════════════

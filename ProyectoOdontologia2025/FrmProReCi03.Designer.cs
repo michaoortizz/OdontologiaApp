@@ -1,4 +1,4 @@
-﻿namespace ProyectoOdontologia2025
+namespace ProyectoOdontologia2025
 {
     partial class FrmProReCi03
     {

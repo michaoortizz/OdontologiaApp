@@ -233,6 +233,7 @@
     <Compile Include="FrmRepIng01.Designer.cs">
       <DependentUpon>FrmRepIng01.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmConCita05.resx">

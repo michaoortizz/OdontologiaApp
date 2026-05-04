@@ -1,121 +1,37 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ProyectoOdontologia2025
 {
     public partial class FrmProReCM01 : Form
     {
-        //defino variables globales 
-        SqlCommand comando = new SqlCommand();
-        SqlConnection conexion = new SqlConnection("Data Source=132.145.163.113,1433;Initial Catalog=OdontologiaBD;User ID=sa;Password=Admin123@Strong");
-
         public FrmProReCM01()
         {
             InitializeComponent();
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRetornar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        public class Option
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-        }
-
-        private void FrmProReCM01_Load(object sender, EventArgs e)
-        {
-            //Invocar procedimiento para visualizar datos
-            RefrescarTabla();
-
-            //Para mostrar la fecha
-            lblfecha2.Text = DateTime.Now.ToShortDateString();
-            
-
-
-            } 
-            
-
-            
-
-        private void FrmProReCM01_Activated(object sender, EventArgs e)
-        {
-            comando.Connection = conexion;
-        }
+        SqlConnection conexion = new SqlConnection("Server=localhost;Database=OdontologiaBEA;Integrated Security=True;");
 
         private void RefrescarTabla()
         {
-            dgvDatos.DataSource = null;
             try
             {
-                conexion.Open(); //Abro la conexión
-                DataTable datos = new DataTable();
-                SqlDataAdapter Adaptador = new SqlDataAdapter("Select * from Consultas_Medicas ", conexion);
-                Adaptador.Fill(datos);
-                BindingSource fuenteDatos = new BindingSource();
-                fuenteDatos.DataSource = datos;
-                dgvDatos.DataSource = fuenteDatos;
-
-            }
-            catch (Exception Error)
-            {
-                MessageBox.Show(Error.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1);
-
-            }
-            finally
-            {
-                conexion.Close();
-            }
-        }
-
-        private void EscribirDatos(string Parametro)
-        {
-            try
-            {
-                comando.Connection = conexion;
-                comando.CommandText = Parametro;
-
-                if (conexion.State == ConnectionState.Closed)
-                {
-                    conexion.Open();
-                }
-
-                // ASIGNAMOS LA TRANSACCIÓN AL COMANDO
-                SqlTransaction transaccion = conexion.BeginTransaction();
-                comando.Transaction = transaccion; // <--- ESTO ES VITAL
-
-                comando.ExecuteNonQuery();
-
-                transaccion.Commit(); // Confirmamos
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Consultas_Medicas", conexion);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dgvDatos.DataSource = dt;
             }
             catch (Exception ex)
             {
-                // Si hay error y existe una transacción, la revertimos
-                if (comando.Transaction != null)
-                {
-                    comando.Transaction.Rollback();
-                }
-                MessageBox.Show("Error al escribir datos: " + ex.Message);
-            }
-            finally
-            {
-                conexion.Close();
+                MessageBox.Show("Error al refrescar tabla: " + ex.Message);
             }
         }
 
@@ -129,64 +45,82 @@ namespace ProyectoOdontologia2025
             txtObs.Clear();
         }
 
+        private void EscribirDatos(string query)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand(query, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ejecutar query: " + ex.Message);
+                if (conexion.State == ConnectionState.Open) conexion.Close();
+            }
+        }
+
+        private void FrmProReCM01_Load(object sender, EventArgs e)
+        {
+            RefrescarTabla();
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
+            lblfecha2.Text = DateTime.Now.ToShortDateString();
             lblhora2.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                // 0: id_con, 1: ced_pac, 2: id_doc, 3: fec_con, 4: motivo, 5: observaciones
-                txtCon.Text = dgvDatos[0, e.RowIndex].Value.ToString();
-                mtbCed.Text = dgvDatos[1, e.RowIndex].Value.ToString();
-                txtDoc.Text = dgvDatos[2, e.RowIndex].Value.ToString();
-
-                // Corregir Fecha
-                if (DateTime.TryParse(dgvDatos[3, e.RowIndex].Value.ToString(), out DateTime f))
-                    mtbFecha.Text = f.ToString("dd/MM/yyyy");
-
-                txtMotivo.Text = dgvDatos[4, e.RowIndex].Value.ToString();
-                txtObs.Text = dgvDatos[5, e.RowIndex].Value.ToString();
-
-                // El tratamiento no está en la tabla visualmente, 
-                // tendrías que seleccionarlo manualmente en el combo 
-                // o traer id_trata en el SELECT de RefrescarTabla.
+                DataGridViewRow row = dgvDatos.Rows[e.RowIndex];
+                txtCon.Text = row.Cells["id_con"].Value.ToString();
+                mtbCed.Text = row.Cells["ced_pac"].Value.ToString();
+                txtDoc.Text = row.Cells["id_doc"].Value.ToString();
+                mtbFecha.Text = Convert.ToDateTime(row.Cells["fec_con"].Value).ToShortDateString();
+                txtMotivo.Text = row.Cells["mtv_con"].Value.ToString();
+                txtObs.Text = row.Cells["obs_con"].Value.ToString();
             }
         }
 
-        // 2. CORRECCIÓN DEL BOTÓN GUARDAR (Manejo de ComboBox y Fechas)
+        private void FrmProReCM01_Activated(object sender, EventArgs e)
+        {
+            RefrescarTabla();
+        }
+
+        private void btnRetornar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtCon.Text))
             {
-                // AGREGAR REGISTRO NUEVO
-                // Nota: He quitado 'id_trata' para que coincida con tus valores. 
-                // Si la agregas, debes ponerla tanto en la lista de columnas como en los Values.
-                string consulta = "Insert into Consultas_Medicas (ced_pac, id_doc, fec_con, motivo, observaciones) " +
-                                  "Values ('" + mtbCed.Text.Trim() + "', " +
-                                  "'" + txtDoc.Text.Trim() + "', " +
-                                  "'" + mtbFecha.Text.Trim() + "', " +
-                                  "'" + txtMotivo.Text.Trim() + "', " +
-                                  "'" + txtObs.Text.Trim() + "')";
-
-                EscribirDatos(consulta);
-                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Insertar
+                EscribirDatos("Insert into Consultas_Medicas (ced_pac, id_doc, fec_con, mtv_con, obs_con) values ('" +
+                    mtbCed.Text.Trim() + "','" + txtDoc.Text.Trim() + "','" + mtbFecha.Text.Trim() + "','" +
+                    txtMotivo.Text.Trim() + "','" + txtObs.Text.Trim() + "')");
+                MessageBox.Show("Se guardó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
-                // MODIFICAR REGISTRO EXISTENTE
-                string consulta = "Update Consultas_Medicas Set " +
-                                  "ced_pac = '" + mtbCed.Text.Trim() + "', " +
-                                  "id_doc = '" + txtDoc.Text.Trim() + "', " +
-                                  "fec_con = '" + mtbFecha.Text.Trim() + "', " +
-                                  "motivo = '" + txtMotivo.Text.Trim() + "', " +
-                                  "observaciones = '" + txtObs.Text.Trim() + "' " +
-                                  "where id_con = '" + txtCon.Text + "'";
-
-                EscribirDatos(consulta);
-                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Actualizar
+                EscribirDatos("Update Consultas_Medicas Set ced_pac = '" + mtbCed.Text.Trim() +
+                    "', id_doc = '" + txtDoc.Text.Trim() +
+                    "', fec_con = '" + mtbFecha.Text.Trim() +
+                    "', mtv_con = '" + txtMotivo.Text.Trim() +
+                    "', obs_con =  '" + txtObs.Text.Trim() +
+                    "' where id_con = '" + txtCon.Text + "'");
+                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
 
             RefrescarTabla();

@@ -337,5 +337,20 @@ namespace ProyectoOdontologia2025
                 default: return SeriesChartType.Bar;
             }
         }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            ReportUtils.ExportToCSV(dgvDatos);
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            ReportUtils.PrintDataGridView(dgvDatos, "Reporte de Ingresos", chartIngresos);
+        }
+
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+            ReportUtils.ExportToPDF(dgvDatos, "Reporte de Ingresos", chartIngresos);
+        }
     }
 }

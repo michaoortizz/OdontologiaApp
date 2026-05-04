@@ -16,7 +16,7 @@ namespace ProyectoOdontologia2025
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.gpbTitulo = new System.Windows.Forms.GroupBox();
             this.lblnom1 = new System.Windows.Forms.Label();
@@ -29,6 +29,9 @@ namespace ProyectoOdontologia2025
             this.pnlDivision = new System.Windows.Forms.Panel();
             this.lblEnca = new System.Windows.Forms.Label();
             this.pnlFiltros = new System.Windows.Forms.Panel();
+            this.btnPDF = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.gpbTabla = new System.Windows.Forms.GroupBox();
@@ -171,6 +174,9 @@ namespace ProyectoOdontologia2025
             // 
             this.pnlFiltros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.pnlFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlFiltros.Controls.Add(this.btnPDF);
+            this.pnlFiltros.Controls.Add(this.btnImprimir);
+            this.pnlFiltros.Controls.Add(this.btnExportar);
             this.pnlFiltros.Controls.Add(this.btnLimpiarFiltros);
             this.pnlFiltros.Controls.Add(this.lblTotal);
             this.pnlFiltros.Location = new System.Drawing.Point(9, 107);
@@ -179,16 +185,61 @@ namespace ProyectoOdontologia2025
             this.pnlFiltros.Size = new System.Drawing.Size(726, 34);
             this.pnlFiltros.TabIndex = 3;
             // 
+            // btnPDF
+            // 
+            this.btnPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnPDF.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPDF.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnPDF.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnPDF.Location = new System.Drawing.Point(645, 6);
+            this.btnPDF.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(75, 21);
+            this.btnPDF.TabIndex = 5;
+            this.btnPDF.Text = "📄 PDF";
+            this.btnPDF.UseVisualStyleBackColor = false;
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnImprimir.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnImprimir.Location = new System.Drawing.Point(555, 6);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(85, 21);
+            this.btnImprimir.TabIndex = 4;
+            this.btnImprimir.Text = "🖨️ Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExportar.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnExportar.ForeColor = System.Drawing.Color.DarkGreen;
+            this.btnExportar.Location = new System.Drawing.Point(465, 6);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(85, 21);
+            this.btnExportar.TabIndex = 3;
+            this.btnExportar.Text = "📥 Exportar";
+            this.btnExportar.UseVisualStyleBackColor = false;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // btnLimpiarFiltros
             // 
             this.btnLimpiarFiltros.BackColor = System.Drawing.Color.Lavender;
             this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLimpiarFiltros.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnLimpiarFiltros.ForeColor = System.Drawing.Color.Indigo;
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(630, 6);
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(365, 6);
             this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(90, 21);
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(95, 21);
             this.btnLimpiarFiltros.TabIndex = 1;
             this.btnLimpiarFiltros.Text = "Limpiar filtros";
             this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
@@ -199,7 +250,7 @@ namespace ProyectoOdontologia2025
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.lblTotal.ForeColor = System.Drawing.Color.Indigo;
-            this.lblTotal.Location = new System.Drawing.Point(270, 10);
+            this.lblTotal.Location = new System.Drawing.Point(10, 10);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(233, 17);
@@ -255,8 +306,8 @@ namespace ProyectoOdontologia2025
             // chartIngresos
             // 
             this.chartIngresos.BackColor = System.Drawing.Color.Transparent;
-            chartArea5.Name = "AreaPrincipal";
-            this.chartIngresos.ChartAreas.Add(chartArea5);
+            chartArea.Name = "AreaPrincipal";
+            this.chartIngresos.ChartAreas.Add(chartArea);
             this.chartIngresos.Location = new System.Drawing.Point(3, 37);
             this.chartIngresos.Margin = new System.Windows.Forms.Padding(2);
             this.chartIngresos.Name = "chartIngresos";
@@ -364,6 +415,9 @@ namespace ProyectoOdontologia2025
         private System.Windows.Forms.Label lblTipoGraf;
         private System.Windows.Forms.ComboBox cmbTipoGrafico;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartIngresos;
+        private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnPDF;
         private System.Windows.Forms.Button btnRtn;
     }
 }
