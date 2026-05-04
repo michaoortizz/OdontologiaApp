@@ -18,15 +18,8 @@ namespace ProyectoOdontologia2025
             InitializeComponent();
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRetornar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        SqlConnection conexion = new SqlConnection("Server=localhost;Database=OdontologiaBEA;Integrated Security=True;");
+        SqlCommand comando = new SqlCommand();
 
         public class Option
         {
@@ -54,10 +47,6 @@ namespace ProyectoOdontologia2025
         } 
             
 
-        private void FrmProReCM01_Activated(object sender, EventArgs e)
-        {
-            comando.Connection = conexion;
-        }
 
         private void RefrescarTabla()
         {
@@ -100,10 +89,6 @@ namespace ProyectoOdontologia2025
             }
         }
 
-        private void FrmProReCM01_Load(object sender, EventArgs e)
-        {
-            RefrescarTabla();
-        }
 
         private void timer_Tick(object sender, EventArgs e)
         {

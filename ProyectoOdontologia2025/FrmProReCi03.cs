@@ -19,21 +19,8 @@ namespace ProyectoOdontologia2025
         }
 
         SqlConnection conexion = new SqlConnection("Server=localhost;Database=OdontologiaBEA;Integrated Security=True;");
+        SqlCommand comando = new SqlCommand();
 
-        private void RefrescarTabla()
-        {
-            try
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Citas", conexion);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dgvCitas.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al refrescar tabla: " + ex.Message);
-            }
-        }
 
         private void LimpiarObjetos()
         {
@@ -49,21 +36,6 @@ namespace ProyectoOdontologia2025
             cbEstado.SelectedIndex = -1;
         }
 
-        private void EscribirDatos(string query)
-        {
-            try
-            {
-                conexion.Open();
-                SqlCommand comando = new SqlCommand(query, conexion);
-                comando.ExecuteNonQuery();
-                conexion.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al ejecutar query: " + ex.Message);
-                if (conexion.State == ConnectionState.Open) conexion.Close();
-            }
-        }
 
         private void FrmProReCi03_Load(object sender, EventArgs e)
         {
@@ -94,10 +66,6 @@ namespace ProyectoOdontologia2025
 
         }
 
-        private void FrmProReCi03_Activated(object sender, EventArgs e)
-        {
-            comando.Connection = conexion;
-        }
 
         private void RefrescarTabla()
         {
