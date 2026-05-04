@@ -33,7 +33,6 @@ namespace ProyectoOdontologia2025
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
             this.mtbFecha = new System.Windows.Forms.MaskedTextBox();
-            this.mtbCed = new System.Windows.Forms.MaskedTextBox();
             this.txtDoc = new System.Windows.Forms.TextBox();
             this.lblDoc = new System.Windows.Forms.Label();
             this.lblFech = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@ namespace ProyectoOdontologia2025
             this.btnGuardar = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.btnLim = new System.Windows.Forms.Button();
+            this.cbPaciente = new System.Windows.Forms.ComboBox();
             this.gpbRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gpbInfo.SuspendLayout();
@@ -96,8 +96,8 @@ namespace ProyectoOdontologia2025
             // 
             // gpbInfo
             // 
+            this.gpbInfo.Controls.Add(this.cbPaciente);
             this.gpbInfo.Controls.Add(this.mtbFecha);
-            this.gpbInfo.Controls.Add(this.mtbCed);
             this.gpbInfo.Controls.Add(this.txtDoc);
             this.gpbInfo.Controls.Add(this.lblDoc);
             this.gpbInfo.Controls.Add(this.lblFech);
@@ -130,14 +130,6 @@ namespace ProyectoOdontologia2025
             this.mtbFecha.Size = new System.Drawing.Size(107, 22);
             this.mtbFecha.TabIndex = 14;
             this.mtbFecha.ValidatingType = typeof(System.DateTime);
-            // 
-            // mtbCed
-            // 
-            this.mtbCed.Location = new System.Drawing.Point(122, 68);
-            this.mtbCed.Mask = "000-0000000-0";
-            this.mtbCed.Name = "mtbCed";
-            this.mtbCed.Size = new System.Drawing.Size(107, 22);
-            this.mtbCed.TabIndex = 13;
             // 
             // txtDoc
             // 
@@ -222,12 +214,12 @@ namespace ProyectoOdontologia2025
             this.lblCed.AutoSize = true;
             this.lblCed.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCed.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCed.Location = new System.Drawing.Point(28, 68);
+            this.lblCed.Location = new System.Drawing.Point(36, 68);
             this.lblCed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCed.Name = "lblCed";
-            this.lblCed.Size = new System.Drawing.Size(67, 17);
+            this.lblCed.Size = new System.Drawing.Size(59, 17);
             this.lblCed.TabIndex = 6;
-            this.lblCed.Text = "Id Cédula:";
+            this.lblCed.Text = "Paciente:";
             // 
             // lblCita
             // 
@@ -438,6 +430,16 @@ namespace ProyectoOdontologia2025
             this.btnLim.UseVisualStyleBackColor = false;
             this.btnLim.Click += new System.EventHandler(this.btnLim_Click);
             // 
+            // cbPaciente
+            // 
+            this.cbPaciente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPaciente.FormattingEnabled = true;
+            this.cbPaciente.Location = new System.Drawing.Point(122, 66);
+            this.cbPaciente.Name = "cbPaciente";
+            this.cbPaciente.Size = new System.Drawing.Size(107, 24);
+            this.cbPaciente.TabIndex = 15;
+            this.cbPaciente.SelectedIndexChanged += new System.EventHandler(this.cbPac_SelectedIndexChanged);
+            // 
             // FrmProReCM01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,7 +499,6 @@ namespace ProyectoOdontologia2025
         private System.Windows.Forms.Panel pnlDivision;
         private System.Windows.Forms.Label lblEnca;
         private System.Windows.Forms.MaskedTextBox mtbFecha;
-        private System.Windows.Forms.MaskedTextBox mtbCed;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnRetornar;
         private System.Windows.Forms.Button btnGuardar;
@@ -506,5 +507,6 @@ namespace ProyectoOdontologia2025
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label lblCita;
         private System.Windows.Forms.Button btnLim;
+        private System.Windows.Forms.ComboBox cbPaciente;
     }
 }

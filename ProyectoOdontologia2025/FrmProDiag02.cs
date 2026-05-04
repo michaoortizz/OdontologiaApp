@@ -26,7 +26,7 @@ namespace ProyectoOdontologia2025
         private void LimpiarObjetos()
         {
             txtDiag.Clear();
-            mtbCed.Clear();
+            cbPaciente.SelectedValue = -1;
             txtDoc.Clear();
             mtbFecha.Clear();
             txtDesc.Clear();
@@ -77,6 +77,14 @@ namespace ProyectoOdontologia2025
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
+            // Cargar Pacientes desde DB
+            DataTable dtPac = new DataTable();
+            SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac + ' ' + ape_pac as Nombre FROM Pacientes", conexion);
+            daPac.Fill(dtPac);
+            cbPaciente.DataSource = dtPac;
+            cbPaciente.DisplayMember = "Nombre";
+            cbPaciente.ValueMember = "ced_pac";
+            cbPaciente.SelectedIndex = -1;
         }
 
         private void FrmProDiag02_Activated(object sender, EventArgs e)
@@ -130,7 +138,7 @@ namespace ProyectoOdontologia2025
             {
                 // Pasamos los textos normales
                 txtDiag.Text = dgvDatos[0, e.RowIndex].Value.ToString();
-                mtbCed.Text = dgvDatos[1, e.RowIndex].Value.ToString();
+                cbPaciente.SelectedValue = dgvDatos[1, e.RowIndex].Value.ToString();
                 txtDoc.Text = dgvDatos[2, e.RowIndex].Value.ToString();
                 txtDesc.Text = dgvDatos[4, e.RowIndex].Value.ToString();
 
@@ -154,7 +162,7 @@ namespace ProyectoOdontologia2025
             {
                 // INSERT: Solo 4 columnas y 4 valores
                 string consulta = "Insert into Diagnosticos (ced_pac, id_doc, fecha_dia, descripcion) " +
-                                  "Values ('" + mtbCed.Text.Trim() + "', " +
+                                  "Values ('" + cbPaciente.SelectedValue + "', " +
                                   "'" + txtDoc.Text.Trim() + "', " +
                                   "'" + mtbFecha.Text.Trim() + "', " +
                                   "'" + txtDesc.Text.Trim() + "')";
@@ -166,7 +174,7 @@ namespace ProyectoOdontologia2025
             {
                 // UPDATE: Modificamos los datos usando el ID del diagnóstico
                 string consulta = "Update Diagnosticos Set " +
-                                  "ced_pac = '" + mtbCed.Text.Trim() + "', " +
+                                  "ced_pac = '" + cbPaciente.SelectedValue + "', " +
                                   "id_doc = '" + txtDoc.Text.Trim() + "', " +
                                   "fecha_dia = '" + mtbFecha.Text.Trim() + "', " +
                                   "descripcion = '" + txtDesc.Text.Trim() + "' " +

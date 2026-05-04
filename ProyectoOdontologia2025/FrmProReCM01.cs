@@ -18,7 +18,46 @@ namespace ProyectoOdontologia2025
             InitializeComponent();
         }
 
-        SqlConnection conexion = new SqlConnection("Server=localhost;Database=OdontologiaBEA;Integrated Security=True;");
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRetornar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public class Option
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
+
+        private void FrmProReCM01_Load(object sender, EventArgs e)
+        {
+            //Invocar procedimiento para visualizar datos
+            RefrescarTabla();
+
+            //Para mostrar la fecha
+            lblfecha2.Text = DateTime.Now.ToShortDateString();
+
+            // Cargar Pacientes desde DB
+            DataTable dtPac = new DataTable();
+            SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac + ' ' + ape_pac as Nombre FROM Pacientes", conexion);
+            daPac.Fill(dtPac);
+            cbPaciente.DataSource = dtPac;
+            cbPaciente.DisplayMember = "Nombre";
+            cbPaciente.ValueMember = "ced_pac";
+            cbPaciente.SelectedIndex = -1;
+
+        } 
+            
+
+        private void FrmProReCM01_Activated(object sender, EventArgs e)
+        {
+            comando.Connection = conexion;
+        }
 
         private void RefrescarTabla()
         {
@@ -38,7 +77,7 @@ namespace ProyectoOdontologia2025
         private void LimpiarObjetos()
         {
             txtCon.Clear();
-            mtbCed.Clear();
+            cbPaciente.SelectedIndex = -1;
             txtDoc.Clear();
             mtbFecha.Clear();
             txtMotivo.Clear();
@@ -81,13 +120,21 @@ namespace ProyectoOdontologia2025
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvDatos.Rows[e.RowIndex];
-                txtCon.Text = row.Cells["id_con"].Value.ToString();
-                mtbCed.Text = row.Cells["ced_pac"].Value.ToString();
-                txtDoc.Text = row.Cells["id_doc"].Value.ToString();
-                mtbFecha.Text = Convert.ToDateTime(row.Cells["fec_con"].Value).ToShortDateString();
-                txtMotivo.Text = row.Cells["mtv_con"].Value.ToString();
-                txtObs.Text = row.Cells["obs_con"].Value.ToString();
+                // 0: id_con, 1: ced_pac, 2: id_doc, 3: fec_con, 4: motivo, 5: observaciones
+                txtCon.Text = dgvDatos[0, e.RowIndex].Value.ToString();
+                cbPaciente.SelectedValue = dgvDatos[1, e.RowIndex].Value.ToString();
+                txtDoc.Text = dgvDatos[2, e.RowIndex].Value.ToString();
+
+                // Corregir Fecha
+                if (DateTime.TryParse(dgvDatos[3, e.RowIndex].Value.ToString(), out DateTime f))
+                    mtbFecha.Text = f.ToString("dd/MM/yyyy");
+
+                txtMotivo.Text = dgvDatos[4, e.RowIndex].Value.ToString();
+                txtObs.Text = dgvDatos[5, e.RowIndex].Value.ToString();
+
+                // El tratamiento no está en la tabla visualmente, 
+                // tendrías que seleccionarlo manualmente en el combo 
+                // o traer id_trata en el SELECT de RefrescarTabla.
             }
         }
 
@@ -105,22 +152,32 @@ namespace ProyectoOdontologia2025
         {
             if (string.IsNullOrEmpty(txtCon.Text))
             {
-                //Insertar
-                EscribirDatos("Insert into Consultas_Medicas (ced_pac, id_doc, fec_con, mtv_con, obs_con) values ('" +
-                    mtbCed.Text.Trim() + "','" + txtDoc.Text.Trim() + "','" + mtbFecha.Text.Trim() + "','" +
-                    txtMotivo.Text.Trim() + "','" + txtObs.Text.Trim() + "')");
-                MessageBox.Show("Se guardó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                // AGREGAR REGISTRO NUEVO
+                // Nota: He quitado 'id_trata' para que coincida con tus valores. 
+                // Si la agregas, debes ponerla tanto en la lista de columnas como en los Values.
+                string consulta = "Insert into Consultas_Medicas (ced_pac, id_doc, fec_con, motivo, observaciones) " +
+                                  "Values ('" + cbPaciente.SelectedValue + "', " +
+                                  "'" + txtDoc.Text.Trim() + "', " +
+                                  "'" + mtbFecha.Text.Trim() + "', " +
+                                  "'" + txtMotivo.Text.Trim() + "', " +
+                                  "'" + txtObs.Text.Trim() + "')";
+
+                EscribirDatos(consulta);
+                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                //Actualizar
-                EscribirDatos("Update Consultas_Medicas Set ced_pac = '" + mtbCed.Text.Trim() +
-                    "', id_doc = '" + txtDoc.Text.Trim() +
-                    "', fec_con = '" + mtbFecha.Text.Trim() +
-                    "', mtv_con = '" + txtMotivo.Text.Trim() +
-                    "', obs_con =  '" + txtObs.Text.Trim() +
-                    "' where id_con = '" + txtCon.Text + "'");
-                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                // MODIFICAR REGISTRO EXISTENTE
+                string consulta = "Update Consultas_Medicas Set " +
+                                  "ced_pac = '" + cbPaciente.SelectedValue + "', " +
+                                  "id_doc = '" + txtDoc.Text.Trim() + "', " +
+                                  "fec_con = '" + mtbFecha.Text.Trim() + "', " +
+                                  "motivo = '" + txtMotivo.Text.Trim() + "', " +
+                                  "observaciones = '" + txtObs.Text.Trim() + "' " +
+                                  "where id_con = '" + txtCon.Text + "'";
+
+                EscribirDatos(consulta);
+                MessageBox.Show("Se actualizó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             RefrescarTabla();
@@ -138,6 +195,11 @@ namespace ProyectoOdontologia2025
             MessageBox.Show("Registro borrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             LimpiarObjetos();
             RefrescarTabla();
+        }
+
+        private void cbPac_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

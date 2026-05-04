@@ -38,8 +38,10 @@ namespace ProyectoOdontologia2025
         private void LimpiarObjetos()
         {
             txtCita.Clear();
-            mtbCed.Clear();
+            cbPaciente.SelectedValue = -1;
             txtDoc.Clear();
+            cbEstado.SelectedValue= -1;
+            
             mtbFecha.Clear();
             txtMotivo.Clear();
             txtCmt.Clear();
@@ -71,7 +73,91 @@ namespace ProyectoOdontologia2025
         private void timer_Tick(object sender, EventArgs e)
         {
             lblfecha2.Text = DateTime.Now.ToShortDateString();
-            lblhora2.Text = DateTime.Now.ToLongTimeString();
+
+            // Cargar Estados desde DB
+            DataTable dtEs = new DataTable();
+            SqlDataAdapter daEs = new SqlDataAdapter("SELECT id_eci, nom_eci as Estado FROM Estado_Cita", conexion);
+            daEs.Fill(dtEs);
+            cbEstado.DataSource = dtEs;
+            cbEstado.DisplayMember = "Estado";
+            cbEstado.ValueMember = "id_eci";
+            cbEstado.SelectedIndex = -1;
+
+            // Cargar Pacientes desde DB
+            DataTable dtPac = new DataTable();
+            SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac + ' ' + ape_pac as Nombre FROM Pacientes", conexion);
+            daPac.Fill(dtPac);
+            cbPaciente.DataSource = dtPac;
+            cbPaciente.DisplayMember = "Nombre";
+            cbPaciente.ValueMember = "ced_pac";
+            cbPaciente.SelectedIndex = -1;
+
+        }
+
+        private void FrmProReCi03_Activated(object sender, EventArgs e)
+        {
+            comando.Connection = conexion;
+        }
+
+        private void RefrescarTabla()
+        {
+            dgvDatos.DataSource = null;
+            try
+            {
+                conexion.Open(); //Abro la conexión
+                DataTable datos = new DataTable();
+                SqlDataAdapter Adaptador = new SqlDataAdapter("Select * from Citas ", conexion);
+                Adaptador.Fill(datos);
+                BindingSource fuenteDatos = new BindingSource();
+                fuenteDatos.DataSource = datos;
+                dgvCitas.DataSource = fuenteDatos;
+
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1);
+
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+        }
+        private void EscribirDatos(string Parametro)
+        {
+            try
+            {
+                comando.Connection = conexion;
+                comando.CommandText = Parametro;
+
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+
+                // ASIGNAMOS LA TRANSACCIÓN AL COMANDO
+                SqlTransaction transaccion = conexion.BeginTransaction();
+                comando.Transaction = transaccion; // <--- ESTO ES VITAL
+
+                comando.ExecuteNonQuery();
+
+                transaccion.Commit(); // Confirmamos
+            }
+            catch (Exception ex)
+            {
+                // Si hay error y existe una transacción, la revertimos
+                if (comando.Transaction != null)
+                {
+                    comando.Transaction.Rollback();
+                }
+                MessageBox.Show("Error al escribir datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
 
         private void lblFechaC_Click(object sender, EventArgs e)
@@ -88,15 +174,27 @@ namespace ProyectoOdontologia2025
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvCitas.Rows[e.RowIndex];
-                txtCita.Text = row.Cells["id_cit"].Value.ToString();
-                mtbCed.Text = row.Cells["ced_pac"].Value.ToString();
-                txtDoc.Text = row.Cells["id_doc"].Value.ToString();
-                mtbFecha.Text = Convert.ToDateTime(row.Cells["fec_cit"].Value).ToShortDateString();
-                txtMotivo.Text = row.Cells["mtv_cit"].Value.ToString();
-                txtCmt.Text = row.Cells["cmt_cit"].Value.ToString();
-                txtUsu.Text = row.Cells["id_usr"].Value.ToString();
-                cbEstado.Text = row.Cells["id_eci"].Value.ToString();
+                // Usamos e.RowIndex que es mucho más seguro
+                txtCita.Text = dgvCitas[0, e.RowIndex].Value.ToString();
+                cbPaciente.SelectedValue = dgvCitas[1, e.RowIndex].Value.ToString();
+                txtDoc.Text = dgvCitas[2, e.RowIndex].Value.ToString();
+                cbEstado.SelectedValue = dgvCitas[3, e.RowIndex].Value.ToString();
+
+                // Manejo de Fecha para que no le falten dígitos
+                if (dgvCitas[4, e.RowIndex].Value != null)
+                {
+                    DateTime fecha;
+                    if (DateTime.TryParse(dgvCitas[4, e.RowIndex].Value.ToString(), out fecha))
+                    {
+                        mtbFecha.Text = fecha.ToString("dd/MM/yyyy");
+                    }
+                }
+
+                // El resto de los campos
+                
+                txtMotivo.Text = dgvCitas[5, e.RowIndex].Value.ToString();
+                txtCmt.Text = dgvCitas[6, e.RowIndex].Value?.ToString();
+                txtUsu.Text = dgvCitas[7, e.RowIndex].Value?.ToString();
             }
         }
 
@@ -109,16 +207,14 @@ namespace ProyectoOdontologia2025
         {
             if (string.IsNullOrEmpty(txtCita.Text))
             {
-                //Insertar nuevo registro
-                EscribirDatos("Insert into Citas (ced_pac, id_doc, id_eci, fec_cit, mtv_cit, cmt_cit, id_usr) values ('" +
-                    mtbCed.Text.Trim() + "','" + txtDoc.Text.Trim() + "','" + cbEstado.Text + "','" + mtbFecha.Text.Trim() + "','" +
-                    txtMotivo.Text.Trim() + "','" + txtCmt.Text.Trim() + "','" + txtUsu.Text.Trim() + "')");
-                MessageBox.Show("Se guardó el registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                //Agrego registro nuevo
+                EscribirDatos("Insert into Citas (ced_pac, id_doc, id_eci, fec_cit, mtv_cit, cmt_cit, id_usr) Values ('" + cbPaciente.SelectedValue + "' , '" + txtDoc.Text.Trim() + "' , '" + cbEstado.SelectedValue + "' , '" + mtbFecha.Text.Trim() + "', '" + txtMotivo.Text.Trim() + "', '" + txtCmt.Text.Trim() + "', '" + txtUsu.Text.Trim() + "')");
+                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 //Modificar un registro existente
-                EscribirDatos("Update Citas Set ced_pac = '" + mtbCed.Text.Trim() +
+                EscribirDatos("Update Citas Set ced_pac = '" + cbPaciente.SelectedValue +
                     "', id_doc = '" + txtDoc.Text.Trim() +
                     "', id_eci = '" + cbEstado.Text +
                     "', fec_cit = '" + mtbFecha.Text.Trim() +

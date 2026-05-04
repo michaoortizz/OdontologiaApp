@@ -329,12 +329,12 @@ namespace ProyectoOdontologia2025
             // 
             // cbPaciente
             // 
+            this.cbPaciente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPaciente.Location = new System.Drawing.Point(125, 74);
             this.cbPaciente.Name = "cbPaciente";
-            this.cbPaciente.Size = new System.Drawing.Size(107, 21);
+            this.cbPaciente.Size = new System.Drawing.Size(107, 23);
             this.cbPaciente.TabIndex = 13;
-            this.cbPaciente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPaciente.SelectedIndexChanged += new System.EventHandler(this.cbPaciente_SelectedIndexChanged);
             // 
             // dtpFecha
@@ -385,22 +385,22 @@ namespace ProyectoOdontologia2025
             this.lblCedu.AutoSize = true;
             this.lblCedu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCedu.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCedu.Location = new System.Drawing.Point(9, 75);
+            this.lblCedu.Location = new System.Drawing.Point(42, 77);
             this.lblCedu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCedu.Name = "lblCedu";
-            this.lblCedu.Size = new System.Drawing.Size(100, 15);
+            this.lblCedu.Size = new System.Drawing.Size(58, 15);
             this.lblCedu.TabIndex = 9;
-            this.lblCedu.Text = "Cédula Paciente:";
+            this.lblCedu.Text = "Paciente:";
             // 
             // cbCita
             // 
+            this.cbCita.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCita.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cbCita.Location = new System.Drawing.Point(125, 116);
             this.cbCita.Name = "cbCita";
-            this.cbCita.Size = new System.Drawing.Size(107, 21);
+            this.cbCita.Size = new System.Drawing.Size(107, 23);
             this.cbCita.TabIndex = 6;
-            this.cbCita.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // txtId
             // 

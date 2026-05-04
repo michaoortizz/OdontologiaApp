@@ -25,7 +25,7 @@ namespace ProyectoOdontologia2025
         private void LimpiarObjetos()
         {
             txtId.Clear();
-            mtbCed.Clear();
+            cbPaciente.SelectedValue= -1;
             txtDoc.Clear();
             mtbFecha.Clear();
             txtRes.Clear();
@@ -104,6 +104,15 @@ namespace ProyectoOdontologia2025
 
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
+
+            // Cargar Pacientes desde DB
+            DataTable dtPac = new DataTable();
+            SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac + ' ' + ape_pac as Nombre FROM Pacientes", conexion);
+            daPac.Fill(dtPac);
+            cbPaciente.DataSource = dtPac;
+            cbPaciente.DisplayMember = "Nombre";
+            cbPaciente.ValueMember = "ced_pac";
+            cbPaciente.SelectedIndex = -1;
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -118,7 +127,7 @@ namespace ProyectoOdontologia2025
             {
                 // Usamos e.RowIndex en lugar de SelectedCells para evitar errores de índice
                 txtId.Text = dgvDatos[0, e.RowIndex].Value.ToString();
-                mtbCed.Text = dgvDatos[1, e.RowIndex].Value.ToString();
+                cbPaciente.SelectedValue = dgvDatos[1, e.RowIndex].Value.ToString();
                 txtDoc.Text = dgvDatos[2, e.RowIndex].Value.ToString();
 
                 // SOLUCIÓN PARA LA FECHA:
@@ -147,13 +156,13 @@ namespace ProyectoOdontologia2025
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 //Agrego registro nuevo
-                EscribirDatos("Insert into Evaluaciones (ced_pac, id_doc, fecha_eval, resultado) Values ('" + mtbCed.Text.Trim() + "' , '" + txtDoc.Text.Trim() + "' , '" + mtbFecha.Text.Trim() + "' , '" + txtRes.Text.Trim() + "')");
+                EscribirDatos("Insert into Evaluaciones (ced_pac, id_doc, fecha_eval, resultado) Values ('" + cbPaciente.SelectedValue + "' , '" + txtDoc.Text.Trim() + "' , '" + mtbFecha.Text.Trim() + "' , '" + txtRes.Text.Trim() + "')");
                 MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 //Modificar un registro existente
-                EscribirDatos("Update Evaluaciones Set ced_pac = '" + mtbCed.Text.Trim() +
+                EscribirDatos("Update Evaluaciones Set ced_pac = '" + cbPaciente.SelectedValue +
                     "', id_doc = '" + txtDoc.Text.Trim() +
                     "', fecha_eval = '" + mtbFecha.Text.Trim() +
                     "', resultado =  '" + txtRes.Text.Trim() +
