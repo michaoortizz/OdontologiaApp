@@ -18,7 +18,7 @@ namespace ProyectoOdontologia2025
             InitializeComponent();
         }
 
-        SqlConnection conexion = new SqlConnection("Server=localhost;Database=OdontologiaBEA;Integrated Security=True;");
+        SqlConnection conexion = new SqlConnection("Data Source=132.145.163.113,1433;Initial Catalog=OdontologiaBD;User ID=sa;Password=Admin123@Strong");
         SqlCommand comando = new SqlCommand();
 
 
