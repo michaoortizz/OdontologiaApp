@@ -26,11 +26,13 @@ namespace ProyectoOdontologia2025
         // Mapas de ID → texto (para tipo y servicio)
         private readonly Dictionary<string, string> mapaTipo = new Dictionary<string, string>
         {
-            { "1", "Preventivo" }, { "2", "Restaurativo" }, { "3", "Estético" }
+            { "1", "Preventivo" }, { "2", "Correctivo" }, { "3", "Estético" },
+            { "4", "Quirúrgico" }, { "5", "Control" }, { "6", "Rehabilitación" }
         };
         private readonly Dictionary<string, string> mapaServicio = new Dictionary<string, string>
         {
-            { "1", "Limpieza" }, { "2", "Extracción" }, { "3", "Ortodoncia" }
+            { "1", "Limpieza" }, { "2", "Extracción" }, { "3", "Blanqueamiento" },
+            { "4", "Empaste" }, { "5", "Ortodoncia" }, { "6", "Radiografía" }
         };
 
         public FrmRepTrat03()
@@ -66,14 +68,20 @@ namespace ProyectoOdontologia2025
                         id_doc              AS [ID Doctor],
                         CASE id_ttr
                             WHEN 1 THEN 'Preventivo'
-                            WHEN 2 THEN 'Restaurativo'
+                            WHEN 2 THEN 'Correctivo'
                             WHEN 3 THEN 'Estético'
+                            WHEN 4 THEN 'Quirúrgico'
+                            WHEN 5 THEN 'Control'
+                            WHEN 6 THEN 'Rehabilitación'
                             ELSE CAST(id_ttr AS VARCHAR)
                         END                 AS [Tipo],
                         CASE id_srv
                             WHEN 1 THEN 'Limpieza'
                             WHEN 2 THEN 'Extracción'
-                            WHEN 3 THEN 'Ortodoncia'
+                            WHEN 3 THEN 'Blanqueamiento'
+                            WHEN 4 THEN 'Empaste'
+                            WHEN 5 THEN 'Ortodoncia'
+                            WHEN 6 THEN 'Radiografía'
                             ELSE CAST(id_srv AS VARCHAR)
                         END                 AS [Servicio],
                         dsc_tra             AS [Descripción],

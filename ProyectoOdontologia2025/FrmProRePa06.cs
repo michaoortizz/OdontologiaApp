@@ -24,11 +24,19 @@ namespace ProyectoOdontologia2025
         {
             try
             {
-                string query = "SELECT * FROM Pagos";
+                string query = @"SELECT p.id_pag, p.ced_pac, pa.nom_pac + ' ' + pa.ape_pac AS [Paciente], 
+                                 p.id_cit, m.nom_mpa AS [met_pag], 
+                                 p.mnt_pag AS [mon_pag], p.fec_pag 
+                                 FROM Pagos p 
+                                 JOIN Metodos_Pago m ON p.id_mpa = m.id_mpa
+                                 JOIN Pacientes pa ON p.ced_pac = pa.ced_pac";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dgvDatos.DataSource = dt;
+
+                // Ocultar columna de cédula si se desea, pero mantenerla para selección
+                if (dgvDatos.Columns["ced_pac"] != null) dgvDatos.Columns["ced_pac"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -57,26 +65,50 @@ namespace ProyectoOdontologia2025
             try
             {
                 // Cargar Pacientes
-                SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac FROM Pacientes", conexion);
+                SqlDataAdapter daPac = new SqlDataAdapter("SELECT ced_pac, nom_pac + ' ' + ape_pac as Nombre FROM Pacientes", conexion);
                 DataTable dtPac = new DataTable();
                 daPac.Fill(dtPac);
                 cbPaciente.DataSource = dtPac;
-                cbPaciente.DisplayMember = "ced_pac";
+                cbPaciente.DisplayMember = "Nombre";
                 cbPaciente.ValueMember = "ced_pac";
                 cbPaciente.SelectedIndex = -1;
 
-                // Cargar Citas
-                SqlDataAdapter daCit = new SqlDataAdapter("SELECT id_cit FROM Citas", conexion);
+                // Cargar Métodos de Pago
+                SqlDataAdapter daMet = new SqlDataAdapter("SELECT id_mpa, nom_mpa FROM Metodos_Pago", conexion);
+                DataTable dtMet = new DataTable();
+                daMet.Fill(dtMet);
+                cbMetPag.DataSource = dtMet;
+                cbMetPag.DisplayMember = "nom_mpa";
+                cbMetPag.ValueMember = "id_mpa";
+                cbMetPag.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar combos: " + ex.Message);
+            }
+        }
+
+        private void CargarCitas(string cedula)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(cedula))
+                {
+                    cbCita.DataSource = null;
+                    return;
+                }
+                SqlDataAdapter daCit = new SqlDataAdapter("SELECT id_cit, fec_cit FROM Citas WHERE ced_pac = @ced", conexion);
+                daCit.SelectCommand.Parameters.AddWithValue("@ced", cedula);
                 DataTable dtCit = new DataTable();
                 daCit.Fill(dtCit);
                 cbCita.DataSource = dtCit;
-                cbCita.DisplayMember = "id_cit";
+                cbCita.DisplayMember = "fec_cit";
                 cbCita.ValueMember = "id_cit";
                 cbCita.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar combos: " + ex.Message);
+                MessageBox.Show("Error al cargar citas: " + ex.Message);
             }
         }
 
@@ -87,11 +119,11 @@ namespace ProyectoOdontologia2025
                 if (string.IsNullOrEmpty(txtId.Text))
                 {
                     // Insertar
-                    string query = "INSERT INTO Pagos (ced_pac, id_cit, met_pag, mon_pag, fec_pag) VALUES (@ced, @cita, @met, @mon, @fec)";
+                    string query = "INSERT INTO Pagos (ced_pac, id_cit, id_mpa, mnt_pag, fec_pag) VALUES (@ced, @cita, @met, @mon, @fec)";
                     SqlCommand cmd = new SqlCommand(query, conexion);
                     cmd.Parameters.AddWithValue("@ced", cbPaciente.SelectedValue);
                     cmd.Parameters.AddWithValue("@cita", cbCita.SelectedValue);
-                    cmd.Parameters.AddWithValue("@met", cbMetPag.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@met", cbMetPag.SelectedValue);
                     cmd.Parameters.AddWithValue("@mon", decimal.Parse(txtMonto.Text));
                     cmd.Parameters.AddWithValue("@fec", dtpFecha.Value);
 
@@ -103,12 +135,12 @@ namespace ProyectoOdontologia2025
                 else
                 {
                     // Actualizar
-                    string query = "UPDATE Pagos SET ced_pac=@ced, id_cit=@cita, met_pag=@met, mon_pag=@mon, fec_pag=@fec WHERE id_pag=@id";
+                    string query = "UPDATE Pagos SET ced_pac=@ced, id_cit=@cita, id_mpa=@met, mnt_pag=@mon, fec_pag=@fec WHERE id_pag=@id";
                     SqlCommand cmd = new SqlCommand(query, conexion);
                     cmd.Parameters.AddWithValue("@id", int.Parse(txtId.Text));
                     cmd.Parameters.AddWithValue("@ced", cbPaciente.SelectedValue);
                     cmd.Parameters.AddWithValue("@cita", cbCita.SelectedValue);
-                    cmd.Parameters.AddWithValue("@met", cbMetPag.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@met", cbMetPag.SelectedValue);
                     cmd.Parameters.AddWithValue("@mon", decimal.Parse(txtMonto.Text));
                     cmd.Parameters.AddWithValue("@fec", dtpFecha.Value);
 
@@ -169,7 +201,7 @@ namespace ProyectoOdontologia2025
                 txtId.Text = row.Cells["id_pag"].Value.ToString();
                 cbPaciente.SelectedValue = row.Cells["ced_pac"].Value.ToString();
                 cbCita.SelectedValue = row.Cells["id_cit"].Value.ToString();
-                cbMetPag.SelectedItem = row.Cells["met_pag"].Value.ToString();
+                cbMetPag.Text = row.Cells["met_pag"].Value.ToString();
                 txtMonto.Text = row.Cells["mon_pag"].Value.ToString();
                 dtpFecha.Value = Convert.ToDateTime(row.Cells["fec_pag"].Value);
             }
@@ -188,7 +220,10 @@ namespace ProyectoOdontologia2025
 
         private void cbPaciente_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cbPaciente.SelectedValue != null && cbPaciente.ValueMember != "")
+            {
+                CargarCitas(cbPaciente.SelectedValue.ToString());
+            }
         }
 
         private void btnFacturar_Click(object sender, EventArgs e)

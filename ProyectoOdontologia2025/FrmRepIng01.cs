@@ -54,7 +54,11 @@ namespace ProyectoOdontologia2025
                         p.id_cit         AS [ID Cita],
                         CASE p.id_mpa
                             WHEN 1 THEN 'Efectivo'
-                            WHEN 2 THEN 'Tarjeta'
+                            WHEN 2 THEN 'Tarjeta Crédito'
+                            WHEN 3 THEN 'Tarjeta Débito'
+                            WHEN 4 THEN 'Transferencia'
+                            WHEN 5 THEN 'Seguro'
+                            WHEN 6 THEN 'Pago Móvil'
                             ELSE CAST(p.id_mpa AS VARCHAR)
                         END              AS [Método Pago],
                         p.mnt_pag        AS [Monto ($)],
