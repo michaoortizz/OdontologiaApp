@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,11 +51,31 @@ namespace ProyectoOdontologia2025
 
         }
 
+        private void CargarSeguros()
+        {
+            try
+            {
+                SqlDataAdapter daSeg = new SqlDataAdapter("Select id_seg, nom_seg from Seguros", conexion);
+                DataTable datosSeg = new DataTable();
+                daSeg.Fill(datosSeg);
+                cbSeguro.DataSource = datosSeg;
+                cbSeguro.DisplayMember = "nom_seg";
+                cbSeguro.ValueMember = "id_seg";
+                cbSeguro.SelectedIndex = -1;
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show("Error al cargar los seguros: " + Error.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void FrmManPaci02_Load(object sender, EventArgs e)
         {
             //Para mostrar la fecha
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
+            //Cargar los seguros en el ComboBox
+            CargarSeguros();
 
             //Invocar procedimiento para visualizar datos
             RefrescarTabla();
@@ -88,7 +108,7 @@ namespace ProyectoOdontologia2025
             }
 
         }
-        private void EscribirDatos(string Parametro)
+        private bool EscribirDatos(string Parametro)
         {
             try
             {
@@ -107,6 +127,7 @@ namespace ProyectoOdontologia2025
                 comando.ExecuteNonQuery();
 
                 transaccion.Commit(); // Confirmamos
+                return true;
             }
             catch (Exception ex)
             {
@@ -116,6 +137,7 @@ namespace ProyectoOdontologia2025
                     comando.Transaction.Rollback();
                 }
                 MessageBox.Show("Error al escribir datos: " + ex.Message);
+                return false;
             }
             finally
             {
@@ -133,7 +155,7 @@ namespace ProyectoOdontologia2025
             txtCondi.Clear();
             txtCorreo.Clear();
             TxtTipoP.Clear();
-            txtSeguro.Clear();
+            cbSeguro.SelectedIndex = -1;
             txtNombre.Focus();
         }
 
@@ -153,7 +175,7 @@ namespace ProyectoOdontologia2025
             txtCorreo.Text = dgvDatos[6, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
             TxtTipoP.Text = dgvDatos[7, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
             txtCondi.Text = dgvDatos[8, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
-            txtSeguro.Text = dgvDatos[9, dgvDatos.SelectedCells[0].RowIndex].Value.ToString();
+            cbSeguro.SelectedValue = dgvDatos[9, fila].Value;
 
         }
 
@@ -190,37 +212,42 @@ namespace ProyectoOdontologia2025
             reader.Close();
             conexion.Close();
 
+            string idSeguroValue = cbSeguro.SelectedValue != null ? cbSeguro.SelectedValue.ToString() : "NULL";
+
             if (existe)
             {
-                EscribirDatos("UPDATE Pacientes SET nom_pac = '" + txtNombre.Text.Trim() +
+                bool exito = EscribirDatos("UPDATE Pacientes SET nom_pac = '" + txtNombre.Text.Trim() +
               "', ape_pac = '" + txtApellido.Text.Trim() +
               "', gen_pac = '" + cbGenero.Text.Trim() +
               "', tip_pac = '" + TxtTipoP.Text.Trim() +
-              "', fec_nac_pac = '" + dtpFechaNac.Value.ToString("yyyy-MM-dd") + // Limpié las comas extra aquí
+              "', fec_nac_pac = '" + dtpFechaNac.Value.ToString("yyyy-MM-dd") + 
               "', tel_pac = '" + mtbTel.Text.Trim() +
               "', eml_pac = '" + txtCorreo.Text.Trim() +
               "', cnd_sal_pac= '" + txtCondi.Text.Trim() +
-              "', id_seg = '" + txtSeguro.Text.Trim() +
-              "' WHERE ced_pac = '" + mtbCed.Text.Trim() + "'");
-                MessageBox.Show("Registro actualizado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+              "', id_seg = " + idSeguroValue +
+              " WHERE ced_pac = '" + mtbCed.Text.Trim() + "'");
+                if (exito)
+                {
+                    MessageBox.Show("Registro actualizado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-
-            }
-            {
-                EscribirDatos("INSERT INTO Pacientes (ced_pac, nom_pac, ape_pac, gen_pac, fec_nac_pac, tel_pac, eml_pac, tip_pac, cnd_sal_pac, id_seg) " +
+                bool exito = EscribirDatos("INSERT INTO Pacientes (ced_pac, nom_pac, ape_pac, gen_pac, fec_nac_pac, tel_pac, eml_pac, tip_pac, cnd_sal_pac, id_seg) " +
               "VALUES ('" + mtbCed.Text.Trim() + "', '" +
                             txtNombre.Text.Trim() + "', '" +
                             txtApellido.Text.Trim() + "', '" +
                             cbGenero.Text.Trim() + "', '" +
-                            dtpFechaNac.Value.ToString("yyyy-MM-dd") + "', '" + // Fecha en su lugar
+                            dtpFechaNac.Value.ToString("yyyy-MM-dd") + "', '" + 
                             mtbTel.Text.Trim() + "', '" +
                             txtCorreo.Text.Trim() + "', '" +
                             TxtTipoP.Text.Trim() + "', '" +
-                            txtCondi.Text.Trim() + "', '" +
-                            txtSeguro.Text.Trim() + "')");
-                MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtCondi.Text.Trim() + "', " +
+                            idSeguroValue + ")");
+                if (exito)
+                {
+                    MessageBox.Show("Nuevo registro guardado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             conexion.Close();
 

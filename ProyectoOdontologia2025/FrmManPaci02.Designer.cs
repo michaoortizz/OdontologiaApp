@@ -1,4 +1,4 @@
-﻿namespace ProyectoOdontologia2025
+namespace ProyectoOdontologia2025
 {
     partial class FrmManPaci02
     {
@@ -36,7 +36,7 @@
             this.cbGenero = new System.Windows.Forms.ComboBox();
             this.lblGenero = new System.Windows.Forms.Label();
             this.mtbCed = new System.Windows.Forms.MaskedTextBox();
-            this.txtSeguro = new System.Windows.Forms.TextBox();
+            this.cbSeguro = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.lblSeguro = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -83,7 +83,7 @@
             this.gpbInfo.Controls.Add(this.cbGenero);
             this.gpbInfo.Controls.Add(this.lblGenero);
             this.gpbInfo.Controls.Add(this.mtbCed);
-            this.gpbInfo.Controls.Add(this.txtSeguro);
+            this.gpbInfo.Controls.Add(this.cbSeguro);
             this.gpbInfo.Controls.Add(this.label17);
             this.gpbInfo.Controls.Add(this.lblSeguro);
             this.gpbInfo.Controls.Add(this.txtCorreo);
@@ -169,14 +169,15 @@
             this.mtbCed.Size = new System.Drawing.Size(109, 21);
             this.mtbCed.TabIndex = 33;
             // 
-            // txtSeguro
+            // cbSeguro
             // 
-            this.txtSeguro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeguro.Location = new System.Drawing.Point(398, 204);
-            this.txtSeguro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtSeguro.Name = "txtSeguro";
-            this.txtSeguro.Size = new System.Drawing.Size(107, 21);
-            this.txtSeguro.TabIndex = 27;
+            this.cbSeguro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSeguro.FormattingEnabled = true;
+            this.cbSeguro.Location = new System.Drawing.Point(398, 204);
+            this.cbSeguro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSeguro.Name = "cbSeguro";
+            this.cbSeguro.Size = new System.Drawing.Size(107, 21);
+            this.cbSeguro.TabIndex = 27;
             // 
             // label17
             // 
@@ -196,9 +197,9 @@
             this.lblSeguro.Location = new System.Drawing.Point(312, 204);
             this.lblSeguro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSeguro.Name = "lblSeguro";
-            this.lblSeguro.Size = new System.Drawing.Size(63, 15);
+            this.lblSeguro.Size = new System.Drawing.Size(51, 15);
             this.lblSeguro.TabIndex = 25;
-            this.lblSeguro.Text = "Id Seguro:";
+            this.lblSeguro.Text = "Seguro:";
             this.lblSeguro.Click += new System.EventHandler(this.label16_Click);
             // 
             // txtCorreo
@@ -581,7 +582,7 @@
         private System.Windows.Forms.TextBox txtCondi;
         private System.Windows.Forms.Label lblCondi;
         private System.Windows.Forms.MaskedTextBox mtbTel;
-        private System.Windows.Forms.TextBox txtSeguro;
+        private System.Windows.Forms.ComboBox cbSeguro;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblSeguro;
         private System.Windows.Forms.TextBox txtCorreo;
