@@ -40,10 +40,6 @@ namespace ProyectoOdontologia2025
         private void FrmProReCi03_Load(object sender, EventArgs e)
         {
             RefrescarTabla();
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
             lblfecha2.Text = DateTime.Now.ToShortDateString();
 
             // Cargar Estados desde DB
@@ -63,6 +59,12 @@ namespace ProyectoOdontologia2025
             cbPaciente.DisplayMember = "Nombre";
             cbPaciente.ValueMember = "ced_pac";
             cbPaciente.SelectedIndex = -1;
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lblhora2.Text = DateTime.Now.ToLongTimeString();
+
 
         }
 
