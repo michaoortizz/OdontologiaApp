@@ -72,8 +72,32 @@ namespace ProyectoOdontologia2025
             pd.DefaultPageSettings.Landscape = true;
             pd.DefaultPageSettings.Margins = new Margins(50, 50, 50, 50);
             
+            // Forzar tamaño de papel estándar (A4 o Letter) para evitar que use el de una impresora térmica por defecto
+            bool paperSet = false;
+            foreach (PaperSize ps in pd.PrinterSettings.PaperSizes)
+            {
+                if (ps.PaperName.Equals("A4", StringComparison.OrdinalIgnoreCase) || 
+                    ps.PaperName.Equals("Letter", StringComparison.OrdinalIgnoreCase))
+                {
+                    pd.DefaultPageSettings.PaperSize = ps;
+                    paperSet = true;
+                    break;
+                }
+            }
+            if (!paperSet)
+            {
+                pd.DefaultPageSettings.PaperSize = new PaperSize("CustomA4", 827, 1169);
+            }
+            
             int currentRow = 0;
             bool chartPrinted = false;
+
+            // Resetear el estado al iniciar la impresión (crucial para la vista previa)
+            pd.BeginPrint += (s, e) =>
+            {
+                currentRow = 0;
+                chartPrinted = false;
+            };
 
             pd.PrintPage += (s, e) =>
             {
